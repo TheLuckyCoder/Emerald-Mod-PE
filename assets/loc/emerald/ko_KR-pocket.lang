@@ -1,0 +1,24 @@
+##Blocks
+tile.emeraldSlab.name=에메랄드 발판
+tile.emeraldBrick.name=에메랄드 벽돌
+tile.emeraldPlanks.name=에메랄드 목재
+tile.emeraldDoubleSlab.name=에메랄드 반 블록
+	
+##Items
+item.emeraldHelmet.name=에메랄드 투구
+item.emeraldChestplate.name=에메랄드 갑옷
+item.emeraldLeggings.name=에메랄드 레깅스
+item.emeraldBoots.name=에메랄드 부츠
+item.emeraldSword.name=에메랄드 검
+item.emeraldSuperSword.name=슈퍼 에메랄드 검
+item.emeraldPickaxe.name=에메랄드 곡괭이
+item.emeraldPax.name=에메랄드 Pax
+item.emeraldAxe.name=에메랄드 도끼
+item.emeraldShovel.name=에메랄드 삽
+item.emeraldHoe.name=에메랄드 괭이
+item.flintAndEmerald.name=에메랄드 라이터
+item.emeraldBow.name=에메랄드 활
+item.emeraldRod.name=에메랄드 낚시대
+item.emeraldDust.name=에메랄드 가루
+item.emeraldBeef.name=에메랄드 고기
+item.emeraldApple.name=에메랄드 사과

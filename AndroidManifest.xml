@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.razvanmcrafter.addon.emeraldmod"
+	android:versionCode="2"
+	android:versionName="1.4.1">
+
+	<uses-permission android:name="net.zhuoweizhang.mcpelauncher.ADDON"/>
+	<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="23"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+		<meta-data
+			android:name="net.zhuoweizhang.mcpelauncher.api.nativelibname"
+        	android:value="emeraldmod"/>
+    	<meta-data
+			android:name="net.zhuoweizhang.mcpelauncher.api.targetmcpeversion"
+			android:value="0.14.0"/>
+        <activity
+			android:label="@string/app_name"
+            android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

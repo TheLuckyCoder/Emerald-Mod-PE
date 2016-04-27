@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+		android:id="@+id/checkTwitter"
+		android:title="@string/check_twitter" />
+	<item
+		android:id="@+id/rate"
+		android:showAsAction="ifRoom"
+		android:title="@string/rate"/>
+	<item
+		android:id="@+id/community"
+		android:title="@string/community"/>
+</menu>

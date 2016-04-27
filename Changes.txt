@@ -1,0 +1,140 @@
+1.4.1
+New:
+-added Korean translations
+Improved:
+-the Flint and Emerald now works like a Flint and Steel when dispensed
+Fixed:
+-rate button
+
+1.4
+New:
+-Emerald Rod and Emerald Dust have now an use
+-added Emerald Double Slab(has no use)
+-added Emerald Beef
+-added German and Portughese(Brazilia) translations for the mod
+Changed/Improved:
+-changed main screen
+-updated for Minecraft 0.14.1
+-completly changed Super Emerald Sword
+-changed Emerald Brick and Plank recipe
+-better x86 support
+-Emerald Armor has now a longer durability(2000)
+Fixed:
+-crash when opening inventory
+-crash when opening crafting table
+-Emerald Hut generation in most cases
+Removed:
+-the Emerald Pearl because it was crashing
+-Credit Book
+-Emerald Apple's fire resistence effect
+Bugs:
+-blocks aren't added to creative
+-there is no recipe for blocks
+
+1.3.3
+New:
+-added support for Intel x86 devices
+-emerald houses generate with a door now
+-added an experimental Emerald Pearl
+Changed:
+-renamed Emerald Big Sword to Super Emerald Sword
+-renamed Emerald Pick And Axe to Emerald Pax
+-changed Emerald Apple Id
+-tools aren't so fast
+-the Emerald Sword and Emerald Super Sword do a bit less damage
+-removed the donate button
+Fixed:
+-added recipes for all blocks and items
+
+1.3.1
+New:
+-added Emerald Mod Version to main screen
+-changed the pocket edition main screen to windows 10
+-added semi support for x86 devices
+-started working on Emerald Bow
+Changed/Improved:
+-improved sightly emerald houses
+-changed Credit Book's creative category
+-cleaned some code
+Fixed:
+-added all Emerald Blocks in Creative Inventory
+
+1.3
+Finally added ARMOR
+-updated all items and blocks
+-added Emerald Rod and Emerald Dust(they are useless)
+-added Credit Book(be sure to check it out)
+-added Emerald Brick
+-added Emerald Planks
+-added Spanish translations. Thanks to +CICM324
+-added Korean translations. Thanks to +Johnmacrocraft
+-added Traditional Chinese translations. Thanks to godtotoro﻿
+-added a new House in all villages(made out of emerald bricks and planks)
+-the Emerald Apple is more powerfull and can be eated faster
+-better support for smaller screens
+-fixed lag when using items
+-removed Emerald Mini Sword
+-removed support for devices that doesn't even support MCPE
+Bugs:
+-the recipes aren't added yet
+-the Blocks aren't added to creative inventory
+
+1.2.4
+-added Recipe for Big Emerald Sword
+-fixed Flint and Emerald Recipe
+-fixed the TnT textures
+
+1.2.3
+New:
+-added Emerald Pick And Axe(it is a pickaxe and a axe)
+-added Flint And Emerald
+-the Emerald Shovel can turn Grass into Path
+Fixed:
+-fixed Emerald Apple name
+
+1.2.2
+New:
+-a more greenish icon, also better on smaller screens
+-added an easteregg, Id is 201
+-added recipe for Emerald Apple
+-added compatibility with more devices
+-some progress on the armor(it is still not working)
+Changed/Improved:
+-changed design of the main screen
+-improved the pickaxe, the axe and the shovel
+
+1.2.1
+Fixed:
+-the hoe is finally working
+-fixed most problems with x86 devices
+
+1.2
+-added step 3, be sure to read it
+-added Emerald Mini Sword
+-the Emerald Slab does the right sound
+-lowered all tools attack damage
+-the tools can be enchanted
+-you can upgrade the Mini Sword to an Emerald Sword
+-the items are now stacked by data
+-the Emerald Hoe can be crafted now(has no use, I am working on it)
+-changed a bit all textures of tools
+-changed all items Ids
+
+1.1
+-added Emerald Slab
+-added Helmet, Chestplate, Leggings and Boots to Creative Inventory
+-added back ×86 devices support
+-increased all Items durability
+-the Emerald Sword can't destroy blocks in Creative anymore
+
+1.0.2
+-added Emerald Hoe to Creative Inventory(still does not work)
+-added Romanian translation for main screen
+-new design for main screen
+
+1.0.1
+-all tools are faster
+-added hide app button
+-better instructions
+-fixed some little bugs
+-removed useless code
