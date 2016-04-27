@@ -8,13 +8,18 @@ class Random;
 
 class TwoRoomHouse : public VillagePiece {
 public:
+	StartPiece* start;
+	Random& random;
+	BlockSource* region;
+	BoundingBox const& bounds;
+
 	TwoRoomHouse();
 	TwoRoomHouse(StartPiece*, int, Random&, BoundingBox const&, int);
-
-	virtual ~SmallHut();
-	virtual void addAdditionalSaveData(CompoundTag&);
-	virtual void readAdditionalSaveData(CompoundTag&);
+	~TwoRoomHouse();
+	
 	void postProcessMobsAt(BlockSource*, Random&, BoundingBox const&);
 	void postProcess(BlockSource*, Random&, BoundingBox const&);
-	void createPiece(StartPiece*, std::vector<std::unique_ptr<StructurePiece, std::default_delete<StructurePiece>>, std::allocator<std::unique_ptr<StructurePiece, std::default_delete<StructurePiece>>>>&, Random&, int, int, int, int, int);
+
+	virtual void addAdditionalSaveData(CompoundTag&);
+	virtual void readAdditionalSaveData(CompoundTag&);
 };

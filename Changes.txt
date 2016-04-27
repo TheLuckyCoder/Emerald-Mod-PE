@@ -1,10 +1,26 @@
+1.4.3
+Improved:
+-Emerald Pickaxe and Shovel code
+Fixed:
+-emerald blocks not adddd to creative inventory
+
+1.4.2
+Improved:
+-a lot Emerald Huts
+-updated Korean translations
+Changed:
+-lowered all items durability to 1800
+Fixed:
+-emerald blocks recipes
+-rate button
+
 1.4.1
 New:
 -added Korean translations
 Improved:
 -the Flint and Emerald now works like a Flint and Steel when dispensed
 Fixed:
--rate button
+-hide app button
 
 1.4
 New:

@@ -1,14 +1,12 @@
 #pragma once
 
+#include <memory>
 #include <vector>
 
-#include "../../../../CommonTypes.h"
-
+#include "mcpe/CommonTypes.h"
+#include "../../BlockSource.h"
 class Block;
-class BlockID;
-class BlockSource;
 class BoundingBox;
-class FullBlock;
 class Random;
 class BlockSelector;
 class ChunkPos;
@@ -17,11 +15,19 @@ class WeighedTreasureItem;
 
 class StructurePiece {
 public:
-	BlockID id; // 9
-	unsigned char data; // 10
+	BlockID id;
+	unsigned char data;
+	Block* block;
+	Random& random;
+	BlockSource* region;
+	BoundingBox const& bounds;
+	ChunkPos const& chunk;
+	int x;
+	int y;
+	int z;
 
 	virtual ~StructurePiece();
-	void addChildren(StructurePiece*, std::vector<std::unique_ptr<StructurePiece, std::default_delete<StructurePiece>>, std::allocator<std::unique_ptr<StructurePiece, std::default_delete<StructurePiece>>>>&, Random&);
+
 	void _getWorldPos(int, int, int);
 	void getWorldX(int, int);
 	void getWorldY(int);
@@ -33,7 +39,7 @@ public:
 	void getTorchData(unsigned char);
 	FullBlock getBlock(BlockSource*, int, int, int, BoundingBox const&);
 	bool isAir(BlockSource*, int, int, int, BoundingBox const&);
-	void createChest(BlockSource*, BoundingBox const&, Random&, int, int, int, int, std::vector<WeighedTreasureItem, std::allocator<WeighedTreasureItem>> const&, int);
+	//void createChest(BlockSource*, BoundingBox const&, Random&, int, int, int, int, std::vector<WeighedTreasureItem, std::allocator<WeighedTreasureItem>> const&, int);
 	void createDoor(BlockSource*, BoundingBox const&, Random&, int, int, int, int);
 	void edgesLiquid(BlockSource*, BoundingBox const&);
 	void fillColumnDown(BlockSource*, FullBlock, int, int, int, BoundingBox const&);
@@ -48,5 +54,5 @@ public:
 	void generateUpperHalfSphere(BlockSource*, BoundingBox const&, int, int, int, int, int, int, BlockID, bool);
 	bool isInChunk(ChunkPos const&);
 	void placeBlock(BlockSource*, FullBlock, int, int, int, BoundingBox const&);
-	virtual void postProcessMobsAt(BlockSource*, Random&, BoundingBox const&);
+	void postProcessMobsAt(BlockSource*, Random&, BoundingBox const&);
 };

@@ -1,5 +1,4 @@
 #pragma once
-
 class Item;
 class CompoundTag;
 class Block;
@@ -7,7 +6,7 @@ class Mob;
 
 class ItemInstance {
 public:
-	short count, damage;
+	short count, aux;
 	CompoundTag* userData;
 	bool valid;
 	Item* item;

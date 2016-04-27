@@ -1,35 +1,39 @@
 #pragma once
 #include <stdint.h>
 
-typedef uint_fast8_t DataID;
-typedef int_fast8_t FacingID;
+typedef uint8_t DataID;
+typedef uint8_t FacingID;
 
 struct BlockID {
-	unsigned char value;
-	static const BlockID AIR;
-
-	BlockID();
-	BlockID(unsigned char);
-	BlockID(const BlockID&);
-
-	bool operator==(unsigned char);
-	bool operator==(BlockID);
-	BlockID& operator=(const unsigned char&);
-	operator unsigned char();
-	operator int();
+	unsigned char id;
+	
+	operator unsigned char() const {
+		return id;
+	}
+	
+	BlockID(BlockID const& other): id(other.id) {
+	}
+	
+	BlockID(unsigned char id_): id(id_) {
+	}
+	
+	const BlockID operator=(const BlockID rvalue) {
+		id = rvalue.id;
+		return *this;
+	}
 };
 
 struct FullBlock {
-	static const FullBlock AIR;
-
-	BlockID id;
+	BlockID blockId;
 	DataID data;
 
-	FullBlock(BlockID, DataID);
-	operator unsigned char();
-};
-
-struct Brightness {
-	static uint_fast8_t MIN;
-	static uint_fast8_t MAX;
+	FullBlock(BlockID id, DataID aux) : blockId(id), data(aux) {
+	}
+	
+	FullBlock(unsigned char id, DataID aux) : blockId(BlockID(id)), data(aux) {
+		
+	}
+	
+	FullBlock(FullBlock const& other): blockId(other.blockId), data(other.data) {
+	}
 };

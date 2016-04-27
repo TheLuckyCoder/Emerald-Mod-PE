@@ -3,10 +3,10 @@
 
 PaxItem::PaxItem(short itemId) : Item("emeraldPax", itemId)
 {
-	creativeCategory = 3;
+	creativeCategory = CreativeItemCategory::TOOLS;
 	setIcon("emerald_pax", 0);
 	setMaxStackSize(1);
-	setMaxDamage(2000);
+	setMaxDamage(1800);
 	setHandEquipped();
 }
 

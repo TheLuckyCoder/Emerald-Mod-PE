@@ -74,16 +74,6 @@ void Emerald::initItems()
 	Item::mItems[2014] = mDust = new DustItem(2014 - 0x100);
 }
 
-void Emerald::initArmorTextures()
-{
-	bool bl_setArmorTexture(int, std::string const&);
-	
-	bl_setArmorTexture(2000, "armor/emerald_1.png");
-	bl_setArmorTexture(2001, "armor/emerald_1.png");
-	bl_setArmorTexture(2002, "armor/emerald_2.png");
-	bl_setArmorTexture(2003, "armor/emerald_1.png");
-}
-
 void Emerald::initCreativeItems()
 {
 	Item::addCreativeItem(mHelmet, 0);

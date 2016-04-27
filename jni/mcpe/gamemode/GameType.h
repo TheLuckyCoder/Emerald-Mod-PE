@@ -1,5 +1,7 @@
 #pragma once
 
-enum class GameType {
-	SURVIVAL, CREATIVE
+enum GameType {
+	SURVIVAL,
+	CREATIVE,
+	UNDEFINED
 };

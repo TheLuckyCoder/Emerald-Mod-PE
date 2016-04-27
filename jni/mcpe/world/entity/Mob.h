@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Entity.h"
-#include "../item/Item.h"
-#include "../item/ItemInstance.h"
+
+class Item;
 class MobEffectInstance;
 class PathNavigation;
 class LookControl;
@@ -14,7 +14,7 @@ class MobEffect;
 class EntityUniqueID;
 class Attribute;
 class ItemEntity;
-enum class ArmorSlot;
+#include "../item/ItemInstance.h"
 
 // Size : 3178
 class Mob : public Entity {

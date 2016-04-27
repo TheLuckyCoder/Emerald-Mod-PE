@@ -9,7 +9,6 @@
 class Emerald {
 public:
 	void initItems();
-	void initArmorTextures();
 	void initBlocks();
 	void initBlockItems();
 	void initCreativeItems();

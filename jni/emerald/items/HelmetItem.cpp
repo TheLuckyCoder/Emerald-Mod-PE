@@ -2,10 +2,10 @@
 
 HelmetItem::HelmetItem(short itemId) : ArmorItem("emeraldHelmet", itemId, DIAMOND, 42, ArmorSlot(0))
 {
-	creativeCategory = 3;
+	creativeCategory = CreativeItemCategory::TOOLS;
 	setIcon("emerald_helmet", 0);
 	setMaxStackSize(1);
-	setMaxDamage(2000);
+	setMaxDamage(1800);
 }
 
 bool HelmetItem::isArmor() const{

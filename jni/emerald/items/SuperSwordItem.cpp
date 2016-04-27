@@ -3,15 +3,15 @@
 
 SuperSwordItem::SuperSwordItem(short itemId) : Item("emeraldSuperSword", itemId)
 {
-	creativeCategory = 3;
+	creativeCategory = CreativeItemCategory::TOOLS;
 	setIcon("emerald_sword", 1);
 	setMaxStackSize(1);
-	setMaxDamage(2200);
+	setMaxDamage(2100);
 	setHandEquipped();
 }
 
 int SuperSwordItem::getAttackDamage() {
-	return 20.0F;
+	return (Item::mItems[276]->getAttackDamage()+4.0F);
 }
 
 int SuperSwordItem::getEnchantSlot() const{

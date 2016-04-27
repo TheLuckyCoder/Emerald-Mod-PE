@@ -72,33 +72,33 @@ void EmeraldRecipes::initRecipes(Recipes* instance) {
 	*/
 	//Rod
 	pushIngredient(388, 0, 'e');
-	pushIngredient(369, 0, 'r');
-	addRecipe(Item::mItems[2013]->itemId, 6, 0, {"r ", "e "});
+	//pushIngredient(369, 0, 'r');
+	addRecipe(Item::mItems[2013]->itemId, 5, 0, {"e ", "e "});
 	
 	//Dust
 	pushIngredient(2013, 0, 'r');
-	addRecipe(Item::mItems[2014]->itemId, 4, 0, {"r  ", "   ", "   "});
+	addRecipe(Item::mItems[2014]->itemId, 4, 0, {"r ", "  "});
 	
 	//Apple
 	pushIngredient(388, 0, 'e');
 	pushIngredient(260, 0, 'a');
-	addRecipe(Item::mItems[512]->itemId, 1, 0, {"ea ", "   ", "   "});
+	addRecipe(Item::mItems[512]->itemId, 1, 0, {"ea", "  "});
 	
 	///Blocks
 	//Slab
 	pushIngredient(133, 0, 'b');
 	pushIngredient(2014, 0, 'd');
-	addRecipe(Item::mItems[233]->itemId, 1, 0, {"bbb", "   ", "   "});
+	addRecipe(Block::mBlocks[233]->blockId, 1, 0, {"bbb", "   ", "   "});
 	
 	//Brick
 	pushIngredient(98, 0, 's');
 	pushIngredient(2014, 0, 'd');
-	addRecipe(Item::mItems[231]->itemId, 1, 0, {"sd"});
+	addRecipe(Block::mBlocks[231]->blockId, 1, 0, {"sd", "  "});
 	
 	//Planks
 	pushIngredient(4, 0, 'p');
 	pushIngredient(2014, 0, 'd');
-	addRecipe(Item::mItems[232]->itemId, 1, 0, {"pd"});
+	addRecipe(Block::mBlocks[232]->blockId, 1, 0, {"pd", "  "});
 }
 
 void EmeraldRecipes::pushIngredient(int id, int data, char letter) {

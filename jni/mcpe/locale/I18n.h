@@ -1,9 +1,9 @@
 #pragma once
 
-#include <string.h>
+#include <string>
 #include <vector>
 
-class I18n{
+class I18n {
 public:
 	static std::string get(const std::string&, const std::vector<std::string>&);
 	static std::string get(const std::string&);

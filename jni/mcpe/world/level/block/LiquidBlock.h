@@ -1,9 +1,6 @@
 #pragma once
 #include "Block.h"
 #include "../../../client/renderer/texture/TextureAtlasTextureItem.h"
-#include "BlockSource.h"
-#include "BlockPos.h"
-struct Vec3;
 
 class LiquidBlock : public Block {
 protected:

@@ -1,5 +1,4 @@
 #pragma once
-
 #include "BlockItem.h"
 
 class Block;

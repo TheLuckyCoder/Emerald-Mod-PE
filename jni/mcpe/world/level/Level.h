@@ -1,13 +1,11 @@
 #pragma once
-
 #include <memory>
-
 #include "../material/Material.h"
 #include "BlockSourceListener.h"
-#include "../util/Random.h"
-#include "../phys/AABB.h"
+class AABB;
 class Entity;
 class Player;
+class Random;
 class EntityDamageSource;
 class Difficulty;
 class LightLayer;

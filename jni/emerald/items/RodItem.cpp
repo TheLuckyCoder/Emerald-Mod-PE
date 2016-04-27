@@ -2,7 +2,7 @@
 
 RodItem::RodItem(short itemId) : Item("emeraldRod", itemId)
 {
-	creativeCategory = 3;
+	creativeCategory = CreativeItemCategory::TOOLS;
 	setIcon("emerald_rod", 0);
 	setStackedByData(true);
 }

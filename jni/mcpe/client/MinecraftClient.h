@@ -1,15 +1,17 @@
 #pragma once
 
+// 0.14.0
+
 #include <functional>
 #include <memory>
 #include "App.h"
 #include "../gamemode/GameType.h"
 #include "../world/phys/Vec3.h"
 
-class Gui;
 class AbstractScreen;
 class Font;
 class GameRenderer;
+class Gui;
 class Screen;
 class ScreenChooser;
 class Minecraft;
@@ -22,7 +24,7 @@ class Timer;
 class Options;
 class VoiceCommand;
 class DirectionId;
-enum class InputMode;
+class InputMode;
 class Side;
 class HolographicPlatform;
 class VoiceSystem;
@@ -174,10 +176,10 @@ public:
 	char* getDictationText() const;
 	float getDpadScale();
 	ExternalServerFile* getExternalServer() const;
-	Font *getFont() const;
-	GameRenderer *getGameRenderer() const;
+	Font* getFont() const;
+	GameRenderer* getGameRenderer() const;
 	GameStore* getGameStore() const;
-	Gui *getGui() const;
+	Gui* getGui() const;
 	int getHeight() const;
 	void getHoloInput() const;
 	void getHolosceneRenderer() const;
@@ -186,21 +188,21 @@ public:
 	void getInput() const;
 	void getKeyboardHeight() const;
 	void getLevelRenderer() const;
-	void getLocalPlayer();
+	LocalPlayer* getLocalPlayer();
 	bool getMouseGrabbed() const;
 	void getMultiplayer() const;
-	Options *getOptions();
+	Options* getOptions();
 	void getParticleEngine() const;
 	void getRuneFont() const;
-	Screen *getScreen();
-	Screen *getScreen() const;
-	ScreenChooser *getScreenChooser() const;
-	Minecraft *getServer();
-	Music *getSituationalMusic();
+	Screen* getScreen();
+	Screen* getScreen() const;
+	ScreenChooser* getScreenChooser() const;
+	Minecraft* getServer();
+	Music* getSituationalMusic();
 	void getSkinRepository();
 	void getSoundEngine() const;
 	void getTelemetry() const;
-	void getTextures() const;
+	TextureGroup* getTextures() const;
 	void getUIDefRep() const;
 	void getVoiceSystem() const;
 	void getUserManager() const;

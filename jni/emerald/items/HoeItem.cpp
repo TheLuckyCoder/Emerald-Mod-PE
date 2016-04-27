@@ -1,12 +1,13 @@
 #include "HoeItem.h"
 #include "mcpe/world/item/ItemInstance.h"
+//#include "mcpe/world/level/dimension/DimensionId.h"
 
 HoeItem::HoeItem(short itemId) : Item("emeraldHoe", itemId)
 {
-	creativeCategory = 3;
+	creativeCategory = CreativeItemCategory::TOOLS;
 	setIcon("emerald_hoe", 0);
 	setMaxStackSize(1);
-	setMaxDamage(2000);
+	setMaxDamage(1800);
 	setHandEquipped();
 }
 
@@ -14,12 +15,8 @@ int HoeItem::getAttackDamage() {
 	return 5.0F;
 }
 
-bool HoeItem::useOn(ItemInstance *item, Player *player, int x, int y, int z, signed char side, float xx, float zz, float yy){
-	Mob* mob;
-	if(player->region.getMaterial({x, y, z}).isType(MaterialType::DIRT)) {
-		player->region.setBlockAndData({x, y, z}, {Block::mFarmland->blockId, 0}, 3);
-		item->hurtAndBreak(1, mob);
-	}
+bool HoeItem::useOn(ItemInstance *item, Player *player, int x, int y, int z, signed char side, float xx, float yy, float zz){
+	Item::mItems[293]->useOn(item, player, x, y, z, side, xx, yy, zz);
 }
 
 void HoeItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim) {

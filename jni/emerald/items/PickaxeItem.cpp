@@ -3,10 +3,10 @@
 
 PickaxeItem::PickaxeItem(short itemId) : Item("emeraldPickaxe", itemId)
 {
-	creativeCategory = 3;
+	creativeCategory = CreativeItemCategory::TOOLS;
 	setIcon("emerald_pickaxe", 0);
 	setMaxStackSize(1);
-	setMaxDamage(2000);
+	setMaxDamage(1800);
 	setHandEquipped();
 }
 
@@ -95,57 +95,7 @@ void PickaxeItem::mineBlock(ItemInstance *item, BlockID blockId, int x, int y, i
 }
 
 bool PickaxeItem::canDestroySpecial(const Block* block) const {
-	return (block == Block::mStone 
-	|| block == Block::mGoldOre 
-	|| block == Block::mIronOre 
-	|| block == Block::mCoalOre
-	|| block == Block::mLapisOre
-	|| block == Block::mLapisBlock
-	|| block == Block::mSandStone
-	|| block == Block::mGoldBlock
-	|| block == Block::mIronBlock
-	|| block == Block::mStoneSlab
-	|| block == Block::mBrick
-	|| block == Block::mMossyCobblestone
-	|| block == Block::mObsidian 
-	|| block == Block::mDiamondOre
-	|| block == Block::mDiamondBlock
-	|| block == Block::mFurnace
-	|| block == Block::mLitFurnace
-	|| block == Block::mStoneStairs
-	|| block == Block::mStonePressurePlate
-	|| block == Block::mIronDoor
-	|| block == Block::mRedStoneOre
-	|| block == Block::mLitRedStoneOre
-	|| block == Block::mStoneButton
-	|| block == Block::mNetherrack
-	|| block == Block::mStoneBrick
-	|| block == Block::mIronFence
-	|| block == Block::mBrickStairs
-	|| block == Block::mStoneBrickStairs
-	|| block == Block::mNetherBrick
-	|| block == Block::mNetherFence
-	|| block == Block::mNetherBrickStairs
-	|| block == Block::mBrewingStand
-	|| block == Block::mEndStone
-	|| block == Block::mUnlitRedStoneLamp
-	|| block == Block::mLitRedStoneLamp
-	|| block == Block::mActivatorRail
-	|| block == Block::mEmeraldOre
-	|| block == Block::mEmeraldBlock
-	|| block == Block::mAnvil
-	|| block == Block::mLightWeightedPressurePlate
-	|| block == Block::mHeavyWeightedPressurePlate
-	|| block == Block::mRedstoneBlock
-	|| block == Block::mQuartzOre
-	|| block == Block::mQuartzBlock
-	|| block == Block::mQuartzStairs
-	|| block == Block::mStainedClay
-	|| block == Block::mHardenedClay
-	|| block == Block::mCoalBlock
-	|| block == Emerald::mSlab
-	|| block == Emerald::mDoubleSlab
-	|| block == Emerald::mBrick);
+	return Item::mItems[278]->canDestroySpecial(block);
 }
 
 float PickaxeItem::getDestroySpeed(ItemInstance *item, Block *block) {

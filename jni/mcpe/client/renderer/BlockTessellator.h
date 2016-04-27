@@ -1,13 +1,20 @@
 #pragma once
 
 #include "texture/TextureUVCoordinateSet.h"
+#include "../../world/phys/AABB.h"
 #include "MaterialPtr.h"
-#include "mcpe/world/level/block/BlockShape.h"
-#include "mcpe/CommonTypes.h"
-#include "mcpe/world/level/block/Block.h"
-class Tessellator;
+#include "../../world/level/block/BlockShape.h"
+#include "../../CommonTypes.h"
 
-namespace mce { class TexturePtr; };
+class Block;
+class BlockSource;
+class Tessellator;
+class BlockPos;
+class Vec3;
+
+namespace mce {
+	class TexturePtr;
+};
 
 class BlockTessellator {
 public:
@@ -27,10 +34,15 @@ public:
 	int rotEast; // 148
 	char filler1[500]; // 152
 	mce::MaterialPtr material; // 652
-	Tessellator& tessellator; // 664
+	Tessellator& tess; // 664
 	AABB aabb; // 668
 
 public:
+	static int const UP;
+	static int const DOWN;
+	static int const LEFT;
+	static int const RIGHT;
+
 	bool tessellateInWorld(Block&, const BlockPos&, bool);
 	bool tessellateBlockInWorld(Block&, const BlockPos&);
 	void renderGuiBlock(const FullBlock&, const mce::TexturePtr&, float, float);
@@ -54,4 +66,7 @@ public:
 	void blend(int, int, int, int);
 	
 	void setRenderBounds(float, float, float, float, float, float);
+	void setRotatedBounds(int, float, float, float, float, float, float);
+	
+	bool tessellateEmeraldStairsInWorld(Block* block, const BlockPos& pos);
 };

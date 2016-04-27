@@ -1,12 +1,12 @@
 #include "EmeraldDimension.h"
 
-EmeraldDimension::EmeraldDimension(Level &level) : Dimension(level, EMERALD)
+EmeraldDimension::EmeraldDimension(Level &level) : Dimension(level, DimensionId::EMERALD)
 {
 }
 
-const std::string& EmeraldDimension::getName() const{
+/*std::string EmeraldDimension::getName() const{
 	return "EmeraldDimension";
-}
+}*/
 
 void EmeraldDimension::init(){
 	Dimension::init();
@@ -19,7 +19,7 @@ float EmeraldDimension::getFogDistanceScale() const{
 }
 
 int EmeraldDimension::getCloudHeight() const{
-	return 512;
+	return 500;
 }
 
 bool EmeraldDimension::mayRespawn() const{
@@ -31,6 +31,9 @@ bool EmeraldDimension::hasGround() const{
 }
 
 bool EmeraldDimension::isValidSpawn(int x, int z) const{
-	x = 0;
-	z = 0;
+	return (0, 0);
+}
+
+bool EmeraldDimension::isNaturalDimension() const{
+	return false;
 }

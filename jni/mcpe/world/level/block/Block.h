@@ -1,42 +1,45 @@
 #pragma once
-
 #include <string>
 #include <vector>
-
-#include "mcpe/client/renderer/texture/TextureUVCoordinateSet.h"
-#include "../../util/Color.h"
-#include "../../util/Random.h"
-#include "mcpe/world/phys/AABB.h"
-#include "../../material/Material.h"
-#include "../../phys/Vec3.h"
-#include "../BlockSource.h"
-#include "../BlockPos.h"
-#include "../../item/ItemInstance.h"
+#include <memory>
+class Material;
 class BlockEntity;
-struct Container;
-struct FullBlock;
-struct Entity;
-struct Mob;
-struct Player;
-struct Brightness;
-struct CreativeItemCategory;
+struct BlockPos;
+class BlockSource;
+class Entity;
+class ItemInstance;
+class Player;
+class Mob;
+class Random;
+struct Vec3;
+class Brightness;
+class TextureAtlas;
+class Container;
+#include "../../../client/renderer/texture/TextureUVCoordinateSet.h"
+#include "../../../client/renderer/texture/TextureAtlasTextureItem.h"
+#include "../../util/Color.h"
+#include "../../phys/AABB.h"
+#include "../../../CommonTypes.h"
+#include "entity/BlockEntityType.h"
+#include "BlockShape.h"
+#include "../../../CreativeItemCategory.h"
 
-class Block{
-protected:
+class Block {
+public:
 	class SoundType {
+	public:
 		float volume; // 0
 		float pitch; // 4
 		std::string stepSound; // 8
 		std::string breakSound; // 12
 		std::string placeSound; // 16
 
-	public:
 		SoundType(const std::string&, float, float);
 		SoundType(const std::string&, const std::string&, float, float);
 		SoundType(const std::string&, const std::string&, const std::string&, float, float);
-
+		
 		~SoundType();
-
+		
 		float getVolume() const;
 		float getPitch() const;
 		std::string getStepSound() const;
@@ -44,41 +47,35 @@ protected:
 		std::string getPlaceSound() const;
 	};
 
-public:
-	/* copy constructor */
-	Block(const Block&);
-	/* constructors */
-	Block(const std::string&, int, const Material&);
-	Block(const std::string&, int, TextureUVCoordinateSet, const Material&);
-	Block(const std::string&, int, const std::string&, const Material&);
 
-	/* fields */
-	uint8_t blockId; // 4
+	BlockID blockId; // 4
 	unsigned int textureIsotropic; // 8
-	std::string nameId; // 12
+	std::string name; // 12
 	TextureUVCoordinateSet texture; // 16
 	const Block::SoundType& soundType; // 44
-	bool _replaceable; // 48
-	bool _canBuildOver; // 49
+	bool replaceable;
+	bool canBuildOver; // 49
 	int renderLayer; // 52
-	int renderType; // 56
+	BlockShape blockShape; // 56
 	int properties; // 60
-	int blockEntityType; // 64
-	bool _animates; // 68
+	BlockEntityType blockEntityType; // 64
+	bool animates; // 68
 	float thickness; // 72
-	bool _slippery; // 76
-	bool _ticks; // 77
+	bool slippery; // 76
+	bool instaTicks; // 77
 	float gravity; // 80
 	Material& material; // 84
 	Color mapColor; // 88
 	float friction; // 104
-	bool _heavy; // 108
+	bool heavy; // 108
 	float hardness; // 112
 	float explosionResistance; // 116
-	int creativeCategory; // 120
+	CreativeItemCategory creativeCategory; // 120
 	AABB hitbox; // 124
 
-	/* lists */
+
+	static std::shared_ptr<TextureAtlas> mTerrainTextureAtlas;
+	static std::vector<std::unique_ptr<Block>> mOwnedBlocks;
 	static Block* mBlocks[256];
 	static bool mSolid[256];
 	static float mTranslucency[256];
@@ -86,7 +83,7 @@ public:
 	static int mLightEmission[256];
 	static bool mShouldTick[256];
 
-	/* sounds */
+
 	static const Block::SoundType SOUND_ANVIL;
 	static const Block::SoundType SOUND_CLOTH;
 	static const Block::SoundType SOUND_GLASS;
@@ -102,7 +99,11 @@ public:
 	static const Block::SoundType SOUND_STONE;
 	static const Block::SoundType SOUND_WOOD;
 
-public:
+	Block(const Block&);
+	Block(const std::string&, int, const Material&);
+	Block(const std::string&, int, TextureUVCoordinateSet, const Material&);
+	Block(const std::string&, int, const std::string&, const Material&);
+
 	/* vtable */
 	virtual ~Block();
 	virtual void tick(BlockSource&, const BlockPos&, Random&);
@@ -210,21 +211,20 @@ public:
 	virtual Block* setFriction(float);
 	virtual Block* setTicking(bool);
 	virtual Block* setMapColor(const Color&);
-	virtual void getSpawnResourcesAuxValue(unsigned char);
+	virtual int getSpawnResourcesAuxValue(unsigned char);
 
-	/* member functions */
 	const std::string& getDescriptionId() const;
-	void addAABB(const AABB&, const AABB*, std::vector<AABB>&);
+	void addAABB(const AABB&, const AABB*, std::vector<AABB, std::allocator<AABB>>&);
 	void popResource(BlockSource&, const BlockPos&, const ItemInstance&);
 	Block* setCategory(CreativeItemCategory);
 	void setSolid(bool);
-
-	/* static functions */
+	bool isSolid() const;
+	
+	static TextureAtlasTextureItem getTextureItem(const std::string&);
+	static TextureUVCoordinateSet getTextureUVCoordinateSet(const std::string&, int);
 	static void initBlocks();
 	static void teardownBlocks();
-	static TextureUVCoordinateSet getTextureUVCoordinateSet(const std::string&, int);
 
-	/* blocks */
 	static Block* mAir; // 0
 	static Block* mStone; // 1
 	static Block* mGrass; // 2
@@ -254,12 +254,10 @@ public:
 	static Block* mBed; // 26
 	static Block* mGoldenRail; // 27
 	static Block* mDetectorRail; // 28
-	//29
+	static Block* mPistonSticky; // 29
 	static Block* mWeb; // 30
 	static Block* mTallgrass; // 31
 	static Block* mDeadBush; // 32
-	//33
-	//34
 	static Block* mWool; // 35
 	static Block* mYellowFlower; // 37
 	static Block* mRedFlower; // 38
@@ -308,7 +306,6 @@ public:
 	static Block* mCactus; // 81
 	static Block* mClay; // 82
 	static Block* mReeds; // 83
-	//84
 	static Block* mFence; // 85
 	static Block* mPumpkin; // 86
 	static Block* mNetherrack; // 87
@@ -343,25 +340,20 @@ public:
 	static Block* mEnchantingTable; // 116
 	static Block* mBrewingStand; // 117
 	static Block* mCauldron; // 118
-	//119
 	static Block* mEndPortalFrame; // 120
 	static Block* mEndStone; // 121
 	static Block* mUnlitRedStoneLamp; // 123
 	static Block* mLitRedStoneLamp; // 124
-	static Block* mDropper; // 125
 	static Block* mActivatorRail; // 126
 	static Block* mCocoa; // 127
 	static Block* mSandStoneStairs; // 128
 	static Block* mEmeraldOre; // 129
-	//130
 	static Block* mTripwireHook; // 131
 	static Block* mTripwire; // 132
 	static Block* mEmeraldBlock; // 133
 	static Block* mSpruceStairs; // 134
 	static Block* mBirchStairs; // 135
 	static Block* mJungleStairs; // 136
-	//137
-	//138
 	static Block* mCobblestoneWall; // 139
 	static Block* mFlowerPot; // 140
 	static Block* mCarrotCrop; // 141
@@ -383,23 +375,18 @@ public:
 	static Block* mDoubleWoodenSlab; // 157
 	static Block* mWoodenSlab; // 158
 	static Block* mStainedClay; // 159
-	//160
 	static Block* mLeaves2; // 161
 	static Block* mLog2; // 162
 	static Block* mAcaciaStairs; // 163
 	static Block* mDarkOakStairs; // 164
 	static Block* mSlimeBlock; // 165
-	//166
 	static Block* mIronTrapdoor; // 167
-	//168
-	//169
 	static Block* mHayBlock; // 170
 	static Block* mWoolCarpet; // 171
 	static Block* mHardenedClay; // 172
 	static Block* mCoalBlock; // 173
 	static Block* mPackedIce; // 174
 	static Block* mDoublePlant; // 175
-	//176
 	static Block* mDaylightDetectorInverted; // 178
 	static Block* mRedSandstone; // 179
 	static Block* mRedSandstoneStairs; // 180
@@ -410,7 +397,6 @@ public:
 	static Block* mJungleFenceGate; // 185
 	static Block* mDarkOakFenceGate; // 186
 	static Block* mAcaciaFenceGate; // 187
-	//188 -> 192
 	static Block* mWoodenDoorSpruce; // 193
 	static Block* mWoodenDoorBirch; // 194
 	static Block* mWoodenDoorJungle; // 195
@@ -418,7 +404,6 @@ public:
 	static Block* mWoodenDoorDarkOak; // 197
 	static Block* mGrassPathBlock; // 198
 	static Block* mItemFrame; // 199
-	//200 -> 242
 	static Block* mPodzol; // 243
 	static Block* mBeetrootCrop; // 244
 	static Block* mStonecutterBench; // 245
@@ -426,7 +411,5 @@ public:
 	static Block* mNetherReactor; // 247
 	static Block* mInfoUpdateGame1; // 248
 	static Block* mInfoUpdateGame2; // 249
-	//250 -> 254
 	static Block* mInfoReserved6; // 255
 };
-

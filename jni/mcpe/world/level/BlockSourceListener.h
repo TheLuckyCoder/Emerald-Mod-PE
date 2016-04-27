@@ -1,11 +1,9 @@
 #pragma once
-
 #include <memory>
-
-#include "BlockSource.h"
-#include "BlockPos.h"
-#include "mcpe/CommonTypes.h"
+class BlockSource;
+struct BlockPos;
 class BlockEntity;
+#include "../../CommonTypes.h"
 
 class BlockSourceListener {
 public:
@@ -17,7 +15,7 @@ public:
 	virtual void onBlockChanged(BlockSource&, const BlockPos&, FullBlock, FullBlock, int);
 	virtual void onBrightnessChanged(BlockSource&, const BlockPos&);
 	virtual void onBlockEntityChanged(BlockSource&, BlockEntity&);
-	//virtual void onEntityChanged(BlockSource&, Entity&);
+	virtual void onEntityChanged(BlockSource&, Entity&);
 	virtual void onBlockEntityRemoved(BlockSource&, std::unique_ptr<BlockEntity>);
 	virtual void onBlockEvent(BlockSource&, int, int, int, int, int);
 };

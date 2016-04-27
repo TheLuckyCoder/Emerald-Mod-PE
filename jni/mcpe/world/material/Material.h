@@ -1,10 +1,8 @@
 #pragma once
-
 #include <vector>
 #include <memory>
-
 #include "MaterialType.h"
-#include "../util/Color.h"
+class Color;
 
 class Material {
 public:

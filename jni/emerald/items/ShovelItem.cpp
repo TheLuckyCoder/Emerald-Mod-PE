@@ -3,10 +3,10 @@
 
 ShovelItem::ShovelItem(short itemId) : Item("emeraldShovel", itemId)
 {
-	creativeCategory = 3;
+	creativeCategory = CreativeItemCategory::TOOLS;
 	setIcon("emerald_shovel", 0);
 	setMaxStackSize(1);
-	setMaxDamage(2000);
+	setMaxDamage(1800);
 	setHandEquipped();
 }
 
@@ -23,11 +23,7 @@ int ShovelItem::getEnchantValue() const{
 }
 
 bool ShovelItem::useOn(ItemInstance *item, Player *player, int x, int y, int z, signed char side, float xx, float yy, float zz){
-	Mob* mob;
-	if(player->region.getBlockID({x, y, z}).id == Block::mGrass->blockId){
-		player->region.setBlock({x, y, z}, Block::mGrassPathBlock->blockId, 3);
-		item->hurtAndBreak(1, mob);
-	}
+	return Item::mItems[278]->useOn(item, player, x, y, z, side, xx, yy, zz);
 }
 
 void ShovelItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim) {
@@ -54,7 +50,7 @@ void ShovelItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, in
 }
 
 bool ShovelItem::canDestroySpecial(const Block *block) const {
-	return (block == Block::mTopSnow ||block == Block::mSnow);
+	return Item::mItems[277]->canDestroySpecial(block);
 }
 
 float ShovelItem::getDestroySpeed(ItemInstance *item, Block *block) {

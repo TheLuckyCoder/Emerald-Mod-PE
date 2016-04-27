@@ -1,6 +1,8 @@
-#pragma once 
-#include <vector> 
-#include <string> 
+#pragma once
+
+#include <vector>
+#include <string>
+
 #include "../ItemInstance.h"
 class Item;
 class Block;

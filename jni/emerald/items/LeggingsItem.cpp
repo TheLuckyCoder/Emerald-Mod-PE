@@ -2,10 +2,10 @@
 
 LeggingsItem::LeggingsItem(short itemId) : ArmorItem("emeraldLeggings", itemId, DIAMOND, 42, ArmorSlot(2))
 {
-	creativeCategory = 3;
+	creativeCategory = CreativeItemCategory::TOOLS;
 	setIcon("emerald_leggings", 0);
 	setMaxStackSize(1);
-	setMaxDamage(2000);
+	setMaxDamage(1800);
 }
 
 bool LeggingsItem::isArmor() const{

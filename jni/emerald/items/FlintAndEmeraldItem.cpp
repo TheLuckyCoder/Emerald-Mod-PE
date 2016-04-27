@@ -3,10 +3,10 @@
 
 FlintAndEmeraldItem::FlintAndEmeraldItem(short itemId) : Item("flintAndEmerald", itemId)
 {
-	creativeCategory = 3;
+	creativeCategory = CreativeItemCategory::TOOLS;
 	setIcon("flint_and_emerald", 0);
 	setMaxStackSize(1);
-	setMaxDamage(2000);
+	setMaxDamage(1800);
 }
 
 void FlintAndEmeraldItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim) {
@@ -19,16 +19,16 @@ void FlintAndEmeraldItem::mineBlock(ItemInstance *item, BlockID blockid, int x, 
 
 bool FlintAndEmeraldItem::useOn(ItemInstance *item, Player *player, int x, int y, int z, signed char side, float xx, float yy, float zz){
 	Mob* mob;
-	if(player->region.getBlockID({x, y+1, z}).id == 0)
-		player->region.setBlockAndData({x, y+1, z}, {Block::mFire->blockId, 0}, 3);
-	if(player->region.getBlockID({x+1, y+1, z}).id == 0 && player->region.getBlockID({x+1, y, z}).id != 0)
-		player->region.setBlockAndData({x+1, y+1, z}, {Block::mFire->blockId, 0}, 3);
-	if(player->region.getBlockID({x-1, y+1, z}).id == 0 && player->region.getBlockID({x-1, y, z}).id != 0)
-		player->region.setBlockAndData({x-1, y+1, z}, {Block::mFire->blockId, 0}, 3);
-	if(player->region.getBlockID({x, y+1, z+1}).id == 0 && player->region.getBlockID({x+1, y, z}).id != 0)
-		player->region.setBlockAndData({x, y+1, z+1}, {Block::mFire->blockId, 0}, 3);
-	if(player->region.getBlockID({x, y+1, z-1}).id == 0 && player->region.getBlockID({x+1, y, z}).id != 0)
-		player->region.setBlockAndData({x, y+1, z-1}, {Block::mFire->blockId, 0}, 3);
+	if(player->region.getBlockID(x, y+1, z).blockId == 0)
+		player->region.setBlockAndData(x, y+1, z, {Block::mFire->blockId, 0}, 3);
+	if(player->region.getBlockID(x+1, y+1, z).blockId == 0 && player->region.getBlockID({x+1, y, z}).blockId != 0)
+		player->region.setBlockAndData(x+1, y+1, z, {Block::mFire->blockId, 0}, 3);
+	if(player->region.getBlockID(x-1, y+1, z).blockId == 0 && player->region.getBlockID({x-1, y, z}).blockId != 0)
+		player->region.setBlockAndData(x-1, y+1, z, {Block::mFire->blockId, 0}, 3);
+	if(player->region.getBlockID(x, y+1, z+1).blockId == 0 && player->region.getBlockID({x+1, y, z}).blockId != 0)
+		player->region.setBlockAndData(x, y+1, z+1, {Block::mFire->blockId, 0}, 3);
+	if(player->region.getBlockID(x, y+1, z-1).blockId == 0 && player->region.getBlockID({x+1, y, z}).blockId != 0)
+		player->region.setBlockAndData(x, y+1, z-1, {Block::mFire->blockId, 0}, 3);
 	item->hurtAndBreak(1, mob);
 }
 

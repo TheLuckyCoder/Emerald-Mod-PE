@@ -1,3 +1,4 @@
+##Use two # to write a comment
 ##Blocks
 tile.emeraldSlab.name=에메랄드 발판
 tile.emeraldBrick.name=에메랄드 벽돌
@@ -18,7 +19,7 @@ item.emeraldShovel.name=에메랄드 삽
 item.emeraldHoe.name=에메랄드 괭이
 item.flintAndEmerald.name=에메랄드 라이터
 item.emeraldBow.name=에메랄드 활
-item.emeraldRod.name=에메랄드 낚시대
+item.emeraldRod.name=에메랄드 막대﻿
 item.emeraldDust.name=에메랄드 가루
 item.emeraldBeef.name=에메랄드 고기
 item.emeraldApple.name=에메랄드 사과

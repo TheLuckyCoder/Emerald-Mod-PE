@@ -3,15 +3,15 @@
 
 SwordItem::SwordItem(short itemId) : Item("emeraldSword", itemId)
 {
-	creativeCategory = 3;
+	creativeCategory = CreativeItemCategory::TOOLS;
 	setIcon("emerald_sword", 0);
 	setMaxStackSize(1);
-	setMaxDamage(2000);
+	setMaxDamage(1800);
 	setHandEquipped();
 }
 
 int SwordItem::getAttackDamage() {
-	return 15.0F;
+	return (Item::mItems[276]->getAttackDamage()+2.0F);
 }
 
 int SwordItem::getEnchantSlot() const{
@@ -19,7 +19,7 @@ int SwordItem::getEnchantSlot() const{
 }
 
 int SwordItem::getEnchantValue() const{
-	return 1;
+	return Item::mItems[276]->getEnchantValue();
 }
 
 void SwordItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim) {

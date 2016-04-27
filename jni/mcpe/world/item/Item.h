@@ -3,7 +3,8 @@
 #include <string>
 #include <memory>
 
-class CreativeItemCategory;
+#include "../../CreativeItemCategory.h"
+
 class TextureUVCoordinateSet;
 struct SeedItemComponent;
 class FoodItemComponent;
@@ -17,18 +18,11 @@ class Player;
 class Container;
 class BlockSource;
 struct Vec3;
+class UseAnimation;
 class BlockID;
 struct IDataInput;
 struct IDataOutput;
 namespace Json { class Value; };
-
-enum class UseAnimation : int {
-	NO_ANIMATION,
-	EATING,
-	DRINKING,
-	BLOCKSWORD,
-	PULLBOW
-};
 
 class Item {
 public:
@@ -46,7 +40,7 @@ public:
 	short properties; // 26
 	int useDuration; // 28
 	int useAnimation; // 32
-	int creativeCategory; // 36
+	CreativeItemCategory creativeCategory; // 36
 	int idk3; // 40
 	int hoverTextColor; // 44
 	TextureUVCoordinateSet& icon; // 48
@@ -124,7 +118,4 @@ public:
 	static void addCreativeItem(Item*, short);
 	static void addCreativeItem(const ItemInstance&);
 	static void addCreativeItem(short, short);
-	
-	static Item* mStick; //280
-	static Item* mEmerald; //388
 };

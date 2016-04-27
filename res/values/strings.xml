@@ -4,7 +4,7 @@
 	<string name="download_bl">Download BlockLauncher</string>
     <string name="app_hide_desc">Tap \"Hide app\" to hide the app in launcher(a reboot may be required)</string>
     <string name="step_one">Step 1: You will need to install BlockLauncher. You can get it from Play Store for free.</string>
-    <string name="step_two">Step 2: Make sure the addon is enabled.</string>
+    <string name="step_two">Step 2: Make sure that the addons and ModPE Scripts are enabled.</string>
 	<string name="step_three">Step 3: Enjoy the mod and get some emeralds.</string>
 	<string name="rate">Rate with 5 stars</string>
 	<string name="check_twitter">Check my Twitter</string>
