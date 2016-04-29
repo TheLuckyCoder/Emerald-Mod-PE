@@ -35,13 +35,13 @@ static void (*_Block$initBlocks)();
 static void Block$initBlocks() {
 	_Block$initBlocks();
 	
-	//emerald->initBlocks();
+	emerald->initBlocks();
 }
 
 static void (*_Item$initItems)();
 static void Item$initItems(){
 	emerald->initItems();
-	//emerald->initBlockItems();
+	emerald->initBlockItems();
 	
 	_Item$initItems();
 	
