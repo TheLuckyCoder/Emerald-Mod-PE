@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <dlfcn.h>
 #include <substrate.h>
-
 #include "tinyhook.h"
 #include "dl_internal.h"
 
@@ -19,7 +18,7 @@
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__))
 
 std::string MOD_NAME = "Emerald Mod";
-std::string MOD_VERSION = "v1.4.2";
+std::string MOD_VERSION = "v1.4.3";
 
 Emerald* emerald;
 bool bl_setArmorTexture(int, std::string const&);
@@ -36,13 +35,13 @@ static void (*_Block$initBlocks)();
 static void Block$initBlocks() {
 	_Block$initBlocks();
 	
-	emerald->initBlocks();
+	//emerald->initBlocks();
 }
 
 static void (*_Item$initItems)();
 static void Item$initItems(){
 	emerald->initItems();
-	emerald->initBlockItems();
+	//emerald->initBlockItems();
 	
 	_Item$initItems();
 	
@@ -57,6 +56,7 @@ static void Item$initCreativeItems() {
 	_Item$initCreativeItems();
 
 	emerald->initCreativeItems();
+	//emerald->initCreativeBlocks();
 }
 
 static void (*_Localization$_load)(Localization*, const std::string&);
@@ -84,7 +84,7 @@ void SmallHut$postProcess(SmallHut *self, BlockSource *region, Random &random, B
 	if(region->getBlockID(0, -6, 0).blockId == 0) y = -6;
 	if(region->getBlockID(0, -7, 0).blockId == 0) y = -7;
 	
-	self->generateBox(region, bounds, 0, y, 0, 4, y+4, 4, {Emerald::mBrick->blockId, 0}, {Block::mAir->blockId, 0}, false);
+	self->generateBox(region, bounds, 0, y, 0, 4, y+4, 4, {Emerald::mBrick->blockId, 0}, {0, 0}, false);
 	//floor
 	self->generateBox(region, bounds, 1, y, 1, 3, y, 3, {Emerald::mPlanks->blockId, 0}, {Emerald::mPlanks->blockId, 0}, true);
 	//front

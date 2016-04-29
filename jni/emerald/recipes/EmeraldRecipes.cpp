@@ -65,14 +65,13 @@ void EmeraldRecipes::initRecipes(Recipes* instance) {
 	pushIngredient(318, 0, 'f');
 	addRecipe(Item::mItems[2011]->itemId, 1, 0, {"f ", " e"});
 	
-	/*//Bow
+	//Bow
 	pushIngredient(287, 0, 's');
 	pushIngredient(2013, 0, 'r');
 	addRecipe(Item::mItems[2012]->itemId, 1, 0, {" rs", "r s", " rs"});
-	*/
+	
 	//Rod
 	pushIngredient(388, 0, 'e');
-	//pushIngredient(369, 0, 'r');
 	addRecipe(Item::mItems[2013]->itemId, 5, 0, {"e ", "e "});
 	
 	//Dust
@@ -86,7 +85,7 @@ void EmeraldRecipes::initRecipes(Recipes* instance) {
 	
 	///Blocks
 	//Slab
-	pushIngredient(133, 0, 'b');
+	/*pushIngredient(133, 0, 'b');
 	pushIngredient(2014, 0, 'd');
 	addRecipe(Block::mBlocks[233]->blockId, 1, 0, {"bbb", "   ", "   "});
 	
@@ -99,6 +98,7 @@ void EmeraldRecipes::initRecipes(Recipes* instance) {
 	pushIngredient(4, 0, 'p');
 	pushIngredient(2014, 0, 'd');
 	addRecipe(Block::mBlocks[232]->blockId, 1, 0, {"pd", "  "});
+	*/
 }
 
 void EmeraldRecipes::pushIngredient(int id, int data, char letter) {

@@ -12,6 +12,7 @@ public:
 	void initBlocks();
 	void initBlockItems();
 	void initCreativeItems();
+	void initCreativeBlocks();
 
 public:
 	static Block* mBrick;

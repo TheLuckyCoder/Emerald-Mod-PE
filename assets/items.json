@@ -25,9 +25,9 @@
     "hover_text_color": "aqua",
 
     "food": {
-      "nutrition": 4,
+      "nutrition": 4, //
       "saturation_modifier": "supernatural",
-      "is_meat": false,
+      "is_meat": false, //
       "effects": [
         {
           "name": "regeneration",
@@ -631,16 +631,22 @@
   },
   {
     "name": "camera",
-    "id": 183,
+    "id": 242,
     "icon": "camera",
     "category": "Miscellaneous",
     "use_animation": "camera",
     "use_duration": 100000,
+    "block": "camera",
 
     "camera": {
+      "black_bars_duration": 0.2,
+      "black_bars_screen_ratio": 0.08,
+      "shutter_duration": 0.2,
+      "picture_duration": 1.0,
+      "slide_away_duration": 0.2
     }
   },
-  //Emerald
+//Emerald
   {
     "name": "emeraldBeef",
     "id": 255,

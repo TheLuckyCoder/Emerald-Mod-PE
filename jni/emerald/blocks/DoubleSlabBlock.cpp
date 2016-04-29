@@ -3,7 +3,7 @@
 #include "mcpe/CreativeItemCategory.h"
 #include "../Emerald.h"
 
-DoubleSlabBlock::DoubleSlabBlock(int blockId) : Block("emeraldDoubleSlab", blockId, "emerald_block", Material::getMaterial(MaterialType::METAL))
+DoubleSlabBlock::DoubleSlabBlock(int blockId) : Block("emeraldDoubleSlab", blockId, "emerald_block", Material::getMaterial(MaterialType::STONE))
 {
 	setDestroyTime(2.0F);
 	setExplodeable(8.0F);
