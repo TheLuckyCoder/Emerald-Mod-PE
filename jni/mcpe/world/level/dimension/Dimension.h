@@ -1,62 +1,91 @@
 #pragma once
 
-#include "../LevelListener.h"
-#include "mcpe/client/SavedData.h"
-#include "../Level.h"
+#include <string>
+#include <memory>
+
 #include "DimensionId.h"
+#include "../LevelListener.h"
+#include "../GeneratorType.h"
 #include "../../util/Color.h"
-#include "mcpe/CommonTypes.h"
+
+class FullBlock;
+class Level;
 class BlockSource;
 class BlockPos;
 class Player;
 class LevelChunk;
 class CompoundTag;
+class ChunkSource;
 class Packet;
 class MoveEntityPacketData;
 class Entity;
-class ChunkSource;
+class SaveData;
 
-// Size : 180
-class Dimension : public LevelListener, public SavedData
+class Dimension : public LevelListener
 {
-public:
-	//void **vtable;	// 0
-	//void **vtable;	// 4
-	char filler[172];	// 8
+private:
+	Level *level;
+	DimensionId id;
 
-	Dimension(Level&, DimensionId);
+	bool ultrawarm;
+	bool ceiling;
+
+public:
+	static std::unique_ptr<Dimension> createNew(DimensionId id, Level& level);
+
+	Dimension(Level &level, DimensionId id);
 	virtual ~Dimension();
-	virtual void onBlockChanged(BlockSource&, const BlockPos&, FullBlock, FullBlock, int);
-	virtual void onBlockEvent(BlockSource&, int, int, int, int, int);
-	virtual void onNewChunkFor(Player&, LevelChunk&);
+
+	std::unique_ptr<ChunkSource> _createGenerator(GeneratorType);
+
+	virtual void onBlockChanged(BlockSource &, BlockPos const &, FullBlock, FullBlock, int );
+	virtual void onBlockEvent(BlockSource &region, int, int, int, int, int);
+	virtual void onNewChunkFor(Player &, LevelChunk &);
+
 	virtual void init();
+
 	virtual void tick();
 	virtual void updateLightRamp();
+
 	virtual bool isNaturalDimension() const;
-	virtual bool isValidSpawn(int, int) const;
+	virtual bool isValidSpawn(int x, int z) const;
+
 	virtual Color getFogColor(float) const;
 	virtual float getFogDistanceScale() const;
-	virtual void isFoggyAt(int, int) const;
-	virtual int getCloudHeight() const;
+	virtual bool isFoggyAt(int x, int z) const;
+
+	virtual float getCloudHeight() const;
+
 	virtual bool mayRespawn() const;
 	virtual bool hasGround() const;
+
 	virtual void getSpawnYPosition();
-	virtual void hasBedrockFog();
-	virtual void getClearColorScale();
-	//virtual std::string getName() const = 0;
-	virtual void load(const CompoundTag&);
-	virtual void save(CompoundTag&);
+
+	virtual bool hasBedrockFog();
+	virtual float getClearColorScale();
+
+	virtual std::string getName() const = 0;
+
+	virtual void load(const CompoundTag &tag);
+	virtual void save(CompoundTag &tag);
+
 	virtual void sendDimensionPackets();
-	virtual void sendBroadcast(const Packet&, Player*);
-	virtual void addMoveEntityPacket(const MoveEntityPacketData&);
-	virtual void addSetEntityMotionPacket(Entity&);
+	virtual void sendBroadcast(const Packet &packet, Player *player);
+
+	virtual void addMoveEntityPacket(const MoveEntityPacketData &data);
+	virtual void addSetEntityMotionPacket(Entity &entity);
+
 	virtual void getTimeOfDay(int, float) const;
+
 	ChunkSource *getChunkSource() const;
 
-	static std::unique_ptr<Dimension> createNew(DimensionId id, Level &level);
+	void setCeiling(bool value);
+	void setUltraWarm(bool value);
 
+	Level *getLevel() const;
+	Level *getLevelCount() const;
+	DimensionId getId() const;
+
+	int getHeight() const;
 	bool isDay() const;
-
-	void setCeiling(bool ceiling);
-	void setUltraWarm(bool ultraWarm);
 };

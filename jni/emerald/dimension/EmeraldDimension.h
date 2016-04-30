@@ -8,11 +8,12 @@ public:
 
 	virtual void init();
 
-	//virtual std::string getName() const = 0;
+	virtual std::string getName() const = 0;
 	virtual float getFogDistanceScale() const;
-	virtual int getCloudHeight() const;
+	virtual float getCloudHeight() const;
 	virtual bool mayRespawn() const;
 	virtual bool hasGround() const;
 	virtual bool isValidSpawn(int, int) const;
 	virtual bool isNaturalDimension() const;
+	virtual Color getFogColor(float) const;
 };

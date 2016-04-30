@@ -9,6 +9,8 @@
 #include "mcpe/client/MinecraftClient.h"
 #include "mcpe/locale/Localization.h"
 #include "mcpe/world/level/levelgen/structure/village/components/SmallHut.h"
+#include "mcpe/world/level/GeneratorType.h"
+#include "mcpe/world/level/ChunkSource.h"
 
 #include "emerald/Emerald.h"
 #include "emerald/recipes/EmeraldRecipes.h"
@@ -117,13 +119,24 @@ static std::string Common$getGameDevVersionString() {
 	return (MOD_NAME + " " + MOD_VERSION);
 }
 
-static std::unique_ptr<Dimension> (*Dimension$createNew_real)(DimensionId, Level &);
-static std::unique_ptr<Dimension> Dimension$createNew_hook(DimensionId id, Level &level)
+std::unique_ptr<Dimension> (*_Dimension$createNew)(DimensionId, Level&);
+std::unique_ptr<Dimension> Dimension$createNew(DimensionId id, Level &level)
 {
-	if(id == DimensionId::EMERALD)
-		return std::unique_ptr<Dimension>(new EmeraldDimension(level));
+	std::unique_ptr<Dimension> dimension;
+	//if (id == DimensionId::EMERALD)
+	//	dimension = std::unique_ptr<Dimension>(new EmeraldDimension(level));
 
-	return Dimension$createNew_real(id, level);
+	return _Dimension$createNew(id, level);
+}
+
+std::unique_ptr<ChunkSource> (*_Dimension$_createGenerator)(GeneratorType);
+std::unique_ptr<ChunkSource> (Dimension$_createGenerator)(GeneratorType type)
+{
+	DimensionId id;
+	if (id == DimensionId::EMERALD)
+		type = GeneratorType::LEGACY;
+
+	return _Dimension$_createGenerator(type);
 }
 
 JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) 
@@ -138,7 +151,8 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved)
 	MSHookFunction((void*) &SmallHut::postProcess, (void*) &SmallHut$postProcess, (void**) &_SmallHut$postProcess);
 	MSHookFunction((void*) &Recipes::init, (void*) &Recipes$init, (void**) &_Recipes$init);
 	MSHookFunction((void*) &Common::getGameDevVersionString, (void*) &Common$getGameDevVersionString, (void**) &_Common$getGameDevVersionString);
-	MSHookFunction((void*) &Dimension::createNew, (void *) &Dimension$createNew_hook, (void **) &Dimension$createNew_real);
+	MSHookFunction((void*) &Dimension::createNew, (void*) &Dimension$createNew, (void**) &_Dimension$createNew);
+	MSHookFunction((void*) &Dimension::_createGenerator, (void*) &Dimension$_createGenerator, (void**) &_Dimension$_createGenerator);
 
 	return JNI_VERSION_1_2;
 }
