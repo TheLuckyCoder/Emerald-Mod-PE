@@ -56,7 +56,7 @@ static void Item$initCreativeItems() {
 	_Item$initCreativeItems();
 
 	emerald->initCreativeItems();
-	//emerald->initCreativeBlocks();
+	emerald->initCreativeBlocks();
 }
 
 static void (*_Localization$_load)(Localization*, const std::string&);
@@ -138,7 +138,7 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved)
 	MSHookFunction((void*) &SmallHut::postProcess, (void*) &SmallHut$postProcess, (void**) &_SmallHut$postProcess);
 	MSHookFunction((void*) &Recipes::init, (void*) &Recipes$init, (void**) &_Recipes$init);
 	MSHookFunction((void*) &Common::getGameDevVersionString, (void*) &Common$getGameDevVersionString, (void**) &_Common$getGameDevVersionString);
-	//MSHookFunction((void*) &Dimension::createNew, (void *) &Dimension$createNew_hook, (void **) &Dimension$createNew_real);
+	MSHookFunction((void*) &Dimension::createNew, (void *) &Dimension$createNew_hook, (void **) &Dimension$createNew_real);
 
 	return JNI_VERSION_1_2;
 }
