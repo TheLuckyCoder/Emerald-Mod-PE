@@ -13,9 +13,9 @@
 #include "items/RodItem.h"
 #include "items/DustItem.h"
 
-#include "blocks/BrickBlock.h"
-#include "blocks/PlanksBlock.h"
 #include "blocks/EmeraldSlabBlock.h"
+#include "blocks/EmeraldBrickBlock.h"
+#include "blocks/EmeraldPlanksBlock.h"
 
 Block* Emerald::mBrick;
 Block* Emerald::mPlanks;
@@ -40,8 +40,8 @@ Item* Emerald::mDust;
 void Emerald::initBlocks()
 {
 	Block::mBlocks[230] = mSlab = (new EmeraldSlabBlock(233))->init();
-	Block::mBlocks[231] = mBrick = (new BrickBlock(231))->init();
-	Block::mBlocks[232] = mPlanks = (new PlanksBlock(232))->init();
+	Block::mBlocks[231] = mBrick = (new EmeraldBrickBlock(231))->init();
+	Block::mBlocks[232] = mPlanks = (new EmeraldPlanksBlock(232))->init();
 }
 
 void Emerald::initBlockItems()
@@ -93,7 +93,7 @@ void Emerald::initCreativeItems()
 
 void Emerald::initCreativeBlocks()
 {
+	Item::addCreativeItem(mSlab, 0);
 	Item::addCreativeItem(mBrick, 0);
 	Item::addCreativeItem(mPlanks, 0);
-	Item::addCreativeItem(mSlab, 0);
 }

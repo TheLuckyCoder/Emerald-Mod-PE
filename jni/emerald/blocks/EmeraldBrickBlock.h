@@ -2,9 +2,9 @@
 
 #include "mcpe/world/level/block/Block.h"
 
-class BrickBlock : public Block
+class EmeraldBrickBlock : public Block
 {
 public:
-	BrickBlock(int blockId);
+	EmeraldBrickBlock(int blockId);
 	virtual bool use(Player&, const BlockPos&);
 };
