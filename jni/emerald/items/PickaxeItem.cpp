@@ -86,7 +86,6 @@ void PickaxeItem::mineBlock(ItemInstance *item, BlockID blockId, int x, int y, i
 	|| blockId == Block::mCoalBlock->blockId
 	|| blockId == Block::mPackedIce->blockId
 	|| blockId == Emerald::mSlab->blockId
-	|| blockId == Emerald::mDoubleSlab->blockId
 	|| blockId == Emerald::mBrick->blockId){
 		item->hurtAndBreak(1, mob);
 	} else{
@@ -158,7 +157,6 @@ float PickaxeItem::getDestroySpeed(ItemInstance *item, Block *block) {
 	|| block == Block::mCoalBlock
 	|| block == Block::mPackedIce
 	|| block == Emerald::mSlab
-	|| block == Emerald::mDoubleSlab
 	|| block == Emerald::mBrick) {
 		return 50.0F;
 	} else {

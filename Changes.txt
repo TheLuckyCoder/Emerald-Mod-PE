@@ -2,8 +2,9 @@
 New:
 -added Emerald Bow
 -supports 0.14.2
-Improved:
+Changed/Improved:
 -Emerald Pickaxe and Shovel code
+-Changed Emerald Slab Id
 Fixed:
 -emerald blocks were not added to creative inventory
 

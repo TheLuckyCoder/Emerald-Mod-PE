@@ -15,13 +15,11 @@
 
 #include "blocks/BrickBlock.h"
 #include "blocks/PlanksBlock.h"
-#include "blocks/SlabBlock.h"
-#include "blocks/DoubleSlabBlock.h"
+#include "blocks/EmeraldSlabBlock.h"
 
 Block* Emerald::mBrick;
 Block* Emerald::mPlanks;
 Block* Emerald::mSlab;
-Block* Emerald::mDoubleSlab;
 
 Item* Emerald::mHelmet;
 Item* Emerald::mChestplate;
@@ -41,18 +39,16 @@ Item* Emerald::mDust;
 
 void Emerald::initBlocks()
 {
+	Block::mBlocks[230] = mSlab = (new EmeraldSlabBlock(233))->init();
 	Block::mBlocks[231] = mBrick = (new BrickBlock(231))->init();
 	Block::mBlocks[232] = mPlanks = (new PlanksBlock(232))->init();
-	Block::mBlocks[233] = mSlab = (new SlabBlock(233))->init();
-	Block::mBlocks[234] = mDoubleSlab = (new DoubleSlabBlock(234))->init();
 }
 
 void Emerald::initBlockItems()
 {
+	Item::mItems[mSlab->blockId] = new BlockItem(mSlab->getDescriptionId(), mSlab->blockId - 0x100);
 	Item::mItems[mBrick->blockId] = new BlockItem(mBrick->getDescriptionId(), mBrick->blockId - 0x100);
 	Item::mItems[mPlanks->blockId] = new BlockItem(mPlanks->getDescriptionId(), mPlanks->blockId - 0x100);
-	Item::mItems[mSlab->blockId] = new BlockItem(mSlab->getDescriptionId(), mSlab->blockId - 0x100);
-	Item::mItems[mDoubleSlab->blockId] = new BlockItem(mDoubleSlab->getDescriptionId(), mDoubleSlab->blockId - 0x100);
 }
 
 void Emerald::initItems()

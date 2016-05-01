@@ -111,7 +111,6 @@ void PaxItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z
 	|| blockid == Block::mCoalBlock->blockId
 	|| blockid == Block::mPackedIce->blockId
 	|| blockid == Emerald::mSlab->blockId
-	|| blockid == Emerald::mDoubleSlab->blockId
 	|| blockid == Emerald::mBrick->blockId
 	|| blockid == Emerald::mPlanks->blockId){
 		item->hurtAndBreak(1, mob);
@@ -195,9 +194,7 @@ bool PaxItem::canDestroySpecial(const Block* block) const {
 	|| block == Block::mStainedClay
 	|| block == Block::mHardenedClay
 	|| block == Block::mCoalBlock
-	|| block == Emerald::mSlab
-	|| block == Emerald::mDoubleSlab
-	|| block == Emerald::mBrick);
+	|| block == Emerald::mSlab);
 }
 
 float PaxItem::getDestroySpeed(ItemInstance *item, Block *block) {
@@ -285,7 +282,6 @@ float PaxItem::getDestroySpeed(ItemInstance *item, Block *block) {
 	|| block == Block::mCoalBlock
 	|| block == Block::mPackedIce
 	|| block == Emerald::mSlab
-	|| block == Emerald::mDoubleSlab
 	|| block == Emerald::mBrick
 	|| block == Emerald::mPlanks) {
 		return 50.0F;
