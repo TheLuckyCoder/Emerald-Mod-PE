@@ -8,18 +8,13 @@ class Random;
 
 class DesertPyramidPiece : public StructurePiece {
 public:
-	Random& random;
-	BlockSource* region;
-	BoundingBox const& bounds;
-
 	DesertPyramidPiece(Random&, int, int);
 
-	~DesertPyramidPiece();
-	void postProcess(BlockSource*, Random&, BoundingBox const&);
-
+	virtual ~DesertPyramidPiece();
+	virtual void postProcess(BlockSource*, Random&, const BoundingBox&);
 	virtual void addAdditionalSaveData(CompoundTag&);
 	virtual void readAdditionalSaveData(CompoundTag&);
 
 	//Custom functions
-	void genPyramidMineshaftCorridor(BlockSource*, Random&, BoundingBox const&);
+	void genPyramidMineshaftCorridor(BlockSource*, Random&, const BoundingBox&);
 };

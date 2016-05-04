@@ -7,19 +7,13 @@ class Random;
 
 class SmallTemple : public VillagePiece {
 public:
-	StartPiece* start;
-	Random& random;
-	BlockSource* region;
-	BoundingBox const& bounds;
-
 	SmallTemple();
-	SmallTemple(StartPiece*, int, Random&, BoundingBox const&, int);
-	~SmallTemple();
+	SmallTemple(StartPiece*, int, Random&, const BoundingBox&, int);
 
-	int getVillagerProfession(int);
-	void postProcessMobsAt(BlockSource*, Random&, BoundingBox const&);
-	void postProcess(BlockSource*, Random&, BoundingBox const&);
-	
+	virtual ~SmallTemple();
+	virtual int getVillagerProfession(int);
+	virtual void postProcessMobsAt(BlockSource*, Random&, const BoundingBox&);
+	virtual void postProcess(BlockSource*, Random&, const BoundingBox&);
 	virtual void addAdditionalSaveData(CompoundTag&);
 	virtual void readAdditionalSaveData(CompoundTag&);
 };

@@ -34,15 +34,10 @@ public:
 	int rotEast; // 148
 	char filler1[500]; // 152
 	mce::MaterialPtr material; // 652
-	Tessellator& tess; // 664
+	Tessellator& tessellator; // 664
 	AABB aabb; // 668
 
 public:
-	static int const UP;
-	static int const DOWN;
-	static int const LEFT;
-	static int const RIGHT;
-
 	bool tessellateInWorld(Block&, const BlockPos&, bool);
 	bool tessellateBlockInWorld(Block&, const BlockPos&);
 	void renderGuiBlock(const FullBlock&, const mce::TexturePtr&, float, float);
@@ -66,7 +61,4 @@ public:
 	void blend(int, int, int, int);
 	
 	void setRenderBounds(float, float, float, float, float, float);
-	void setRotatedBounds(int, float, float, float, float, float, float);
-	
-	bool tessellateEmeraldStairsInWorld(Block* block, const BlockPos& pos);
 };

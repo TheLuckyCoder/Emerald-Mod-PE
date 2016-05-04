@@ -7,18 +7,13 @@ class Random;
 
 class BookHouse : public VillagePiece {
 public:
-	StartPiece* start;
-	Random& random;
-	BlockSource* region;
-	BoundingBox const& bounds;
-
 	BookHouse();
-	BookHouse(StartPiece*, int, Random&, BoundingBox const&, int);
-	~BookHouse();
+	BookHouse(StartPiece*, int, Random&, const BoundingBox&, int);
 
-	void postProcessMobsAt(BlockSource*, Random&, BoundingBox const&);
-	void postProcess(BlockSource*, Random&, BoundingBox const&);
-
+	virtual ~BookHouse();
+	virtual int getVillagerProfession(int);
+	virtual void postProcessMobsAt(BlockSource*, Random&, const BoundingBox&);
+	virtual void postProcess(BlockSource*, Random&, const BoundingBox&);
 	virtual void addAdditionalSaveData(CompoundTag&);
 	virtual void readAdditionalSaveData(CompoundTag&);
 };

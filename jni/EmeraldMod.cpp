@@ -9,8 +9,8 @@
 #include "mcpe/client/MinecraftClient.h"
 #include "mcpe/locale/Localization.h"
 #include "mcpe/world/level/levelgen/structure/village/components/SmallHut.h"
-#include "mcpe/world/level/GeneratorType.h"
 #include "mcpe/world/level/ChunkSource.h"
+#include "mcpe/world/level/BlockSource.h"
 
 #include "emerald/Emerald.h"
 #include "emerald/recipes/EmeraldRecipes.h"
@@ -114,8 +114,8 @@ static void Recipes$init(Recipes *self) {
 	EmeraldRecipes::initRecipes(self);
 }
 
-static std::string (*_Common$getGameDevVersionString)();
-static std::string Common$getGameDevVersionString() {
+std::string (*_Common$getGameDevVersionString)();
+std::string Common$getGameDevVersionString() {
 	return (MOD_NAME + " " + MOD_VERSION);
 }
 
@@ -148,11 +148,11 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved)
 	MSHookFunction((void*) &Item::initItems, (void*) &Item$initItems, (void**) &_Item$initItems);
 	MSHookFunction((void*) &Item::initCreativeItems, (void*) &Item$initCreativeItems, (void**) &_Item$initCreativeItems);
 	MSHookFunction((void*) &Localization::_load, (void*) &Localization$_load, (void**) &_Localization$_load);
-	MSHookFunction((void*) &SmallHut::postProcess, (void*) &SmallHut$postProcess, (void**) &_SmallHut$postProcess);
+	//MSHookFunction((void*) &SmallHut::postProcess, (void*) &SmallHut$postProcess, (void**) &_SmallHut$postProcess);
 	MSHookFunction((void*) &Recipes::init, (void*) &Recipes$init, (void**) &_Recipes$init);
 	MSHookFunction((void*) &Common::getGameDevVersionString, (void*) &Common$getGameDevVersionString, (void**) &_Common$getGameDevVersionString);
-	MSHookFunction((void*) &Dimension::createNew, (void*) &Dimension$createNew, (void**) &_Dimension$createNew);
-	MSHookFunction((void*) &Dimension::_createGenerator, (void*) &Dimension$_createGenerator, (void**) &_Dimension$_createGenerator);
+	//MSHookFunction((void*) &Dimension::createNew, (void*) &Dimension$createNew, (void**) &_Dimension$createNew);
+	//MSHookFunction((void*) &Dimension::_createGenerator, (void*) &Dimension$_createGenerator, (void**) &_Dimension$_createGenerator);
 
 	return JNI_VERSION_1_2;
 }

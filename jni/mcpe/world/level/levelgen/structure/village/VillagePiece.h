@@ -10,27 +10,18 @@ class PieceWeight;
 
 class VillagePiece : public StructurePiece {
 public:
-	StartPiece* start;
-	Random& random;
-	BlockSource* region;
-	BoundingBox const& bounds;
-	int x;
-	int y;
-	int z;
-
 	VillagePiece();
 	VillagePiece(StartPiece*, int);
 
-	~VillagePiece();
-	void spawnVillagers(BlockSource*, BoundingBox const&, int, int, int, int);
-	bool biomeBlock(FullBlock);
-	void fillColumnDown(BlockSource*, FullBlock, int, int, int, BoundingBox const&);
-	void generateBox(BlockSource*, BoundingBox const&, int, int, int, int, int, int, FullBlock, FullBlock, bool);
-	int getAverageGroundHeight(BlockSource*, BoundingBox const&);
-	int getVillagerProfession(int);
-	bool isOkBox(BoundingBox const&);
-	void placeBlock(BlockSource*, FullBlock, int, int, int, BoundingBox const&);
-
+	virtual ~VillagePiece();
+	virtual int getVillagerProfession(int);
+	virtual void placeBlock(BlockSource*, FullBlock, int, int, int, const BoundingBox&);
+	virtual void fillColumnDown(BlockSource*, FullBlock, int, int, int, const BoundingBox&);
 	virtual void addAdditionalSaveData(CompoundTag&);
 	virtual void readAdditionalSaveData(CompoundTag&);
+	
+	void spawnVillagers(BlockSource*, const BoundingBox&, int, int, int, int);
+	bool biomeBlock(FullBlock);
+	void generateBox(BlockSource*, const BoundingBox&, int, int, int, int, int, int, FullBlock, FullBlock, bool);
+	bool isOkBox(const BoundingBox&);
 };

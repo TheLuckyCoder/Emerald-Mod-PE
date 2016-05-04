@@ -1,16 +1,14 @@
 1.4.3
-Version 0.14.2 has changed a lot and I haven't time to update everything
 New:
--added Emerald Bow
+-added Emerald Bow(is not ready)
 -support for 0.14.2
 Changed/Improved:
 -Emerald Pickaxe and Shovel code
+-Flint and Emerald now works just like Flint and Steel
 -Changed Emerald Slab Id
+-removed Emerald Huts(will be added back in future updates)
 Fixed:
 -emerald blocks were not added to creative inventory
-Bugs:
--blocks are not working
--Flint and Emerald is not working
 
 1.4.2
 Improved:

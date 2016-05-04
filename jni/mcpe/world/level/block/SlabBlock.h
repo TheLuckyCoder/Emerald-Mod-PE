@@ -13,10 +13,8 @@ class Vec3;
 
 class SlabBlock : public Block {
 public:
-	/* Copy Constructor */
 	SlabBlock(const std::string&, int, const std::string&, bool, const Material&);
 
-	/* Virtual Functions */
 	virtual ~SlabBlock();
 	virtual bool canBeSilkTouched() const;
 	virtual bool checkIsPathable(Entity&, const BlockPos&, const BlockPos&);
@@ -24,7 +22,7 @@ public:
 	virtual void getRedstoneProperty(BlockSource&, const BlockPos&);
 	virtual int getResourceCount(Random&, int, int);
 	virtual const AABB& getVisualShape(unsigned char, AABB&, bool);
-	//virtual bool isBottomSlab(BlockSource&, const BlockPos&);
+	virtual bool isBottomSlab(BlockSource&, const BlockPos&) const;
 	virtual bool isBottomSlab(int);
 	virtual bool isObstructingChests(BlockSource&, const BlockPos&);
 	virtual bool shouldRenderFace(BlockSource&, const BlockPos&, signed char, const AABB&) const;

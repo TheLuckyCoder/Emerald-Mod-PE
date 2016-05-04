@@ -50,23 +50,7 @@ public:
 	FlowerFeature* brownMushroom; // 64
 	FlowerFeature* redMushroom; // 68
 	HugeMushroomFeature* hugeMushroom; // 72
-	SpringFeature* spring; // 76
-	TreeFeature* tree; // 80
-	SpruceFeature* spruce; // 84
-	BirchFeature* birch; // 88
-	RoofTreeFeature* roofTree; // 92
-	PineFeature* pine; // 96
-	MegaPineTreeFeature* megaPine; // 100
-	TallGrassFeature* tallGrass; // 104
-	FancyTreeFeature* fancyTree; // 108
-	BlockBlobFeature* blockBlob; // 112
-	SwampTreeFeature* swampTree; // 116
-	IcePatchFeature* icePatch; // 120
-	JungleTreeFeature* jungleTree; // 124
-	MegaJungleTreeFeature* megaJungleTree; //128
-	SavannaTreeFeature* savannaTree; // 134
-	CactusFeature* cactus; // 138
-	DoublePlantFeature* doublePlant; // 142
+	// todo add the others here
 	
 public:	
 	BiomeDecorator();

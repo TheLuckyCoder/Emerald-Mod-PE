@@ -9,17 +9,11 @@ class SmallDoorType;
 
 class StrongholdPiece : public StructurePiece {
 public:
-	Random& random;
-	BlockSource* region;
-	BoundingBox const& bounds;
-	int x;
-	int y;
-	int z;
-
-	~StrongholdPiece();
-	void randomSmallDoor(Random&);
-	void generateSmallDoor(BlockSource*, Random&, BoundingBox const&, SmallDoorType, int, int, int);
-
+	virtual ~StrongholdPiece();
+	//virtual void addChildren(); //It's to hard to demangle
 	virtual void addAdditionalSaveData(CompoundTag&);
 	virtual void readAdditionalSaveData(CompoundTag&);
+
+	void randomSmallDoor(Random&);
+	void generateSmallDoor(BlockSource*, Random&, BoundingBox const&, SmallDoorType, int, int, int);
 };

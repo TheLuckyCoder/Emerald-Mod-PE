@@ -3,5 +3,6 @@
 enum class DimensionId : int {
 	OVERWORLD,
 	NETHER,
+	NODIMENSION,
 	EMERALD
 };

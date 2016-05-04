@@ -7,18 +7,12 @@ class Random;
 
 class SmallHut : public VillagePiece {
 public:
-	StartPiece* start;
-	Random& random;
-	BlockSource* region;
-	BoundingBox const& bounds;
-
 	SmallHut();
-	SmallHut(StartPiece*, int, Random&, BoundingBox const&, int);
-	~SmallHut();
+	SmallHut(StartPiece*, int, Random&, const BoundingBox&, int);
 
-	void postProcessMobsAt(BlockSource*, Random&, BoundingBox const&);
-	void postProcess(BlockSource*, Random&, BoundingBox const&);
-
+	virtual ~SmallHut();
+	virtual void postProcessMobsAt(BlockSource*, Random&, const BoundingBox&);
+	virtual void postProcess(BlockSource*, Random&, const BoundingBox&);
 	virtual void addAdditionalSaveData(CompoundTag&);
 	virtual void readAdditionalSaveData(CompoundTag&);
 };

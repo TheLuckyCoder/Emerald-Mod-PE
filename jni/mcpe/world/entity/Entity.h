@@ -1,58 +1,110 @@
 #pragma once
-
 #include <string>
 #include <memory>
 #include <vector>
-
-#include "../phys/Vec3.h"
-
 class BlockSource;
 class Level;
 class Material;
 class Player;
 class EntityPos;
-class BlockPos;
-enum class MaterialType;
-struct Vec2;
+struct BlockPos;
 class CompoundTag;
+enum class ArmorSlot;
 class EntityLink;
 class EntityDamageSource;
 class EntityEvent;
 class ItemInstance;
-class DimensionId;
 class ChangeDimensionPacket;
-enum class ArmorSlot;
-struct AABB;
+class ExplodeComponent;
+class Dimension;
+class Random;
+class EntityLocation;
+#include "../material/Material.h"
+#include "EntityType.h"
+#include "EntityRendererId.h"
+#include "SynchedEntityData.h"
+#include "../level/dimension/dimensionId.h"
+#include "../phys/AABB.h"
+#include "../phys/Vec3.h"
+#include "../phys/Vec2.h"
+#include "../util/Color.h"
+#include "../../CommonTypes.h"
 
-class Entity
-{
+typedef std::vector<Entity*> EntityList;
+
+class Entity {
 public:
-	/* constructors */
-	Entity(BlockSource&);
-	Entity(Level&);
-
-	/* fields */
-	void* idk; // 4
+	void* synchedData; // 4
 	Vec3 pos; // 8
 	Vec3 oldPos; // 20
 	Vec3 chunkPos; // 32
 	Vec3 velocity; // 44
-	float yaw; // 56
-	float pitch; // 60
-	float _oldYaw; // 64
-	float _oldPitch; // 68
-	char filler[44]; // 72
+	Vec2 rotation; // 56
+	Vec2 idk; // 64
+	Vec2 idk1; // 72
+	SynchedEntityData entityData; // 80
+	char filler[12]; // 96
+	DimensionId dimensionId; // 108
+	char filler1[4]; // 112
 	Level& level; // 116
-	char filler2[68]; // 120
-	float heightOffset; // 188
-	char filler3[56]; // 192
-	std::vector<Entity*> _riders; // 248
-	Entity& immediateRider; // 260
-	Entity& riding; // 264
-	char filler4[80]; // 268
+	char idec[4]; // 120
+	Color lastLightColor; // 124
+	AABB boundingBox; // 140
+	float someFloat; // 168;
+	float headHeight; // 172
+	char filler2[12]; // 176
+	float ridingHeight; // 188
+	Vec2 idk2; // 192
+	char filler3[16]; // 200
+	int airSupply; // 216
+	int fireTicks; // 220
+	char filler4[8]; // 224
+	BlockID block; // 232
+	int noclue; // 236  **ALWAYS 255**
+	char filler5[4]; // 240
+	EntityRendererId rendererId; // 244
+	EntityList riders; // 248
+	Entity& rider; // 252
+	Entity& riding; // 256
+	bool isRiding; // 260
+	int idk5; // 264
+	char filler6[12]; // 268
+	bool what1; // 280
+	bool what2; // 281
+	bool what3; // 282
+	bool what4; // 283
+	bool what5; // 284
+	bool what6; // 285
+	bool hurtMarked; // 286
+	bool noPhysics; // 287
+	bool shouldRender; // 288
+	bool isInvincible; // 289
+	bool idk6; // 290
+	bool notaclue; // 291
+	bool huh; // 292
+	bool noidea; // 293
+	char uniqueId[8]; //  296
+	int autoSend; // 304
+	Vec3 someVec; // 308
+	char filler7[8]; // 320
+	bool what7; // 328
+	bool isStuckInWeb; // 329
+	bool inWater; // 330
+	bool immobile; // 331
+	bool changed; // 332
+	ExplodeComponent* exploder; // 336
+	int idk4; // 340
+	bool isRemoved; // 344
+	bool isGlobal; // 345
+	bool isRegistered; // 346
 	BlockSource& region; // 348
+	
+	static int mEntityCounter;
+	
 
-	/* vtable */
+	Entity(BlockSource&);
+	Entity(Level&);
+	
 	virtual ~Entity();
 	virtual void _postInit();
 	virtual void reset();
@@ -69,13 +121,13 @@ public:
 	virtual void moveRelative(float, float, float);
 	virtual void lerpTo(const Vec3&, const Vec2&, int);
 	virtual void lerpMotion(const Vec3&);
-	virtual void turn(const Vec2&);
+	virtual void turn(const Vec2&, bool);
 	virtual void interpolateTurn(const Vec2&);
-	virtual void* getAddPacket();
+	virtual void getAddPacket();
 	virtual void normalTick();
 	virtual void baseTick();
 	virtual void rideTick();
-	virtual void* positionRider(Entity&) const;
+	virtual void positionRider(Entity&) const;
 	virtual float getRidingHeight();
 	virtual float getRideHeight() const;
 	virtual void startRiding(Entity&);
@@ -84,7 +136,7 @@ public:
 	virtual bool intersects(const Vec3&, const Vec3&);
 	virtual bool isFree(const Vec3&, float);
 	virtual bool isFree(const Vec3&);
-	virtual bool isInWall();
+	virtual bool isInWall() const;
 	virtual bool isInvisible();
 	virtual bool canShowNameTag();
 	virtual void setNameTagVisible(bool);
@@ -114,15 +166,15 @@ public:
 	virtual bool isPushable() const;
 	virtual bool isShootable();
 	virtual bool isSneaking() const;
-	virtual bool isAlive();
+	virtual bool isAlive() const;
 	virtual bool isOnFire() const;
 	virtual bool isCreativeModeAllowed();
 	virtual bool isSurfaceMob() const;
-	virtual bool shouldRenderAtSqrDistance(float);
 	virtual void hurt(const EntityDamageSource&, int);
 	virtual void animateHurt();
 	virtual void doFireHurt(int);
 	virtual void onLightningHit();
+	virtual void onBounceStarted(const BlockPos&, const FullBlock&);
 	virtual void handleEntityEvent(EntityEvent);
 	virtual int getPickRadius();
 	virtual void spawnAtLocation(int, int);
@@ -134,13 +186,13 @@ public:
 	virtual void save(CompoundTag&);
 	virtual void saveWithoutId(CompoundTag&);
 	virtual void load(const CompoundTag&);
-	virtual void loadLinks(const CompoundTag&, std::vector<EntityLink>&);
-	virtual int getEntityTypeId() const = 0;
+	virtual void loadLinks(const CompoundTag&, std::vector<EntityLink, std::allocator<EntityLink>>&);
+	virtual EntityType getEntityTypeId() const = 0;
 	virtual void queryEntityRenderer();
 	virtual long getSourceUniqueID();
 	virtual void setOnFire(int);
 	virtual AABB getHandleWaterAABB() const;
-	virtual void handleInsidePortal();
+	virtual void handleInsidePortal(const BlockPos&);
 	virtual int getPortalCooldown() const;
 	virtual int getPortalWaitTime() const;
 	virtual DimensionId getDimensionId() const;
@@ -149,7 +201,7 @@ public:
 	virtual Player* getControllingPlayer() const;
 	virtual void checkFallDamage(float, bool);
 	virtual void causeFallDamage(float);
-	virtual void playSound(const std::string&, float, float);
+	virtual void playSound(const std::string&, float, float, EntityLocation);
 	virtual void onSynchedDataUpdate(int);
 	virtual bool canAddRider(Entity&) const;
 	virtual float getEyeHeight() const;
@@ -158,7 +210,7 @@ public:
 	virtual void buildDebugInfo(std::string&) const;
 	virtual bool hasOutputSignal(signed char) const;
 	virtual int getOutputSignal() const;
-	virtual std::string getDebugText(std::vector<std::string>&);
+	virtual std::string getDebugText(std::vector<std::string, std::allocator<std::string>>&);
 	virtual void setSize(float, float);
 	virtual void setPos(const EntityPos&);
 	virtual void outOfWorld();
@@ -174,6 +226,33 @@ public:
 	virtual void doWaterSplashEffect();
 	virtual void updateInsideBlock();
 	virtual void onBlockCollision(int);
+	
+	void _exitRide(const Entity&, float);
+	void _findRider(Entity&) const;
+	void _init();
+	void _manageRiders(BlockSource&);
+	void _sendLinkPacket(const EntityLink&) const;
+	void _tryPlaceAt(const Vec3&);
+	void _updateOwnerChunk();
+	void buildForward() const;
+	float distanceSqrToBlockPosCenter(const BlockPos&);
+	float distanceTo(const Entity&);
+	float distanceTo(const Vec3&);
+	float distanceToSqr(const Entity&);
+	float distanceToSqr(const Vec3&);
+	void enableAutoSendPosRot();
+	int getAirSupply() const;
+	void getCenter(float);
+	Dimension& getDimension() const;
+	SynchedEntityData& getEntityData() const;
+	SynchedEntityData& getEntityData();
+	void getEyePos();
+	Vec3& getInterpolatedPosition(float) const;
+	Vec3& getInterpolatedPosition2(float) const;
+	Vec2& getInterpolatedRotation(float) const;
+	Level& getLevel();
+	std::vector<EntityLink> getLinks() const;
+	Vec2& getPortalEntranceDir() const;
+	Vec3& getRandomPointInAABB(Random&);
+	BlockSource& getRegion() const;
 };
-
-typedef std::vector<Entity*> EntityList;

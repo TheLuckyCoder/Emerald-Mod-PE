@@ -7,21 +7,12 @@ class Random;
 
 class SimpleHouse : public VillagePiece {
 public:
-	StartPiece* start;
-	Random& random;
-	BlockSource* region;
-	BoundingBox const& bounds;
-
 	SimpleHouse();
-	SimpleHouse(StartPiece*, int, Random&, BoundingBox const&, int);
-	~SimpleHouse();
+	SimpleHouse(StartPiece*, int, Random&, const BoundingBox&, int);
 
-	void postProcessMobsAt(BlockSource*, Random&, BoundingBox const&);
-	void postProcess(BlockSource*, Random&, BoundingBox const&);
-
+	virtual ~SimpleHouse();
+	virtual void postProcessMobsAt(BlockSource*, Random&, const BoundingBox&);
+	virtual void postProcess(BlockSource*, Random&, const BoundingBox&);
 	virtual void addAdditionalSaveData(CompoundTag&);
 	virtual void readAdditionalSaveData(CompoundTag&);
-	
-	//Custom functions
-	void genSimpleHouse(BlockSource*, Random&, BoundingBox const&);
 };

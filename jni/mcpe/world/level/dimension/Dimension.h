@@ -3,11 +3,10 @@
 #include <string>
 #include <memory>
 
-#include "DimensionId.h"
 #include "../LevelListener.h"
+#include "DimensionId.h"
 #include "../GeneratorType.h"
 #include "../../util/Color.h"
-
 class FullBlock;
 class Level;
 class BlockSource;

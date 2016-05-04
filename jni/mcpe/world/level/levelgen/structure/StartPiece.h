@@ -12,6 +12,7 @@ public:
 	StartPiece(BiomeSource*, int, Random&, int, int, std::vector<PieceWeight, std::allocator<PieceWeight>>&, int);
 
 	virtual ~StartPiece();
-	void getPieceWeights(void);
-	void getBiomeSource(void);
+	//virtual void addChildren(); //It's to hard to demangle
+	void getPieceWeights();
+	void getBiomeSource();
 };

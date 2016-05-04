@@ -7,19 +7,12 @@ class Random;
 
 class Smithy : public VillagePiece {
 public:
-	StartPiece* start;
-	Random& random;
-	BlockSource* region;
-	BoundingBox const& bounds;
-
 	Smithy();
-	Smithy(StartPiece*, int, Random&, BoundingBox const&, int);
-	~Smithy();
-	
-	void postProcessMobsAt(BlockSource*, Random&, BoundingBox const&);
-	void postProcess(BlockSource*, Random&, BoundingBox const&);
-	
+	Smithy(StartPiece*, int, Random&, const BoundingBox&, int);
+
+	virtual ~Smithy();
+	virtual void postProcessMobsAt(BlockSource*, Random&, const BoundingBox&);
+	virtual void postProcess(BlockSource*, Random&, const BoundingBox&);
 	virtual void addAdditionalSaveData(CompoundTag&);
 	virtual void readAdditionalSaveData(CompoundTag&);
-
 };

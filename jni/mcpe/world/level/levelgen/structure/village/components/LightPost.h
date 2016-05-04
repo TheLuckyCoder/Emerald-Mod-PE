@@ -6,14 +6,9 @@ class Random;
 
 class LightPost : public VillagePiece {
 public:
-	StartPiece* start;
-	Random& random;
-	BlockSource* region;
-	BoundingBox const& bounds;
-
 	LightPost();
-	LightPost(StartPiece*, int, Random&, BoundingBox const&, int);
-	~LightPost();
+	LightPost(StartPiece*, int, Random&, const BoundingBox&, int);
 
-	void postProcess(BlockSource*, Random&, BoundingBox const&);
+	virtual ~LightPost();
+	virtual void postProcess(BlockSource*, Random&, const BoundingBox&);
 };

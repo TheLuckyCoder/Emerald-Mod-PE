@@ -7,17 +7,11 @@ class Random;
 
 class StraightRoad : public VillagePiece {
 public:
-	StartPiece* start;
-	Random& random;
-	BlockSource* region;
-	BoundingBox const& bounds;
-
 	StraightRoad();
-	StraightRoad(StartPiece*, int, Random&, BoundingBox const&, int);
-	~StraightRoad();
-
-	void postProcess(BlockSource*, Random&, BoundingBox const&);
-
+	StraightRoad(StartPiece*, int, Random&, const BoundingBox&, int);
+	
+	virtual ~StraightRoad();
+	virtual void postProcess(BlockSource*, Random&, const BoundingBox&);
 	virtual void addAdditionalSaveData(CompoundTag&);
 	virtual void readAdditionalSaveData(CompoundTag&);
 };
