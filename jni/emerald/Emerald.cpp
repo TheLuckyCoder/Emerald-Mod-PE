@@ -12,14 +12,16 @@
 #include "items/BowItem.h"
 #include "items/RodItem.h"
 #include "items/DustItem.h"
+#include "items/EmeraldDoorItem.h"
 
 #include "blocks/EmeraldSlabBlock.h"
 #include "blocks/EmeraldBrickBlock.h"
 #include "blocks/EmeraldPlanksBlock.h"
 
+Block* Emerald::mSlab;
 Block* Emerald::mBrick;
 Block* Emerald::mPlanks;
-Block* Emerald::mSlab;
+Block* Emerald::mDoor;
 
 Item* Emerald::mHelmet;
 Item* Emerald::mChestplate;
@@ -36,6 +38,7 @@ Item* Emerald::mFlintAndEmerald;
 Item* Emerald::mBow;
 Item* Emerald::mRod;
 Item* Emerald::mDust;
+Item* Emerald::mDoorItem;
 
 void Emerald::initBlocks()
 {
@@ -68,6 +71,7 @@ void Emerald::initItems()
 	Item::mItems[2012] = mBow = new BowItem(2012 - 0x100);
 	Item::mItems[2013] = mRod = new RodItem(2013 - 0x100);
 	Item::mItems[2014] = mDust = new DustItem(2014 - 0x100);
+	//Item::mItems[2015] = mDoorItem = new EmeraldDoorItem(2015 - 0x100);
 }
 
 void Emerald::initCreativeItems()
@@ -87,6 +91,7 @@ void Emerald::initCreativeItems()
 	Item::addCreativeItem(mRod, 0);
 	Item::addCreativeItem(mDust, 0);
 	Item::addCreativeItem(mBow, 0);
+	//Item::addCreativeItem(mDoorItem, 0);
 	Item::addCreativeItem(511, 0);//Beef
 	Item::addCreativeItem(512, 0);//Apple
 }
@@ -96,4 +101,5 @@ void Emerald::initCreativeBlocks()
 	Item::addCreativeItem(mSlab, 0);
 	Item::addCreativeItem(mBrick, 0);
 	Item::addCreativeItem(mPlanks, 0);
+	//Item::addCreativeItem(mDoor, 0);
 }

@@ -1,9 +1,6 @@
 #pragma once
 
 #include "../VillagePiece.h"
-class BlockSource;
-class BoundingBox;
-class Random;
 
 class Well : public VillagePiece {
 public:

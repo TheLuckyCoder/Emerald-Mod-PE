@@ -5,7 +5,7 @@
 class EmeraldDoorItem : public DoorItem
 {
 public:
-	EmeraldDoorItem(short itemId);
+	EmeraldDoorItem(int itemId);
 	
 public:
 	EmeraldDoorItem(std::string);

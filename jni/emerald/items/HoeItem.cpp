@@ -17,6 +17,7 @@ int HoeItem::getAttackDamage() {
 
 bool HoeItem::useOn(ItemInstance *item, Player *player, int x, int y, int z, signed char side, float xx, float yy, float zz){
 	Item::mItems[293]->useOn(item, player, x, y, z, side, xx, yy, zz);
+	//player->changeDimension(DimensionId::EMERALD);
 }
 
 void HoeItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim) {

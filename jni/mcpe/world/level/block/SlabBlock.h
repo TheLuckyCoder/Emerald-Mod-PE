@@ -1,15 +1,6 @@
 #pragma once
 
 #include "Block.h"
-class TextureUVCoordinateSet;
-class BlockPos;
-class BlockSource;
-class Material;
-class Entity;
-class Mob;
-class Player;
-class Random;
-class Vec3;
 
 class SlabBlock : public Block {
 public:

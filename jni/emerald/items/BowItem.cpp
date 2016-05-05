@@ -5,6 +5,7 @@ BowItem::BowItem(short itemId) : Item("emeraldBow", itemId)
 	creativeCategory = CreativeItemCategory::TOOLS;
 	setIcon("emerald_bow_standby", 0);
 	setMaxDamage(1800);
+	setHandEquipped();
 }
 
 int BowItem::getEnchantValue() const {

@@ -18,6 +18,7 @@ public:
 	static Block* mBrick;
 	static Block* mPlanks;
 	static Block* mSlab;
+	static Block* mDoor;
 	
 	static Item* mHelmet;
 	static Item* mChestplate;
@@ -34,4 +35,5 @@ public:
 	static Item* mBow;
 	static Item* mRod;
 	static Item* mDust;
+	static Item* mDoorItem;
 };

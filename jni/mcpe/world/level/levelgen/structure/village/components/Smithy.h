@@ -1,9 +1,6 @@
 #pragma once
 
 #include "../VillagePiece.h"
-class CompoundTag;
-class BoundingBox;
-class Random;
 
 class Smithy : public VillagePiece {
 public:

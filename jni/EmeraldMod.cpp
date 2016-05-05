@@ -33,15 +33,15 @@ void MinecraftClient$onPlayerLoaded(MinecraftClient *self, Player &player){
 	self->sendLocalMessage(MOD_NAME, "Made by Razvan MCrafter");
 }
 
-static void (*_Block$initBlocks)();
-static void Block$initBlocks() {
+void (*_Block$initBlocks)();
+void Block$initBlocks() {
 	_Block$initBlocks();
 	
 	emerald->initBlocks();
 }
 
-static void (*_Item$initItems)();
-static void Item$initItems(){
+void (*_Item$initItems)();
+void Item$initItems(){
 	emerald->initItems();
 	emerald->initBlockItems();
 	
@@ -53,8 +53,8 @@ static void Item$initItems(){
 	bl_setArmorTexture(2003, "armor/emerald_1.png");
 }
 
-static void (*_Item$initCreativeItems)();
-static void Item$initCreativeItems() {
+void (*_Item$initCreativeItems)();
+void Item$initCreativeItems() {
 	_Item$initCreativeItems();
 
 	emerald->initCreativeItems();
@@ -69,8 +69,8 @@ static void Localization$_load(Localization *self, const std::string &langCode) 
 		self->_appendTranslations("loc/emerald/" + langCode + "-pocket.lang");
 }
 
-void (*_SmallHut$postProcess)(SmallHut*, BlockSource*, Random&, BoundingBox const&);
-void SmallHut$postProcess(SmallHut *self, BlockSource *region, Random &random, BoundingBox const &bounds) {
+void (*_SmallHut$postProcess)(SmallHut*, BlockSource*, Random&, const BoundingBox&);
+void SmallHut$postProcess(SmallHut *self, BlockSource *region, Random &random, const BoundingBox &bounds) {
 	int y = 5;
 	
 	if(region->getBlockID(0, 4, 0).blockId == 0) y = 4;

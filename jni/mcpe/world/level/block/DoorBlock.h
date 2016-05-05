@@ -1,24 +1,13 @@
 #pragma once
 
 #include "Block.h"
-class TextureUVCoordinateSet;
-class BlockPos;
-class BlockSource;
-class Material;
-class Entity;
-class Mob;
-class Player;
-class Random;
-class AABB;
 
 class DoorBlock : public Block {
 public:
 	enum class DoorType : int {};
 
-	/* Copy Constructor */
 	DoorBlock(const std::string&, int, const Material&, DoorType);
 
-	/* Virtual Functions */
 	virtual ~DoorBlock();
 	virtual void asItemInstance(BlockSource&, const BlockPos&, int);
 	virtual bool canBeSilkTouched() const;
