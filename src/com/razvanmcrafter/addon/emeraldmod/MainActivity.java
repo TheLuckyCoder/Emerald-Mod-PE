@@ -36,7 +36,7 @@ public class MainActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {  
         switch (item.getItemId()) {  
             case R.id.checkTwitter:
-				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/razvan_145?s=09")));
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/razvan_145")));
 				return true;
 			case R.id.rate:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.razvanmcrafter.addon.emeraldmod")));

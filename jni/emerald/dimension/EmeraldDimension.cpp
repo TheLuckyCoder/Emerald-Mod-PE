@@ -1,17 +1,15 @@
 #include "EmeraldDimension.h"
 
-EmeraldDimension::EmeraldDimension(Level &level) : Dimension(level, DimensionId::EMERALD)
+EmeraldDimension::EmeraldDimension(Level &level) : Dimension(level, DimensionId::EMERALD_DIMENSION)
 {
 }
 
 std::string EmeraldDimension::getName() const{
-	return "EmeraldDimen";
+	return "EMERALD";
 }
 
 void EmeraldDimension::init(){
 	Dimension::init();
-	
-	setCeiling(true);
 }
 
 float EmeraldDimension::getFogDistanceScale() const{

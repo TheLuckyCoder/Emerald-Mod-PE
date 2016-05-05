@@ -18,18 +18,6 @@ void FlintAndEmeraldItem::mineBlock(ItemInstance *item, BlockID blockid, int x, 
 }
 
 bool FlintAndEmeraldItem::useOn(ItemInstance *item, Player *player, int x, int y, int z, signed char side, float xx, float yy, float zz){
-	/*Mob* mob;
-	if(player->region.getBlockID(x, y+1, z).blockId == 0)
-		player->region.setBlockAndData(x, y+1, z, {Block::mFire->blockId, 0}, 3);
-	if(player->region.getBlockID(x+1, y+1, z).blockId == 0 && player->region.getBlockID({x+1, y, z}).blockId != 0)
-		player->region.setBlockAndData(x+1, y+1, z, {Block::mFire->blockId, 0}, 3);
-	if(player->region.getBlockID(x-1, y+1, z).blockId == 0 && player->region.getBlockID({x-1, y, z}).blockId != 0)
-		player->region.setBlockAndData(x-1, y+1, z, {Block::mFire->blockId, 0}, 3);
-	if(player->region.getBlockID(x, y+1, z+1).blockId == 0 && player->region.getBlockID({x+1, y, z}).blockId != 0)
-		player->region.setBlockAndData(x, y+1, z+1, {Block::mFire->blockId, 0}, 3);
-	if(player->region.getBlockID(x, y+1, z-1).blockId == 0 && player->region.getBlockID({x+1, y, z}).blockId != 0)
-		player->region.setBlockAndData(x, y+1, z-1, {Block::mFire->blockId, 0}, 3);
-	item->hurtAndBreak(1, mob);*/
 	Item::mItems[259]->useOn(item, player, x, y, z, side, xx, yy, zz);
 }
 

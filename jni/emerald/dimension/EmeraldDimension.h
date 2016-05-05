@@ -7,8 +7,7 @@ public:
 	EmeraldDimension(Level &level);
 
 	virtual void init();
-
-	virtual std::string getName() const = 0;
+	virtual std::string getName() const;
 	virtual float getFogDistanceScale() const;
 	virtual float getCloudHeight() const;
 	virtual bool mayRespawn() const;

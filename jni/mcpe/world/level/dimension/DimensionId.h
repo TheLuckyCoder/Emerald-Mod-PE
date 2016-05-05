@@ -4,5 +4,5 @@ enum class DimensionId : int {
 	OVERWORLD,
 	NETHER,
 	NODIMENSION,
-	EMERALD
+	EMERALD_DIMENSION
 };

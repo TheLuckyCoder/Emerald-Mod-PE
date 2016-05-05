@@ -4,7 +4,9 @@
 
 class DoorBlock : public Block {
 public:
-	enum class DoorType : int {};
+	enum class DoorType : int {
+		DOOR_EMERALD
+	};
 
 	DoorBlock(const std::string&, int, const Material&, DoorType);
 
@@ -38,3 +40,4 @@ public:
 	virtual void tick(BlockSource&, const BlockPos&, Random &);
 	virtual bool use(Player&, const BlockPos&);
 };
+

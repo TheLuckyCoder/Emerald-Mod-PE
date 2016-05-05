@@ -49,8 +49,8 @@ public:
 	int wat4; // 3260
 	int arrowCount; // 3264
 	
-	Mob(Level &);
-	Mob(BlockSource &);
+	Mob(Level&);
+	Mob(BlockSource&);
 	
 	/* vtable */
 	virtual ~Mob();

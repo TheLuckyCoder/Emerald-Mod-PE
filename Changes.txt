@@ -1,10 +1,18 @@
+1.4.4
+New:
+-added back support for x86 devices
+-added back Emerald Huts
+Fixed:
+-crash when opening the app
+-Emerald Slab
+
 1.4.3
 New:
 -added Emerald Bow(is not ready)
 -support for 0.14.2
 Changed/Improved:
 -Emerald Pickaxe and Shovel code
--Flint and Emerald now works just like Flint and Steel
+-Flint and Emerald now works like Flint and Steel
 -Changed Emerald Slab Id
 -removed Emerald Huts(will be added back in future updates)
 Fixed:

@@ -42,7 +42,7 @@ Item* Emerald::mDoorItem;
 
 void Emerald::initBlocks()
 {
-	Block::mBlocks[230] = mSlab = (new EmeraldSlabBlock(233))->init();
+	Block::mBlocks[230] = mSlab = (new EmeraldSlabBlock(230))->init();
 	Block::mBlocks[231] = mBrick = (new EmeraldBrickBlock(231))->init();
 	Block::mBlocks[232] = mPlanks = (new EmeraldPlanksBlock(232))->init();
 }

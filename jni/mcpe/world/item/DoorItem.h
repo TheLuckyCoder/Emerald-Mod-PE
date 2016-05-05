@@ -1,10 +1,8 @@
 #pragma once
 
 #include "Item.h"
-
-class Material;
-//class DoorBlock { class DoorType; };
 #include "../level/block/DoorBlock.h"
+class Material;
 
 class DoorItem : public Item {
 public:

@@ -7,8 +7,6 @@ EmeraldSlabBlock::EmeraldSlabBlock(int blockId) : SlabBlock("emeraldSlab", block
 	setDestroyTime(2.0F);
 	setExplodeable(8.0F);
 	setMapColor(Color::GREEN);
-	//setSolid(false);
-	//setVisualShape({0.0F, 0.0F, 0.0F}, {1.0F, 0.5F, 1.0F});
 	creativeCategory = CreativeItemCategory::BLOCKS;
 }
 

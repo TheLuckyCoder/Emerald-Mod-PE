@@ -123,7 +123,7 @@ std::unique_ptr<Dimension> (*_Dimension$createNew)(DimensionId, Level&);
 std::unique_ptr<Dimension> Dimension$createNew(DimensionId id, Level &level)
 {
 	std::unique_ptr<Dimension> dimension;
-	//if (id == DimensionId::EMERALD)
+	//if (id == DimensionId::EMERALD_DIMENSION)
 	//	dimension = std::unique_ptr<Dimension>(new EmeraldDimension(level));
 
 	return _Dimension$createNew(id, level);
@@ -133,7 +133,7 @@ std::unique_ptr<ChunkSource> (*_Dimension$_createGenerator)(GeneratorType);
 std::unique_ptr<ChunkSource> (Dimension$_createGenerator)(GeneratorType type)
 {
 	DimensionId id;
-	if (id == DimensionId::EMERALD)
+	if (id == DimensionId::EMERALD_DIMENSION)
 		type = GeneratorType::LEGACY;
 
 	return _Dimension$_createGenerator(type);
