@@ -10,6 +10,6 @@ EmeraldSlabBlock::EmeraldSlabBlock(int blockId) : SlabBlock("emeraldSlab", block
 	creativeCategory = CreativeItemCategory::BLOCKS;
 }
 
-bool EmeraldSlabBlock::use(Player &player, const BlockPos &pos){	
+bool EmeraldSlabBlock::use(Player &player, const BlockPos &pos){
 	return SlabBlock::use(player, pos);
 }

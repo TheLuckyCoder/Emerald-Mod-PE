@@ -15,4 +15,6 @@ public:
 	virtual bool isValidSpawn(int, int) const;
 	virtual bool isNaturalDimension() const;
 	virtual Color getFogColor(float) const;
+	virtual void load(const CompoundTag&);
+	virtual void save(CompoundTag &);
 };

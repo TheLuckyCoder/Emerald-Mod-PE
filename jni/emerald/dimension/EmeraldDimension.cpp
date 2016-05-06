@@ -39,3 +39,9 @@ bool EmeraldDimension::isNaturalDimension() const{
 Color EmeraldDimension::getFogColor(float) const{
 	return Color::GREEN;
 }
+
+void EmeraldDimension::load(const CompoundTag&){
+}
+
+void EmeraldDimension::save(CompoundTag&){
+}

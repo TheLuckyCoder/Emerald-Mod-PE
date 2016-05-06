@@ -45,6 +45,7 @@ void Emerald::initBlocks()
 	Block::mBlocks[230] = mSlab = (new EmeraldSlabBlock(230))->init();
 	Block::mBlocks[231] = mBrick = (new EmeraldBrickBlock(231))->init();
 	Block::mBlocks[232] = mPlanks = (new EmeraldPlanksBlock(232))->init();
+	//Block::mBlocks[234] = mDoor = (new EmeraldDoorBlock(234))->init();
 }
 
 void Emerald::initBlockItems()

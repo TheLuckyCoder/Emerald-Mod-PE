@@ -19,6 +19,7 @@ class ExplodeComponent;
 class Dimension;
 class Random;
 class EntityLocation;
+#include "EntityList.h"
 #include "../material/Material.h"
 #include "EntityType.h"
 #include "EntityRendererId.h"
@@ -30,7 +31,7 @@ class EntityLocation;
 #include "../util/Color.h"
 #include "../../CommonTypes.h"
 
-typedef std::vector<Entity*> EntityList;
+//typedef std::vector<Entity*> EntityList;
 
 class Entity {
 public:

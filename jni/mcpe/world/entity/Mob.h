@@ -101,11 +101,11 @@ public:
 	virtual void hurtEffects(const EntityDamageSource&, int);
 	virtual float getMeleeWeaponDamageBonus(Mob*);
 	virtual float getMeleeKnockbackBonus();
-	virtual void actuallyHurt(int, const EntityDamageSource&);
+	//virtual void actuallyHurt(int, const EntityDamageSource&);
 	virtual bool isInvertedHealAndHarm() const;
 	virtual void travel(float, float);
 	virtual void applyFinalFriction(float);
-	virtual void updateWalkAnimation();
+	//virtual void updateWalkAnimation();
 	virtual void aiStep();
 	virtual void pushEntities();
 	virtual void lookAt(Entity*, float, float);
@@ -116,7 +116,7 @@ public:
 	virtual void performRangedAttack(Mob&, float);
 	virtual ItemInstance& getCarriedItem();
 	virtual void setCarriedItem(const ItemInstance&);
-	virtual int getItemUseDuration(int);
+	//virtual int getItemUseDuration(int);
 	virtual void swing();
 	virtual void ate();
 	virtual float getMaxHeadXRot();
@@ -125,7 +125,7 @@ public:
 	virtual Player* getLastHurtByPlayer();
 	virtual void setLastHurtByPlayer(Player*);
 	virtual Entity* getLastHurtMob();
-	virtual void setLasthurtMob(Entity*);
+	virtual void setLastHurtMob(Entity*);
 	virtual Mob* getTarget();
 	virtual void setTarget(Mob*);
 	virtual bool canAttack(Mob*, bool);

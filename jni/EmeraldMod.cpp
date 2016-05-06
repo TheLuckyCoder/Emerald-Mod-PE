@@ -11,10 +11,13 @@
 #include "mcpe/world/level/levelgen/structure/village/components/SmallHut.h"
 #include "mcpe/world/level/ChunkSource.h"
 #include "mcpe/world/level/BlockSource.h"
+#include "mcpe/world/entity/player/Player.h"
+#include "mcpe/world/level/Level.h"
 
 #include "emerald/Emerald.h"
 #include "emerald/recipes/EmeraldRecipes.h"
 #include "emerald/dimension/EmeraldDimension.h"
+#include "emerald/entity/EmeraldCow.h"
 
 #define LOG_TAG "Emerald-Mod"
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__))
@@ -120,23 +123,34 @@ std::string Common$getGameDevVersionString() {
 }
 
 std::unique_ptr<Dimension> (*_Dimension$createNew)(DimensionId, Level&);
-std::unique_ptr<Dimension> Dimension$createNew(DimensionId id, Level &level)
-{
+std::unique_ptr<Dimension> Dimension$createNew(DimensionId id, Level &level){
 	std::unique_ptr<Dimension> dimension;
-	//if (id == DimensionId::EMERALD_DIMENSION)
-	//	dimension = std::unique_ptr<Dimension>(new EmeraldDimension(level));
+	if (id == DimensionId::EMERALD_DIMENSION)
+		dimension = std::unique_ptr<Dimension>(new EmeraldDimension(level));
 
 	return _Dimension$createNew(id, level);
 }
 
 std::unique_ptr<ChunkSource> (*_Dimension$_createGenerator)(GeneratorType);
-std::unique_ptr<ChunkSource> (Dimension$_createGenerator)(GeneratorType type)
-{
+std::unique_ptr<ChunkSource> (Dimension$_createGenerator)(GeneratorType type){
 	DimensionId id;
 	if (id == DimensionId::EMERALD_DIMENSION)
 		type = GeneratorType::LEGACY;
 
 	return _Dimension$_createGenerator(type);
+}
+
+
+bool (*_myUseItemRealPtr)(Item*, ItemInstance*, Player*, int, int, int, signed char, float, float, float);
+bool _myUseItemHook(Item* self, ItemInstance* itemStack, Player* player, int x, int y, int z, signed char side, float xx, float yy, float zz) {
+	if(self == Item::mStick)
+	{
+		// spawns our Entity into the world when we tap with a stick
+		//player->region.getLevel()->addGlobalEntity(std::unique_ptr<Entity>(new EmeraldCow(player->region, x, y + 2, z)));
+		player->changeDimension(DimensionId::EMERALD_DIMENSION);
+	}
+	
+	return _myUseItemRealPtr(self, itemStack, player, x, y, z, side, xx, yy, zz);
 }
 
 JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) 
@@ -151,8 +165,9 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved)
 	//MSHookFunction((void*) &SmallHut::postProcess, (void*) &SmallHut$postProcess, (void**) &_SmallHut$postProcess);
 	MSHookFunction((void*) &Recipes::init, (void*) &Recipes$init, (void**) &_Recipes$init);
 	MSHookFunction((void*) &Common::getGameDevVersionString, (void*) &Common$getGameDevVersionString, (void**) &_Common$getGameDevVersionString);
-	//MSHookFunction((void*) &Dimension::createNew, (void*) &Dimension$createNew, (void**) &_Dimension$createNew);
-	//MSHookFunction((void*) &Dimension::_createGenerator, (void*) &Dimension$_createGenerator, (void**) &_Dimension$_createGenerator);
+	MSHookFunction((void*) &Dimension::createNew, (void*) &Dimension$createNew, (void**) &_Dimension$createNew);
+	MSHookFunction((void*) &Dimension::_createGenerator, (void*) &Dimension$_createGenerator, (void**) &_Dimension$_createGenerator);
+	MSHookFunction((void*) &Item::useOn, (void*) &_myUseItemHook, (void**) &_myUseItemRealPtr);
 
 	return JNI_VERSION_1_2;
 }

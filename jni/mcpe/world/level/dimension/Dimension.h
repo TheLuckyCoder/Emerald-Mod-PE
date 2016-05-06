@@ -47,11 +47,11 @@ public:
 	virtual void updateLightRamp();
 
 	virtual bool isNaturalDimension() const;
-	virtual bool isValidSpawn(int x, int z) const;
+	virtual bool isValidSpawn(int, int) const;
 
 	virtual Color getFogColor(float) const;
 	virtual float getFogDistanceScale() const;
-	virtual bool isFoggyAt(int x, int z) const;
+	virtual bool isFoggyAt(int, int) const;
 
 	virtual float getCloudHeight() const;
 
@@ -65,14 +65,14 @@ public:
 
 	virtual std::string getName() const = 0;
 
-	virtual void load(const CompoundTag &tag);
-	virtual void save(CompoundTag &tag);
+	virtual void load(const CompoundTag&);
+	virtual void save(CompoundTag &);
 
 	virtual void sendDimensionPackets();
-	virtual void sendBroadcast(const Packet &packet, Player *player);
+	virtual void sendBroadcast(const Packet&, Player*);
 
-	virtual void addMoveEntityPacket(const MoveEntityPacketData &data);
-	virtual void addSetEntityMotionPacket(Entity &entity);
+	virtual void addMoveEntityPacket(const MoveEntityPacketData&);
+	virtual void addSetEntityMotionPacket(Entity&);
 
 	virtual void getTimeOfDay(int, float) const;
 
