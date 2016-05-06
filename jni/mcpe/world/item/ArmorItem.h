@@ -48,7 +48,6 @@ public:
 
 public:
 	ArmorItem(const std::string&, int, const ArmorItem::ArmorMaterial &, int, ArmorSlot);
-	
 	virtual ~ArmorItem();
 	virtual bool isArmor() const;
 	virtual const std::string& appendFormattedHovertext(const ItemInstance&, const Player&, std::string&, bool) const;

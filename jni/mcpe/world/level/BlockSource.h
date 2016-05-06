@@ -1,7 +1,6 @@
 #pragma once
-
 class Block;
-class BlockPos;
+struct BlockPos;
 class Material;
 class BlockEntity;
 class Level;

@@ -17,6 +17,7 @@
 #include "blocks/EmeraldSlabBlock.h"
 #include "blocks/EmeraldBrickBlock.h"
 #include "blocks/EmeraldPlanksBlock.h"
+#include "blocks/EmeraldDoorBlock.h"
 
 Block* Emerald::mSlab;
 Block* Emerald::mBrick;
@@ -91,7 +92,7 @@ void Emerald::initCreativeItems()
 	Item::addCreativeItem(mFlintAndEmerald, 0);
 	Item::addCreativeItem(mRod, 0);
 	Item::addCreativeItem(mDust, 0);
-	Item::addCreativeItem(mBow, 0);
+	//Item::addCreativeItem(mBow, 0);
 	//Item::addCreativeItem(mDoorItem, 0);
 	Item::addCreativeItem(511, 0);//Beef
 	Item::addCreativeItem(512, 0);//Apple

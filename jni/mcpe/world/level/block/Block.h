@@ -1,7 +1,9 @@
 #pragma once
+
 #include <string>
 #include <vector>
 #include <memory>
+
 class Material;
 class BlockEntity;
 struct BlockPos;

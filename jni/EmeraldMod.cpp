@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <dlfcn.h>
 #include <substrate.h>
-#include "tinyhook.h"
-#include "dl_internal.h"
 
 #include "mcpe/Common.h"
 #include "mcpe/client/MinecraftClient.h"
@@ -11,8 +9,6 @@
 #include "mcpe/world/level/levelgen/structure/village/components/SmallHut.h"
 #include "mcpe/world/level/ChunkSource.h"
 #include "mcpe/world/level/BlockSource.h"
-#include "mcpe/world/entity/player/Player.h"
-#include "mcpe/world/level/Level.h"
 
 #include "emerald/Emerald.h"
 #include "emerald/recipes/EmeraldRecipes.h"
@@ -22,7 +18,7 @@
 #define LOG_TAG "Emerald-Mod"
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__))
 
-std::string MOD_NAME = "Emerald Mod";
+const std::string MOD_NAME = "Emerald Mod";
 std::string MOD_VERSION = "v1.4.3";
 
 Emerald* emerald;
@@ -36,15 +32,15 @@ void MinecraftClient$onPlayerLoaded(MinecraftClient *self, Player &player){
 	self->sendLocalMessage(MOD_NAME, "Made by Razvan MCrafter");
 }
 
-void (*_Block$initBlocks)();
-void Block$initBlocks() {
+static void (*_Block$initBlocks)();
+static void Block$initBlocks() {
 	_Block$initBlocks();
 	
 	emerald->initBlocks();
 }
 
-void (*_Item$initItems)();
-void Item$initItems(){
+static void (*_Item$initItems)();
+static void Item$initItems(){
 	emerald->initItems();
 	emerald->initBlockItems();
 	
@@ -56,8 +52,8 @@ void Item$initItems(){
 	bl_setArmorTexture(2003, "armor/emerald_1.png");
 }
 
-void (*_Item$initCreativeItems)();
-void Item$initCreativeItems() {
+static void (*_Item$initCreativeItems)();
+static void Item$initCreativeItems() {
 	_Item$initCreativeItems();
 
 	emerald->initCreativeItems();
@@ -140,23 +136,8 @@ std::unique_ptr<ChunkSource> (Dimension$_createGenerator)(GeneratorType type){
 	return _Dimension$_createGenerator(type);
 }
 
-
-bool (*_myUseItemRealPtr)(Item*, ItemInstance*, Player*, int, int, int, signed char, float, float, float);
-bool _myUseItemHook(Item* self, ItemInstance* itemStack, Player* player, int x, int y, int z, signed char side, float xx, float yy, float zz) {
-	if(self == Item::mStick)
-	{
-		// spawns our Entity into the world when we tap with a stick
-		//player->region.getLevel()->addGlobalEntity(std::unique_ptr<Entity>(new EmeraldCow(player->region, x, y + 2, z)));
-		player->changeDimension(DimensionId::EMERALD_DIMENSION);
-	}
-	
-	return _myUseItemRealPtr(self, itemStack, player, x, y, z, side, xx, yy, zz);
-}
-
 JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) 
 {
-	soinfo2 *tinyHandle = (soinfo2 *) dlopen("libminecraftpe.so", RTLD_LAZY);
-
 	MSHookFunction((void*) &MinecraftClient::onPlayerLoaded, (void*) &MinecraftClient$onPlayerLoaded, (void**) &_MinecraftClient$onPlayerLoaded);
 	MSHookFunction((void*) &Block::initBlocks, (void*) &Block$initBlocks, (void**) &_Block$initBlocks);
 	MSHookFunction((void*) &Item::initItems, (void*) &Item$initItems, (void**) &_Item$initItems);
@@ -167,7 +148,6 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved)
 	MSHookFunction((void*) &Common::getGameDevVersionString, (void*) &Common$getGameDevVersionString, (void**) &_Common$getGameDevVersionString);
 	MSHookFunction((void*) &Dimension::createNew, (void*) &Dimension$createNew, (void**) &_Dimension$createNew);
 	MSHookFunction((void*) &Dimension::_createGenerator, (void*) &Dimension$_createGenerator, (void**) &_Dimension$_createGenerator);
-	MSHookFunction((void*) &Item::useOn, (void*) &_myUseItemHook, (void**) &_myUseItemRealPtr);
 
 	return JNI_VERSION_1_2;
 }

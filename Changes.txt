@@ -1,7 +1,8 @@
 1.4.4
 New:
--added back support for x86 devices
--added back Emerald Huts
+-added back support for x86 devices //TODO
+Improved:
+-improved a lot Emerald Slabs
 Fixed:
 -crash when opening the app
 -Emerald Slab

@@ -7,7 +7,7 @@ EmeraldCow::EmeraldCow(BlockSource& region, float x, float y, float z) : Mob(reg
 }
 
 EntityType EmeraldCow::getEntityTypeId() const {
-	return EntityType::COW_EMERALD;
+	return EntityType::EMERALD_COW;
 }
 
 bool EmeraldCow::useNewAi(){

@@ -13,8 +13,9 @@ public:
 	virtual void getRedstoneProperty(BlockSource&, const BlockPos&);
 	virtual int getResourceCount(Random&, int, int);
 	virtual const AABB& getVisualShape(unsigned char, AABB&, bool);
-	virtual bool isBottomSlab(BlockSource&, const BlockPos&) const;
-	virtual bool isBottomSlab(int);
 	virtual bool isObstructingChests(BlockSource&, const BlockPos&);
 	virtual bool shouldRenderFace(BlockSource&, const BlockPos&, signed char, const AABB&) const;
+	
+	bool isBottomSlab(BlockSource&, const BlockPos&) const;
+	bool isBottomSlab(int);
 };
