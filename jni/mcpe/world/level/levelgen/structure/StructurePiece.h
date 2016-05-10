@@ -2,11 +2,10 @@
 
 #include <vector>
 
-#include "mcpe/CommonTypes.h"
+#include "../../BlockSource.h"
 class Block;
 class BoundingBox;
 class Random;
-class BlockSource;
 class BlockSelector;
 class ChunkPos;
 class Brightness;

@@ -6,7 +6,4 @@ class DustItem : public Item
 {
 public:
 	DustItem(short itemId);
-
-public:
-    DustItem(std::string);
 };

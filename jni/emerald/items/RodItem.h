@@ -6,7 +6,4 @@ class RodItem : public Item
 {
 public:
 	RodItem(short itemId);
-
-public:
-    RodItem(std::string);
 };

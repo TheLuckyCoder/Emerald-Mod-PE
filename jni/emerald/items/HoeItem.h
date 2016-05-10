@@ -8,9 +8,6 @@ class HoeItem : public Item
 {
 public:
 	HoeItem(short itemId);
-
-public:
-    HoeItem(std::string);
 	virtual int getAttackDamage();
 	virtual bool useOn(ItemInstance*, Player*, int, int, int, signed char, float, float, float);
 	virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);

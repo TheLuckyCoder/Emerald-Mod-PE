@@ -8,9 +8,6 @@ class ShovelItem : public Item
 {
 public:
 	ShovelItem(short itemId);
-
-public:
-    ShovelItem(std::string);
 	virtual int getAttackDamage();
 	virtual int getEnchantSlot() const;
 	virtual int getEnchantValue() const;

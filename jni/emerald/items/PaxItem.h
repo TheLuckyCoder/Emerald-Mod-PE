@@ -8,9 +8,6 @@
 class PaxItem : public Item {
 public:
 	PaxItem(short itemId);
-
-public:
-    PaxItem(std::string);
 	virtual int getAttackDamage();
 	virtual int getEnchantValue() const;
 	virtual int getEnchantSlot() const;

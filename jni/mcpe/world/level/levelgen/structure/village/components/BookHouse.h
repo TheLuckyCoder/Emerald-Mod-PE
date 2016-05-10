@@ -1,6 +1,9 @@
 #pragma once
 
 #include "../VillagePiece.h"
+class CompoundTag;
+class BlockSource;
+class Random;
 
 class BookHouse : public VillagePiece {
 public:

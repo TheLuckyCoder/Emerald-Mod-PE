@@ -7,8 +7,6 @@
 #include "mcpe/client/MinecraftClient.h"
 #include "mcpe/locale/Localization.h"
 #include "mcpe/world/level/levelgen/structure/village/components/SmallHut.h"
-#include "mcpe/world/level/ChunkSource.h"
-#include "mcpe/world/level/BlockSource.h"
 
 #include "emerald/Emerald.h"
 #include "emerald/recipes/EmeraldRecipes.h"
@@ -18,11 +16,11 @@
 #define LOG_TAG "Emerald-Mod"
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__))
 
-const std::string MOD_NAME = "Emerald Mod";
-std::string MOD_VERSION = "v1.4.3";
+std::string MOD_NAME = "Emerald Mod";
+std::string MOD_VERSION = "v1.5-pre1";
 
 Emerald* emerald;
-bool bl_setArmorTexture(int, std::string const&);
+bool bl_setArmorTexture(int, const std::string&);
 
 //Hook functions
 void (*_MinecraftClient$onPlayerLoaded)(MinecraftClient*, Player&);
@@ -118,7 +116,7 @@ std::string Common$getGameDevVersionString() {
 	return (MOD_NAME + " " + MOD_VERSION);
 }
 
-std::unique_ptr<Dimension> (*_Dimension$createNew)(DimensionId, Level&);
+/*std::unique_ptr<Dimension> (*_Dimension$createNew)(DimensionId, Level&);
 std::unique_ptr<Dimension> Dimension$createNew(DimensionId id, Level &level){
 	std::unique_ptr<Dimension> dimension;
 	if (id == DimensionId::EMERALD_DIMENSION)
@@ -131,10 +129,10 @@ std::unique_ptr<ChunkSource> (*_Dimension$_createGenerator)(GeneratorType);
 std::unique_ptr<ChunkSource> (Dimension$_createGenerator)(GeneratorType type){
 	DimensionId id;
 	if (id == DimensionId::EMERALD_DIMENSION)
-		type = GeneratorType::LEGACY;
+		type = GeneratorType::FLAT;
 
 	return _Dimension$_createGenerator(type);
-}
+}*/
 
 JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) 
 {
@@ -146,8 +144,8 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved)
 	//MSHookFunction((void*) &SmallHut::postProcess, (void*) &SmallHut$postProcess, (void**) &_SmallHut$postProcess);
 	MSHookFunction((void*) &Recipes::init, (void*) &Recipes$init, (void**) &_Recipes$init);
 	MSHookFunction((void*) &Common::getGameDevVersionString, (void*) &Common$getGameDevVersionString, (void**) &_Common$getGameDevVersionString);
-	MSHookFunction((void*) &Dimension::createNew, (void*) &Dimension$createNew, (void**) &_Dimension$createNew);
-	MSHookFunction((void*) &Dimension::_createGenerator, (void*) &Dimension$_createGenerator, (void**) &_Dimension$_createGenerator);
+	//MSHookFunction((void*) &Dimension::createNew, (void*) &Dimension$createNew, (void**) &_Dimension$createNew);
+	//MSHookFunction((void*) &Dimension::_createGenerator, (void*) &Dimension$_createGenerator, (void**) &_Dimension$_createGenerator);
 
 	return JNI_VERSION_1_2;
 }

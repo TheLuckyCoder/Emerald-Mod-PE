@@ -8,9 +8,6 @@ class AxeItem : public Item
 {
 public:
 	AxeItem(short itemId);
-
-public:
-    AxeItem(std::string);
 	virtual int getAttackDamage();
 	virtual int getEnchantSlot() const;
 	virtual int getEnchantValue() const;

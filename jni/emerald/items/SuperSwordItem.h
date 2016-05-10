@@ -8,9 +8,6 @@
 class SuperSwordItem : public Item {
 public:
 	SuperSwordItem(short itemId);
-
-public:
-    SuperSwordItem(std::string);
 	virtual int getAttackDamage();
 	virtual int getEnchantSlot() const;
 	virtual int getEnchantValue() const;

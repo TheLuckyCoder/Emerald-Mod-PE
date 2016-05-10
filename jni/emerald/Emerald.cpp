@@ -9,7 +9,7 @@
 #include "items/ShovelItem.h"
 #include "items/HoeItem.h"
 #include "items/FlintAndEmeraldItem.h"
-#include "items/BowItem.h"
+#include "items/EmeraldBowItem.h"
 #include "items/RodItem.h"
 #include "items/DustItem.h"
 #include "items/EmeraldDoorItem.h"
@@ -54,6 +54,7 @@ void Emerald::initBlockItems()
 	Item::mItems[mSlab->blockId] = new BlockItem(mSlab->getDescriptionId(), mSlab->blockId - 0x100);
 	Item::mItems[mBrick->blockId] = new BlockItem(mBrick->getDescriptionId(), mBrick->blockId - 0x100);
 	Item::mItems[mPlanks->blockId] = new BlockItem(mPlanks->getDescriptionId(), mPlanks->blockId - 0x100);
+	//Item::mItems[mDoor->blockId] = new BlockItem(mDoor->getDescriptionId(), mDoor->blockId - 0x100);
 }
 
 void Emerald::initItems()
@@ -70,7 +71,7 @@ void Emerald::initItems()
 	Item::mItems[2009] = mShovel = new ShovelItem(2009 - 0x100);
 	Item::mItems[2010] = mHoe = new HoeItem(2010 - 0x100);
 	Item::mItems[2011] = mFlintAndEmerald = new FlintAndEmeraldItem(2011 - 0x100);
-	Item::mItems[2012] = mBow = new BowItem(2012 - 0x100);
+	Item::mItems[2012] = mBow = new EmeraldBowItem(2012 - 0x100);
 	Item::mItems[2013] = mRod = new RodItem(2013 - 0x100);
 	Item::mItems[2014] = mDust = new DustItem(2014 - 0x100);
 	//Item::mItems[2015] = mDoorItem = new EmeraldDoorItem(2015 - 0x100);
@@ -92,7 +93,7 @@ void Emerald::initCreativeItems()
 	Item::addCreativeItem(mFlintAndEmerald, 0);
 	Item::addCreativeItem(mRod, 0);
 	Item::addCreativeItem(mDust, 0);
-	//Item::addCreativeItem(mBow, 0);
+	Item::addCreativeItem(mBow, 0);
 	//Item::addCreativeItem(mDoorItem, 0);
 	Item::addCreativeItem(511, 0);//Beef
 	Item::addCreativeItem(512, 0);//Apple
@@ -103,5 +104,4 @@ void Emerald::initCreativeBlocks()
 	Item::addCreativeItem(mSlab, 0);
 	Item::addCreativeItem(mBrick, 0);
 	Item::addCreativeItem(mPlanks, 0);
-	//Item::addCreativeItem(mDoor, 0);
 }

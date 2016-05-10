@@ -8,9 +8,6 @@ class FlintAndEmeraldItem : public Item
 {
 public:
 	FlintAndEmeraldItem(short itemId);
-
-public:
-    FlintAndEmeraldItem(std::string);
 	virtual void mineBlock(ItemInstance*, BlockID, int, int, int, Mob*);
 	virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);
 	virtual bool useOn(ItemInstance*, Player*, int, int, int, signed char, float, float, float);

@@ -2,9 +2,11 @@
 
 #include "Item.h"
 #include "../level/block/DoorBlock.h"
+
 class Material;
 
-class DoorItem : public Item {
+class DoorItem : public Item
+{
 public:
 	DoorItem(const std::string&, int, const Material&, DoorBlock::DoorType);
 	

@@ -1,6 +1,9 @@
 #pragma once
 
 #include "../VillagePiece.h"
+class CompoundTag;
+class BoundingBox;
+class Random;
 
 class SmallTemple : public VillagePiece {
 public:

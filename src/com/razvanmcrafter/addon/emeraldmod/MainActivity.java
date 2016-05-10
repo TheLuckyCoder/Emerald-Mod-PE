@@ -1,13 +1,13 @@
 package com.razvanmcrafter.addon.emeraldmod;
 
 import android.*;
-import android.app.*;
+import android.app.Activity;
 import android.content.*;
 import android.content.pm.*;
 import android.net.*;
 import android.os.*;
 import android.view.*;
-import android.widget.*;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
     @Override

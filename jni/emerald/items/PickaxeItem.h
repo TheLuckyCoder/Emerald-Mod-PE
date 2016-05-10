@@ -9,9 +9,6 @@ class PickaxeItem : public Item
 {
 public:
 	PickaxeItem(short itemId);
-
-public:
-    PickaxeItem(std::string);
 	virtual int getAttackDamage();
 	virtual int getEnchantValue() const;
 	virtual int getEnchantSlot() const;

@@ -6,7 +6,4 @@ class EmeraldDoorItem : public DoorItem
 {
 public:
 	EmeraldDoorItem(int itemId);
-	
-public:
-	EmeraldDoorItem(std::string);
 };

@@ -1,6 +1,8 @@
 #pragma once
 
 #include "../VillagePiece.h"
+class BoundingBox;
+class Random;
 
 class LightPost : public VillagePiece {
 public:

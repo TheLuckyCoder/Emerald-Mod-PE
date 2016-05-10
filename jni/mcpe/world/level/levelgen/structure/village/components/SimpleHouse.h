@@ -1,6 +1,9 @@
 #pragma once
 
 #include "../VillagePiece.h"
+class CompoundTag;
+class BoundingBox;
+class Random;
 
 class SimpleHouse : public VillagePiece {
 public:
@@ -12,4 +15,7 @@ public:
 	virtual void postProcess(BlockSource*, Random&, const BoundingBox&);
 	virtual void addAdditionalSaveData(CompoundTag&);
 	virtual void readAdditionalSaveData(CompoundTag&);
+	
+	//Custom functions
+	void genSimpleHouse(BlockSource*, Random&, BoundingBox const&);
 };
