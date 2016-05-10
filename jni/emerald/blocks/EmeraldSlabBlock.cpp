@@ -11,10 +11,6 @@ EmeraldSlabBlock::EmeraldSlabBlock(int blockId) : SlabBlock("emeraldSlab", block
 	emeraldTex = getTextureUVCoordinateSet("emerald_block", 0);
 }
 
-bool EmeraldSlabBlock::use(Player &player, const BlockPos &pos){
-	return SlabBlock::use(player, pos);
-}
-
 const TextureUVCoordinateSet& EmeraldSlabBlock::getTexture(signed char data) {
 	return emeraldTex;
 }

@@ -8,6 +8,5 @@ public:
 	TextureUVCoordinateSet emeraldTex;
 
 	EmeraldSlabBlock(int blockId);
-	virtual bool use(Player&, const BlockPos&);
 	virtual const TextureUVCoordinateSet& getTexture(signed char);
 };

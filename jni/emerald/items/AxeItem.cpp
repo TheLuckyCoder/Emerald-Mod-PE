@@ -1,5 +1,6 @@
 #include "AxeItem.h"
 #include "mcpe/world/item/ItemInstance.h"
+#include "../Emerald.h"
 
 AxeItem::AxeItem(short itemId) : Item("emeraldAxe", itemId)
 {

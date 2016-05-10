@@ -9,7 +9,3 @@ EmeraldDoorBlock::EmeraldDoorBlock(int blockId) : DoorBlock("emeraldDoor", block
 	setMapColor(Color::GREEN);
 	creativeCategory = CreativeItemCategory::BLOCKS;
 }
-
-bool EmeraldDoorBlock::use(Player &player, const BlockPos &pos){	
-	return DoorBlock::use(player, pos);
-}

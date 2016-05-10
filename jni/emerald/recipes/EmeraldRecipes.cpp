@@ -87,7 +87,7 @@ void EmeraldRecipes::initRecipes(Recipes* instance) {
 	//Slab
 	pushIngredient(133, 0, 'b');
 	pushIngredient(2014, 0, 'd');
-	addRecipe(Block::mBlocks[233]->blockId, 1, 0, {"bbb", "   ", "   "});
+	addRecipe(Block::mBlocks[230]->blockId, 1, 0, {"bbb", "   ", "   "});
 	
 	//Brick
 	pushIngredient(98, 0, 's');

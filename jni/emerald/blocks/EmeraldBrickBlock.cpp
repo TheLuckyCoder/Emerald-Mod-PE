@@ -9,7 +9,3 @@ EmeraldBrickBlock::EmeraldBrickBlock(int blockId) : Block("emeraldBrick", blockI
 	setMapColor(Color::GREEN);
 	creativeCategory = CreativeItemCategory::BLOCKS;
 }
-
-bool EmeraldBrickBlock::use(Player &player, const BlockPos &pos){	
-	return Block::use(player, pos);
-}

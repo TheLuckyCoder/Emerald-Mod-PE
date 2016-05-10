@@ -9,7 +9,3 @@ EmeraldPlanksBlock::EmeraldPlanksBlock(int blockId) : Block("emeraldPlanks", blo
 	setMapColor(Color::GREEN);
 	creativeCategory = CreativeItemCategory::BLOCKS;
 }
-
-bool EmeraldPlanksBlock::use(Player &player, const BlockPos &pos){	
-	return Block::use(player, pos);
-}

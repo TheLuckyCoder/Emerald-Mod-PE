@@ -6,5 +6,4 @@ class EmeraldDoorBlock : public DoorBlock
 {
 public:
 	EmeraldDoorBlock(int blockId);
-	virtual bool use(Player&, const BlockPos&);
 };
