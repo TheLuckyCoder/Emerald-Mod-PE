@@ -2,10 +2,11 @@
 
 #include "Block.h"
 
-class DoorBlock : public Block {
+class DoorBlock : public Block
+{
 public:
 	enum class DoorType : int {
-		EMERALD_DOOR
+		EMERALD_DOOR = 99
 	};
 
 	DoorBlock(const std::string&, int, const Material&, DoorType);

@@ -2,10 +2,7 @@
 
 #include <vector>
 #include <string>
-
 #include "../ItemInstance.h"
-class Item;
-class Block;
 
 class Recipes {
 public:

@@ -1,6 +1,6 @@
 #include "EmeraldCow.h"
 
-EmeraldCow::EmeraldCow(BlockSource& region, float x, float y, float z) : Mob(region) {
+EmeraldCow::EmeraldCow(BlockSource &region, float x, float y, float z) : Mob(region) {
 	rendererId = EntityRendererId::COW;
 	setPos({x, y, z});
 	_init();

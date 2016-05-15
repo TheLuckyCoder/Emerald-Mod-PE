@@ -3,12 +3,10 @@
 #include "../StructurePiece.h"
 #include "../StartPiece.h"
 class CompoundTag;
-class BlockSource;
-class BoundingBox;
-class FullBlock;
 class PieceWeight;
 
-class VillagePiece : public StructurePiece {
+class VillagePiece : public StructurePiece
+{
 public:
 	VillagePiece();
 	VillagePiece(StartPiece*, int);

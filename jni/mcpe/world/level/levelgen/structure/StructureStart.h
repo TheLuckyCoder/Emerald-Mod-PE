@@ -9,11 +9,12 @@ class CompoundTag;
 class StructureStart {
 public:
 	virtual ~StructureStart();
-	virtual bool isValid();
+	virtual bool isValid() const;
 	virtual void addAdditionalSaveData(CompoundTag&);
 	virtual void readAdditionalSaveData(CompoundTag&);
 
-	void postProcess(BlockSource*, Random &, BoundingBox const&);
+	void postProcess(BlockSource*, Random&, const BoundingBox&);
+	void postProcessMobsAt(BlockSource*, Random&, const BoundingBox&);
 	void moveInsideHeights(Random*, int, int);
 	void moveBelowSeaLevel(Random*, int);
 	void load(Level*, CompoundTag*);

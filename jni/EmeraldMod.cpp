@@ -11,16 +11,15 @@
 #include "emerald/Emerald.h"
 #include "emerald/recipes/EmeraldRecipes.h"
 #include "emerald/dimension/EmeraldDimension.h"
-#include "emerald/entity/EmeraldCow.h"
 
 #define LOG_TAG "Emerald-Mod"
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__))
 
 std::string MOD_NAME = "Emerald Mod";
-std::string MOD_VERSION = "v1.5-pre1";
+std::string MOD_VERSION = "v1.5-pre3";
 
 Emerald* emerald;
-bool bl_setArmorTexture(int, const std::string&);
+bool bl_setArmorTexture(int, std::string const&);
 
 //Hook functions
 void (*_MinecraftClient$onPlayerLoaded)(MinecraftClient*, Player&);
@@ -66,7 +65,7 @@ static void Localization$_load(Localization *self, const std::string &langCode) 
 		self->_appendTranslations("loc/emerald/" + langCode + "-pocket.lang");
 }
 
-void (*_SmallHut$postProcess)(SmallHut*, BlockSource*, Random&, const BoundingBox&);
+/*void (*_SmallHut$postProcess)(SmallHut*, BlockSource*, Random&, const BoundingBox&);
 void SmallHut$postProcess(SmallHut *self, BlockSource *region, Random &random, const BoundingBox &bounds) {
 	int y = 5;
 	
@@ -102,7 +101,7 @@ void SmallHut$postProcess(SmallHut *self, BlockSource *region, Random &random, c
 	self->placeBlock(region, {Block::mWorkBench->blockId, 0}, 3, y+1, 3, bounds);
 	//under
 	self->generateBox(region, bounds, 1, y-1, 1, 3, y-3, 3, {Block::mCobblestone->blockId, 0}, {Block::mCobblestone->blockId, 0}, false);
-}
+}*/
 
 static void (*_Recipes$init)(Recipes*);
 static void Recipes$init(Recipes *self) {	

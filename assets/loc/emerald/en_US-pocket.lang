@@ -3,6 +3,7 @@ tile.emeraldSlab.name=Emerald Slab
 tile.emeraldBrick.name=Emerald Brick
 tile.emeraldPlanks.name=Emerald Planks
 tile.emeraldDoubleSlab.name=Emerald Double Slab
+tile.emeraldTorch.name=Emerald Torch
 	
 ##Items
 item.emeraldHelmet.name=Emerald Helmet
@@ -22,3 +23,4 @@ item.emeraldRod.name=Emerald Rod
 item.emeraldDust.name=Emerald Dust
 item.emeraldBeef.name=Emerald Beef
 item.emeraldApple.name=Emerald Apple
+item.emeraldDoor.name=Emerald Door

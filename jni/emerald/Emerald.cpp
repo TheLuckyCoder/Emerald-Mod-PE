@@ -17,13 +17,11 @@
 #include "blocks/EmeraldSlabBlock.h"
 #include "blocks/EmeraldBrickBlock.h"
 #include "blocks/EmeraldPlanksBlock.h"
-#include "blocks/EmeraldTorchBlock.h"
 #include "blocks/EmeraldDoorBlock.h"
 
 Block* Emerald::mSlab;
 Block* Emerald::mBrick;
 Block* Emerald::mPlanks;
-Block* Emerald::mTorch;
 Block* Emerald::mDoor;
 
 Item* Emerald::mHelmet;
@@ -48,7 +46,6 @@ void Emerald::initBlocks()
 	Block::mBlocks[230] = mSlab = (new EmeraldSlabBlock(230))->init();
 	Block::mBlocks[231] = mBrick = (new EmeraldBrickBlock(231))->init();
 	Block::mBlocks[232] = mPlanks = (new EmeraldPlanksBlock(232))->init();
-	Block::mBlocks[234] = mTorch = (new EmeraldTorchBlock(234))->init();
 	Block::mBlocks[235] = mDoor = (new EmeraldDoorBlock(235))->init();
 }
 
@@ -57,7 +54,7 @@ void Emerald::initBlockItems()
 	Item::mItems[mSlab->blockId] = new BlockItem(mSlab->getDescriptionId(), mSlab->blockId - 0x100);
 	Item::mItems[mBrick->blockId] = new BlockItem(mBrick->getDescriptionId(), mBrick->blockId - 0x100);
 	Item::mItems[mPlanks->blockId] = new BlockItem(mPlanks->getDescriptionId(), mPlanks->blockId - 0x100);
-	Item::mItems[mTorch->blockId] = new BlockItem(mTorch->getDescriptionId(), mTorch->blockId - 0x100);
+	Item::mItems[mDoor->blockId] = new BlockItem(mDoor->getDescriptionId(), mDoor->blockId - 0x100);
 }
 
 void Emerald::initItems()
@@ -77,8 +74,8 @@ void Emerald::initItems()
 	Item::mItems[2012] = mBow = new EmeraldBowItem(2012 - 0x100);
 	Item::mItems[2013] = mRod = new RodItem(2013 - 0x100);
 	Item::mItems[2014] = mDust = new DustItem(2014 - 0x100);
-	//Item::mItems[2015] = mDoorItem = new EmeraldDoorItem(2015 - 0x100);
-}
+	Item::mItems[2015] = mDoorItem = new EmeraldDoorItem(2015 - 0x100);
+} 
 
 void Emerald::initCreativeItems()
 {
@@ -97,7 +94,7 @@ void Emerald::initCreativeItems()
 	Item::addCreativeItem(mRod, 0);
 	Item::addCreativeItem(mDust, 0);
 	Item::addCreativeItem(mBow, 0);
-	//Item::addCreativeItem(mDoorItem, 0);
+	Item::addCreativeItem(mDoorItem, 0);
 	Item::addCreativeItem(511, 0);//Beef
 	Item::addCreativeItem(512, 0);//Apple
 }
@@ -107,5 +104,4 @@ void Emerald::initCreativeBlocks()
 	Item::addCreativeItem(mSlab, 0);
 	Item::addCreativeItem(mBrick, 0);
 	Item::addCreativeItem(mPlanks, 0);
-	Item::addCreativeItem(mTorch, 0);
 }

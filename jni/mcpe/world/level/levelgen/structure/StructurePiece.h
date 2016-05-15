@@ -11,12 +11,12 @@ class ChunkPos;
 class Brightness;
 class WeighedTreasureItem;
 
-class StructurePiece {
+class StructurePiece
+{
 public:
 	BlockID id;
 	unsigned char data;
 	Block* block;
-	Random& random;
 	BlockSource* region;
 	int x;
 	int y;
@@ -24,8 +24,8 @@ public:
 
 	virtual ~StructurePiece();
 	virtual void createTag();
-	//virtual void addChildren(); //It's to hard to demangle
-	//virtual void createChest(); //It's to hard to demangle
+	virtual void addChildren(StructurePiece*, std::vector<std::unique_ptr<StructurePiece,std::default_delete<StructurePiece>>,std::allocator<std::unique_ptr<StructurePiece,std::default_delete<StructurePiece>>>>&,Random&);
+	virtual void createChest(BlockSource* , const BoundingBox&, Random&, int, int, int, int, std::vector<WeighedTreasureItem, const std::allocator<WeighedTreasureItem>>&, int);
 	virtual void placeBlock(BlockSource*, FullBlock, int, int, int, const BoundingBox&);
 	virtual void fillColumDown(BlockSource*, FullBlock, int, int, int, const BoundingBox&);
 	virtual void generateBox(BlockSource*, const BoundingBox&, int, int, int, int, int, int, FullBlock, FullBlock, bool);

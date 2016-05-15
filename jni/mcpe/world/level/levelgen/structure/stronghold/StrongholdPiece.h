@@ -1,16 +1,14 @@
 #pragma once
 
 #include"../StructurePiece.h"
-class BoundingBox;
-class BlockSource;
-class Random;
 class CompoundTag;
 class SmallDoorType;
 
-class StrongholdPiece : public StructurePiece {
+class StrongholdPiece : public StructurePiece
+{
 public:
 	virtual ~StrongholdPiece();
-	//virtual void addChildren(); //It's to hard to demangle
+	virtual void addChildren(StructurePiece*, std::vector<std::unique_ptr<StructurePiece, std::default_delete<StructurePiece>>, std::allocator<std::unique_ptr<StructurePiece, std::default_delete<StructurePiece>>>>&, Random&);
 	virtual void addAdditionalSaveData(CompoundTag&);
 	virtual void readAdditionalSaveData(CompoundTag&);
 

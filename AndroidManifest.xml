@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.razvanmcrafter.addon.emeraldmod"
-	android:versionCode="7"
-	android:versionName="1.5-pre2">
+	android:versionCode="8"
+	android:versionName="1.5-pre3">
 
 	<uses-permission android:name="net.zhuoweizhang.mcpelauncher.ADDON"/>
 	<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="23"/>

@@ -5,7 +5,7 @@ import android.app.Activity;
 import android.content.*;
 import android.content.pm.*;
 import android.net.*;
-import android.os.*;
+import android.os.Bundle;
 import android.view.*;
 import android.widget.Toast;
 
@@ -21,6 +21,7 @@ public class MainActivity extends Activity {
 		p.setComponentEnabledSetting(getComponentName(),
 									 PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
 									 PackageManager.DONT_KILL_APP);
+		finish();
 	}
 	
 	public void downloadBL (View view){

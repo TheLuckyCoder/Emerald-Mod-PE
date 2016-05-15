@@ -3,7 +3,8 @@ tile.emeraldSlab.name=Laje de Esmeralda
 tile.emeraldBrick.name=Tijolos de Esmeralda
 tile.emeraldPlanks.name=Tabuas de Esmeralda
 tile.emeraldDoubleSlab.name=Lajes duplas de Esmeralda
-	
+tile.emeraldTorch.name=Tocha de Esmeralda
+
 ##Items
 item.emeraldHelmet.name=Capacete de Esmeralda
 item.emeraldChestplate.name=Peitoral de Esmeralda

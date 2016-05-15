@@ -8,4 +8,5 @@ EmeraldDoorBlock::EmeraldDoorBlock(int blockId) : DoorBlock("emeraldDoor", block
 	setExplodeable(8.0F);
 	setMapColor(Color::GREEN);
 	creativeCategory = CreativeItemCategory::BLOCKS;
+	getTextureUVCoordinateSet("emerald_block", 0);
 }
