@@ -8,15 +8,15 @@
 #include "mcpe/locale/Localization.h"
 #include "mcpe/world/level/levelgen/structure/village/components/SmallHut.h"
 
-#include "emerald/Emerald.h"
-#include "emerald/recipes/EmeraldRecipes.h"
-#include "emerald/dimension/EmeraldDimension.h"
+#include "emeraldmod/Emerald.h"
+#include "emeraldmod/recipes/EmeraldRecipes.h"
+#include "emeraldmod/dimension/EmeraldDimension.h"
 
 #define LOG_TAG "Emerald-Mod"
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__))
 
 std::string MOD_NAME = "Emerald Mod";
-std::string MOD_VERSION = "v1.5-pre3";
+std::string MOD_VERSION = "v1.4.5";
 
 Emerald* emerald;
 bool bl_setArmorTexture(int, std::string const&);

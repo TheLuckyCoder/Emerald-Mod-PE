@@ -2,9 +2,9 @@ package com.razvanmcrafter.addon.emeraldmod;
 
 import android.*;
 import android.app.Activity;
-import android.content.*;
+import android.content.Intent;
 import android.content.pm.*;
-import android.net.*;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.*;
 import android.widget.Toast;
@@ -14,7 +14,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
+	}
 	
     public void hideApp (View view){
 		PackageManager p = getPackageManager();
@@ -33,12 +33,9 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-    @Override  
-    public boolean onOptionsItemSelected(MenuItem item) {  
-        switch (item.getItemId()) {  
-            case R.id.checkTwitter:
-				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/razvan_145")));
-				return true;
+	@Override  
+	public boolean onOptionsItemSelected(MenuItem item) {  
+		switch (item.getItemId()) {  
 			case R.id.rate:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.razvanmcrafter.addon.emeraldmod")));
 				Toast.makeText(getApplicationContext(),"Thank you for the 5 star rating",Toast.LENGTH_SHORT).show();
@@ -48,6 +45,6 @@ public class MainActivity extends Activity {
 				return true;
 			default:  
                 return super.onOptionsItemSelected(item);  
-        }  
-    }  
+		}  
+	}
 }

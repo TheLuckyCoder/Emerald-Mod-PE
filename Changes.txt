@@ -1,16 +1,12 @@
-1.5-pre3
--fixed Emerald Bow crash in most cases
--probaly fixed some crashes
--updated portughese translations
-
-1.5
-New:
--app is going to auto close when hiding it
-Improved:
--optimised code
--improved Emerald Bow
-Fixed:
--fixed crash when opening crafting table
+1.4.5
+New: app is going to auto close when hiding it
+New: added back support for x86 devices
+Improved: optimised code
+Improved: Emerald Bow
+Improved: updated portughese translations
+Fixed crash when opening crafting table
+Fixed Emerald Bow crash in most cases
+Fixed some crashes
 
 1.4.4
 Improved:
