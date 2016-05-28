@@ -6,6 +6,7 @@ class BowItem : public Item
 {
 public:
 	BowItem(const std::string&, int);
+	TextureUVCoordinateSet frame[3];
 
 	virtual ~BowItem();
 	virtual int getEnchantSlot() const;
