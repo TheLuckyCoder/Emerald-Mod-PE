@@ -12,6 +12,8 @@
 #include "emeraldmod/recipes/EmeraldRecipes.h"
 #include "emeraldmod/dimension/EmeraldDimension.h"
 
+#include "CreativeTab.h"
+
 #define LOG_TAG "Emerald-Mod"
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__))
 
@@ -42,6 +44,10 @@ static void Item$initItems(){
 	emerald->initBlockItems();
 	
 	_Item$initItems();
+	
+	CreativeTab* emeraldTab = new CreativeTab(2000, 0);
+	emeraldTab->addItem(2000, 0);
+	emeraldTab->addToTabsList();
 	
 	bl_setArmorTexture(2000, "armor/emerald_1.png");
 	bl_setArmorTexture(2001, "armor/emerald_1.png");

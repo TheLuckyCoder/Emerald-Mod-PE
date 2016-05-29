@@ -35,5 +35,5 @@ public:
 	static Item* mBow;
 	static Item* mRod;
 	static Item* mDust;
-	static Item* mDoorItem;
+	static Item* mApple;
 };

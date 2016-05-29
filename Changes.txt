@@ -1,12 +1,15 @@
 1.4.5
-New: app is going to auto close when hiding it
 New: added back support for x86 devices
 Improved: optimised code
 Improved: Emerald Bow
 Improved: updated portughese translations
+Improved support with other mods
+Fixed: Emerald Slab Recipe
 Fixed crash when opening crafting table
-Fixed Emerald Bow crash in most cases
-Fixed some crashes
+Fixed Emerald Bow crashes in most cases
+Fixed some other crashes
+Removed: Emerald Apple(will be probaly added back in 1.5)
+Removed: Emerald Beef
 
 1.4.4
 Improved:

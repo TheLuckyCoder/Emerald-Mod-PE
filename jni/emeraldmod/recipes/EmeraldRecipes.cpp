@@ -81,13 +81,12 @@ void EmeraldRecipes::initRecipes(Recipes* instance) {
 	//Apple
 	pushIngredient(388, 0, 'e');
 	pushIngredient(260, 0, 'a');
-	addRecipe(Item::mItems[512]->itemId, 1, 0, {"ea", "  "});
+	addRecipe(Item::mItems[2015]->itemId, 1, 0, {"ea", "  "});
 	
 	///Blocks
 	//Slab
 	pushIngredient(133, 0, 'b');
-	pushIngredient(2014, 0, 'd');
-	addRecipe(Block::mBlocks[230]->blockId, 1, 0, {"bbb", "   ", "   "});
+	addRecipe(Block::mBlocks[230]->blockId, 6, 0, {"bbb", "   ", "   "});
 	
 	//Brick
 	pushIngredient(98, 0, 's');
