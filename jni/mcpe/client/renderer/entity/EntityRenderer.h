@@ -1,41 +1,30 @@
 #pragma once
 
-#include <string>
-#include "EntityShaderManager.h"
+struct Vec3;
+struct Vec2;
+struct Options;
+namespace mce { struct TextureGroup; };
 #include "../TexturePtr.h"
 
-class EntityRenderDispatcher;
-class Vec3;
-class Vec2;
-class Font;
-class Options;
-namespace mce { class TextureGroup; };
+#include "EntityShaderManager.h"
 
-class EntityRenderer : public EntityShaderManager {
-public:
-	static EntityRenderDispatcher* entityRenderDispatcher;
+struct EntityRenderer
+: public EntityShaderManager
+{
+	EntityRenderer(mce::TextureGroup&, bool);
 
-	bool hasWaterHole							// 40
-	mce::MaterialPtr entity_alphatest2;			// 44
-	mce::MaterialPtr entity_alphatest_glint;	// 56
-	mce::TexturePtr terrain_atlas; 				// 68
-	mce::TexturePtr glint_texture;				// 80
-	mce::MaterialPtr name_tag;					// 92
-	mce::MaterialPtr name_tag_depth_tested;		// 104
-	mce::MaterialPtr name_tag_depth_tested2;	// 116
+	bool bool1; // 40
+	int int1; // 44
+	mce::MaterialPtr materialAlphatest; // 48
+	mce::MaterialPtr materialGlint; // 60
+	mce::TexturePtr textureTerrainAtlas; // 72
+	mce::TexturePtr textureGlint; // 88
+	mce::MaterialPtr materialNameTag; // 104
+	mce::MaterialPtr materialNameTagDepth; // 116
+	mce::MaterialPtr materialNameText; // 128	
 
-	EntityRenderer(TextureGroup&, bool);
-	virtual ~EntityRenderer();
 	virtual void render(Entity&, const Vec3&, float, float) = 0;
 	virtual void postRender(Entity&, const Vec3&, float, float);
 	virtual void renderDebug(Entity&, Options&);
 	virtual void renderWaterHole(Entity&, const Vec3&, const Vec2&, float);
-	void renderText(Entity&, const std::sting*, float, float);
-	void renderText(const std::string&, const Vec3&, const Color&, mce::MaterialPtr*, mce::MaterialPtr*);
-	static void _emitFlame(Entity &, float);
-	static void _emitSmoke(Entity &, float);
-	static bool isFancy();
-	static Font* getFont();
-	static void init(EntityRenderDispatcher*);
-	bool hasWaterHole() const;
 };

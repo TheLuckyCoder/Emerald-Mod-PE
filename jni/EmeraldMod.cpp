@@ -6,19 +6,15 @@
 #include "mcpe/Common.h"
 #include "mcpe/client/MinecraftClient.h"
 #include "mcpe/locale/Localization.h"
-#include "mcpe/world/level/levelgen/structure/village/components/SmallHut.h"
 
 #include "emeraldmod/Emerald.h"
 #include "emeraldmod/recipes/EmeraldRecipes.h"
-#include "emeraldmod/dimension/EmeraldDimension.h"
-
-#include "CreativeTab.h"
 
 #define LOG_TAG "Emerald-Mod"
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__))
 
 std::string MOD_NAME = "Emerald Mod";
-std::string MOD_VERSION = "v1.4.5";
+std::string MOD_VERSION = "v1.5";
 
 Emerald* emerald;
 bool bl_setArmorTexture(int, std::string const&);
@@ -28,7 +24,7 @@ void (*_MinecraftClient$onPlayerLoaded)(MinecraftClient*, Player&);
 void MinecraftClient$onPlayerLoaded(MinecraftClient *self, Player &player){
 	_MinecraftClient$onPlayerLoaded(self, player);
 	
-	self->sendLocalMessage(MOD_NAME, "Made by Razvan MCrafter");
+	self->sendLocalMessage(MOD_NAME, "Made by TheLuckyCoder");
 }
 
 static void (*_Block$initBlocks)();
@@ -44,10 +40,6 @@ static void Item$initItems(){
 	emerald->initBlockItems();
 	
 	_Item$initItems();
-	
-	CreativeTab* emeraldTab = new CreativeTab(2000, 0);
-	emeraldTab->addItem(2000, 0);
-	emeraldTab->addToTabsList();
 	
 	bl_setArmorTexture(2000, "armor/emerald_1.png");
 	bl_setArmorTexture(2001, "armor/emerald_1.png");
@@ -121,24 +113,6 @@ std::string Common$getGameDevVersionString() {
 	return (MOD_NAME + " " + MOD_VERSION);
 }
 
-/*std::unique_ptr<Dimension> (*_Dimension$createNew)(DimensionId, Level&);
-std::unique_ptr<Dimension> Dimension$createNew(DimensionId id, Level &level){
-	std::unique_ptr<Dimension> dimension;
-	if (id == DimensionId::EMERALD_DIMENSION)
-		dimension = std::unique_ptr<Dimension>(new EmeraldDimension(level));
-
-	return _Dimension$createNew(id, level);
-}
-
-std::unique_ptr<ChunkSource> (*_Dimension$_createGenerator)(GeneratorType);
-std::unique_ptr<ChunkSource> (Dimension$_createGenerator)(GeneratorType type){
-	DimensionId id;
-	if (id == DimensionId::EMERALD_DIMENSION)
-		type = GeneratorType::FLAT;
-
-	return _Dimension$_createGenerator(type);
-}*/
-
 JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) 
 {
 	MSHookFunction((void*) &MinecraftClient::onPlayerLoaded, (void*) &MinecraftClient$onPlayerLoaded, (void**) &_MinecraftClient$onPlayerLoaded);
@@ -149,8 +123,6 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved)
 	//MSHookFunction((void*) &SmallHut::postProcess, (void*) &SmallHut$postProcess, (void**) &_SmallHut$postProcess);
 	MSHookFunction((void*) &Recipes::init, (void*) &Recipes$init, (void**) &_Recipes$init);
 	MSHookFunction((void*) &Common::getGameDevVersionString, (void*) &Common$getGameDevVersionString, (void**) &_Common$getGameDevVersionString);
-	//MSHookFunction((void*) &Dimension::createNew, (void*) &Dimension$createNew, (void**) &_Dimension$createNew);
-	//MSHookFunction((void*) &Dimension::_createGenerator, (void*) &Dimension$_createGenerator, (void**) &_Dimension$_createGenerator);
 
 	return JNI_VERSION_1_2;
 }

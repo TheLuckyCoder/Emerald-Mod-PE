@@ -2,7 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 	<item
 		android:id="@+id/rate"
-		android:showAsAction="ifRoom"
 		android:title="@string/rate"/>
 	<item
 		android:id="@+id/community"
