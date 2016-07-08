@@ -1,8 +1,8 @@
 #pragma once
 
-enum class DimensionId : int {
+enum class DimensionId : int
+{
 	OVERWORLD,
 	NETHER,
-	NODIMENSION,
-	EMERALD_DIMENSION
+	NONE
 };

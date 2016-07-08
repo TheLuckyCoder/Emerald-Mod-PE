@@ -1,9 +1,6 @@
 #pragma once
 
 #include "mcpe/world/item/Item.h"
-#include "mcpe/world/item/ItemInstance.h"
-#include "mcpe/world/level/block/Block.h"
-#include "../Emerald.h"
 
 class PaxItem : public Item {
 public:

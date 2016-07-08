@@ -2,7 +2,7 @@
 #include "mcpe/world/material/Material.h"
 #include "mcpe/CreativeItemCategory.h"
 
-EmeraldBrickBlock::EmeraldBrickBlock(int blockId) : Block("emeraldBrick", blockId, "emerald_brick", Material::getMaterial(MaterialType::STONE))
+EmeraldBrickBlock::EmeraldBrickBlock(int blockId) : Block("emeraldBrick", blockId, Material::getMaterial(MaterialType::STONE))
 {
 	setDestroyTime(2.0F);
 	setExplodeable(8.0F);

@@ -10,9 +10,8 @@
 #include "items/HoeItem.h"
 #include "items/FlintAndEmerald.h"
 #include "items/EmeraldBowItem.h"
-#include "items/RodItem.h"
+#include "items/StickItem.h"
 #include "items/DustItem.h"
-#include "items/EmeraldAppleItem.h"
 
 #include "blocks/EmeraldSlabBlock.h"
 #include "blocks/EmeraldBrickBlock.h"
@@ -35,9 +34,8 @@ Item* Emerald::mHoe;
 Item* Emerald::mPax;
 Item* Emerald::mFlintAndEmerald;
 Item* Emerald::mBow;
-Item* Emerald::mRod;
+Item* Emerald::mStick;
 Item* Emerald::mDust;
-Item* Emerald::mApple;
 
 void Emerald::initBlocks()
 {
@@ -68,9 +66,8 @@ void Emerald::initItems()
 	Item::mItems[2010] = mHoe = new HoeItem(2010 - 0x100);
 	Item::mItems[2011] = mFlintAndEmerald = new FlintAndEmerald(2011 - 0x100);
 	Item::mItems[2012] = mBow = new EmeraldBowItem(2012 - 0x100);
-	Item::mItems[2013] = mRod = new RodItem(2013 - 0x100);
+	Item::mItems[2013] = mStick = new StickItem(2013 - 0x100);
 	Item::mItems[2014] = mDust = new DustItem(2014 - 0x100);
-	Item::mItems[2015] = mApple = new EmeraldAppleItem(2015 - 0x100);
 } 
 
 void Emerald::initCreativeItems()
@@ -87,10 +84,9 @@ void Emerald::initCreativeItems()
 	Item::addCreativeItem(mShovel, 0);
 	Item::addCreativeItem(mHoe, 0);
 	Item::addCreativeItem(mFlintAndEmerald, 0);
-	Item::addCreativeItem(mRod, 0);
+	Item::addCreativeItem(mStick, 0);
 	Item::addCreativeItem(mDust, 0);
 	Item::addCreativeItem(mBow, 0);
-	Item::addCreativeItem(mApple, 0);
 }
 
 void Emerald::initCreativeBlocks()

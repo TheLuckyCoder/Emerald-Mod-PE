@@ -4,9 +4,8 @@
 
 class SlabBlock : public Block {
 public:
-	SlabBlock(const std::string&, int, const std::string&, bool, const Material&);
+	SlabBlock(const std::string&, int, bool, const Material&);
 
-	virtual ~SlabBlock();
 	virtual bool canBeSilkTouched() const;
 	virtual bool checkIsPathable(Entity&, const BlockPos&, const BlockPos&);
 	virtual int getPlacementDataValue(Mob&, const BlockPos&, signed char, const Vec3&, int);

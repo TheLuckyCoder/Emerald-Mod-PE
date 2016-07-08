@@ -50,6 +50,5 @@ enum class EntityType : int {
 	HOPPER_MINECART = 524384,
 	TNT_MINECART,
 	CHEST_MINECART,
-	EMERALD_COW
 };
 

@@ -33,7 +33,7 @@ public:
 	static Item* mHoe;
 	static Item* mFlintAndEmerald;
 	static Item* mBow;
-	static Item* mRod;
+	static Item* mStick;
 	static Item* mDust;
 	static Item* mApple;
 };

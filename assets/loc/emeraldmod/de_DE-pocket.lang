@@ -1,0 +1,24 @@
+##Blocks
+tile.emeraldSlab.name=Smaragdstufe
+tile.emeraldBrick.name=Smaragdsteinziegel
+tile.emeraldPlanks.name=Smaragdholzbretter
+tile.emeraldDoubleSlab.name=Doppelt Smaragdstufe
+	
+##Items
+item.emeraldHelmet.name=Smaragdhelm
+item.emeraldChestplate.name=Smaragdbrustpanzer
+item.emeraldLeggings.name=Smaragdbeinschutz
+item.emeraldBoots.name=Smaragdstiefel
+item.emeraldSword.name=Smaragdschwert
+item.emeraldSuperSword.name=Super Smaragdschwert
+item.emeraldPickaxe.name=Smaragdspitzhacke
+item.emeraldPax.name=Smaragdpax
+item.emeraldAxe.name=Smaragdaxt
+item.emeraldShovel.name=Smaragdschaufel
+item.emeraldHoe.name=Smaragdhacke
+item.flintAndEmerald.name=Feuerstein und Smaragd
+item.emeraldBow.name=Smaragdbogen
+item.emeraldStick.name=Smaragdrute
+item.emeraldDust.name=Smaragdstaub
+item.emeraldBeef.name=Smaragdrindfleisch
+item.emeraldApple.name=Smaragdapfel

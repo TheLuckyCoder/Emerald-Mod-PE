@@ -1,6 +1,5 @@
 #include <jni.h>
 #include <stdlib.h>
-#include <dlfcn.h>
 #include <substrate.h>
 
 #include "mcpe/Common.h"
@@ -14,7 +13,7 @@
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__))
 
 std::string MOD_NAME = "Emerald Mod";
-std::string MOD_VERSION = "v1.5";
+std::string MOD_VERSION = "1.5";
 
 Emerald* emerald;
 bool bl_setArmorTexture(int, std::string const&);
@@ -31,20 +30,20 @@ static void (*_Block$initBlocks)();
 static void Block$initBlocks() {
 	_Block$initBlocks();
 	
-	emerald->initBlocks();
+	//emerald->initBlocks();
 }
 
 static void (*_Item$initItems)();
 static void Item$initItems(){
 	emerald->initItems();
-	emerald->initBlockItems();
+	//emerald->initBlockItems();
 	
 	_Item$initItems();
 	
-	bl_setArmorTexture(2000, "armor/emerald_1.png");
-	bl_setArmorTexture(2001, "armor/emerald_1.png");
-	bl_setArmorTexture(2002, "armor/emerald_2.png");
-	bl_setArmorTexture(2003, "armor/emerald_1.png");
+	bl_setArmorTexture(2000, "resourcepacks/emeraldmod/armor/emerald_1.png");
+	bl_setArmorTexture(2001, "resourcepacks/emeraldmod/armor/emerald_1.png");
+	bl_setArmorTexture(2002, "resourcepacks/emeraldmod/armor/emerald_2.png");
+	bl_setArmorTexture(2003, "resourcepacks/emeraldmod/armor/emerald_1.png");
 }
 
 static void (*_Item$initCreativeItems)();
@@ -52,7 +51,7 @@ static void Item$initCreativeItems() {
 	_Item$initCreativeItems();
 
 	emerald->initCreativeItems();
-	emerald->initCreativeBlocks();
+	//emerald->initCreativeBlocks();
 }
 
 static void (*_Localization$_load)(Localization*, const std::string&);
@@ -60,7 +59,7 @@ static void Localization$_load(Localization *self, const std::string &langCode) 
 	_Localization$_load(self, langCode);
 	
 	if(langCode == "en_US" || langCode == "de_DE" || langCode == "pt_BR" || langCode == "ko_KR")
-		self->_appendTranslations("loc/emerald/" + langCode + "-pocket.lang");
+		self->_appendTranslations("loc/emeraldmod/" + langCode + "-pocket.lang");
 }
 
 /*void (*_SmallHut$postProcess)(SmallHut*, BlockSource*, Random&, const BoundingBox&);
@@ -108,8 +107,8 @@ static void Recipes$init(Recipes *self) {
 	EmeraldRecipes::initRecipes(self);
 }
 
-std::string (*_Common$getGameDevVersionString)();
-std::string Common$getGameDevVersionString() {
+static std::string (*_Common$getGameDevVersionString)();
+static std::string Common$getGameDevVersionString() {
 	return (MOD_NAME + " " + MOD_VERSION);
 }
 
@@ -121,7 +120,7 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved)
 	MSHookFunction((void*) &Item::initCreativeItems, (void*) &Item$initCreativeItems, (void**) &_Item$initCreativeItems);
 	MSHookFunction((void*) &Localization::_load, (void*) &Localization$_load, (void**) &_Localization$_load);
 	//MSHookFunction((void*) &SmallHut::postProcess, (void*) &SmallHut$postProcess, (void**) &_SmallHut$postProcess);
-	MSHookFunction((void*) &Recipes::init, (void*) &Recipes$init, (void**) &_Recipes$init);
+	//MSHookFunction((void*) &Recipes::init, (void*) &Recipes$init, (void**) &_Recipes$init);
 	MSHookFunction((void*) &Common::getGameDevVersionString, (void*) &Common$getGameDevVersionString, (void**) &_Common$getGameDevVersionString);
 
 	return JNI_VERSION_1_2;

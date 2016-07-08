@@ -4,7 +4,7 @@
 SuperSwordItem::SuperSwordItem(short itemId) : Item("emeraldSuperSword", itemId)
 {
 	creativeCategory = CreativeItemCategory::TOOLS;
-	setIcon("emerald_sword", 1);
+	setIcon("emerald_super_sword", 0);
 	setMaxStackSize(1);
 	setMaxDamage(2100);
 	setHandEquipped();
