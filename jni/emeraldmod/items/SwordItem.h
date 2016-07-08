@@ -1,8 +1,6 @@
 #pragma once
 
 #include "mcpe/world/item/Item.h"
-#include "mcpe/world/item/ItemInstance.h"
-#include "mcpe/leveledit.h"
 
 class SwordItem : public Item
 {

@@ -1,5 +1,6 @@
 #include "SwordItem.h"
 #include "mcpe/world/item/ItemInstance.h"
+#include "mcpe/world/level/block/Block.h"
 
 SwordItem::SwordItem(short itemId) : Item("emeraldSword", itemId)
 {
@@ -35,11 +36,10 @@ bool SwordItem::canDestroySpecial(const Block* block) const {
 }
 
 float SwordItem::getDestroySpeed(ItemInstance *item, Block *block) {
-	if(block == Block::mWeb) {
+	if(block == Block::mWeb)
 		return 20.0F;
-	} else {
+	else
 		return 1.0F;
-	}
 }
 
 bool SwordItem::canDestroyInCreative() const{

@@ -1,8 +1,6 @@
 #pragma once
 
 #include "mcpe/world/item/Item.h"
-#include "mcpe/world/level/block/Block.h"
-#include "mcpe/leveledit.h"
 
 class SuperSwordItem : public Item {
 public:

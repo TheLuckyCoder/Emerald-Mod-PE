@@ -20,7 +20,7 @@
 					"item.emerald.bow.pulling.2"]
 	 },
 	 "emerald_bow_standby": {
-		"textures" : "item.emerald.standby"
+		"textures" : "item.emerald.bow.standby"
 	 },
 	 "emerald_chestplate": {
 		"textures" : "item.emerald.chestplate"

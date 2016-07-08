@@ -1,6 +1,5 @@
 #include "PaxItem.h"
 #include "mcpe/world/item/ItemInstance.h"
-#include "mcpe/world/item/ItemInstance.h"
 #include "mcpe/world/level/block/Block.h"
 #include "../Emerald.h"
 

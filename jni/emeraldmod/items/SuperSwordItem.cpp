@@ -1,5 +1,6 @@
 #include "SuperSwordItem.h"
 #include "mcpe/world/item/ItemInstance.h"
+#include "mcpe/world/level/block/Block.h"
 
 SuperSwordItem::SuperSwordItem(short itemId) : Item("emeraldSuperSword", itemId)
 {
