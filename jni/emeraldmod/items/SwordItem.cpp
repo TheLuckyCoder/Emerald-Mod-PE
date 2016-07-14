@@ -4,7 +4,7 @@
 
 SwordItem::SwordItem(short itemId) : Item("emeraldSword", itemId)
 {
-	creativeCategory = CreativeItemCategory::TOOLS;
+	setCategory(CreativeItemCategory::TOOLS);
 	setIcon("emerald_sword", 0);
 	setMaxStackSize(1);
 	setMaxDamage(1800);
@@ -36,7 +36,7 @@ bool SwordItem::canDestroySpecial(const Block* block) const {
 }
 
 float SwordItem::getDestroySpeed(ItemInstance *item, Block *block) {
-	if(block == Block::mWeb)
+	if (block == Block::mWeb)
 		return 20.0F;
 	else
 		return 1.0F;

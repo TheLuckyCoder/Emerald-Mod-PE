@@ -3,7 +3,7 @@
 
 ShovelItem::ShovelItem(short itemId) : Item("emeraldShovel", itemId)
 {
-	creativeCategory = CreativeItemCategory::TOOLS;
+	setCategory(CreativeItemCategory::TOOLS);
 	setIcon("emerald_shovel", 0);
 	setMaxStackSize(1);
 	setMaxDamage(1800);

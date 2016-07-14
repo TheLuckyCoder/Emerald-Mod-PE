@@ -2,7 +2,7 @@
 
 StickItem::StickItem(short itemId) : Item("emeraldStick", itemId)
 {
-	creativeCategory = CreativeItemCategory::TOOLS;
-	setIcon("emerald_rod", 0);
+	setCategory(CreativeItemCategory::TOOLS);
+	setIcon("emerald_stick", 0);
 	setStackedByData(true);
 }

@@ -13,7 +13,7 @@
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__))
 
 std::string MOD_NAME = "Emerald Mod";
-std::string MOD_VERSION = "1.5";
+std::string MOD_VERSION = "v1.4.6";
 
 Emerald* emerald;
 bool bl_setArmorTexture(int, std::string const&);
@@ -23,7 +23,7 @@ void (*_MinecraftClient$onPlayerLoaded)(MinecraftClient*, Player&);
 void MinecraftClient$onPlayerLoaded(MinecraftClient *self, Player &player){
 	_MinecraftClient$onPlayerLoaded(self, player);
 	
-	self->sendLocalMessage(MOD_NAME, "Made by TheLuckyCoder");
+	self->sendLocalMessage(MOD_NAME, "Made by The Lucky Coder");
 }
 
 static void (*_Block$initBlocks)();
@@ -40,10 +40,10 @@ static void Item$initItems(){
 	
 	_Item$initItems();
 	
-	bl_setArmorTexture(2000, "resourcepacks/emeraldmod/armor/emerald_1.png");
-	bl_setArmorTexture(2001, "resourcepacks/emeraldmod/armor/emerald_1.png");
-	bl_setArmorTexture(2002, "resourcepacks/emeraldmod/armor/emerald_2.png");
-	bl_setArmorTexture(2003, "resourcepacks/emeraldmod/armor/emerald_1.png");
+	//bl_setArmorTexture(2000, "resourcepacks/emeraldmod/images/armor/emerald_1.png");
+	//bl_setArmorTexture(2001, "resourcepacks/emeraldmod/images/armor/emerald_1.png");
+	//bl_setArmorTexture(2002, "resourcepacks/emeraldmod/images/armor/emerald_2.png");
+	//bl_setArmorTexture(2003, "resourcepacks/emeraldmod/images/armor/emerald_1.png");
 }
 
 static void (*_Item$initCreativeItems)();

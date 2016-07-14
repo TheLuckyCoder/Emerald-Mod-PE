@@ -3,7 +3,7 @@
 
 PickaxeItem::PickaxeItem(short itemId) : Item("emeraldPickaxe", itemId)
 {
-	creativeCategory = CreativeItemCategory::TOOLS;
+	setCategory(CreativeItemCategory::TOOLS);
 	setIcon("emerald_pickaxe", 0);
 	setMaxStackSize(1);
 	setMaxDamage(1800);

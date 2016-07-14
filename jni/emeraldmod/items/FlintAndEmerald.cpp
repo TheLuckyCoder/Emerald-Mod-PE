@@ -4,7 +4,7 @@
 
 FlintAndEmerald::FlintAndEmerald(short itemId) : Item("flintAndEmerald", itemId)
 {
-	creativeCategory = CreativeItemCategory::TOOLS;
+	setCategory(CreativeItemCategory::TOOLS);
 	setIcon("flint_and_emerald", 0);
 	setMaxStackSize(1);
 	setMaxDamage(1800);

@@ -5,7 +5,7 @@
 
 PaxItem::PaxItem(short itemId) : Item("emeraldPax", itemId)
 {
-	creativeCategory = CreativeItemCategory::TOOLS;
+	setCategory(CreativeItemCategory::TOOLS);
 	setIcon("emerald_pax", 0);
 	setMaxStackSize(1);
 	setMaxDamage(1800);

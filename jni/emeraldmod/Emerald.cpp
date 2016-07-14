@@ -53,21 +53,21 @@ void Emerald::initBlockItems()
 
 void Emerald::initItems()
 {
-	Item::mItems[2000] = mHelmet = new EmeraldHelmet(2000 - 0x100);
-	Item::mItems[2001] = mChestplate = new EmeraldChestplate(2001 - 0x100);
-	Item::mItems[2002] = mLeggings = new EmeraldLeggings(2002 - 0x100);
-	Item::mItems[2003] = mBoots = new EmeraldBoots(2003 - 0x100);
-	Item::mItems[2004] = mSword = new SwordItem(2004 - 0x100);
-	Item::mItems[2005] = mSuperSword = new SuperSwordItem(2005 - 0x100);
-	Item::mItems[2006] = mPickaxe = new PickaxeItem(2006 - 0x100);
-	Item::mItems[2007] = mAxe = new AxeItem(2007 - 0x100);
-	Item::mItems[2008] = mPax = new PaxItem(2008 - 0x100);
-	Item::mItems[2009] = mShovel = new ShovelItem(2009 - 0x100);
-	Item::mItems[2010] = mHoe = new HoeItem(2010 - 0x100);
-	Item::mItems[2011] = mFlintAndEmerald = new FlintAndEmerald(2011 - 0x100);
-	Item::mItems[2012] = mBow = new EmeraldBowItem(2012 - 0x100);
-	Item::mItems[2013] = mStick = new StickItem(2013 - 0x100);
-	Item::mItems[2014] = mDust = new DustItem(2014 - 0x100);
+	Item::mItems[2000] = mHelmet = new EmeraldHelmet(2000 - 256);
+	Item::mItems[2001] = mChestplate = new EmeraldChestplate(2001 - 256);
+	Item::mItems[2002] = mLeggings = new EmeraldLeggings(2002 - 256);
+	Item::mItems[2003] = mBoots = new EmeraldBoots(2003 - 256);
+	Item::mItems[2004] = mSword = new SwordItem(2004 - 256);
+	Item::mItems[2005] = mSuperSword = new SuperSwordItem(2005 - 256);
+	Item::mItems[2006] = mPickaxe = new PickaxeItem(2006 - 256);
+	Item::mItems[2007] = mAxe = new AxeItem(2007 - 256);
+	Item::mItems[2008] = mPax = new PaxItem(2008 - 256);
+	Item::mItems[2009] = mShovel = new ShovelItem(2009 - 256);
+	Item::mItems[2010] = mHoe = new HoeItem(2010 - 256);
+	Item::mItems[2011] = mFlintAndEmerald = new FlintAndEmerald(2011 - 256);
+	Item::mItems[2012] = mBow = new EmeraldBowItem(2012 - 256);
+	Item::mItems[2013] = mStick = new StickItem(2013 - 256);
+	Item::mItems[2014] = mDust = new DustItem(2014 - 256);
 } 
 
 void Emerald::initCreativeItems()
@@ -84,9 +84,9 @@ void Emerald::initCreativeItems()
 	Item::addCreativeItem(mShovel, 0);
 	Item::addCreativeItem(mHoe, 0);
 	Item::addCreativeItem(mFlintAndEmerald, 0);
+	Item::addCreativeItem(mBow, 0);
 	Item::addCreativeItem(mStick, 0);
 	Item::addCreativeItem(mDust, 0);
-	Item::addCreativeItem(mBow, 0);
 }
 
 void Emerald::initCreativeBlocks()

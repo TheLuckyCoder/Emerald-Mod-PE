@@ -4,7 +4,7 @@
 
 AxeItem::AxeItem(short itemId) : Item("emeraldAxe", itemId)
 {
-	creativeCategory = CreativeItemCategory::TOOLS;
+	setCategory(CreativeItemCategory::TOOLS);
 	setIcon("emerald_axe", 0);
 	setMaxStackSize(1);
 	setMaxDamage(1800);

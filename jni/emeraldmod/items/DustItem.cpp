@@ -2,7 +2,7 @@
 
 DustItem::DustItem(short itemId) : Item("emeraldDust", itemId)
 {
-	creativeCategory = CreativeItemCategory::TOOLS;
+	setCategory(CreativeItemCategory::TOOLS);
 	setIcon("emerald_dust", 0);
 	setStackedByData(true);
 }

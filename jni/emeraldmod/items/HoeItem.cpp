@@ -3,7 +3,7 @@
 
 HoeItem::HoeItem(short itemId) : Item("emeraldHoe", itemId)
 {
-	creativeCategory = CreativeItemCategory::TOOLS;
+	setCategory(CreativeItemCategory::TOOLS);
 	setIcon("emerald_hoe", 0);
 	setMaxStackSize(1);
 	setMaxDamage(1800);
