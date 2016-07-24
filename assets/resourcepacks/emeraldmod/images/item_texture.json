@@ -1,65 +1,67 @@
-{
-	"resource_pack_name": "emeraldmod",
-	"texture_name": "atlas.items",
-	"texture_data": {
-	 "emerald_apple": {
-		"textures" : "item.emerald.apple"
-	 },
-	 "emerald_axe": {
-		"textures" : "item.emerald.axe"
-	 },
-	 "emerald_beef": {
-		"textures" : "item.emerald.beef"
-	 },
-	 "emerald_boots": {
-		"textures" : "item.emerald.boots"
-	 },
-	 "emerald_bow_pulling": {
-		"textures" : ["item.emerald.bow.pulling.0",
-					"item.emerald.bow.pulling.1",
-					"item.emerald.bow.pulling.2"]
-	 },
-	 "emerald_bow_standby": {
-		"textures" : "item.emerald.bow.standby"
-	 },
-	 "emerald_chestplate": {
-		"textures" : "item.emerald.chestplate"
-	 },
-	 "emerald_dust": {
-		"textures" : "item.emerald.dust"
-	 },
-	 "emerald_helmet": {
-		"textures" : "item.emerald.helmet"
-	 },
-	 "emerald_hoe": {
-		"textures" : "item.emerald.hoe"
-	 },
-	 "emerald_leggings": {
-		"textures" : "item.emerald.leggings"
-	 },
-	 "emerald_pax": {
-		"textures" : "item.emerald.pax"
-	 },
-	 "emerald_pearl": {
-		"textures" : "item.emerald.pearl"
-	 },
-	 "emerald_pickaxe": {
-		"textures" : "item.emerald.pickaxe"
-	 },
-	 "emerald_shovel": {
-		"textures" : "item.emerald.shovel"
-	 },
-	 "emerald_stick": {
-		"textures" : "item.emerald.stick"
-	 },
-	 "emerald_super_sword": {
-		"textures" : "item.emerald.super.sword"
-	 },
-	 "emerald_sword": {
-		"textures" : "item.emerald.sword"
-	 },
-	 "flint_and_emerald": {
-		"textures" : "item.flint.and.emerald"
-	 }
-	}
+{  
+   "resource_pack_name":"emeraldmod",
+   "texture_name":"atlas.items",
+   "texture_data":{  
+      "emerald_apple":{  
+         "textures":"item.emerald.apple"
+      },
+      "emerald_axe":{  
+         "textures":"item.emerald.axe"
+      },
+      "emerald_beef":{  
+         "textures":"item.emerald.beef"
+      },
+      "emerald_boots":{  
+         "textures":"item.emerald.boots"
+      },
+      "emerald_bow_pulling":{  
+         "textures":[  
+            "item.emerald.bow.pulling.0",
+            "item.emerald.bow.pulling.1",
+            "item.emerald.bow.pulling.2"
+         ]
+      },
+      "emerald_bow_standby":{  
+         "textures":"item.emerald.bow.standby"
+      },
+      "emerald_chestplate":{  
+         "textures":"item.emerald.chestplate"
+      },
+      "emerald_dust":{  
+         "textures":"item.emerald.dust"
+      },
+      "emerald_helmet":{  
+         "textures":"item.emerald.helmet"
+      },
+      "emerald_hoe":{  
+         "textures":"item.emerald.hoe"
+      },
+      "emerald_leggings":{  
+         "textures":"item.emerald.leggings"
+      },
+      "emerald_pax":{  
+         "textures":"item.emerald.pax"
+      },
+      "emerald_pearl":{  
+         "textures":"item.emerald.pearl"
+      },
+      "emerald_pickaxe":{  
+         "textures":"item.emerald.pickaxe"
+      },
+      "emerald_shovel":{  
+         "textures":"item.emerald.shovel"
+      },
+      "emerald_stick":{  
+         "textures":"item.emerald.stick"
+      },
+      "emerald_super_sword":{  
+         "textures":"item.emerald.super.sword"
+      },
+      "emerald_sword":{  
+         "textures":"item.emerald.sword"
+      },
+      "flint_and_emerald":{  
+         "textures":"item.flint.and.emerald"
+      }
+   }
 }

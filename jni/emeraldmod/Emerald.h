@@ -34,6 +34,4 @@ public:
 	static Item* mFlintAndEmerald;
 	static Item* mBow;
 	static Item* mStick;
-	static Item* mDust;
-	static Item* mApple;
 };

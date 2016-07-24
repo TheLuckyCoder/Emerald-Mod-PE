@@ -2,10 +2,10 @@ package net.theluckycoder.emeraldmod;
 
 import android.*;
 import android.app.Activity;
-import android.content.*;
-import android.content.pm.*;
+import android.os.Bundle;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.*;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,17 +17,15 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main);
     }
 
-    public void hideApp (View view){
-		PackageManager p = getPackageManager();
-		p.setComponentEnabledSetting(getComponentName(),
-									 PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-									 PackageManager.DONT_KILL_APP);
+    public void hideApp(View view) {
+		PackageManager pm = getPackageManager();
+		pm.setComponentEnabledSetting(getComponentName(), PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
 	}
 
-	public void downloadBL (View view){
+	public void downloadBL(View view) {
 		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=net.zhuoweizhang.mcpelauncher")));
 	}
 
@@ -36,6 +34,7 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+	
     @Override  
     public boolean onOptionsItemSelected(MenuItem item) {  
         switch (item.getItemId()) {  

@@ -1,36 +1,23 @@
 #include <jni.h>
-#include <stdlib.h>
 #include <substrate.h>
 
 #include "mcpe/Common.h"
-#include "mcpe/client/MinecraftClient.h"
 #include "mcpe/locale/Localization.h"
 
 #include "emeraldmod/Emerald.h"
 #include "emeraldmod/recipes/EmeraldRecipes.h"
 
-#define LOG_TAG "Emerald-Mod"
-#define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__))
-
-std::string MOD_NAME = "Emerald Mod";
-std::string MOD_VERSION = "v1.4.6";
+std::string sVersion = "v1.4.6";
 
 Emerald* emerald;
 bool bl_setArmorTexture(int, std::string const&);
 
-//Hook functions
-void (*_MinecraftClient$onPlayerLoaded)(MinecraftClient*, Player&);
-void MinecraftClient$onPlayerLoaded(MinecraftClient *self, Player &player){
-	_MinecraftClient$onPlayerLoaded(self, player);
-	
-	self->sendLocalMessage(MOD_NAME, "Made by The Lucky Coder");
-}
-
+//Hooking Functions
 static void (*_Block$initBlocks)();
 static void Block$initBlocks() {
 	_Block$initBlocks();
 	
-	//emerald->initBlocks();
+	emerald->initBlocks();
 }
 
 static void (*_Item$initItems)();
@@ -40,10 +27,10 @@ static void Item$initItems(){
 	
 	_Item$initItems();
 	
-	//bl_setArmorTexture(2000, "resourcepacks/emeraldmod/images/armor/emerald_1.png");
-	//bl_setArmorTexture(2001, "resourcepacks/emeraldmod/images/armor/emerald_1.png");
-	//bl_setArmorTexture(2002, "resourcepacks/emeraldmod/images/armor/emerald_2.png");
-	//bl_setArmorTexture(2003, "resourcepacks/emeraldmod/images/armor/emerald_1.png");
+	//bl_setArmorTexture(2000, "armor/emerald_1.png");
+	//bl_setArmorTexture(2001, "armor/emerald_1.png");
+	//bl_setArmorTexture(2002, "armor/emerald_2.png");
+	//bl_setArmorTexture(2003, "armor/emerald_1.png");
 }
 
 static void (*_Item$initCreativeItems)();
@@ -109,13 +96,12 @@ static void Recipes$init(Recipes *self) {
 
 static std::string (*_Common$getGameDevVersionString)();
 static std::string Common$getGameDevVersionString() {
-	return (MOD_NAME + " " + MOD_VERSION);
+	return "Emerald Mod " + sVersion + " by The Lucky Coder";
 }
 
 JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) 
 {
-	MSHookFunction((void*) &MinecraftClient::onPlayerLoaded, (void*) &MinecraftClient$onPlayerLoaded, (void**) &_MinecraftClient$onPlayerLoaded);
-	MSHookFunction((void*) &Block::initBlocks, (void*) &Block$initBlocks, (void**) &_Block$initBlocks);
+	//MSHookFunction((void*) &Block::initBlocks, (void*) &Block$initBlocks, (void**) &_Block$initBlocks);
 	MSHookFunction((void*) &Item::initItems, (void*) &Item$initItems, (void**) &_Item$initItems);
 	MSHookFunction((void*) &Item::initCreativeItems, (void*) &Item$initCreativeItems, (void**) &_Item$initCreativeItems);
 	MSHookFunction((void*) &Localization::_load, (void*) &Localization$_load, (void**) &_Localization$_load);
