@@ -1,4 +1,7 @@
 #include <jni.h>
+#include <dlfcn.h>
+#include <android/log.h>
+#include <stdlib.h>
 #include <substrate.h>
 
 #include "mcpe/Common.h"
@@ -10,7 +13,7 @@
 std::string sVersion = "v1.4.6";
 
 Emerald* emerald;
-bool bl_setArmorTexture(int, std::string const&);
+//bool bl_setArmorTexture(int, std::string const&);
 
 //Hooking Functions
 static void (*_Block$initBlocks)();

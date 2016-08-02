@@ -25,6 +25,7 @@
       "item.emerald.super.sword": "images/items/emerald_super_sword.png",
       "item.emerald.sword": "images/items/emerald_sword.png",
       "item.flint.and.emerald": "images/items/flint_and_emerald.png"
+    }
     "metas": {
       "atlas.items.meta": "images/item_texture.json"
     }

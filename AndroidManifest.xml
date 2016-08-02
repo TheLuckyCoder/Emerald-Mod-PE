@@ -18,7 +18,7 @@
         	android:value="emeraldmod"/>
     	<meta-data
 			android:name="net.zhuoweizhang.mcpelauncher.api.targetmcpeversion"
-			android:value="0.15.3.2"/>
+			android:value="0.15.4.0"/>
 		<activity
 			android:label="@string/app_name"
             android:name="net.theluckycoder.emeraldmod.MainActivity">

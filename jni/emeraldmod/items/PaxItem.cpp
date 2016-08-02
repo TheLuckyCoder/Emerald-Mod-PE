@@ -114,11 +114,10 @@ void PaxItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z
 	|| blockid == Block::mPackedIce->blockId
 	|| blockid == Emerald::mSlab->blockId
 	|| blockid == Emerald::mBrick->blockId
-	|| blockid == Emerald::mPlanks->blockId){
+	|| blockid == Emerald::mPlanks->blockId)
 		item->hurtAndBreak(1, mob);
-	} else{
+	else
 		item->hurtAndBreak(2, mob);
-	}
 }
 
 bool PaxItem::canDestroySpecial(const Block* block) const {

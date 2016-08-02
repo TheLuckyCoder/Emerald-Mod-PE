@@ -52,11 +52,10 @@
 		<TextView
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:text="Copyright© Razvan MCrafter"
+			android:text="Copyright © 2016 The Lucky Codrter"
 			android:textSize="20sp"
 			android:layout_marginTop="50dp"
 			android:layout_centerHorizontal="true"/>
-
 	</LinearLayout>
 </ScrollView>
 
