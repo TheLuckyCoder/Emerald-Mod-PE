@@ -1,6 +1,6 @@
 #pragma once
 
-#include "mcpe/world/item/ArmorItem.h"
+#include "minecraftpe/world/item/ArmorItem.h"
 
 class EmeraldHelmet : public ArmorItem
 {

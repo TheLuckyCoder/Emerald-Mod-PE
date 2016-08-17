@@ -1,7 +1,10 @@
 1.4.6
 Updated Items for 0.15.3
 Changed: Emerald Rod to Emerald Stick
+Changed: when you hit somebody with Flint and Emerald he will be set on fire
+Improved Emerald Shovel, Pickaxe and Pax code
 Removed: Emerald Dust
+
 1.4.5
 New: added back support for x86 devices
 Improved: optimised code

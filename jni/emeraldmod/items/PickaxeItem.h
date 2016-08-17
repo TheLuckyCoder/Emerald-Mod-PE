@@ -1,19 +1,18 @@
 #pragma once
 
-#include "mcpe/world/item/Item.h"
-#include "mcpe/world/item/ItemInstance.h"
-#include "mcpe/world/level/block/Block.h"
-#include "../Emerald.h"
+#include "minecraftpe/world/item/Item.h"
 
 class PickaxeItem : public Item
 {
 public:
 	PickaxeItem(short itemId);
-	virtual int getAttackDamage();
-	virtual int getEnchantValue() const;
-	virtual int getEnchantSlot() const;
+	
+	virtual int getAttackDamage() { return 5.0f; }
+	virtual int getEnchantValue() const { return 1; }
+	virtual int getEnchantSlot() const { return 1024; }
 	virtual void mineBlock(ItemInstance*, BlockID, int, int, int, Mob*);
 	virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);
 	virtual float getDestroySpeed(ItemInstance*, Block*);
 	virtual bool canDestroySpecial(const Block*) const;
 };
+

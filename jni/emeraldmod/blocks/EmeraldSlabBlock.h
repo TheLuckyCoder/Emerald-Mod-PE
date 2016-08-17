@@ -1,6 +1,6 @@
 #pragma once
 
-#include "mcpe/world/level/block/SlabBlock.h"
+#include "minecraftpe/world/level/block/SlabBlock.h"
 
 class EmeraldSlabBlock : public SlabBlock
 {

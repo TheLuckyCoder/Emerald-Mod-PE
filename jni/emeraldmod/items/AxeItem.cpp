@@ -1,66 +1,28 @@
 #include "AxeItem.h"
-#include "mcpe/world/item/ItemInstance.h"
+#include "minecraftpe/world/item/ItemInstance.h"
 #include "../Emerald.h"
 
 AxeItem::AxeItem(short itemId) : Item("emeraldAxe", itemId)
 {
-	setCategory(CreativeItemCategory::TOOLS);
+	setCategory(CreativeItemCategory::Tools);
 	setIcon("emerald_axe", 0);
 	setMaxStackSize(1);
 	setMaxDamage(1800);
 	setHandEquipped();
 }
 
-int AxeItem::getAttackDamage() {
-	return 5.0F;
-}
-
-int AxeItem::getEnchantSlot() const{
-	return 512;
-}
-
-int AxeItem::getEnchantValue() const{
-	return 1;
-}
-
-void AxeItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim) {
+void AxeItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
+{
 	item->hurtAndBreak(2, victim);
 }
 
-void AxeItem::mineBlock(ItemInstance *item, BlockID blockId, int x, int y, int z, Mob *mob) {
-	if(blockId == Block::mWoodPlanks->blockId
-	||blockId == Block::mLog->blockId
-	||blockId == Block::mChest->blockId
-	||blockId == Block::mSign->blockId
-	||blockId == Block::mWoodenDoor->blockId
-	||blockId == Block::mLadder->blockId
-	||blockId == Block::mWallSign->blockId
-	||blockId == Block::mWoodPressurePlate->blockId
-	||blockId == Block::mFence->blockId
-	||blockId == Block::mWoodButton->blockId
-	||blockId == Block::mTrappedChest->blockId
-	||blockId == Block::mWoodenSlab->blockId
-	||blockId == Block::mAcaciaStairs->blockId
-	||blockId == Block::mDarkOakStairs->blockId
-	||blockId == Block::mSpuceFenceGate->blockId
-	||blockId == Block::mBirchFenceGate->blockId
-	||blockId == Block::mJungleFenceGate->blockId
-	||blockId == Block::mDarkOakFenceGate->blockId
-	||blockId == Block::mAcaciaFenceGate->blockId
-	||blockId == Block::mWoodenDoorSpruce->blockId
-	||blockId == Block::mWoodenDoorBirch->blockId
-	||blockId == Block::mWoodenDoorJungle->blockId
-	||blockId == Block::mWoodenDoorAcacia->blockId
-	||blockId == Block::mWoodenDoorDarkOak->blockId
-	||blockId == Block::mWorkBench->blockId
-	||blockId == Emerald::mPlanks->blockId) {
-		item->hurtAndBreak(1, mob);
-	} else {
-		item->hurtAndBreak(2, mob);
-	}
+void AxeItem::mineBlock(ItemInstance *item, BlockID blockId, int x, int y, int z, Mob *mob)
+{
+	Item::mItems[279]->mineBlock(item, blockId, x, y, z, mob);
 }
 
-float AxeItem::getDestroySpeed(ItemInstance *item, Block *block) {
+float AxeItem::getDestroySpeed(ItemInstance *item, Block *block)
+{
 	if(block == Block::mWoodPlanks
 	||block == Block::mLog
 	||block == Block::mChest
@@ -86,9 +48,7 @@ float AxeItem::getDestroySpeed(ItemInstance *item, Block *block) {
 	||block == Block::mWoodenDoorAcacia
 	||block == Block::mWoodenDoorDarkOak
 	||block == Block::mWorkBench
-	||block == Emerald::mPlanks) {
+	||block == Emerald::mPlanks)
 		return 50.0F;
-	} else {
-		return 1.0F;
-	}
 }
+

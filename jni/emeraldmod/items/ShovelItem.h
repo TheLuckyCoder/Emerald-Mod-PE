@@ -1,19 +1,19 @@
 #pragma once
 
-#include "mcpe/world/item/Item.h"
-#include "mcpe/world/item/ItemInstance.h"
-#include "mcpe/leveledit.h"
+#include "minecraftpe/world/item/Item.h"
 
 class ShovelItem : public Item
 {
 public:
 	ShovelItem(short itemId);
-	virtual int getAttackDamage();
-	virtual int getEnchantSlot() const;
-	virtual int getEnchantValue() const;
+	
+	virtual int getAttackDamage() { return 5.0f; }
+	virtual int getEnchantSlot() const { return 2048; }
+	virtual int getEnchantValue() const { return 1; }
 	virtual bool useOn(ItemInstance*, Player*, int, int, int, signed char, float, float, float);
 	virtual void mineBlock(ItemInstance*, BlockID, int, int, int, Mob*);
 	virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);
 	virtual float getDestroySpeed(ItemInstance*, Block*);
 	virtual bool canDestroySpecial(const Block*) const;
 };
+

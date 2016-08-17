@@ -1,20 +1,18 @@
 #pragma once
 
-#include <map>
-
-#include "mcpe/world/level/block/Block.h"
-#include "mcpe/world/item/BlockItem.h"
-#include "mcpe/world/item/Item.h"
+#include "minecraftpe/world/level/block/Block.h"
+#include "minecraftpe/world/item/BlockItem.h"
+#include "minecraftpe/world/item/Item.h"
 
 class Emerald {
 public:
-	void initItems();
-	void initBlocks();
-	void initBlockItems();
-	void initCreativeItems();
-	void initCreativeBlocks();
+	static void initItems();
+	static void initBlocks();
+	static void initBlockGr();
+	static void initBlockItems();
+	static void initCreativeItems();
+	static void initCreativeBlocks();
 
-public:
 	static Block* mBrick;
 	static Block* mPlanks;
 	static Block* mSlab;
@@ -35,3 +33,4 @@ public:
 	static Item* mBow;
 	static Item* mStick;
 };
+

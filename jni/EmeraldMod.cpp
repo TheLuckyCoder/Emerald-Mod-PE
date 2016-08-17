@@ -1,32 +1,30 @@
 #include <jni.h>
-#include <dlfcn.h>
-#include <android/log.h>
-#include <stdlib.h>
 #include <substrate.h>
 
-#include "mcpe/Common.h"
-#include "mcpe/locale/Localization.h"
+#include "minecraftpe/Common.h"
+#include "minecraftpe/locale/Localization.h"
 
 #include "emeraldmod/Emerald.h"
 #include "emeraldmod/recipes/EmeraldRecipes.h"
 
 std::string sVersion = "v1.4.6";
 
-Emerald* emerald;
 //bool bl_setArmorTexture(int, std::string const&);
 
 //Hooking Functions
 static void (*_Block$initBlocks)();
-static void Block$initBlocks() {
+static void Block$initBlocks()
+{
 	_Block$initBlocks();
 	
-	emerald->initBlocks();
+	Emerald::initBlocks();
 }
 
 static void (*_Item$initItems)();
-static void Item$initItems(){
-	emerald->initItems();
-	//emerald->initBlockItems();
+static void Item$initItems()
+{
+	Emerald::initItems();
+	//Emerald::initBlockItems();
 	
 	_Item$initItems();
 	
@@ -37,15 +35,17 @@ static void Item$initItems(){
 }
 
 static void (*_Item$initCreativeItems)();
-static void Item$initCreativeItems() {
+static void Item$initCreativeItems()
+{
 	_Item$initCreativeItems();
 
-	emerald->initCreativeItems();
-	//emerald->initCreativeBlocks();
+	Emerald::initCreativeItems();
+	//Emerald::initCreativeBlocks();
 }
 
 static void (*_Localization$_load)(Localization*, const std::string&);
-static void Localization$_load(Localization *self, const std::string &langCode) {
+static void Localization$_load(Localization *self, const std::string &langCode)
+{
 	_Localization$_load(self, langCode);
 	
 	if(langCode == "en_US" || langCode == "de_DE" || langCode == "pt_BR" || langCode == "ko_KR")
@@ -91,26 +91,29 @@ void SmallHut$postProcess(SmallHut *self, BlockSource *region, Random &random, c
 }*/
 
 static void (*_Recipes$init)(Recipes*);
-static void Recipes$init(Recipes *self) {	
+static void Recipes$init(Recipes *self)
+{	
 	_Recipes$init(self);	
 
 	EmeraldRecipes::initRecipes(self);
 }
 
 static std::string (*_Common$getGameDevVersionString)();
-static std::string Common$getGameDevVersionString() {
+static std::string Common$getGameDevVersionString()
+{
 	return "Emerald Mod " + sVersion + " by The Lucky Coder";
 }
 
 JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) 
 {
 	//MSHookFunction((void*) &Block::initBlocks, (void*) &Block$initBlocks, (void**) &_Block$initBlocks);
-	MSHookFunction((void*) &Item::initItems, (void*) &Item$initItems, (void**) &_Item$initItems);
-	MSHookFunction((void*) &Item::initCreativeItems, (void*) &Item$initCreativeItems, (void**) &_Item$initCreativeItems);
-	MSHookFunction((void*) &Localization::_load, (void*) &Localization$_load, (void**) &_Localization$_load);
+	//MSHookFunction((void*) &Item::initItems, (void*) &Item$initItems, (void**) &_Item$initItems);
+	//MSHookFunction((void*) &Item::initCreativeItems, (void*) &Item$initCreativeItems, (void**) &_Item$initCreativeItems);
+	//MSHookFunction((void*) &Localization::_load, (void*) &Localization$_load, (void**) &_Localization$_load);
 	//MSHookFunction((void*) &SmallHut::postProcess, (void*) &SmallHut$postProcess, (void**) &_SmallHut$postProcess);
 	//MSHookFunction((void*) &Recipes::init, (void*) &Recipes$init, (void**) &_Recipes$init);
 	MSHookFunction((void*) &Common::getGameDevVersionString, (void*) &Common$getGameDevVersionString, (void**) &_Common$getGameDevVersionString);
 
 	return JNI_VERSION_1_2;
 }
+

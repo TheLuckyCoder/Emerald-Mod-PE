@@ -1,61 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:paddingLeft="12dp"
-	android:paddingRight="12dp">
+	android:paddingLeft="16dp"
+	android:paddingRight="16dp"
+	android:orientation="vertical">
 
-	<LinearLayout
+	<TextView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:orientation="vertical">
+		android:text="@string/step_one"
+		android:textSize="18sp"
+		android:gravity="center_horizontal"/>
+		
+	<Button
+		android:onClick="downloadLauncher"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/download_bl"
+		android:textSize="18sp"
+		android:layout_marginTop="12dp"
+		android:gravity="center_horizontal" />
 
-		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:text="@string/step_one"
-			android:textSize="18sp"
-			android:layout_marginTop="12dp"
-			android:layout_centerHorizontal="true"/>
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/app_hide_desc"
+		android:textSize="18sp"
+		android:gravity="center_horizontal"
+		android:layout_marginTop="12dp" />
 
-		<Button
-			android:onClick="hideApp"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:text="@string/app_hide"
-			android:textSize="18sp"
-			android:layout_centerHorizontal="true"
-			android:layout_marginTop="30dp"/>
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/step_two"
+		android:textSize="18sp"
+		android:layout_marginTop="12dp" />
+		
+	<Button
+		android:onClick="hideApp"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/app_hide"
+		android:textSize="18sp"
+		android:gravity="center_horizontal"
+		android:layout_marginTop="12dp" />
 
-		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:text="@string/app_hide_desc"
-			android:textSize="18sp"
-			android:layout_centerHorizontal="true"/>
-
-		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:text="@string/step_two"
-			android:textSize="18sp"
-			android:layout_centerHorizontal="true"/>
-
-		<Button
-			android:onClick="downloadBL"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:text="@string/download_bl"
-			android:textSize="18sp"
-			android:layout_centerHorizontal="true"/>
-
-		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:text="Copyright © 2016 The Lucky Codrter"
-			android:textSize="20sp"
-			android:layout_marginTop="50dp"
-			android:layout_centerHorizontal="true"/>
-	</LinearLayout>
-</ScrollView>
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Copyright © 2016 The Lucky Coder"
+		android:textSize="16sp"
+		android:gravity="center_horizontal"
+		android:layout_marginTop="20dp" />
+	
+</LinearLayout>
 

@@ -1,6 +1,5 @@
 package net.theluckycoder.emeraldmod;
 
-import android.*;
 import android.app.Activity;
 import android.os.Bundle;
 import android.content.Intent;
@@ -25,7 +24,7 @@ public class MainActivity extends Activity {
 		pm.setComponentEnabledSetting(getComponentName(), PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
 	}
 
-	public void downloadBL(View view) {
+	public void downloadLauncher(View view) {
 		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=net.zhuoweizhang.mcpelauncher")));
 	}
 

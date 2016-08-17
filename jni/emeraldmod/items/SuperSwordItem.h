@@ -1,16 +1,19 @@
 #pragma once
 
-#include "mcpe/world/item/Item.h"
+#include "minecraftpe/world/item/Item.h"
 
-class SuperSwordItem : public Item {
+class SuperSwordItem : public Item
+{
 public:
 	SuperSwordItem(short itemId);
+	
 	virtual int getAttackDamage();
-	virtual int getEnchantSlot() const;
+	virtual int getEnchantSlot() const { return 16; }
 	virtual int getEnchantValue() const;
 	virtual void mineBlock(ItemInstance*, BlockID, int, int, int, Mob*);
 	virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);
 	virtual float getDestroySpeed(ItemInstance*, Block*);
 	virtual bool canDestroySpecial(const Block*) const;
-	virtual bool canDestroyInCreative() const;
+	virtual bool canDestroyInCreative() const { return false; }
 };
+

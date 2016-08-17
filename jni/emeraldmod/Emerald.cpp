@@ -42,29 +42,34 @@ void Emerald::initBlocks()
 	Block::mBlocks[232] = mPlanks = (new EmeraldPlanksBlock(232))->init();
 }
 
+void Emerald::initBlockGr()
+{
+	
+}
+
 void Emerald::initBlockItems()
 {
-	Item::mItems[mSlab->blockId] = new BlockItem(mSlab->getDescriptionId(), mSlab->blockId - 0x100);
-	Item::mItems[mBrick->blockId] = new BlockItem(mBrick->getDescriptionId(), mBrick->blockId - 0x100);
-	Item::mItems[mPlanks->blockId] = new BlockItem(mPlanks->getDescriptionId(), mPlanks->blockId - 0x100);
+	Item::mItems[mSlab->id] = new BlockItem(mSlab->getDescriptionId(), mSlab->id - 256);
+	Item::mItems[mBrick->id] = new BlockItem(mBrick->getDescriptionId(), mBrick->id - 256);
+	Item::mItems[mPlanks->id] = new BlockItem(mPlanks->getDescriptionId(), mPlanks->id - 256);
 }
 
 void Emerald::initItems()
 {
-	Item::mItems[2000] = mHelmet = new EmeraldHelmet(2000 - 0x100);
-	Item::mItems[2001] = mChestplate = new EmeraldChestplate(2001 - 0x100);
-	Item::mItems[2002] = mLeggings = new EmeraldLeggings(2002 - 0x100);
-	Item::mItems[2003] = mBoots = new EmeraldBoots(2003 - 0x100);
-	Item::mItems[2004] = mSword = new SwordItem(2004 - 0x100);
-	Item::mItems[2005] = mSuperSword = new SuperSwordItem(2005 - 0x100);
-	Item::mItems[2006] = mPickaxe = new PickaxeItem(2006 - 0x100);
-	Item::mItems[2007] = mAxe = new AxeItem(2007 - 0x100);
-	Item::mItems[2008] = mPax = new PaxItem(2008 - 0x100);
-	Item::mItems[2009] = mShovel = new ShovelItem(2009 - 0x100);
-	Item::mItems[2010] = mHoe = new HoeItem(2010 - 0x100);
-	Item::mItems[2011] = mFlintAndEmerald = new FlintAndEmerald(2011 - 0x100);
-	Item::mItems[2012] = mBow = new EmeraldBowItem(2012 - 0x100);
-	Item::mItems[2013] = mStick = new StickItem(2013 - 0x100);
+	Item::mItems[2000] = mHelmet = new EmeraldHelmet(2000 - 256);
+	Item::mItems[2001] = mChestplate = new EmeraldChestplate(2001 - 256);
+	Item::mItems[2002] = mLeggings = new EmeraldLeggings(2002 - 256);
+	Item::mItems[2003] = mBoots = new EmeraldBoots(2003 - 256);
+	Item::mItems[2004] = mSword = new SwordItem(2004 - 256);
+	Item::mItems[2005] = mSuperSword = new SuperSwordItem(2005 - 256);
+	Item::mItems[2006] = mPickaxe = new PickaxeItem(2006 - 256);
+	Item::mItems[2007] = mAxe = new AxeItem(2007 - 256);
+	Item::mItems[2008] = mPax = new PaxItem(2008 - 256);
+	Item::mItems[2009] = mShovel = new ShovelItem(2009 - 256);
+	Item::mItems[2010] = mHoe = new HoeItem(2010 - 256);
+	Item::mItems[2011] = mFlintAndEmerald = new FlintAndEmerald(2011 - 256);
+	Item::mItems[2012] = mBow = new EmeraldBowItem(2012 - 256);
+	Item::mItems[2013] = mStick = new StickItem(2013 - 256);
 } 
 
 void Emerald::initCreativeItems()
@@ -91,3 +96,4 @@ void Emerald::initCreativeBlocks()
 	Item::addCreativeItem(mBrick, 0);
 	Item::addCreativeItem(mPlanks, 0);
 }
+

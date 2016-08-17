@@ -1,7 +1,7 @@
 #include "EmeraldRecipes.h"
 
-#include "mcpe/world/item/Item.h"
-#include "mcpe/world/level/block/Block.h"
+#include "minecraftpe/world/item/Item.h"
+#include "minecraftpe/world/level/block/Block.h"
 
 Recipes* EmeraldRecipes::_Instance;
 std::vector<Recipes::Type> EmeraldRecipes::_ingredients;
@@ -86,17 +86,17 @@ void EmeraldRecipes::initRecipes(Recipes* instance) {
 	///Blocks
 	//Slab
 	pushIngredient(133, 0, 'b');
-	addRecipe(Block::mBlocks[230]->blockId, 6, 0, {"bbb", "   ", "   "});
+	addRecipe(Block::mBlocks[230]->id, 6, 0, {"bbb", "   ", "   "});
 	
 	//Brick
 	pushIngredient(98, 0, 's');
 	pushIngredient(2014, 0, 'd');
-	addRecipe(Block::mBlocks[231]->blockId, 1, 0, {"sd", "  "});
+	addRecipe(Block::mBlocks[231]->id, 1, 0, {"sd", "  "});
 	
 	//Planks
 	pushIngredient(4, 0, 'p');
 	pushIngredient(2014, 0, 'd');
-	addRecipe(Block::mBlocks[232]->blockId, 1, 0, {"pd", "  "});
+	addRecipe(Block::mBlocks[232]->id, 1, 0, {"pd", "  "});
 	
 }
 

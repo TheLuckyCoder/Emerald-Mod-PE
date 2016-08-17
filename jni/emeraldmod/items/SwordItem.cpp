@@ -1,25 +1,23 @@
 #include "SwordItem.h"
-#include "mcpe/world/item/ItemInstance.h"
-#include "mcpe/world/level/block/Block.h"
+#include "minecraftpe/world/item/ItemInstance.h"
+#include "minecraftpe/world/level/block/Block.h"
 
 SwordItem::SwordItem(short itemId) : Item("emeraldSword", itemId)
 {
-	setCategory(CreativeItemCategory::TOOLS);
+	setCategory(CreativeItemCategory::Tools);
 	setIcon("emerald_sword", 0);
 	setMaxStackSize(1);
 	setMaxDamage(1800);
 	setHandEquipped();
 }
 
-int SwordItem::getAttackDamage() {
+int SwordItem::getAttackDamage()
+{
 	return (Item::mItems[276]->getAttackDamage()+2.0F);
 }
 
-int SwordItem::getEnchantSlot() const{
-	return 16;
-}
-
-int SwordItem::getEnchantValue() const{
+int SwordItem::getEnchantValue() const
+{
 	return Item::mItems[276]->getEnchantValue();
 }
 
@@ -31,17 +29,14 @@ void SwordItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int
 	item->hurtAndBreak(2, mob);
 }
 
-bool SwordItem::canDestroySpecial(const Block* block) const {
+bool SwordItem::canDestroySpecial(const Block* block) const
+{
 	return (block == Block::mWeb);
 }
 
-float SwordItem::getDestroySpeed(ItemInstance *item, Block *block) {
+float SwordItem::getDestroySpeed(ItemInstance *item, Block *block)
+{
 	if (block == Block::mWeb)
 		return 20.0F;
-	else
-		return 1.0F;
 }
 
-bool SwordItem::canDestroyInCreative() const{
-	return false;
-}

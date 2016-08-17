@@ -1,6 +1,6 @@
 #pragma once
 
-#include "mcpe/world/level/block/Block.h"
+#include "minecraftpe/world/level/block/Block.h"
 
 class EmeraldPlanksBlock : public Block
 {
