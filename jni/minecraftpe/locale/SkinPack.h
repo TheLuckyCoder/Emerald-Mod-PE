@@ -3,35 +3,40 @@
 #include <string>
 #include <vector>
 
-// Size : 32
-class SkinPack
-{
+#include "../client/renderer/ResourceLocation.h"
+
+class Offer;
+
+// Size : 40
+// 0.15.6
+class SkinPack {
 public:
-	enum SkinPackType
-	{
+	enum SkinPackType {
 		DEFAULT, PACK
 	};
 
-	std::string serializableName;	// 0
-	std::string name;				// 4
-	std::string price;				// 8
-	bool unlocked;				// 12
-	std::vector<Skin> skins;			// 16
-	SkinPackType type;			// 28
+	Offer* offer; // 0
+	SkinPackType type; // 4
+	int packIndex; // 8
+	std::string serializableName; // 12
+	std::string name; // 16
+	ResourceLocation location; // 20
+	std::vector<Skin> skins; // 28
 
-	SkinPack(SkinPackType type, std::string const &serializableName, std::string name, bool unlocked, std::initializer_list<Skin> const &skins);
+	SkinPack(Offer*, SkinPackType, const std::string&, const std::string&, const ResourceLocation&, int, const std::initializer_list<Skin>&);
 
-	const std::string &getSerializableName() const;
+	const std::string& getSerializableName() const;
+	const ResourceLocation& getLocationForKeyArt() const;
 
-	const std::string &getPrice() const;
-	void setPrice(std::string const &);
-
+	const std::string& getPrice() const;
+	Offer* getOffer() const;
+	int getPackIndex() const;
+	
 	bool isPremiumUnlocked() const;
-	bool setPremiumUnlocked(bool);
 
-	const std::string &getName() const;
-	const std::vector<Skin> &getSkins() const;
+	const std::string& getName() const;
+	const std::vector<Skin>& getSkins() const;
 	SkinPackType getSkinPackType() const;
 
-	bool operator==(SkinPack const &) const;
+	bool operator==(const SkinPack&) const;
 };

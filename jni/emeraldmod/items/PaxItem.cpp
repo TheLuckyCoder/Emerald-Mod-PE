@@ -1,7 +1,7 @@
 #include "PaxItem.h"
 #include "minecraftpe/world/item/ItemInstance.h"
 #include "minecraftpe/world/level/block/Block.h"
-#include "../Emerald.h"
+#include "../EmeraldMod.h"
 
 PaxItem::PaxItem(short itemId) : Item("emeraldPax", itemId)
 {
@@ -113,9 +113,9 @@ float PaxItem::getDestroySpeed(ItemInstance *item, Block *block)
 	|| block == Block::mHardenedClay
 	|| block == Block::mCoalBlock
 	|| block == Block::mPackedIce
-	|| block == Emerald::mSlab
-	|| block == Emerald::mBrick
-	|| block == Emerald::mPlanks)
+	|| block == EmeraldMod::mSlab
+	|| block == EmeraldMod::mBrick
+	|| block == EmeraldMod::mPlanks)
 		return 50.0F;
 	else
 		return 1.0F;

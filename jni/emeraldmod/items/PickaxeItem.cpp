@@ -1,7 +1,7 @@
 #include "PickaxeItem.h"
 #include "minecraftpe/world/item/ItemInstance.h"
 #include "minecraftpe/world/level/block/Block.h"
-#include "../Emerald.h"
+#include "../EmeraldMod.h"
 
 PickaxeItem::PickaxeItem(short itemId) : Item("emeraldPickaxe", itemId)
 {
@@ -84,8 +84,10 @@ float PickaxeItem::getDestroySpeed(ItemInstance *item, Block *block) {
 	|| block == Block::mCoalBlock
 	|| block == Block::mPackedIce
 	|| block == Block::mObserver
-	|| block == Emerald::mSlab
-	|| block == Emerald::mBrick)
+	|| block == EmeraldMod::mSlab
+	|| block == EmeraldMod::mBrick)
 		return 50.0F;
+	else
+		return 1.0F;
 }
 

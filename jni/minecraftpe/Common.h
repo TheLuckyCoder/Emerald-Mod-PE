@@ -3,6 +3,7 @@
 
 class Common {
 public:
-	std::string getGameVersionString();
-	std::string getGameDevVersionString();
+	static std::string getGameVersionString();
+	static std::string getGameDevVersionString();
+	static std::string getGameVersionStringNet();
 };

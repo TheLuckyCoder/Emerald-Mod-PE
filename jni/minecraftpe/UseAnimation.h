@@ -1,10 +1,10 @@
 #pragma once
 
 enum class UseAnimation : unsigned char {
-	None,
-	Eat,
-	Drink,
-	Block,
-	Bow,
-	Camera
+	NONE,
+	EAT,
+	DRINK,
+	BLOCK,
+	BOW,
+	CAMERA
 };

@@ -4,9 +4,10 @@
 #include <vector>
 class SkinPack;
 
-class SkinRepository
-{
+// TODO: still needs fixing
+
+class SkinRepository {
 public:
 	char filler[32];
-	 std::vector<SkinPack *> skinPacks;
+	std::vector<SkinPack *> skinPacks;
 };

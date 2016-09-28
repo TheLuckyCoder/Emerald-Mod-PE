@@ -1,6 +1,6 @@
 #include "AxeItem.h"
 #include "minecraftpe/world/item/ItemInstance.h"
-#include "../Emerald.h"
+#include "../EmeraldMod.h"
 
 AxeItem::AxeItem(short itemId) : Item("emeraldAxe", itemId)
 {
@@ -48,7 +48,9 @@ float AxeItem::getDestroySpeed(ItemInstance *item, Block *block)
 	||block == Block::mWoodenDoorAcacia
 	||block == Block::mWoodenDoorDarkOak
 	||block == Block::mWorkBench
-	||block == Emerald::mPlanks)
+	||block == EmeraldMod::mPlanks)
 		return 50.0F;
+	else
+		return 1.0F;
 }
 

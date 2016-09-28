@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <unordered_map>
 
 class Material;
 class BlockEntity;
@@ -18,8 +19,6 @@ class Brightness;
 class TextureAtlas;
 class Container;
 class BlockProperty;
-#include "../../../client/renderer/texture/TextureUVCoordinateSet.h"
-#include "../../../client/renderer/texture/TextureAtlasTextureItem.h"
 #include "../../../util/Color.h"
 #include "../../phys/AABB.h"
 #include "../../../CommonTypes.h"
@@ -27,8 +26,8 @@ class BlockProperty;
 #include "BlockShape.h"
 #include "../../../CreativeItemCategory.h"
 
-class Block
-{
+// 0.15.6
+class Block {
 public:
 	class SoundType {
 	public:
@@ -53,33 +52,31 @@ public:
 
 
 	unsigned char id; // 4
-	unsigned int textureIsotropic; // 8
-	std::string name; // 12
-	char filler1[4]; // 16
-	const Block::SoundType& soundType; // 44
-	bool replaceable; // 45
-	bool canBuildOver; // 49 // shouldn't this be 46 because a bool is 1 byte long?
-	int renderLayer; // 52
-	BlockShape blockShape; // 56
-	int properties; // 60
-	BlockEntityType blockEntityType; // 64
-	bool animates; // 68
-	float thickness; // 72
-	bool slippery; // 76
-	bool instaTicks; // 77
-	float gravity; // 80
-	Material& material; // 84
-	Color mapColor; // 88
-	float friction; // 104
-	bool heavy; // 108
-	float hardness; // 112
-	float explosionResistance; // 116
-	CreativeItemCategory creativeCategory; // 120
-	AABB hitbox; // 124
+	std::string name; // 8
+	const Block::SoundType& soundType; // 12
+	bool replaceable; // 16
+	bool canBuildOver; // 17
+	int renderLayer; // 20
+	int properties; // 24
+	BlockEntityType blockEntityType; // 28
+	bool animates; // 32
+	int filler; // 36
+	float thickness; // 40
+	bool slippery; // 44
+	bool instaTicks; // 45
+	float gravity; // 48	
+	Material& material; // 52
+	Color mapColor; // 56
+	float friction; // 72
+	bool heavy; // 76
+	float hardness; // 80
+	float explosionResistance; // 84	
+	CreativeItemCategory creativeCategory; // 88
+	AABB hitbox; // 92
 
 
-	static std::shared_ptr<TextureAtlas> mTerrainTextureAtlas;
 	static std::vector<std::unique_ptr<Block>> mOwnedBlocks;
+	static std::unordered_map<std::string, Block*> mBlockLookupMap;
 	static Block* mBlocks[256];
 	static bool mSolid[256];
 	static float mTranslucency[256];
@@ -166,7 +163,7 @@ public:
 	virtual void clip(BlockSource&, const BlockPos&, const Vec3&, const Vec3&, bool, int);
 	virtual bool use(Player&, const BlockPos&);
 	virtual int getPlacementDataValue(Mob&, const BlockPos&, signed char, const Vec3&, int);
-	//virtual void calcVariant(BlockSource&, const BlockPos&, unsigned char);
+	virtual void calcVariant(BlockSource&, const BlockPos&, unsigned char);
 	virtual bool isAttachedTo(BlockSource&, const BlockPos&, BlockPos&);
 	virtual void attack(Player*, const BlockPos&);
 	virtual void handleEntityInside(BlockSource&, const BlockPos&, Entity*, Vec3&);

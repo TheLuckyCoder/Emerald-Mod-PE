@@ -22,37 +22,38 @@ class BlockSource;
 struct Vec3;
 struct IDataInput;
 struct IDataOutput;
+class Color;
+class Random;
 namespace Json { class Value; };
 
 class Item {
 public:
-	/* constructor */
-	Item(const std::string&, short);
-
-	/* fields */
 	uint8_t _maxStackSize; // 4
 	std::string atlas; // 8
 	int frameCount; // 12
-	short idk2; // 16
+	short idk; // 16
 	short itemId; // 18
 	std::string name; // 20
 	short maxDamage; // 24
-	short properties; // 26
-	int useDuration; // 28
-	BlockID blockId; // 32
-	UseAnimation useAnimation; // 33
-	CreativeItemCategory creativeCategory; // 36
-	int idk3; // 40
-	int hoverTextColor; // 44
-	TextureUVCoordinateSet& icon; // 48
-	int idk5; // 52
-	std::unique_ptr<FoodItemComponent> _foodDetails; // 56
-	std::unique_ptr<SeedItemComponent> _seedDetails; // 60
+	bool foil; // 26
+	bool handEquipped; // 27
+	bool stackedByData; // 28
+	int useDuration; // 32
+	BlockID blockId; // 36
+	UseAnimation useAnimation; // 37
+	CreativeItemCategory creativeCategory; // 40
+	int idk1; // 44
+	std::string hoverTextColor; // 48
+	TextureUVCoordinateSet& icon; // 52
+	int idk2; // 56
+	std::unique_ptr<FoodItemComponent> _foodDetails; // 60
+	std::unique_ptr<SeedItemComponent> _seedDetails; // 64
 
-	/* list */
 	static Item* mItems[4096];
+	static Random* mRandom;
 
-	/* vtable */
+	Item(const std::string&, short);
+	
 	virtual ~Item();
 	virtual Item* setIcon(const std::string&, int);
 	virtual Item* setIcon(const TextureUVCoordinateSet&);
@@ -106,10 +107,8 @@ public:
 	virtual int getIconYOffset() const;
 	virtual bool isMirroredArt() const;
 
-	/* member functions */
 	void init(Json::Value&);
 
-	/* static functions */
 	static TextureUVCoordinateSet getTextureUVCoordinateSet(const std::string&, int);
 	static void initItems();
 	static void addBlockItems();
@@ -144,15 +143,15 @@ public:
 	static Item* mPickaxe_diamond; // 278
 	static Item* mHatchet_diamond; // 279
 	static Item* mStick; // 280
-	static Item* mBowl; //281
-	//Mushroom Soup// 282
+	static Item* mBowl; // 281
+	static Item* mMushroomStew; // 282
 	static Item* mSword_gold; // 283
 	static Item* mShovel_gold; // 284
 	static Item* mPickaxe_gold; // 285
 	static Item* mHatchet_gold; // 286
 	static Item* mString; // 287
 	static Item* mFeather; // 288
-	//Gundpowder // 289
+	static Item* mSulphur; // 289
 	static Item* mHoe_wood; // 290
 	static Item* mHoe_stone; // 291
 	static Item* mHoe_iron; // 292
@@ -207,7 +206,7 @@ public:
 	static Item* mCompass; // 345
 	static Item* mFishingRod; // 346
 	static Item* mClock; // 347
-	//Glowstone Dust // 348
+	static Item* mYellowDust; // 348
 	static Item* mFish_raw_cod; // 349
 	static Item* mFish_raw_salmon; // 349, 1
 	static Item* mFish_raw_clownfish; // 349, 2

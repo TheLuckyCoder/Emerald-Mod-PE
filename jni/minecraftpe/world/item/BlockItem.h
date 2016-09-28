@@ -3,8 +3,6 @@
 #include "../../CommonTypes.h"
 
 class BlockItem : public Item {
-	BlockID block;
-
 public:
 	BlockItem(const std::string&, int);
 

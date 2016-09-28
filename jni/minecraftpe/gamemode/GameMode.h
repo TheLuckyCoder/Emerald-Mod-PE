@@ -33,5 +33,5 @@ public:
 	virtual void releaseUsingItem(Player&);
 	virtual void setTrialMode(bool);
 	virtual bool isInTrialMode();
-	//virtual void registerUpsellScreenCallback(std::function<void()(bool)>);//Need help here
+	//virtual void registerUpsellScreenCallback(std::function<void()(bool)>); // TODO
 };

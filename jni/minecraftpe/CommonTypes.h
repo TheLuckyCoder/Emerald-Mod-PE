@@ -1,6 +1,8 @@
 #pragma once
 #include <stdint.h>
 
+class Block;
+
 typedef uint8_t DataID;
 typedef uint8_t FacingID;
 
@@ -36,4 +38,6 @@ struct FullBlock {
 	
 	FullBlock(FullBlock const& other): blockId(other.blockId), data(other.data) {
 	}
+	
+	Block* getBlock() const;
 };
