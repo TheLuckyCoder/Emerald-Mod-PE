@@ -23,7 +23,7 @@ void ShovelItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
 
 void ShovelItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Mob *mob)
 {
-	Item::mItems[277]->mineBlock(item, blockId, x, y, z, mob);
+	//Item::mItems[277]->mineBlock(item, blockId, x, y, z, mob);
 }
 
 bool ShovelItem::canDestroySpecial(const Block *block) const

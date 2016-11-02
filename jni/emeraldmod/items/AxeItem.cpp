@@ -47,8 +47,7 @@ float AxeItem::getDestroySpeed(ItemInstance *item, Block *block)
 	||block == Block::mWoodenDoorJungle
 	||block == Block::mWoodenDoorAcacia
 	||block == Block::mWoodenDoorDarkOak
-	||block == Block::mWorkBench
-	||block == EmeraldMod::mPlanks)
+	||block == Block::mWorkBench)
 		return 50.0F;
 	else
 		return 1.0F;

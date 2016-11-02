@@ -19,8 +19,8 @@ void PaxItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
 
 void PaxItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Mob *mob)
 {
-	Item::mItems[277]->mineBlock(item, blockId, x, y, z, mob);
-	Item::mItems[278]->mineBlock(item, blockId, x, y, z, mob);
+	//Item::mItems[277]->mineBlock(item, blockId, x, y, z, mob);
+	//Item::mItems[278]->mineBlock(item, blockId, x, y, z, mob);
 }
 
 bool PaxItem::canDestroySpecial(const Block *block) const
@@ -112,10 +112,7 @@ float PaxItem::getDestroySpeed(ItemInstance *item, Block *block)
 	|| block == Block::mStainedClay
 	|| block == Block::mHardenedClay
 	|| block == Block::mCoalBlock
-	|| block == Block::mPackedIce
-	|| block == EmeraldMod::mSlab
-	|| block == EmeraldMod::mBrick
-	|| block == EmeraldMod::mPlanks)
+	|| block == Block::mPackedIce)
 		return 50.0F;
 	else
 		return 1.0F;

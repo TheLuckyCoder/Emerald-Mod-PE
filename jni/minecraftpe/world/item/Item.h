@@ -28,7 +28,7 @@ namespace Json { class Value; };
 
 class Item {
 public:
-	uint8_t _maxStackSize; // 4
+	/*uint8_t _maxStackSize; // 4
 	std::string atlas; // 8
 	int frameCount; // 12
 	short idk; // 16
@@ -47,7 +47,8 @@ public:
 	TextureUVCoordinateSet& icon; // 52
 	int idk2; // 56
 	std::unique_ptr<FoodItemComponent> _foodDetails; // 60
-	std::unique_ptr<SeedItemComponent> _seedDetails; // 64
+	std::unique_ptr<SeedItemComponent> _seedDetails; // 64*/
+char filler[200];
 
 	static Item* mItems[4096];
 	static Random* mRandom;
@@ -78,7 +79,7 @@ public:
 	virtual bool canDestroyInCreative() const;
 	virtual bool isLiquidClipItem(int) const;
 	virtual bool requiresInteract() const;
-	virtual const std::string& appendFormattedHovertext(const ItemInstance&, const Player&, std::string&, bool) const;
+	//virtual const std::string& appendFormattedHovertext(const ItemInstance&, const Player&, std::string&, bool) const;
 	virtual bool isValidRepairItem(const ItemInstance&, const ItemInstance&);
 	virtual int getEnchantSlot() const;
 	virtual int getEnchantValue() const;
@@ -96,7 +97,7 @@ public:
 	virtual const std::string buildDescriptionName(const ItemInstance&) const;
 	virtual const std::string buildEffectDescriptionName(const ItemInstance&) const;
 	virtual void readUserData(ItemInstance*, IDataInput&) const;
-	virtual void writeUserData(const ItemInstance*, IDataOutput&, bool) const;
+	//virtual void writeUserData(const ItemInstance*, IDataOutput&, bool) const;
 	virtual int getMaxStackSize(const ItemInstance*);
 	virtual void inventoryTick(ItemInstance&, Level&, Entity&, int, bool);
 	virtual void onCraftedBy(ItemInstance&, Level&, Player&);
@@ -110,8 +111,8 @@ public:
 	void init(Json::Value&);
 
 	static TextureUVCoordinateSet getTextureUVCoordinateSet(const std::string&, int);
-	static void initItems();
-	static void addBlockItems();
+	static void initClientData();
+	//static void addBlockItems();
 	static void initCreativeItems();
 	static void addCreativeItem(Block*, short);
 	static void addCreativeItem(Item*, short);

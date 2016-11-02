@@ -17,7 +17,7 @@ void PickaxeItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim) {
 }
 
 void PickaxeItem::mineBlock(ItemInstance *item, BlockID blockId, int x, int y, int z, Mob *mob) {
-	Item::mItems[278]->mineBlock(item, blockId, x, y, z, mob);
+	//Item::mItems[278]->mineBlock(item, blockId, x, y, z, mob);
 }
 
 bool PickaxeItem::canDestroySpecial(const Block* block) const {
@@ -83,9 +83,7 @@ float PickaxeItem::getDestroySpeed(ItemInstance *item, Block *block) {
 	|| block == Block::mHardenedClay
 	|| block == Block::mCoalBlock
 	|| block == Block::mPackedIce
-	|| block == Block::mObserver
-	|| block == EmeraldMod::mSlab
-	|| block == EmeraldMod::mBrick)
+	|| block == Block::mObserver)
 		return 50.0F;
 	else
 		return 1.0F;
