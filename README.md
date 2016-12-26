@@ -1,4 +1,4 @@
-# Emerald-Mod-MCPE
+# Emerald-Mod-PE
 
 
 Do not use this code without permission
