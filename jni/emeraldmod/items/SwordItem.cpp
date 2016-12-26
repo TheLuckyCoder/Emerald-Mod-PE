@@ -1,6 +1,7 @@
 #include "SwordItem.h"
 #include "minecraftpe/world/item/ItemInstance.h"
 #include "minecraftpe/world/level/block/Block.h"
+#include "minecraftpe/world/entity/Mob.h"
 
 SwordItem::SwordItem(short itemId) : Item("emeraldSword", itemId)
 {

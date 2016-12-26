@@ -2,6 +2,7 @@
 #include "minecraftpe/world/item/ItemInstance.h"
 #include "minecraftpe/world/level/block/Block.h"
 #include "../EmeraldMod.h"
+#include "minecraftpe/world/entity/Mob.h"
 
 PickaxeItem::PickaxeItem(short itemId) : Item("emeraldPickaxe", itemId)
 {

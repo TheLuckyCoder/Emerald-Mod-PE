@@ -1,5 +1,6 @@
 #include "HoeItem.h"
 #include "minecraftpe/world/item/ItemInstance.h"
+#include "minecraftpe/world/entity/Mob.h"
 
 HoeItem::HoeItem(short itemId) : Item("emeraldHoe", itemId)
 {
@@ -10,9 +11,9 @@ HoeItem::HoeItem(short itemId) : Item("emeraldHoe", itemId)
 	setHandEquipped();
 }
 
-bool HoeItem::useOn(ItemInstance *item, Player *player, int x, int y, int z, signed char side, float xx, float yy, float zz)
+bool HoeItem::useOn(ItemInstance &item, Entity& entity, int x, int y, int z, signed char side, float xx, float yy, float zz)
 {
-	Item::mItems[293]->useOn(item, player, x, y, z, side, xx, yy, zz);
+	Item::mItems[293]->useOn(item, entity, x, y, z, side, xx, yy, zz);
 }
 
 void HoeItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)

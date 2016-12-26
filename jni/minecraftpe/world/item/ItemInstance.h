@@ -63,7 +63,7 @@ public:
     bool hasCustomHoverName();
     bool hasSameUserData(ItemInstance const&);
     bool hasUserData();
-    void hurtAndBreak(int,Mob *);
+    void hurtAndBreak(int,Entity *);
     void hurtEnemy(Mob *,Mob *);
     void init(int,int,int);
     void interactEnemy(Mob *,Player *);
