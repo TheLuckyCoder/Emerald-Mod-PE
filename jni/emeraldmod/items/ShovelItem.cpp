@@ -1,6 +1,7 @@
 #include "ShovelItem.h"
 #include "minecraftpe/world/item/ItemInstance.h"
-#include "minecraftpe/world/level/block/Block.h".
+#include "minecraftpe/world/entity/Mob.h"
+#include "minecraftpe/world/level/block/Block.h"
 
 ShovelItem::ShovelItem(short itemId) : Item("emeraldShovel", itemId)
 {
@@ -11,9 +12,9 @@ ShovelItem::ShovelItem(short itemId) : Item("emeraldShovel", itemId)
 	setHandEquipped();
 }
 
-bool ShovelItem::useOn(ItemInstance *item, Player *player, int x, int y, int z, signed char side, float xx, float yy, float zz)
+bool ShovelItem::useOn(ItemInstance&item, Entity&entity, int x, int y, int z, signed char side, float xx, float yy, float zz)
 {
-	return Item::mItems[278]->useOn(item, player, x, y, z, side, xx, yy, zz);
+	return Item::mItems[278]->useOn(item, entity, x, y, z, side, xx, yy, zz);
 }
 
 void ShovelItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)

@@ -2,10 +2,12 @@
 
 #include <string>
 #include <memory>
+#include <vector>
 
 #include "../../CreativeItemCategory.h"
 #include "../../CommonTypes.h"
 #include "../../UseAnimation.h"
+#include "../level/block/BlockShape.h"
 
 class TextureUVCoordinateSet;
 struct SeedItemComponent;
@@ -26,99 +28,91 @@ class Color;
 class Random;
 namespace Json { class Value; };
 
-class Item {
+class Item 
+{
 public:
-	/*uint8_t _maxStackSize; // 4
-	std::string atlas; // 8
-	int frameCount; // 12
-	short idk; // 16
-	short itemId; // 18
-	std::string name; // 20
-	short maxDamage; // 24
-	bool foil; // 26
-	bool handEquipped; // 27
-	bool stackedByData; // 28
-	int useDuration; // 32
-	BlockID blockId; // 36
-	UseAnimation useAnimation; // 37
-	CreativeItemCategory creativeCategory; // 40
-	int idk1; // 44
-	std::string hoverTextColor; // 48
-	TextureUVCoordinateSet& icon; // 52
-	int idk2; // 56
-	std::unique_ptr<FoodItemComponent> _foodDetails; // 60
-	std::unique_ptr<SeedItemComponent> _seedDetails; // 64*/
-char filler[200];
-
-	static Item* mItems[4096];
-	static Random* mRandom;
-
+	/* constructor */
 	Item(const std::string&, short);
-	
+
+	/* fields */
+	char filler[200];//56
+
+	/* list */
+	static Item* mItems[4096];
+	static std::vector<ItemInstance> mCreativeList;
+
+	/* vtable */
 	virtual ~Item();
-	virtual Item* setIcon(const std::string&, int);
-	virtual Item* setIcon(const TextureUVCoordinateSet&);
-	virtual void setMaxStackSize(unsigned char);
-	virtual void setCategory(CreativeItemCategory);
-	virtual void setStackedByData(bool);
-	virtual void setMaxDamage(int);
-	virtual void setHandEquipped();
-	virtual void setUseAnimation(UseAnimation);
-	virtual void setMaxUseDuration(int);
-	virtual bool canBeDepleted();
-	virtual bool canDestroySpecial(const Block*) const;
-	virtual int getLevelDataForAuxValue(int) const;
-	virtual bool isStackedByData() const;
-	virtual int getMaxDamage();
-	virtual int getAttackDamage();
-	virtual bool isHandEquipped() const;
-	virtual bool isArmor() const;
-	virtual bool isDye() const;
-	virtual bool isGlint(const ItemInstance*) const;
-	virtual bool isThrowable() const;
-	virtual bool canDestroyInCreative() const;
-	virtual bool isLiquidClipItem(int) const;
-	virtual bool requiresInteract() const;
-	//virtual const std::string& appendFormattedHovertext(const ItemInstance&, const Player&, std::string&, bool) const;
-	virtual bool isValidRepairItem(const ItemInstance&, const ItemInstance&);
-	virtual int getEnchantSlot() const;
-	virtual int getEnchantValue() const;
-	virtual bool isComplex() const;
-	virtual int getColor(const ItemInstance&) const;
-	virtual bool use(ItemInstance&, Player&);
-	virtual bool useOn(ItemInstance*, Player*, int, int, int, signed char, float, float, float);
-	virtual void dispense(BlockSource&, Container&, int, const Vec3&, signed char);
-	virtual void useTimeDepleted(ItemInstance*, Level*, Player*);
-	virtual void releaseUsing(ItemInstance*, Player*, int);
-	virtual float getDestroySpeed(ItemInstance*, Block*);
-	virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);
-	virtual void interactEnemy(ItemInstance*, Mob*, Player*);
-	virtual void mineBlock(ItemInstance*, BlockID, int, int, int, Mob*);
-	virtual const std::string buildDescriptionName(const ItemInstance&) const;
-	virtual const std::string buildEffectDescriptionName(const ItemInstance&) const;
-	virtual void readUserData(ItemInstance*, IDataInput&) const;
-	//virtual void writeUserData(const ItemInstance*, IDataOutput&, bool) const;
-	virtual int getMaxStackSize(const ItemInstance*);
-	virtual void inventoryTick(ItemInstance&, Level&, Entity&, int, bool);
-	virtual void onCraftedBy(ItemInstance&, Level&, Player&);
-	virtual const std::string& getInteractText(const Player&) const;
-	virtual int getAnimationFrameFor(Mob&) const;
-	virtual bool isEmissive(int) const;
-	virtual const TextureUVCoordinateSet& getIcon(int, int, bool) const;
-	virtual int getIconYOffset() const;
-	virtual bool isMirroredArt() const;
-
-	void init(Json::Value&);
-
-	static TextureUVCoordinateSet getTextureUVCoordinateSet(const std::string&, int);
+    virtual Item* setIcon(std::string const&, int);
+    virtual Item* setIcon(TextureUVCoordinateSet const&);
+    virtual Item* setMaxStackSize(unsigned char);
+    virtual Item* setCategory(CreativeItemCategory);
+    virtual Item* setStackedByData(bool);
+    virtual Item* setMaxDamage(int);
+    virtual Item* setHandEquipped();
+    virtual Item* setUseAnimation(UseAnimation);
+    virtual Item* setMaxUseDuration(int);
+    virtual Item* setRequiresWorldBuilder(bool);
+    virtual Item* setExplodable(bool);
+    virtual Item* setIsGlint(bool);
+    virtual Item* setShouldDespawn(bool);
+    virtual BlockShape getBlockShape() const;
+    virtual bool canBeDepleted();
+    virtual bool canDestroySpecial(Block const*) const;
+    virtual int getLevelDataForAuxValue(int) const;
+    virtual bool isStackedByData() const;
+    virtual int getMaxDamage();
+    virtual int getAttackDamage();
+    virtual bool isHandEquipped() const;
+    virtual bool isArmor() const;
+    virtual bool isDye() const;
+    virtual bool isGlint(ItemInstance const*) const;
+    virtual bool isThrowable() const;
+    virtual bool canDestroyInCreative() const;
+    virtual bool isLiquidClipItem(int) const;
+    virtual bool requiresInteract() const;
+    virtual std::string appendFormattedHovertext(ItemInstance const&, Level&, std::string&, bool) const;
+    virtual bool isValidRepairItem(ItemInstance const&, ItemInstance const&);
+    virtual int getEnchantSlot() const;
+    virtual int getEnchantValue() const;
+    virtual bool isComplex() const;
+    virtual bool isValidAuxValue(int) const;
+    virtual int getDamageChance(int) const;
+    virtual bool uniqueAuxValues() const;
+    virtual int getColor(ItemInstance const&) const;
+    virtual bool use(ItemInstance&, Player&);
+    virtual bool useOn(ItemInstance&, Entity&, int, int, int, signed char, float, float, float);
+    virtual void dispense(BlockSource&, Container&, int, Vec3 const&, signed char);
+    virtual void useTimeDepleted(ItemInstance*, Level*, Player*);
+    virtual void releaseUsing(ItemInstance*, Player*, int);
+    virtual float getDestroySpeed(ItemInstance*, Block const*);
+    virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);
+    virtual void interactEnemy(ItemInstance*, Mob*, Player*);
+    virtual void mineBlock(ItemInstance*, BlockID, int, int, int, Entity*);
+    virtual std::string buildDescriptionName(ItemInstance const&) const;
+    virtual std::string buildEffectDescriptionName(ItemInstance const&) const;
+    virtual void readUserData(ItemInstance*, IDataInput&) const;
+    virtual void writeUserData(ItemInstance const*, IDataOutput&) const;
+    virtual void getMaxStackSize(ItemInstance const*);
+    virtual void inventoryTick(ItemInstance&, Level&, Entity&, int, bool);
+    virtual void onCraftedBy(ItemInstance&, Level&, Player&);
+    virtual int getCooldownType() const;
+    virtual int getCooldownTime() const;
+    virtual std::string getInteractText(Player const&) const;
+    virtual int getAnimationFrameFor(Mob&) const;
+    virtual bool isEmissive(int) const;
+    virtual TextureUVCoordinateSet const& getIcon(int, int, bool) const;
+    virtual int getIconYOffset() const;
+    virtual bool isMirroredArt() const;
+	
 	static void initClientData();
-	//static void addBlockItems();
 	static void initCreativeItems();
-	static void addCreativeItem(Block*, short);
-	static void addCreativeItem(Item*, short);
-	static void addCreativeItem(const ItemInstance&);
-	static void addCreativeItem(short, short);
-
+	static void addCreativeItem(short,short);
+	static void addCreativeItem(Item*,short);
+	static void addCreativeItem(Block const*,short);
+	static void addCreativeItem(ItemInstance const&);
+	static TextureUVCoordinateSet getTextureUVCoordinateSet(std::string const&,int);
+	
 	static Item* mShovel_iron; // 256
 	static Item* mPickaxe_iron; // 257
 	static Item* mHatchet_iron; // 258

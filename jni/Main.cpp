@@ -36,7 +36,7 @@ static void Localization$_load(Localization *self, const std::string &langCode)
 {
 	_Localization$_load(self, langCode);
 	
-	if(langCode == "en_US" || langCode == "de_DE" || langCode == "pt_BR" || langCode == "ko_KR")
+	if(langCode == "en_US" || langCode == "de_DE" || langCode == "pt_BR" || langCode == "ko_KR" || langCode == "zh_CN" )
 		self->_appendTranslations("loc/emeraldmod/" + langCode + "-pocket.lang");
 }
 

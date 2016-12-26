@@ -47,18 +47,20 @@ void EmeraldMod::initItems()
 
 void EmeraldMod::initCreativeItems()
 {
-	//Item::addCreativeItem(mHelmet, 0);
-	//Item::addCreativeItem(mChestplate, 0);
-	//Item::addCreativeItem(mLeggings, 0);
-	//Item::addCreativeItem(mBoots, 0);
-	Item::addCreativeItem(mSword, 0);
-	Item::addCreativeItem(mSuperSword, 0);
-	Item::addCreativeItem(mPickaxe, 0);
-	Item::addCreativeItem(mAxe, 0);
-	Item::addCreativeItem(mPax, 0);
-	Item::addCreativeItem(mShovel, 0);
-	Item::addCreativeItem(mHoe, 0);
-	Item::addCreativeItem(mFlintAndEmerald, 0);
-	Item::addCreativeItem(mBow, 0);
-	Item::addCreativeItem(mStick, 0);
+	//Item::addCreativeItem(2000, 0);
+	//Item::addCreativeItem(2001, 0);
+	//Item::addCreativeItem(2002, 0);
+	//Item::addCreativeItem(2003, 0);
+	Item::addCreativeItem(2004, 0);
+	Item::addCreativeItem(2005, 0);
+	Item::addCreativeItem(2006, 0);
+	Item::addCreativeItem(2007, 0);
+	Item::addCreativeItem(2008, 0);
+	Item::addCreativeItem(2009, 0);
+	Item::addCreativeItem(2010, 0);
+	Item::addCreativeItem(2011, 0);
+	Item::addCreativeItem(2012, 0);
+	Item::addCreativeItem(2013, 0);
+	
+	//DO NOT use pointers here.If not,the game will crash.
 }

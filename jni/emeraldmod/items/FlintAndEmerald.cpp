@@ -21,9 +21,9 @@ void FlintAndEmerald::mineBlock(ItemInstance *item, BlockID blockid, int x, int 
 	item->hurtAndBreak(2, mob);
 }
 
-bool FlintAndEmerald::useOn(ItemInstance *item, Player *player, int x, int y, int z, signed char side, float xx, float yy, float zz)
+bool FlintAndEmerald::useOn(ItemInstance &item, Entity&entity, int x, int y, int z, signed char side, float xx, float yy, float zz)
 {
-	Item::mItems[259]->useOn(item, player, x, y, z, side, xx, yy, zz);
+	Item::mItems[259]->useOn(item, entity, x, y, z, side, xx, yy, zz);
 }
 
 void FlintAndEmerald::dispense(BlockSource &region, Container &cont, int i, const Vec3 &vec, signed char ch)
