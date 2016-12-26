@@ -1,13 +1,10 @@
 #pragma once
 
 #include "minecraftpe/world/item/Item.h"
-#include "minecraftpe/world/level/block/Block.h"
 
 class EmeraldMod {
 public:
 	static void initItems();
-	static void initBlocks();
-	static void initBlockItems();
 	static void initCreativeItems();
 	
 	static Item* mHelmet;
@@ -25,4 +22,3 @@ public:
 	static Item* mBow;
 	static Item* mStick;
 };
-
