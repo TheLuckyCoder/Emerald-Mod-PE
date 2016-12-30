@@ -1,0 +1,25 @@
+##Blocks
+tile.emeraldSlab.name=Laje de Esmeralda
+tile.emeraldBrick.name=Tijolos de Esmeralda
+tile.emeraldPlanks.name=Tabuas de Esmeralda
+tile.emeraldDoubleSlab.name=Lajes duplas de Esmeralda
+tile.emeraldTorch.name=Tocha de Esmeralda
+
+##Items
+item.emeraldHelmet.name=Capacete de Esmeralda
+item.emeraldChestplate.name=Peitoral de Esmeralda
+item.emeraldLeggings.name=Calça de Esmeralda
+item.emeraldBoots.name=Botas de Esmeralda
+item.emeraldSword.name=Espada de Esmeralda
+item.emeraldSuperSword.name=Super Espada de Esmeralda
+item.emeraldPickaxe.name=Picareta de Esmeralda
+item.emeraldPax.name=Pax de Esmeralda
+item.emeraldAxe.name=Machado de Esmeralda
+item.emeraldShovel.name=Pa de Esmeralda
+item.emeraldHoe.name=Enxada de Esmeralda
+item.flintAndEmerald.name=Isqueiro de Esmeralda
+item.emeraldBow.name=Arco de Esmeralda
+item.emeraldStick.name=Graveto de Esmeralda
+item.emeraldDust.name=Po de Esmeralda
+item.emeraldBeef.name=Carne de Esmeralda
+item.emeraldApple.name=Maça de Esmeralda

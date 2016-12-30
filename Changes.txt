@@ -1,5 +1,5 @@
 1.5.0
-Update Items for 1.0
+Update Items for MCPE 1.0
 Change Emerald Rod to Emerald Stick
 Change when you hit somebody with Flint and Emerald it will be set on fire
 Improve Emerald Shovel, Pickaxe and Pax code

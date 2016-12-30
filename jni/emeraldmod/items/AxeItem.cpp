@@ -1,6 +1,7 @@
 #include "AxeItem.h"
 #include "minecraftpe/world/item/ItemInstance.h"
 #include "minecraftpe/world/entity/Mob.h"
+#include "minecraftpe/world/level/block/Block.h"
 #include "../EmeraldMod.h"
 
 AxeItem::AxeItem(short itemId) : Item("emeraldAxe", itemId)

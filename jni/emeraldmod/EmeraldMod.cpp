@@ -29,10 +29,10 @@ Item* EmeraldMod::mStick;
 
 void EmeraldMod::initItems()
 {
-	//Item::mItems[2000] =  mHelmet = new EmeraldHelmet(2000 - 256);
-	//Item::mItems[2001] = mChestplate = new EmeraldChestplate(2001 - 256);
-	//Item::mItems[2002] = mLeggings = new EmeraldLeggings(2002 - 256);
-	//Item::mItems[2003] = mBoots = new EmeraldBoots(2003 - 256);
+	Item::mItems[2000] =  mHelmet = new EmeraldHelmet(2000 - 256);
+	Item::mItems[2001] = mChestplate = new EmeraldChestplate(2001 - 256);
+	Item::mItems[2002] = mLeggings = new EmeraldLeggings(2002 - 256);
+	Item::mItems[2003] = mBoots = new EmeraldBoots(2003 - 256);
 	Item::mItems[2004] = mSword = new SwordItem(2004 - 256);
 	Item::mItems[2005] = mSuperSword = new SuperSwordItem(2005 - 256);
 	Item::mItems[2006] = mPickaxe = new PickaxeItem(2006 - 256);
@@ -47,10 +47,10 @@ void EmeraldMod::initItems()
 
 void EmeraldMod::initCreativeItems()
 {
-	//Item::addCreativeItem(2000, 0);
-	//Item::addCreativeItem(2001, 0);
-	//Item::addCreativeItem(2002, 0);
-	//Item::addCreativeItem(2003, 0);
+	Item::addCreativeItem(2000, 0);
+	Item::addCreativeItem(2001, 0);
+	Item::addCreativeItem(2002, 0);
+	Item::addCreativeItem(2003, 0);
 	Item::addCreativeItem(2004, 0);
 	Item::addCreativeItem(2005, 0);
 	Item::addCreativeItem(2006, 0);

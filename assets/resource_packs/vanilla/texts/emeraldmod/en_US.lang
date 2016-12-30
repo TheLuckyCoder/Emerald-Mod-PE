@@ -1,0 +1,30 @@
+##Use two 2 to make a comment
+##Resource Pack
+resourcePack.emeraldmod.name=Emerald Mod
+resourcePack.emeraldmod.description=Emerald Mod Resource Pack for MCPE
+
+##Blocks
+tile.emeraldSlab.name=Emerald Slab
+tile.emeraldBrick.name=Emerald Brick
+tile.emeraldPlanks.name=Emerald Planks
+tile.emeraldDoubleSlab.name=Emerald Double Slab
+	
+##Items
+item.emeraldHelmet.name=Emerald Helmet
+item.emeraldChestplate.name=Emerald Chestplate
+item.emeraldLeggings.name=Emerald Leggings
+item.emeraldBoots.name=Emerald Boots
+item.emeraldSword.name=Emerald Sword
+item.emeraldSuperSword.name=Super Emerald Sword
+item.emeraldPickaxe.name=Emerald Pickaxe
+item.emeraldPax.name=Emerald Pax
+item.emeraldAxe.name=Emerald Axe
+item.emeraldShovel.name=Emerald Shovel
+item.emeraldHoe.name=Emerald Hoe
+item.flintAndEmerald.name=Flint and Emerald
+item.emeraldBow.name=Emerald Bow
+item.emeraldStick.name=Emerald Stick
+item.emeraldDust.name=Emerald Dust
+item.emeraldBeef.name=Emerald Beef
+item.emeraldApple.name=Emerald Apple
+

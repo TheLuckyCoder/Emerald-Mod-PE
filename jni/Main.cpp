@@ -6,26 +6,26 @@
 
 #include "emeraldmod/EmeraldMod.h"
 
-//bool bl_setArmorTexture(int, std::string const&);
+bool bl_setArmorTexture(int, std::string const&);
 
 //Hooking Functions
-static void (*_Item$initItems)();
-static void Item$initItems()
+static void (*_initItems)();
+static void initItems()
 {
-	_Item$initItems();
-        EmeraldMod::initItems();
-	//EmeraldMod::initBlockItems();
+	_initItems();
+	EmeraldMod::initItems();
 	
-	//bl_setArmorTexture(2000, "armor/emerald_1.png");
-	//bl_setArmorTexture(2001, "armor/emerald_1.png");
-	//bl_setArmorTexture(2002, "armor/emerald_2.png");
-	//bl_setArmorTexture(2003, "armor/emerald_1.png");
+	//Set Armor Textures
+	bl_setArmorTexture(2000, "armor/emerald_1.png");
+	bl_setArmorTexture(2001, "armor/emerald_1.png");
+	bl_setArmorTexture(2002, "armor/emerald_2.png");
+	bl_setArmorTexture(2003, "armor/emerald_1.png");
 }
 
-static void (*_Item$initCreativeItems)();
-static void Item$initCreativeItems()
+static void (*_initCreativeItems)();
+static void initCreativeItems()
 {
-	_Item$initCreativeItems();
+	_initCreativeItems();
 
 	EmeraldMod::initCreativeItems();
 }
@@ -37,15 +37,15 @@ static void Localization$_load(Localization *self, const std::string &langCode)
 	_Localization$_load(self, langCode);
 	
 	if(langCode == "en_US" || langCode == "de_DE" || langCode == "pt_BR" || langCode == "ko_KR" || langCode == "zh_CN" )
-		self->_appendTranslations("loc/emeraldmod/" + langCode + "-pocket.lang");
+		self->_appendTranslations("emeraldmod/" + langCode + ".lang");
 }
 
-JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) 
+JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved) 
 {
-	MSHookFunction((void*) &Item::initClientData, (void*) &Item$initItems, (void**) &_Item$initItems);
-	MSHookFunction((void*) &Item::initCreativeItems, (void*) &Item$initCreativeItems, (void**) &_Item$initCreativeItems);
+	MSHookFunction((void*) &Item::initClientData, (void*) &initItems, (void**) &_initItems);
+	MSHookFunction((void*) &Item::initCreativeItems, (void*) &initCreativeItems, (void**) &_initCreativeItems);
 	MSHookFunction((void*) &Localization::_load, (void*) &Localization$_load, (void**) &_Localization$_load);
 
-	return JNI_VERSION_1_2;
+	return JNI_VERSION_1_6;
 }
 
