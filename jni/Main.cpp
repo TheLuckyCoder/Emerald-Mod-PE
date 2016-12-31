@@ -1,9 +1,7 @@
 #include <jni.h>
 #include <substrate.h>
 
-#include "minecraftpe/Common.h"
 #include "minecraftpe/locale/Localization.h"
-
 #include "emeraldmod/EmeraldMod.h"
 
 bool bl_setArmorTexture(int, std::string const&);
@@ -36,8 +34,14 @@ static void Localization$_load(Localization *self, const std::string &langCode)
 {
 	_Localization$_load(self, langCode);
 	
-	if(langCode == "en_US" || langCode == "de_DE" || langCode == "pt_BR" || langCode == "ko_KR" || langCode == "zh_CN" )
+	if(langCode == "en_US" || langCode == "de_DE" || langCode == "pt_BR" || langCode == "ko_KR" || langCode == "zh_CN")
 		self->_appendTranslations("emeraldmod/" + langCode + ".lang");
+}
+
+static std::string (*_MinecraftScreenModel$getVersionString)();
+static std::string MinecraftScreenModel$getVersionString()
+{
+	return "Emerald Mod PE 1.5.0| + " + _MinecraftScreenModel$getVersionString();
 }
 
 JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved) 
@@ -46,6 +50,10 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)
 	MSHookFunction((void*) &Item::initCreativeItems, (void*) &initCreativeItems, (void**) &_initCreativeItems);
 	MSHookFunction((void*) &Localization::_load, (void*) &Localization$_load, (void**) &_Localization$_load);
 
+    void* getVersion = dlsym(dlopen("libminecraftpe.so", RTLD_LAZY), "_ZNK20MinecraftScreenModel16getVersionStringEv");
+    MSHookFunction(getVersion, (void*) &MinecraftScreenModel$getVersionString, (void**) &_MinecraftScreenModel$getVersionString);
+
+	
 	return JNI_VERSION_1_6;
 }
 

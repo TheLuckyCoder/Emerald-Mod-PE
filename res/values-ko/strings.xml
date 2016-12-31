@@ -1,13 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">에메랄드 모드</string>
-    <string name="app_hide">어플 숨기기</string>
 	<string name="download_bl">BlockLauncher 다운로드</string>
-    <string name="app_hide_desc">\"어플 숨기기\"를 클릭하여 화면에서 앱을 숨기세요 (재부팅이 필요할 수도 있습니다)</string>
     <string name="step_one">1단계: BlockLauncher를 설치 해야 합니다. Play 스토어에서 무료로 받을 수 있습니다.</string>
     <string name="step_two">2단계: 애드온과 ModPE 스크립트가 활성화 되도록 하세요.</string>
 	<string name="step_three">3단계: 에메랄드와 함께 모드를 즐기세요.</string>
-	<string name="rate">5개의 별로 평가</string>
+	<string name="rate">5개의 별로 평가 :)</string>
 	<string name="check_twitter">제 트위터도 확인해보세요</string>
-	<string name="community">에메랄드 모드 커뮤니티 가입</string>
-	<string name="get_donate">후원 버전 얻기</string>
+	<string name="join_community">에메랄드 모드 커뮤니티 가입</string>
 </resources>

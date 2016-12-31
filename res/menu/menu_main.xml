@@ -5,5 +5,5 @@
 		android:title="@string/rate"/>
 	<item
 		android:id="@+id/community"
-		android:title="@string/community"/>
+		android:title="@string/join_community"/>
 </menu>

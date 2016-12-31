@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="app_name">Mod de Esmeraldas</string>
-	<string name="app_hide">Ocultar app</string>
 	<string name="download_bl">Descargar BlockLauncher</string>
-	<string name="app_hide_desc">Presiona \"Ocultar app\" para ocultar la app de tu launcher (Puede ser necesario reiniciar)</string>
 	<string name="step_one">Paso 1: Debes tener instalado BlockLauncher. Puedes obtenerlo gratis desde Google Play.</string>
 	<string name="step_two">Paso 2: Asegurate que el complemento esta activado.</string>
-	<string name="step_three">Paso 3: Disfruta el mod y consigue algunas esmeraldas.</string>
+	<string name="step_three">Paso 3: Disfruta el mod y consigue algunas esmeraldas! :)</string>
 	<string name="rate">Clasifiquenos con 5 estrellas</string>
 	<string name="check_twitter">Revisa mi twitter</string>
-	<string name="community">Unete a nuestra comunidad</string>
+	<string name="join_community">Unete a nuestra comunidad</string>
 </resources>

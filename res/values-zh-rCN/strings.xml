@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">绿宝石模组</string>
-    <string name="app_hide">隐藏本程序</string>
 	<string name="download_bl">下载方块启动器</string>
-    <string name="app_hide_desc">按下 \"隐藏本程序\" 在桌面隐藏本程序图示(可能要重开机才会生效)</string>
     <string name="step_one">步骤 1: 你需要安装方块启动器。你可以在PLAY商店免费取得。</string>
     <string name="step_two">步骤 2: 确认你已经启用本模组</string>
 	<string name="step_three">步骤 3: 享受本模组并取得绿宝石吧。</string>
 	<string name="rate">给五星评价</string>
 	<string name="check_twitter">到我的推特</string>
-	<string name="community">加入我们的社群</string>
+	<string name="join_community">加入我们的社群</string>
 </resources>

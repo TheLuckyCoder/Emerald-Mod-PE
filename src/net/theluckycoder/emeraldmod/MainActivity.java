@@ -3,7 +3,6 @@ package net.theluckycoder.emeraldmod;
 import android.app.Activity;
 import android.os.Bundle;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.view.View;
 import android.view.Menu;
@@ -13,16 +12,12 @@ import android.widget.Toast;
 import com.razvanmcrafter.addon.emeraldmod.R;
 
 public class MainActivity extends Activity {
-    @Override
+    
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
     }
-
-    public void hideApp(View view) {
-		PackageManager pm = getPackageManager();
-		pm.setComponentEnabledSetting(getComponentName(), PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-	}
 
 	public void downloadLauncher(View view) {
 		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=net.zhuoweizhang.mcpelauncher")));
