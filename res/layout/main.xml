@@ -2,40 +2,45 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:paddingLeft="16dp"
-	android:paddingRight="16dp"
-	android:orientation="vertical">
+	android:padding="16dp"
+	android:orientation="vertical"
+	android:gravity="center_horizontal">
 
 	<TextView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:text="@string/step_one"
-		android:textSize="18sp"
-		android:gravity="center_horizontal"/>
-		
+		android:textSize="18sp" />
+
 	<Button
 		android:onClick="downloadLauncher"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:text="@string/download_bl"
-		android:textSize="18sp"
-		android:layout_marginTop="12dp"
-		android:gravity="center_horizontal" />
-	
+		android:textSize="16sp"
+		android:layout_marginTop="12dp" />
+
 	<TextView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:text="@string/step_two"
 		android:textSize="18sp"
 		android:layout_marginTop="12dp" />
-
+	
 	<TextView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:text="@string/step_three"
+		android:textSize="18sp"
+		android:layout_marginTop="12dp" />
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
 		android:text="Copyright © 2016 The Lucky Coder"
 		android:textSize="16sp"
-		android:gravity="center_horizontal"
-		android:layout_marginTop="20dp" />
-	
+		android:layout_marginTop="30dp"
+		android:textStyle="bold" />
+
 </LinearLayout>
 

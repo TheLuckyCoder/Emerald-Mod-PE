@@ -5,7 +5,8 @@
     <string name="step_one">步驟 1: 你需要安裝方塊啟動器。你可以在PLAY商店免費取得。</string>
     <string name="step_two">步驟 2: 確認你已經啟用本模組</string>
 	<string name="step_three">步驟 3: 享受本模組並取得綠寶石吧。</string>
-	<string name="rate">給五星評價</string>
+	<string name="rate_app">給五星評價</string>
 	<string name="check_twitter">到我的推特</string>
 	<string name="join_community">加入我們的社群</string>
 </resources>
+

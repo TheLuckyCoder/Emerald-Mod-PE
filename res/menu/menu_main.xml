@@ -2,8 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 	<item
 		android:id="@+id/rate"
-		android:title="@string/rate"/>
+		android:title="@string/rate_app" />
 	<item
 		android:id="@+id/community"
-		android:title="@string/join_community"/>
+		android:title="@string/join_community" />
+	<item
+		android:id="@+id/twitter"
+		android:title="@string/check_twitter" />
 </menu>

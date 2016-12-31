@@ -10,7 +10,6 @@
 #include "items/HoeItem.h"
 #include "items/FlintAndEmerald.h"
 #include "items/EmeraldBowItem.h"
-#include "items/StickItem.h"
 
 Item* EmeraldMod::mHelmet;
 Item* EmeraldMod::mChestplate;
@@ -25,11 +24,11 @@ Item* EmeraldMod::mHoe;
 Item* EmeraldMod::mPax;
 Item* EmeraldMod::mFlintAndEmerald;
 Item* EmeraldMod::mBow;
-Item* EmeraldMod::mStick;
+//Item* EmeraldMod::mStick;
 
 void EmeraldMod::initItems()
 {
-	Item::mItems[2000] =  mHelmet = new EmeraldHelmet(2000 - 256);
+	Item::mItems[2000] = mHelmet = new EmeraldHelmet(2000 - 256);
 	Item::mItems[2001] = mChestplate = new EmeraldChestplate(2001 - 256);
 	Item::mItems[2002] = mLeggings = new EmeraldLeggings(2002 - 256);
 	Item::mItems[2003] = mBoots = new EmeraldBoots(2003 - 256);
@@ -42,7 +41,7 @@ void EmeraldMod::initItems()
 	Item::mItems[2010] = mHoe = new HoeItem(2010 - 256);
 	Item::mItems[2011] = mFlintAndEmerald = new FlintAndEmerald(2011 - 256);
 	Item::mItems[2012] = mBow = new EmeraldBowItem(2012 - 256);
-	Item::mItems[2013] = mStick = new StickItem(2013 - 256);
+	Item::mItems[2013] = mStick = (new Item("emeraldStick", 2013 - 256))->setIcon("emerald_mod", 0)->setCategory(CreativeItemCategory::Tools);
 } 
 
 void EmeraldMod::initCreativeItems()

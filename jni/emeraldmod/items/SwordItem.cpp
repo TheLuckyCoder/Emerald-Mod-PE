@@ -14,7 +14,7 @@ SwordItem::SwordItem(short itemId) : Item("emeraldSword", itemId)
 
 int SwordItem::getAttackDamage()
 {
-	return (Item::mItems[276]->getAttackDamage()+2.0F);
+	return (Item::mItems[276]->getAttackDamage() + 3.0F);
 }
 
 int SwordItem::getEnchantValue() const

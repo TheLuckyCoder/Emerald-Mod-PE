@@ -4,7 +4,7 @@
 #include "minecraftpe/locale/Localization.h"
 #include "emeraldmod/EmeraldMod.h"
 
-bool bl_setArmorTexture(int, std::string const&);
+bool bl_setArmorTexture(int, const std::string&);
 
 //Hooking Functions
 static void (*_initItems)();
@@ -34,14 +34,15 @@ static void Localization$_load(Localization *self, const std::string &langCode)
 {
 	_Localization$_load(self, langCode);
 	
-	if(langCode == "en_US" || langCode == "de_DE" || langCode == "pt_BR" || langCode == "ko_KR" || langCode == "zh_CN")
-		self->_appendTranslations("emeraldmod/" + langCode + ".lang");
+	if(langCode == "en_US" || langCode == "de_DE" || langCode == "pt_BR"
+		|| langCode == "ko_KR" || langCode == "zh_CN")
+		self->_appendTranslations("texts/emeraldmod/" + langCode + ".lang");
 }
 
 static std::string (*_MinecraftScreenModel$getVersionString)();
 static std::string MinecraftScreenModel$getVersionString()
 {
-	return "Emerald Mod PE 1.5.0| + " + _MinecraftScreenModel$getVersionString();
+	return "Emerald Mod 1.5.0 for MCPE " + _MinecraftScreenModel$getVersionString();
 }
 
 JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved) 

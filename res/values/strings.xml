@@ -5,7 +5,8 @@
     <string name="step_one">Step 1: You will need to install BlockLauncher. You can get it from Play Store for free.</string>
     <string name="step_two">Step 2: Make sure that the addons and ModPE Scripts are enabled.</string>
 	<string name="step_three">Step 3: Enjoy the mod and get some emeralds! :)</string>
-	<string name="rate">Rate app</string>
+	<string name="rate_app">Rate app</string>
 	<string name="check_twitter">Check my Twitter</string>
 	<string name="join_community">Join our community</string>
 </resources>
+

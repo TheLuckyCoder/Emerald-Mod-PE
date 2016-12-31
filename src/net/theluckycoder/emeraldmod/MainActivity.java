@@ -39,8 +39,12 @@ public class MainActivity extends Activity {
 			case R.id.community:
 				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://plus.google.com/communities/104130537090639033736")));
 				return true;
+			case R.id.twitter:
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/theluckycoder")));
+				return true;
 			default:  
                 return super.onOptionsItemSelected(item);  
-        }  
-    }  
+        }
+    }
 }
+
