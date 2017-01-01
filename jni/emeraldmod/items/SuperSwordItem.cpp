@@ -27,9 +27,9 @@ void SuperSwordItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
 	item->hurtAndBreak(1, victim);
 }
 
-void SuperSwordItem::mineBlock(ItemInstance *item, BlockID blockId, int x, int y, int z, Mob *mob)
+void SuperSwordItem::mineBlock(ItemInstance *item, BlockID blockId, int x, int y, int z, Entity *entity)
 {
-	item->hurtAndBreak(2, mob);
+	item->hurtAndBreak(2, entity);
 }
 
 bool SuperSwordItem::canDestroySpecial(const Block* block) const
@@ -37,7 +37,7 @@ bool SuperSwordItem::canDestroySpecial(const Block* block) const
 	return (block == Block::mWeb);
 }
 
-float SuperSwordItem::getDestroySpeed(ItemInstance *item, Block *block) {
+float SuperSwordItem::getDestroySpeed(ItemInstance *item, const Block *block) {
 	if(block == Block::mWeb)
 		return 20.0f;
 	else

@@ -22,9 +22,9 @@ void ShovelItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
 	item->hurtAndBreak(2, victim);
 }
 
-void ShovelItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Mob *mob)
+void ShovelItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Entity *entity)
 {
-	//Item::mItems[277]->mineBlock(item, blockId, x, y, z, mob);
+	Item::mItems[277]->mineBlock(item, blockid, x, y, z, entity);
 }
 
 bool ShovelItem::canDestroySpecial(const Block *block) const
@@ -32,7 +32,7 @@ bool ShovelItem::canDestroySpecial(const Block *block) const
 	return Item::mItems[277]->canDestroySpecial(block);
 }
 
-float ShovelItem::getDestroySpeed(ItemInstance *item, Block *block)
+float ShovelItem::getDestroySpeed(ItemInstance *item, const Block *block)
 {
 	if(block == Block::mGrass
 	||block == Block::mDirt

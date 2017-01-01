@@ -16,9 +16,9 @@ void FlintAndEmerald::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
 	victim->setOnFire(100);
 }
 
-void FlintAndEmerald::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Mob *mob) 
+void FlintAndEmerald::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Entity *entity) 
 {
-	item->hurtAndBreak(2, mob);
+	item->hurtAndBreak(2, entity);
 }
 
 bool FlintAndEmerald::useOn(ItemInstance &item, Entity&entity, int x, int y, int z, signed char side, float xx, float yy, float zz)

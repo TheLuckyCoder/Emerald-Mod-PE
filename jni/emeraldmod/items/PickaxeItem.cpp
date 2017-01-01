@@ -17,15 +17,15 @@ void PickaxeItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim) {
 	item->hurtAndBreak(2, victim);
 }
 
-void PickaxeItem::mineBlock(ItemInstance *item, BlockID blockId, int x, int y, int z, Mob *mob) {
-	//Item::mItems[278]->mineBlock(item, blockId, x, y, z, mob);
+void PickaxeItem::mineBlock(ItemInstance *item, BlockID blockId, int x, int y, int z, Entity *entity) {
+	Item::mItems[278]->mineBlock(item, blockId, x, y, z, entity);
 }
 
 bool PickaxeItem::canDestroySpecial(const Block* block) const {
 	return Item::mItems[278]->canDestroySpecial(block);
 }
 
-float PickaxeItem::getDestroySpeed(ItemInstance *item, Block *block) {
+float PickaxeItem::getDestroySpeed(ItemInstance *item, const Block *block) {
 	if(block == Block::mStone 
 	|| block == Block::mCobblestone
 	|| block == Block::mGoldOre 

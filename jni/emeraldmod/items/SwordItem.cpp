@@ -22,12 +22,14 @@ int SwordItem::getEnchantValue() const
 	return Item::mItems[276]->getEnchantValue();
 }
 
-void SwordItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim) {
+void SwordItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
+{
 	item->hurtAndBreak(1, victim);
 }
 
-void SwordItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Mob *mob) {
-	item->hurtAndBreak(2, mob);
+void SwordItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Entity *entity)
+{
+	item->hurtAndBreak(2, entity);
 }
 
 bool SwordItem::canDestroySpecial(const Block* block) const
@@ -35,9 +37,11 @@ bool SwordItem::canDestroySpecial(const Block* block) const
 	return (block == Block::mWeb);
 }
 
-float SwordItem::getDestroySpeed(ItemInstance *item, Block *block)
+float SwordItem::getDestroySpeed(ItemInstance *item, const Block *block)
 {
 	if (block == Block::mWeb)
-		return 20.0F;
+		return 20.0f;
+	else
+		return 0.8f;
 }
 

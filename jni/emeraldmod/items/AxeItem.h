@@ -11,7 +11,7 @@ public:
 	virtual int getEnchantSlot() const { return 512; }
 	virtual int getEnchantValue() const { return 1; }
 	virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);
-	virtual float getDestroySpeed(ItemInstance*, Block*);
-	virtual void mineBlock(ItemInstance*, BlockID, int, int, int, Mob*);
+	virtual float getDestroySpeed(ItemInstance*, const Block*);
+	virtual void mineBlock(ItemInstance*, BlockID, int, int, int, Entity*);
 };
 

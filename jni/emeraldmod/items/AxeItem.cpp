@@ -18,12 +18,12 @@ void AxeItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
 	item->hurtAndBreak(2, victim);
 }
 
-void AxeItem::mineBlock(ItemInstance *item, BlockID blockId, int x, int y, int z, Mob *mob)
+void AxeItem::mineBlock(ItemInstance *item, BlockID blockId, int x, int y, int z, Entity *entity)
 {
-	Item::mItems[279]->mineBlock(item, blockId, x, y, z, mob);
+	Item::mItems[279]->mineBlock(item, blockId, x, y, z, entity);
 }
 
-float AxeItem::getDestroySpeed(ItemInstance *item, Block *block)
+float AxeItem::getDestroySpeed(ItemInstance *item, const Block *block)
 {
 	if(block == Block::mWoodPlanks
 	||block == Block::mLog

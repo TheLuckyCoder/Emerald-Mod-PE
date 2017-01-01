@@ -1,6 +1,6 @@
 #pragma once
+
 #include "Item.h"
-#include "../../CommonTypes.h"
 
 class BlockItem : public Item {
 public:

@@ -18,7 +18,7 @@ void PaxItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
 	item->hurtAndBreak(2, victim);
 }
 
-void PaxItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Mob *mob)
+void PaxItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Entity *entity)
 {
 	//Item::mItems[277]->mineBlock(item, blockId, x, y, z, mob);
 	//Item::mItems[278]->mineBlock(item, blockId, x, y, z, mob);
@@ -29,7 +29,7 @@ bool PaxItem::canDestroySpecial(const Block *block) const
 	return (Item::mItems[277]->canDestroySpecial(block) || Item::mItems[278]->canDestroySpecial(block));
 }
 
-float PaxItem::getDestroySpeed(ItemInstance *item, Block *block)
+float PaxItem::getDestroySpeed(ItemInstance *item, const Block *block)
 {
 	if(block == Block::mWoodPlanks
 	|| block == Block::mLog

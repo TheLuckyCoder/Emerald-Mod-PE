@@ -22,3 +22,4 @@ public:
 	static Item* mBow;
 	static Item* mStick;
 };
+
