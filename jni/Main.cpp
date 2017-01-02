@@ -1,13 +1,15 @@
 #include <jni.h>
-#include <substrate.h>
+#include "substrate.h"
 
-#include "minecraftpe/locale/Localization.h"
+#include "minecraftpe/client/locale/Localization.h"
 #include "emeraldmod/EmeraldMod.h"
+#include "emeraldmod/recipes/EmeraldRecipes.h"
 
 static void (*_initItems)();
 static void initItems()
 {
 	_initItems();
+	
 	EmeraldMod::initItems();
 }
 
@@ -19,8 +21,16 @@ static void initCreativeItems()
 	EmeraldMod::initCreativeItems();
 }
 
-static void (*_Localization$_load)(Localization*, const std::string&);
-static void Localization$_load(Localization *self, const std::string &langCode)
+void (*_initRecipes)(Recipes*);
+void initRecipes(Recipes *self)
+{
+	_initRecipes(self);
+
+	EmeraldRecipes:initRecipes(self);
+}
+
+void (*_Localization$_load)(Localization*, const std::string&);
+void Localization$_load(Localization *self, const std::string &langCode)
 {
 	if(langCode == "en_US" || langCode == "de_DE" || langCode == "pt_BR"
 		|| langCode == "ko_KR" || langCode == "zh_CN")
@@ -41,7 +51,8 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)
 	
 	MSHookFunction((void*) &Item::initClientData, (void*) &initItems, (void**) &_initItems);
 	MSHookFunction((void*) &Item::initCreativeItems, (void*) &initCreativeItems, (void**) &_initCreativeItems);
-	MSHookFunction((void*) &Localization::_load, (void*) &Localization$_load, (void**) &_Localization$_load);
+	//MSHookFunction((void*) &Recipes::init, (void*) &initRecipes, (void**) &_initRecipes);
+	//MSHookFunction((void*) &Localization::_load, (void*) &Localization$_load, (void**) &_Localization$_load);
     MSHookFunction(getVersion, (void*) &MinecraftScreenModel$getVersionString, (void**) &_MinecraftScreenModel$getVersionString);
 
 	

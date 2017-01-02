@@ -26,6 +26,11 @@ Item* EmeraldMod::mFlintAndEmerald;
 Item* EmeraldMod::mBow;
 Item* EmeraldMod::mStick;
 
+Block* EmeraldMod::mWood;
+Block* EmeraldMod::mPlanks;
+Block* EmeraldMod::mBricks;
+Block* EmeraldMod::mFence;
+
 void EmeraldMod::initItems()
 {
 	//Item::mItems[3800] = mHelmet = new EmeraldHelmet(3800 - 256);
@@ -61,5 +66,20 @@ void EmeraldMod::initCreativeItems()
 	Item::addCreativeItem(3810, 0);
 	Item::addCreativeItem(3811, 0);
 	Item::addCreativeItem(3813, 0);
+}
+
+void EmeraldMod::initBlocks()
+{
+	
+}
+
+void EmeraldMod::initBlockItems()
+{
+	
+}
+
+void EmeraldMod::initBlockGraphics()
+{
+	
 }
 
