@@ -28,38 +28,38 @@ Item* EmeraldMod::mStick;
 
 void EmeraldMod::initItems()
 {
-	//Item::mItems[2300] = mHelmet = new EmeraldHelmet(2300 - 256);
-	//Item::mItems[2301] = mChestplate = new EmeraldChestplate(2301 - 256);
-	//Item::mItems[2302] = mLeggings = new EmeraldLeggings(2302 - 256);
-	//Item::mItems[2303] = mBoots = new EmeraldBoots(2303 - 256);
-	Item::mItems[2304] = mSword = new SwordItem(2304 - 256);
-	Item::mItems[2305] = mSuperSword = new SuperSwordItem(2305 - 256);
-	Item::mItems[2306] = mPickaxe = new PickaxeItem(2306 - 256);
-	Item::mItems[2307] = mAxe = new AxeItem(2307 - 256);
-	Item::mItems[2308] = mPax = new PaxItem(2308 - 256);
-	Item::mItems[2309] = mShovel = new ShovelItem(2309 - 256);
-	Item::mItems[2310] = mHoe = new HoeItem(2310 - 256);
-	Item::mItems[2311] = mFlintAndEmerald = new FlintAndEmerald(2311 - 256);
-	Item::mItems[2312] = mBow = new EmeraldBowItem(2312 - 256);
-	Item::mItems[2313] = mStick = (new Item("emeraldStick", 2313 - 256))->setIcon("emerald_stick", 0);
+	//Item::mItems[3800] = mHelmet = new EmeraldHelmet(3800 - 256);
+	//Item::mItems[3801] = mChestplate = new EmeraldChestplate(3801 - 256);
+	//Item::mItems[3802] = mLeggings = new EmeraldLeggings(3802 - 256);
+	//Item::mItems[3803] = mBoots = new EmeraldBoots(3803 - 256);
+	Item::mItems[3804] = mSword = new SwordItem(3804 - 256);
+	Item::mItems[3805] = mSuperSword = new SuperSwordItem(3805 - 256);
+	Item::mItems[3806] = mPickaxe = new PickaxeItem(3806 - 256);
+	Item::mItems[3807] = mAxe = new AxeItem(3807 - 256);
+	Item::mItems[3808] = mPax = new PaxItem(3808 - 256);
+	Item::mItems[3809] = mShovel = new ShovelItem(3809 - 256);
+	Item::mItems[3810] = mHoe = new HoeItem(3810 - 256);
+	Item::mItems[3811] = mFlintAndEmerald = new FlintAndEmerald(3811 - 256);
+	Item::mItems[3812] = mBow = new EmeraldBowItem(3812 - 256);
+	Item::mItems[3813] = mStick = (new Item("emeraldStick", 3813 - 256))->setIcon("emerald_stick", 0);
 }
 
 void EmeraldMod::initCreativeItems()
 {
 	//DO NOT use pointers here, else the game will crash
 	
-	/*Item::addCreativeItem(2000, 0);
-	Item::addCreativeItem(2001, 0);
-	Item::addCreativeItem(2002, 0);
-	Item::addCreativeItem(2003, 0);*/
-	Item::addCreativeItem(2004, 0);
-	Item::addCreativeItem(2005, 0);
-	Item::addCreativeItem(2006, 0);
-	Item::addCreativeItem(2007, 0);
-	Item::addCreativeItem(2008, 0);
-	Item::addCreativeItem(2009, 0);
-	Item::addCreativeItem(2010, 0);
-	//Item::addCreativeItem(2011, 0);
-	Item::addCreativeItem(2013, 0);
+	//Item::addCreativeItem(3800, 0);
+	//Item::addCreativeItem(3801, 0);
+	//Item::addCreativeItem(3802, 0);
+	//Item::addCreativeItem(3803, 0);
+	Item::addCreativeItem(3804, 0);
+	Item::addCreativeItem(3805, 0);
+	Item::addCreativeItem(3806, 0);
+	Item::addCreativeItem(3807, 0);
+	Item::addCreativeItem(3808, 0);
+	Item::addCreativeItem(3809, 0);
+	Item::addCreativeItem(3810, 0);
+	Item::addCreativeItem(3811, 0);
+	Item::addCreativeItem(3813, 0);
 }
 
