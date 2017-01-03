@@ -105,7 +105,7 @@ public:
 	virtual void onMove(BlockSource&, BlockPos const&, BlockPos const&) const;
 	virtual bool detachesOnPistonMove(BlockSource&, BlockPos const&) const;
 	virtual void onLoaded(BlockSource&, BlockPos const&) const;
-	virtual int getRedstoneProperty(BlockSource&, BlockPos const&) const;
+	virtual int getRedstoneProperty(BlockSource&, const BlockPos&) const;
 	virtual void updateEntityAfterFallOn(Entity&) const;
 	virtual void onFertilized(BlockSource&, BlockPos const&, Entity*) const;
 	virtual void mayConsumeFertilizer(BlockSource&) const;
@@ -162,7 +162,7 @@ public:
 	virtual AABB const& getVisualShape(unsigned char, AABB&, bool) const;
 	virtual int getVariant(int) const;
 	virtual int getMappedFace(signed char, int) const;
-	virtual void animateTick(BlockSource&, BlockPos const&, Random&) const;
+	virtual bool animateTick(BlockSource&, BlockPos const&, Random&) const;
 	virtual Block* init();
 	virtual bool canBeSilkTouched() const;
 	virtual ItemInstance getSilkTouchItemInstance(unsigned char) const;
