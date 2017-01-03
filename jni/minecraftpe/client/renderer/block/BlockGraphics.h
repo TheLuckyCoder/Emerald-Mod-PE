@@ -7,6 +7,7 @@
 
 #include "../../../world/level/block/Block.h"
 #include "../texture/TextureUVCoordinateSet.h"
+#include "../texture/TextureAtlas.h"
 #include "../texture/TextureAtlasItem.h"
 #include "../../../util/Color.h"
 

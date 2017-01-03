@@ -1,7 +1,8 @@
 #pragma once
 
-#include "minecraftpe/world/item/Item.h"
+#include "minecraftpe/world/item/BlockItem.h"
 #include "minecraftpe/world/level/block/Block.h"
+#include "minecraftpe/client/renderer/block/BlockGraphics.h"
 
 class EmeraldMod
 {
@@ -26,9 +27,11 @@ public:
 	static Item* mFlintAndEmerald;
 	static Item* mBow;
 	static Item* mStick;
+	static Item* mDust;
 	
 	static Block* mWood;
 	static Block* mPlanks;
+	static Block* mLeaves;
 	static Block* mBricks;
 	static Block* mFence;
 };

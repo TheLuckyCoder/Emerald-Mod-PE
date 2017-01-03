@@ -11,6 +11,7 @@ static void initItems()
 	_initItems();
 	
 	EmeraldMod::initItems();
+	EmeraldMod::initBlockItems();
 }
 
 static void (*_initCreativeItems)();
@@ -19,6 +20,22 @@ static void initCreativeItems()
 	_initCreativeItems();
 
 	EmeraldMod::initCreativeItems();
+}
+
+static void (*_initBlocks)();
+static void initBlocks()
+{
+	_initBlocks();
+
+	EmeraldMod::initBlocks();
+}
+
+static void (*_initBlockGraphics)();
+static void initBlockGraphics()
+{
+	_initBlockGraphics();
+
+	EmeraldMod::initBlockGraphics();
 }
 
 void (*_initRecipes)(Recipes*);
@@ -51,6 +68,8 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)
 	
 	MSHookFunction((void*) &Item::initClientData, (void*) &initItems, (void**) &_initItems);
 	MSHookFunction((void*) &Item::initCreativeItems, (void*) &initCreativeItems, (void**) &_initCreativeItems);
+	MSHookFunction((void*) &Block::initBlocks, (void*) &initBlocks, (void**) &_initBlocks);
+	MSHookFunction((void*) &BlockGraphics::initBlocks, (void*) &initBlockGraphics, (void**) &_initBlockGraphics);
 	//MSHookFunction((void*) &Recipes::init, (void*) &initRecipes, (void**) &_initRecipes);
 	//MSHookFunction((void*) &Localization::_load, (void*) &Localization$_load, (void**) &_Localization$_load);
     MSHookFunction(getVersion, (void*) &MinecraftScreenModel$getVersionString, (void**) &_MinecraftScreenModel$getVersionString);

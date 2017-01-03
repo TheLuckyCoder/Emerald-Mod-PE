@@ -1,6 +1,7 @@
 #pragma once
 
-enum class BlockShape : int {
+enum class BlockShape : int
+{
 	DEFAULT,
 	CROSS,
 	TORCH,

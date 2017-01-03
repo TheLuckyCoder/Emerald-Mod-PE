@@ -1,6 +1,6 @@
 #include "EmeraldMod.h"
 
-#include "items/EmeraldArmor.h"
+//#include "items/EmeraldArmor.h"
 #include "items/SwordItem.h"
 #include "items/SuperSwordItem.h"
 #include "items/PickaxeItem.h"
@@ -25,9 +25,11 @@ Item* EmeraldMod::mPax;
 Item* EmeraldMod::mFlintAndEmerald;
 Item* EmeraldMod::mBow;
 Item* EmeraldMod::mStick;
+Item* EmeraldMod::mDust;
 
 Block* EmeraldMod::mWood;
 Block* EmeraldMod::mPlanks;
+Block* EmeraldMod::mLeaves;
 Block* EmeraldMod::mBricks;
 Block* EmeraldMod::mFence;
 
@@ -47,12 +49,16 @@ void EmeraldMod::initItems()
 	Item::mItems[3811] = mFlintAndEmerald = new FlintAndEmerald(3811 - 256);
 	Item::mItems[3812] = mBow = new EmeraldBowItem(3812 - 256);
 	Item::mItems[3813] = mStick = (new Item("emeraldStick", 3813 - 256))->setIcon("emerald_stick", 0);
+	//Item::mItems[3814] = mDust = (new Item("emeraldDust", 3814 - 256))->setIcon("emerald_dust", 0);
 }
 
 void EmeraldMod::initCreativeItems()
 {
-	//DO NOT use pointers here, else the game will crash
+	/* Blocks */
+	Item::addCreativeItem(231, 0);
+	Item::addCreativeItem(233, 0);
 	
+	/* Items*/
 	//Item::addCreativeItem(3800, 0);
 	//Item::addCreativeItem(3801, 0);
 	//Item::addCreativeItem(3802, 0);
@@ -65,21 +71,26 @@ void EmeraldMod::initCreativeItems()
 	Item::addCreativeItem(3809, 0);
 	Item::addCreativeItem(3810, 0);
 	Item::addCreativeItem(3811, 0);
+	//Item::addCreativeItem(3812, 0);
 	Item::addCreativeItem(3813, 0);
+	//Item::addCreativeItem(3814, 0);
 }
 
 void EmeraldMod::initBlocks()
 {
-	
+	Block::mBlocks[231] = mPlanks = (new Block("emeraldPlanks", 231, Material::getMaterial(MaterialType::WOOD)))->setDestroyTime(15);
+	Block::mBlocks[233] = mBricks = (new Block("emeraldBricks", 233, Material::getMaterial(MaterialType::STONE)))->setDestroyTime(15);
 }
 
 void EmeraldMod::initBlockItems()
 {
-	
+	Item::mItems[231] = new BlockItem(mBricks->getDescriptionId(), 231 - 256);
+	Item::mItems[233] = new BlockItem(mBricks->getDescriptionId(), 233 - 256);
 }
 
 void EmeraldMod::initBlockGraphics()
 {
-	
+	BlockGraphics::mBlocks[231] = (new BlockGraphics("emerald_block"))->setTextureItem("emerald_planks");
+	BlockGraphics::mBlocks[233] = (new BlockGraphics("emerald_block"))->setTextureItem("emerald_brick");
 }
 
