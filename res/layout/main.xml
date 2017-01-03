@@ -34,13 +34,12 @@
 		android:textSize="18sp"
 		android:layout_marginTop="12dp" />
 
-	<TextView
-		android:layout_width="wrap_content"
+	<Button
+		android:onClick="donate"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:text="Copyright © 2016 The Lucky Coder"
-		android:textSize="16sp"
-		android:layout_marginTop="30dp"
-		android:textStyle="bold" />
-
+		android:text="@string/donate"
+		android:layout_marginTop="40dp" />
+	
 </LinearLayout>
 

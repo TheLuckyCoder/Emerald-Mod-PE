@@ -1,13 +1,16 @@
 package net.theluckycoder.emeraldmod;
 
+import android.Manifest;
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Build;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+import android.content.pm.PackageManager;
 
 import com.razvanmcrafter.addon.emeraldmod.R;
 
@@ -17,10 +20,17 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+		
+		if (Build.VERSION.SDK_INT >= 23)
+			checkForPermission();
     }
 
 	public void downloadLauncher(View view) {
 		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=net.zhuoweizhang.mcpelauncher")));
+	}
+	
+	public void donate(View view) {
+		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NEZ5FJTXS23U4")));
 	}
 
 	@Override  
@@ -44,6 +54,16 @@ public class MainActivity extends Activity {
 				return true;
 			default:  
                 return super.onOptionsItemSelected(item);  
+        }
+    }
+	
+	final private int REQUEST_CODE_ASK_PERMISSIONS = 123;
+
+    private void checkForPermission() {
+        int hasWriteContactsPermission = checkSelfPermission(Manifest.permission.WRITE_CONTACTS);
+        if (hasWriteContactsPermission != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[] {"net.zhuoweizhang.mcpelauncher.ADDON"}, REQUEST_CODE_ASK_PERMISSIONS);
+            return;
         }
     }
 }

@@ -34,9 +34,7 @@ public:
 	uint8_t blockId; // 4
 	std::string name; // 12
 	bool replaceable;
-	int renderLayer; // 52
 	bool canBuildOver; // 49
-	BlockShape blockShape; // 56
 	int properties; // 60
 	int blockEntityType; // 64
 	bool animates; // 68
@@ -184,7 +182,7 @@ public:
 	void addAABB(const AABB&);
 	void popResource(BlockSource&, const BlockPos&, const ItemInstance&)const;
 	Block* setCategory(CreativeItemCategory);
-	CreativeItemCategory getCreativeCategory()const;
+	CreativeItemCategory getCreativeCategory() const;
 	void setSolid(bool);
 	bool isSolid() const;
 	bool hasProperty(BlockProperty) const;

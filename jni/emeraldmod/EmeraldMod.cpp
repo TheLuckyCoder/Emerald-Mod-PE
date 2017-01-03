@@ -65,7 +65,7 @@ void EmeraldMod::initCreativeItems()
 	Item::addCreativeItem(233, 0);
 	Item::addCreativeItem(234, 0);
 	Item::addCreativeItem(235, 0);
-	Item::addCreativeItem(236, 0);
+	//Item::addCreativeItem(236, 0);
 	
 	/* Items*/
 	//Item::addCreativeItem(3800, 0);
@@ -130,5 +130,6 @@ void EmeraldMod::initBlockGraphics()
 	BlockGraphics::mBlocks[235] = (new BlockGraphics("emerald_block"))->setTextureItem("emerald_block");
 	BlockGraphics::mBlocks[236] = (new BlockGraphics("emerald_block"))->setTextureItem("emerald_torch");
 	BlockGraphics::mBlocks[236]->setBlockShape(BlockShape::TORCH);
+	BlockGraphics::mBlocks[236]->renderLayer = BlockGraphics::mBlocks[50]->renderLayer;
 }
 

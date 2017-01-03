@@ -42,7 +42,7 @@ public:
 	Block& block; // 8
 	int textureIsotropic; // 12
 	const SoundType& soundType; // 16
-	int filler;
+	int renderLayer; // 20
 	BlockShape blockShape; // 24
 	char filler2[8]; // 28
 	Color mapColor; // 36
