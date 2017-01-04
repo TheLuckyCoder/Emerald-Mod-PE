@@ -40,7 +40,7 @@ bool SwordItem::canDestroySpecial(const Block* block) const
 float SwordItem::getDestroySpeed(ItemInstance *item, const Block *block)
 {
 	if (block == Block::mWeb)
-		return 20.0f;
+		return 30.0f;
 	else
 		return 0.8f;
 }

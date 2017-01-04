@@ -14,7 +14,7 @@ SuperSwordItem::SuperSwordItem(short itemId) : Item("emeraldSuperSword", itemId)
 
 int SuperSwordItem::getAttackDamage()
 {
-	return (Item::mItems[276]->getAttackDamage() + 5.0f);
+	return (Item::mItems[276]->getAttackDamage() + 5);
 }
 
 int SuperSwordItem::getEnchantValue() const

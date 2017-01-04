@@ -186,7 +186,9 @@ public:
 	void setSolid(bool);
 	bool isSolid() const;
 	bool hasProperty(BlockProperty) const;
-	float getFriction()const;
+	float getFriction() const;
+	Material& getMaterial() const;
+	void* lookupByName(const std::string&, bool);
 	
 	static void initBlocks();
 	static void teardownBlocks();

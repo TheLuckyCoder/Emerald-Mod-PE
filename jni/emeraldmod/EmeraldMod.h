@@ -31,7 +31,6 @@ public:
 	
 	static Block* mWood;
 	static Block* mPlanks;
-	static Block* mLeaves;
 	static Block* mBrick;
 	static Block* mFence;
 	static Block* mSlab;

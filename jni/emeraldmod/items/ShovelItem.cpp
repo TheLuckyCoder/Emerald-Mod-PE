@@ -12,9 +12,9 @@ ShovelItem::ShovelItem(short itemId) : Item("emeraldShovel", itemId)
 	setHandEquipped();
 }
 
-bool ShovelItem::useOn(ItemInstance&item, Entity&entity, int x, int y, int z, signed char side, float xx, float yy, float zz)
+bool ShovelItem::useOn(ItemInstance &item, Entity &entity, int x, int y, int z, signed char side, float xx, float yy, float zz)
 {
-	return Item::mItems[278]->useOn(item, entity, x, y, z, side, xx, yy, zz);
+	return Item::mItems[277]->useOn(item, entity, x, y, z, side, xx, yy, zz);
 }
 
 void ShovelItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
@@ -24,7 +24,7 @@ void ShovelItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
 
 void ShovelItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Entity *entity)
 {
-	Item::mItems[277]->mineBlock(item, blockid, x, y, z, entity);
+	item->hurtAndBreak(1, entity);
 }
 
 bool ShovelItem::canDestroySpecial(const Block *block) const
@@ -34,19 +34,9 @@ bool ShovelItem::canDestroySpecial(const Block *block) const
 
 float ShovelItem::getDestroySpeed(ItemInstance *item, const Block *block)
 {
-	if(block == Block::mGrass
-	||block == Block::mDirt
-	||block == Block::mSand
-	||block == Block::mGravel
-	||block == Block::mFarmland
-	||block == Block::mSnow
-	||block == Block::mSoulSand
-	||block == Block::mGrassPathBlock
-	||block == Block::mPodzol
-	||block == Block::mMycelium
-	||block == Block::mTopSnow
-	||block == Block::mGravel)
+		if (Material::AreEqual(block->getMaterial(), Material::getMaterial(MaterialType::DIRT)))
 		return 50.0F;
 	else
 		return 1.0F;
 }
+
