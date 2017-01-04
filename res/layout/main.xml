@@ -17,7 +17,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:text="@string/download_bl"
-		android:textSize="16sp"
+		android:textSize="15sp"
 		android:layout_marginTop="12dp" />
 
 	<TextView
@@ -34,12 +34,5 @@
 		android:textSize="18sp"
 		android:layout_marginTop="12dp" />
 
-	<Button
-		android:onClick="donate"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="@string/donate"
-		android:layout_marginTop="40dp" />
-	
 </LinearLayout>
 

@@ -15,7 +15,9 @@ import android.content.pm.PackageManager;
 import com.razvanmcrafter.addon.emeraldmod.R;
 
 public class MainActivity extends Activity {
-    
+	
+    final private int REQUEST_CODE_ASK_PERMISSIONS = 123;
+	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,10 +29,6 @@ public class MainActivity extends Activity {
 
 	public void downloadLauncher(View view) {
 		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=net.zhuoweizhang.mcpelauncher")));
-	}
-	
-	public void donate(View view) {
-		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NEZ5FJTXS23U4")));
 	}
 
 	@Override  
@@ -44,8 +42,7 @@ public class MainActivity extends Activity {
         switch (item.getItemId()) {  
 			case R.id.rate:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.razvanmcrafter.addon.emeraldmod")));
-				Toast.makeText(getApplicationContext(),"Thank you for the 5 star rating",Toast.LENGTH_SHORT).show();
-				return true; 
+				return true;
 			case R.id.community:
 				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://plus.google.com/communities/104130537090639033736")));
 				return true;
@@ -56,8 +53,6 @@ public class MainActivity extends Activity {
                 return super.onOptionsItemSelected(item);  
         }
     }
-	
-	final private int REQUEST_CODE_ASK_PERMISSIONS = 123;
 
     private void checkForPermission() {
         int hasWriteContactsPermission = checkSelfPermission(Manifest.permission.WRITE_CONTACTS);
