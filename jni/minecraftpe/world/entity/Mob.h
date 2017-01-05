@@ -84,7 +84,6 @@ public:
 	virtual void die(const EntityDamageSource&);
 	virtual void resolveDeathLoot(int);
 	virtual bool canSee(const Entity&) const;
-	virtual void onLadder(bool);
 	virtual void spawnAnim();
 	virtual bool isSleeping() const;
 	virtual void setSneaking(bool);

@@ -1,13 +1,11 @@
-##Use two 2 to make a comment
-##Resource Pack
-resourcePack.emeraldmod.name=Emerald Mod
-resourcePack.emeraldmod.description=Emerald Mod Resource Pack for MCPE
-
+##Use two # to make a comment
 ##Blocks
 tile.emeraldSlab.name=Emerald Slab
 tile.emeraldBrick.name=Emerald Brick
 tile.emeraldPlanks.name=Emerald Planks
-tile.emeraldDoubleSlab.name=Emerald Double Slab
+tile.emeraldTorch.name=Emerald Torch
+tile.emeraldWood.name=Emerald Wood
+tile.emeraldLadder.name=Emerald Ladder
 	
 ##Items
 item.emeraldHelmet.name=Emerald Helmet
@@ -25,6 +23,5 @@ item.flintAndEmerald.name=Flint and Emerald
 item.emeraldBow.name=Emerald Bow
 item.emeraldStick.name=Emerald Stick
 item.emeraldDust.name=Emerald Dust
-item.emeraldBeef.name=Emerald Beef
 item.emeraldApple.name=Emerald Apple
 

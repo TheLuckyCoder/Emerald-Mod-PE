@@ -22,8 +22,8 @@ public:
 	Level* getLevel() const;
 	Block* getBlock(int, int, int);
 	Block* getBlock(const BlockPos&);
-	FullBlock getBlockID(int, int, int);
-	FullBlock getBlockID(const BlockPos&);
+	int getBlockID(int, int, int);
+	int getBlockID(const BlockPos&);
 	DataID getData(int, int, int);
 	DataID getData(const BlockPos&);
 	Material& getMaterial(int, int, int);

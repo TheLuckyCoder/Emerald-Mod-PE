@@ -3,6 +3,7 @@
 #include "minecraftpe/world/level/block/FenceBlock.h"
 #include "minecraftpe/world/level/block/SlabBlock.h"
 #include "minecraftpe/world/level/block/TorchBlock.h"
+#include "minecraftpe/world/level/block/LadderBlock.h"
 
 //#include "items/EmeraldArmor.h"
 #include "items/SwordItem.h"
@@ -37,6 +38,7 @@ Block* EmeraldMod::mBrick;
 Block* EmeraldMod::mFence;
 Block* EmeraldMod::mSlab;
 Block* EmeraldMod::mTorch;
+Block* EmeraldMod::mLadder;
 
 void EmeraldMod::initItems()
 {
@@ -65,6 +67,7 @@ void EmeraldMod::initCreativeItems()
 	Item::addCreativeItem(234, 0);
 	Item::addCreativeItem(235, 0);
 	//Item::addCreativeItem(236, 0);
+	Item::addCreativeItem(237, 0);
 	
 	/* Items*/
 	//Item::addCreativeItem(3800, 0);
@@ -86,29 +89,31 @@ void EmeraldMod::initCreativeItems()
 
 void EmeraldMod::initBlocks()
 {
-	Block::mBlocks[232] = mPlanks = new Block("emeraldPlanks", 232 - 256, Material::getMaterial(MaterialType::WOOD));
+	Block::mBlocks[232] = mPlanks = new Block("emeraldPlanks", 232, Material::getMaterial(MaterialType::WOOD));
 	mPlanks->setCategory(CreativeItemCategory::Blocks);
 	mPlanks->setDestroyTime(1.4f);
 	mPlanks->setExplodeable(5.0f);
 	
-	Block::mBlocks[233] = mBrick = new Block("emeraldBrick", 233 - 256, Material::getMaterial(MaterialType::STONE));
+	Block::mBlocks[233] = mBrick = new Block("emeraldBrick", 233, Material::getMaterial(MaterialType::STONE));
 	mBrick->setCategory(CreativeItemCategory::Blocks);
 	mBrick->setDestroyTime(2.0f);
 	mBrick->setExplodeable(8.0f);
 	
-	Block::mBlocks[234] = mFence = new FenceBlock("emeraldFence", 234 - 256, Material::getMaterial(MaterialType::METAL));
+	Block::mBlocks[234] = mFence = new FenceBlock("emeraldFence", 234, Material::getMaterial(MaterialType::METAL));
 	mFence->setSolid(false);
 	mFence->setCategory(CreativeItemCategory::Decorations);
-	mFence->setDestroyTime(2.2f);
+	mFence->setDestroyTime(2.0f);
 	mFence->setExplodeable(8.0f);
 	
-	Block::mBlocks[235] = mSlab = new SlabBlock("emeraldSlab", 235 - 256, false, Material::getMaterial(MaterialType::METAL));
+	Block::mBlocks[235] = mSlab = new SlabBlock("emeraldSlab", 235, false, Material::getMaterial(MaterialType::METAL));
 	mSlab->setCategory(CreativeItemCategory::Blocks);
 	mSlab->setDestroyTime(2.2f);
 	mSlab->setExplodeable(8.0f);
 	
-	Block::mBlocks[236] = mTorch = (new TorchBlock("emeraldTorch", 236 - 256));
+	Block::mBlocks[236] = mTorch = new TorchBlock("emeraldTorch", 236);
 	mTorch->setCategory(CreativeItemCategory::Tools);
+	
+	Block::mBlocks[237] = mLadder = new LadderBlock("emeraldLadder", 237);
 }
 
 void EmeraldMod::initBlockItems()
@@ -118,6 +123,7 @@ void EmeraldMod::initBlockItems()
 	Item::mItems[234] = new BlockItem(mFence->getDescriptionId(), 234 - 256);
 	Item::mItems[235] = new BlockItem(mSlab->getDescriptionId(), 235 - 256);
 	Item::mItems[236] = new BlockItem(mTorch->getDescriptionId(), 236 - 256);
+	Item::mItems[237] = new BlockItem(mLadder->getDescriptionId(), 237 - 256);
 }
 
 void EmeraldMod::initBlockGraphics()
@@ -128,7 +134,8 @@ void EmeraldMod::initBlockGraphics()
 	BlockGraphics::mBlocks[234]->setBlockShape(BlockShape::FENCE);
 	BlockGraphics::mBlocks[235] = (new BlockGraphics("emerald_block"))->setTextureItem("emerald_block");
 	BlockGraphics::mBlocks[236] = (new BlockGraphics("torch"))->setTextureItem("emerald_torch");
-	BlockGraphics::mBlocks[236]->setTextureItem("emerald_torch");
-	//BlockGraphics::mBlocks[236]->setBlockShape(BlockShape::TORCH);
+	BlockGraphics::mBlocks[236]->setBlockShape(BlockShape::TORCH);
+	BlockGraphics::mBlocks[237] = (new BlockGraphics("ladder"))->setTextureItem("emerald_ladder");
+	BlockGraphics::mBlocks[237]->setBlockShape(BlockShape::LADDER);
 }
 

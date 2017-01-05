@@ -10,8 +10,8 @@
 #include "../../material/Material.h"
 #include "BlockShape.h"
 #include "minecraftpe/CreativeItemCategory.h"
-#include "BlockSoundType.h"
 #include "BlockSupportType.h"
+#include "entity/BlockEntityType.h"
 
 struct BlockEntity;
 struct Container;
@@ -27,30 +27,33 @@ struct Vec3;
 struct Brightness;
 class BlockID;
 class BlockProperty;
+#include "minecraftpe/CommonTypes.h"
 
 class Block
 {
 public:
-	uint8_t blockId; // 4
-	std::string name; // 12
-	bool replaceable;
-	bool canBuildOver; // 49
-	int properties; // 60
-	int blockEntityType; // 64
-	bool animates; // 68
-	float thickness; // 72
-	bool slippery; // 76
-	bool instaTicks; // 77
-	float gravity; // 80
-	Material &material; // 84
-	Color mapColor; // 88
-	float friction; // 104
-	bool heavy; // 108
-	float hardness; // 112
-	float explosionResistance; // 116
-	CreativeItemCategory creativeCategory; // 120
-	AABB hitbox; // 124
-	char filler[24];
+	BlockID blockId; // 4
+	std::string name; // 8
+	std::string nameId; // 12
+	bool replaceable; // 16
+	bool mayBeBuiltOver; // 17
+	int renderLayer; // 20
+	int properties; // 24
+	BlockEntityType blockEntityType; // 28
+	bool animates; // 32
+	float idk; // 36
+	float thickness; // 40
+	bool slippery; // 44
+	bool instaTicks; // 45
+	float gravity; // 48
+	Material& material; // 52
+	Color mapColor; // 56
+	float friction; // 72
+	bool heavy; // 76
+	float hardness; // 80
+	float explosionResistance; // 84
+	CreativeItemCategory creativeCategory; // 88	
+	AABB hitbox; // 92
 
 
 	static std::vector<std::unique_ptr<Block>> mOwnedBlocks;

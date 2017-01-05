@@ -10,11 +10,12 @@ class TelemetryEventPacket;
 
 class Player : public Mob {
 public:
-	char filler2[2971];
+	char filler[2971];
 	bool creativeMode;
 	bool surivivalMode;
 
 	virtual ~Player();
+	virtual bool onLadder(bool);
 	virtual void remove();
 	virtual void getAddPacket();
 	virtual void normalTick();
@@ -27,7 +28,7 @@ public:
 	virtual bool isCreativeModeAllowed();
 	virtual void hurt(const EntityDamageSource&, int);
 	virtual void onBounceStarted(const BlockPos&, const FullBlock&);
-	virtual void handleENtityEvent(EntityEvent);
+	virtual void handleEntityEvent(EntityEvent);
 	virtual void awardKillScore(Entity&, int);
 	virtual void setEquippedSlot(ArmorSlot, int, int);
 	virtual void setEquippedSlot(ArmorSlot, const ItemInstance&);

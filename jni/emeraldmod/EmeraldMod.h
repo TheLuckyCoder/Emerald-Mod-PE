@@ -35,5 +35,6 @@ public:
 	static Block* mFence;
 	static Block* mSlab;
 	static Block* mTorch;
+	static Block* mLadder;
 };
 
