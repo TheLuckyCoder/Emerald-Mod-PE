@@ -3,7 +3,6 @@ Update for MCPE 1.0
 New app icon
 Add Emerald Fence
 Change Emerald Rod to Emerald Stick
-Change when you hit somebody with Flint and Emerald it will be set on fire
 Improve Emerald Shovel, Pickaxe and Pax code
 
 1.4.5

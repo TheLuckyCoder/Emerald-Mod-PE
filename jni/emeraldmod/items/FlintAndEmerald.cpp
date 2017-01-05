@@ -13,8 +13,7 @@ FlintAndEmerald::FlintAndEmerald(short itemId) : Item("flintAndEmerald", itemId)
 
 void FlintAndEmerald::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
 {
-	victim->setOnFire(10000);
-	victim->doFireHurt(10000);
+	
 }
 
 void FlintAndEmerald::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Entity *entity) 

@@ -86,28 +86,28 @@ void EmeraldMod::initCreativeItems()
 
 void EmeraldMod::initBlocks()
 {
-	Block::mBlocks[232] = mPlanks = new Block("emeraldPlanks", 232, Material::getMaterial(MaterialType::WOOD));
+	Block::mBlocks[232] = mPlanks = new Block("emeraldPlanks", 232 - 256, Material::getMaterial(MaterialType::WOOD));
 	mPlanks->setCategory(CreativeItemCategory::Blocks);
 	mPlanks->setDestroyTime(1.4f);
 	mPlanks->setExplodeable(5.0f);
 	
-	Block::mBlocks[233] = mBrick = new Block("emeraldBrick", 233, Material::getMaterial(MaterialType::STONE));
+	Block::mBlocks[233] = mBrick = new Block("emeraldBrick", 233 - 256, Material::getMaterial(MaterialType::STONE));
 	mBrick->setCategory(CreativeItemCategory::Blocks);
 	mBrick->setDestroyTime(2.0f);
 	mBrick->setExplodeable(8.0f);
 	
-	Block::mBlocks[234] = mFence = new FenceBlock("emeraldFence", 234, Material::getMaterial(MaterialType::METAL));
+	Block::mBlocks[234] = mFence = new FenceBlock("emeraldFence", 234 - 256, Material::getMaterial(MaterialType::METAL));
 	mFence->setSolid(false);
 	mFence->setCategory(CreativeItemCategory::Decorations);
 	mFence->setDestroyTime(2.2f);
 	mFence->setExplodeable(8.0f);
 	
-	Block::mBlocks[235] = mSlab = new SlabBlock("emeraldSlab", 235, false, Material::getMaterial(MaterialType::METAL));
+	Block::mBlocks[235] = mSlab = new SlabBlock("emeraldSlab", 235 - 256, false, Material::getMaterial(MaterialType::METAL));
 	mSlab->setCategory(CreativeItemCategory::Blocks);
 	mSlab->setDestroyTime(2.2f);
 	mSlab->setExplodeable(8.0f);
 	
-	Block::mBlocks[236] = mTorch = (new TorchBlock("emeraldTorch", 236));
+	Block::mBlocks[236] = mTorch = (new TorchBlock("emeraldTorch", 236 - 256));
 	mTorch->setCategory(CreativeItemCategory::Tools);
 }
 
@@ -127,7 +127,8 @@ void EmeraldMod::initBlockGraphics()
 	BlockGraphics::mBlocks[234] = (new BlockGraphics("emerald_block"))->setTextureItem("emerald_block");
 	BlockGraphics::mBlocks[234]->setBlockShape(BlockShape::FENCE);
 	BlockGraphics::mBlocks[235] = (new BlockGraphics("emerald_block"))->setTextureItem("emerald_block");
-	BlockGraphics::mBlocks[236] = (new BlockGraphics("emerald_block"))->setTextureItem("emerald_torch");
-	BlockGraphics::mBlocks[236]->setBlockShape(BlockShape::TORCH);
+	BlockGraphics::mBlocks[236] = (new BlockGraphics("torch"))->setTextureItem("emerald_torch");
+	BlockGraphics::mBlocks[236]->setTextureItem("emerald_torch");
+	//BlockGraphics::mBlocks[236]->setBlockShape(BlockShape::TORCH);
 }
 
