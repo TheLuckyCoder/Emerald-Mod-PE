@@ -18,7 +18,7 @@ public:
 	virtual int getEnchantSlot() const;
 	virtual int getEnchantValue() const;
 	virtual bool use(ItemInstance&, Player&);
-	virtual void releaseUsing(ItemInstance*, Player*, int);
+	virtual CameraItemComponent releaseUsing(ItemInstance*, Player*, int);
 	virtual int getAnimationFrameFor(Mob&) const;
 	virtual const TextureUVCoordinateSet& getIcon(int, int, bool) const;
 };

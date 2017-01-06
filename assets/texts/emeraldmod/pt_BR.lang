@@ -2,7 +2,6 @@
 tile.emeraldSlab.name=Laje de Esmeralda
 tile.emeraldBrick.name=Tijolos de Esmeralda
 tile.emeraldPlanks.name=Tabuas de Esmeralda
-tile.emeraldDoubleSlab.name=Lajes duplas de Esmeralda
 tile.emeraldTorch.name=Tocha de Esmeralda
 
 ##Items
@@ -21,5 +20,5 @@ item.flintAndEmerald.name=Isqueiro de Esmeralda
 item.emeraldBow.name=Arco de Esmeralda
 item.emeraldStick.name=Graveto de Esmeralda
 item.emeraldDust.name=Po de Esmeralda
-item.emeraldBeef.name=Carne de Esmeralda
 item.emeraldApple.name=Maça de Esmeralda
+

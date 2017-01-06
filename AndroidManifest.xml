@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.razvanmcrafter.addon.emeraldmod"
 	android:versionCode="13"
 	android:versionName="1.5.1">
 
 	<uses-permission android:name="net.zhuoweizhang.mcpelauncher.ADDON" />
 	
-	<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="25" />
+	<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="25" />
 
     <application
         android:icon="@mipmap/ic_launcher"
@@ -15,7 +14,7 @@
         android:theme="@style/AppTheme">
 		<meta-data
 			android:name="net.zhuoweizhang.mcpelauncher.api.nativelibname"
-        	android:value="emeraldmod"/>
+        	android:value="theluckycoder.emeraldmod"/>
     	<meta-data
 			android:name="net.zhuoweizhang.mcpelauncher.api.targetmcpeversion"
 			android:value="1.0.0.16"/>
@@ -29,3 +28,4 @@
         </activity>
     </application>
 </manifest>
+

@@ -22,12 +22,12 @@ int SwordItem::getEnchantValue() const
 	return Item::mItems[276]->getEnchantValue();
 }
 
-bool SwordItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
+void SwordItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
 {
 	item->hurtAndBreak(1, victim);
 }
 
-void SwordItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Entity *entity)
+bool SwordItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Entity *entity)
 {
 	item->hurtAndBreak(2, entity);
 }

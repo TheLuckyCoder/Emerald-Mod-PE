@@ -1,14 +1,8 @@
 ##Translated by @ModelPart
-
-##Resource Pack
-resourcePack.emeraldmod.name=绿宝石模组
-resourcePack.emeraldmod.description=绿宝石模组资源包
-
 ##Blocks
 tile.emeraldSlab.name=绿宝石半砖
 tile.emeraldBrick.name=绿宝石砖块
 tile.emeraldPlanks.name=绿宝石木板
-tile.emeraldDoubleSlab.name=绿宝石台阶
 	
 ##Items
 item.emeraldHelmet.name=绿宝石头盔
@@ -26,6 +20,5 @@ item.flintAndEmerald.name=绿宝石和燧石
 item.emeraldBow.name=绿宝石弓
 item.emeraldStick.name=绿宝石棍
 item.emeraldDust.name=绿宝石粉
-item.emeraldBeef.name=绿宝石牛肉
 item.emeraldApple.name=绿宝石苹果
 

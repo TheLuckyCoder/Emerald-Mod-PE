@@ -2,8 +2,7 @@
 tile.emeraldSlab.name=에메랄드 발판
 tile.emeraldBrick.name=에메랄드 벽돌
 tile.emeraldPlanks.name=에메랄드 목재
-tile.emeraldDoubleSlab.name=에메랄드 반 블록
-	
+
 ##Items
 item.emeraldHelmet.name=에메랄드 투구
 item.emeraldChestplate.name=에메랄드 갑옷
@@ -18,7 +17,7 @@ item.emeraldShovel.name=에메랄드 삽
 item.emeraldHoe.name=에메랄드 괭이
 item.flintAndEmerald.name=에메랄드 라이터
 item.emeraldBow.name=에메랄드 활
-##item.emeraldStick.name=에메랄드 막대﻿ ## must be updated
+item.emeraldStick.name=에메랄드 막대﻿
 item.emeraldDust.name=에메랄드 가루
-item.emeraldBeef.name=에메랄드 고기
 item.emeraldApple.name=에메랄드 사과
+

@@ -2,10 +2,10 @@
 
 #include "minecraftpe/world/level/block/FenceBlock.h"
 #include "minecraftpe/world/level/block/SlabBlock.h"
-//#include "minecraftpe/world/level/block/TorchBlock.h"
+#include "minecraftpe/world/level/block/TorchBlock.h"
 #include "minecraftpe/world/level/block/LadderBlock.h"
 
-//#include "items/EmeraldArmor.h"
+#include "items/EmeraldArmor.h"
 #include "items/SwordItem.h"
 #include "items/SuperSwordItem.h"
 #include "items/PickaxeItem.h"
