@@ -2,7 +2,7 @@
 
 #include "minecraftpe/world/level/block/FenceBlock.h"
 #include "minecraftpe/world/level/block/SlabBlock.h"
-#include "minecraftpe/world/level/block/TorchBlock.h"
+//#include "minecraftpe/world/level/block/TorchBlock.h"
 #include "minecraftpe/world/level/block/LadderBlock.h"
 
 //#include "items/EmeraldArmor.h"
@@ -110,8 +110,8 @@ void EmeraldMod::initBlocks()
 	mSlab->setDestroyTime(2.2f);
 	mSlab->setExplodeable(8.0f);
 	
-	Block::mBlocks[236] = mTorch = new TorchBlock("emeraldTorch", 236);
-	mTorch->setCategory(CreativeItemCategory::Tools);
+	//Block::mBlocks[236] = mTorch = new TorchBlock("emeraldTorch", 236);
+	//mTorch->setCategory(CreativeItemCategory::Tools);
 	
 	Block::mBlocks[237] = mLadder = new LadderBlock("emeraldLadder", 237);
 }
@@ -122,7 +122,7 @@ void EmeraldMod::initBlockItems()
 	Item::mItems[233] = new BlockItem(mBrick->getDescriptionId(), 233 - 256);
 	Item::mItems[234] = new BlockItem(mFence->getDescriptionId(), 234 - 256);
 	Item::mItems[235] = new BlockItem(mSlab->getDescriptionId(), 235 - 256);
-	Item::mItems[236] = new BlockItem(mTorch->getDescriptionId(), 236 - 256);
+	//Item::mItems[236] = new BlockItem(mTorch->getDescriptionId(), 236 - 256);
 	Item::mItems[237] = new BlockItem(mLadder->getDescriptionId(), 237 - 256);
 }
 
@@ -133,8 +133,8 @@ void EmeraldMod::initBlockGraphics()
 	BlockGraphics::mBlocks[234] = (new BlockGraphics("emerald_block"))->setTextureItem("emerald_block");
 	BlockGraphics::mBlocks[234]->setBlockShape(BlockShape::FENCE);
 	BlockGraphics::mBlocks[235] = (new BlockGraphics("emerald_block"))->setTextureItem("emerald_block");
-	BlockGraphics::mBlocks[236] = (new BlockGraphics("torch"))->setTextureItem("emerald_torch");
-	BlockGraphics::mBlocks[236]->setBlockShape(BlockShape::TORCH);
+	//BlockGraphics::mBlocks[236] = (new BlockGraphics("torch"))->setTextureItem("emerald_torch");
+	//BlockGraphics::mBlocks[236]->setBlockShape(BlockShape::TORCH);
 	BlockGraphics::mBlocks[237] = (new BlockGraphics("ladder"))->setTextureItem("emerald_ladder");
 	BlockGraphics::mBlocks[237]->setBlockShape(BlockShape::LADDER);
 }

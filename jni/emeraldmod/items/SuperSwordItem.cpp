@@ -27,7 +27,7 @@ void SuperSwordItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
 	item->hurtAndBreak(1, victim);
 }
 
-void SuperSwordItem::mineBlock(ItemInstance *item, BlockID blockId, int x, int y, int z, Entity *entity)
+bool SuperSwordItem::mineBlock(ItemInstance *item, BlockID blockId, int x, int y, int z, Entity *entity)
 {
 	item->hurtAndBreak(2, entity);
 }

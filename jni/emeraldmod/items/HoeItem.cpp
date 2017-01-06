@@ -21,7 +21,7 @@ void HoeItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
 	item->hurtAndBreak(2, victim);
 }
 
-void HoeItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Entity *entity)
+bool HoeItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Entity *entity)
 {
 	item->hurtAndBreak(2, entity);
 }

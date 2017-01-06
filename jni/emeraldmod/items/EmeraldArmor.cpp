@@ -1,30 +1,16 @@
 #include "EmeraldArmor.h"
 
-EmeraldHelmet::EmeraldHelmet(short itemId) : ArmorItem("emeraldHelmet", itemId, DIAMOND, 42, ArmorSlot::Helmet)
+EmeraldArmor::EmeraldArmor(const std::string &name, short id, ArmorSlot armorSlot, std::string texture) : ArmorItem(name, id, DIAMOND, 42, armorSlot)
 {
 	setCategory(CreativeItemCategory::Tools);
-	setIcon("emerald_helmet", 0);
+	setIcon(texture, 0);
 	setMaxDamage(1800);
 }
 
-EmeraldChestplate::EmeraldChestplate(short itemId) : ArmorItem("emeraldChestplate", itemId, DIAMOND, 42, ArmorSlot::Chestplate)
-{
-	setCategory(CreativeItemCategory::Tools);
-	setIcon("emerald_chestplate", 0);
-	setMaxDamage(1800);
-}
+EmeraldHelmet::EmeraldHelmet(short id) : ArmorItem("emeraldHelmet", id, ArmorSlot::Helmet, "emerald_helmet") {}
 
-EmeraldLeggings::EmeraldLeggings(short itemId) : ArmorItem("emeraldLeggings", itemId, DIAMOND, 42, ArmorSlot::Leggings)
-{
-	setCategory(CreativeItemCategory::Tools);
-	setIcon("emerald_leggings", 0);
-	setMaxDamage(1800);
-}
+EmeraldChestplate::EmeraldChestplate(short id) : ArmorItem("emeraldChestplate", id, ArmorSlot::Chestplate, "emerald_chestplate") {}
 
-EmeraldBoots::EmeraldBoots(short itemId) : ArmorItem("emeraldBoots", itemId, DIAMOND, 42, ArmorSlot::Boots)
-{
-	setCategory(CreativeItemCategory::Tools);
-	setIcon("emerald_boots", 0);
-	setMaxDamage(1800);
-}
+EmeraldLeggings::EmeraldLeggings(short id) : ArmorItem("emeraldLeggings", id, ArmorSlot::Leggings, "emerald_leggings") {}
 
+EmeraldBoots::EmeraldBoots(short id) : ArmorItem("emeraldBoots", id, ArmorSlot::Boots, "emerald_boots") {}

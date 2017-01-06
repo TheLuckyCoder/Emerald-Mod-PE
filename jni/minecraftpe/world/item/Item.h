@@ -8,7 +8,6 @@
 #include "../../CommonTypes.h"
 #include "../../UseAnimation.h"
 #include "../level/block/BlockShape.h"
-
 class TextureUVCoordinateSet;
 struct SeedItemComponent;
 class FoodItemComponent;
@@ -30,9 +29,11 @@ class Random;
 class ResourcePackManager;
 namespace Json { class Value; };
 
-class Item {
+class Item
+{
 public:
-	class Tier {
+	class Tier
+	{
 	public:
 		ItemInstance* getTierItem() const;
 
@@ -47,12 +48,30 @@ public:
 	Item(const std::string&, short);
 
 	/* fields */
-	int maxStackSize; // 4
+	uint8_t _maxStackSize; // 4
 	std::string atlas; // 8
 	int frameCount; // 12
-	char idk; // 16
+	short idk; // 16
 	short itemId; // 18
-	char filler[104]; // 20
+	std::string name; // 20
+	std::string simpleName; // 24
+	bool mirroredArt; //28
+	short maxDamage; // 30
+	bool foil; // 32
+	bool handEquipped; // 33
+	bool stackedByData; // 34
+	int useDuration; // 36
+	char filler1[2]; // 40
+	char blockId; // 42
+	int useAnimation; // 43
+	CreativeItemCategory creativeCategory; // 44
+	int filler2; // 48
+	void* colorFormat; // 52
+	TextureUVCoordinateSet& icon; // 56
+	int filler3[9]; // 60
+	std::unique_ptr <FoodItemComponent> _foodDetails; // 96
+	std::unique_ptr <SeedItemComponent> _seedDetails; // 100
+	std::unique_ptr <CameraItemComponent> _cameraDetails; // 104
 
 	/* list */
 	static Item* mItems[4096];
@@ -101,19 +120,19 @@ public:
 	virtual bool use(ItemInstance&, Player&);
 	virtual bool useOn(ItemInstance&, Entity&, int, int, int, signed char, float, float, float);
 	virtual void dispense(BlockSource&, Container&, int, const Vec3&, signed char);
-	virtual void useTimeDepleted(ItemInstance*, Level*, Player*);
-	virtual void releaseUsing(ItemInstance*, Player*, int);
+	virtual FoodItemComponent useTimeDepleted(ItemInstance*, Level*, Player*);
+	virtual CameraItemComponent releaseUsing(ItemInstance*, Player*, int);
 	virtual float getDestroySpeed(ItemInstance*, const Block*);
 	virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);
-	virtual void interactEnemy(ItemInstance*, Mob*, Player*);
-	virtual void mineBlock(ItemInstance*, BlockID, int, int, int, Entity*);
+	virtual CameraItemComponent interactEnemy(ItemInstance*, Mob*, Player*);
+	virtual bool mineBlock(ItemInstance*, BlockID, int, int, int, Entity*);
 	virtual const std::string buildDescriptionName(const ItemInstance&) const;
 	virtual const std::string buildEffectDescriptionName(const ItemInstance&) const;
 	virtual void readUserData(ItemInstance*, IDataInput&) const;
 	virtual void writeUserData(const ItemInstance*, IDataOutput&) const;
 	virtual int getMaxStackSize(const ItemInstance*);
 	virtual void inventoryTick(ItemInstance&, Level&, Entity&, int, bool);
-	virtual void onCraftedBy(ItemInstance&, Level&, Player&);
+	virtual bool onCraftedBy(ItemInstance&, Level&, Player&);
 	virtual int getCooldownType() const;
 	virtual int getCooldownTime() const;
 	virtual const std::string& getInteractText(const Player&) const;

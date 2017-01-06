@@ -17,7 +17,7 @@ void PaxItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
 	item->hurtAndBreak(2, victim);
 }
 
-void PaxItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Entity *entity)
+bool PaxItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Entity *entity)
 {
 	item->hurtAndBreak(1, entity);
 }

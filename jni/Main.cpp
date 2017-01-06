@@ -12,29 +12,25 @@
 #define LOG_TAG "Emerald-Mod"
 #define LOG(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
 
-static void (*_registerItems)();
-static void registerItems()
-{
-	EmeraldMod::initBlockItems();
-	
-	_registerItems();
-}
-
 static void (*_initClientData)();
 static void initClientData()
 {
+	LOG("Init Items");
 	_initClientData();
 	
 	EmeraldMod::initItems();
+	EmeraldMod::initBlockItems();
+	LOG("Items Initiated");
 }
 
 static void (*_initCreativeItems)();
 static void initCreativeItems()
 {
-	LOG("Add Items to creative inventory");
+	LOG("Add Items to Creative Inventory");
 	_initCreativeItems();
 
 	EmeraldMod::initCreativeItems();
+	LOG("Items added to Creative Inventory")
 }
 
 static void (*_initBlocks)();
@@ -65,13 +61,13 @@ void initRecipes(Recipes *self)
 	EmeraldRecipes:initRecipes(self);
 }
 
-bool (*_Player$onLadder)(Player*, bool);
+/*bool (*_Player$onLadder)(Player*, bool);
 bool Player$onLadder(Player* self, bool idk)
 {
 	if(self->getRegion().getBlockID(self->pos.x, self->pos.y, self->pos.z) == 237)
 		return true;
 	return _Player$onLadder(self, idk);
-}
+}*/
 
 void (*_Localization$_load)(Localization*, const std::string&);
 void Localization$_load(Localization *self, const std::string &langCode)
@@ -82,6 +78,7 @@ void Localization$_load(Localization *self, const std::string &langCode)
 	if(langCode == "en_US" || langCode == "de_DE" || langCode == "pt_BR"
 		|| langCode == "ko_KR" || langCode == "zh_CN")
 		_Localization$_load(self, "emeraldmod/" + langCode);
+	LOG("Languages loaded")
 }
 
 static std::string (*_MinecraftScreenModel$getVersionString)();
