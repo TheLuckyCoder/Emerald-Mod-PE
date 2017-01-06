@@ -47,7 +47,12 @@ public:
 	Item(const std::string&, short);
 
 	/* fields */
-	char filler[200];
+	int maxStackSize; // 4
+	std::string atlas; // 8
+	int frameCount; // 12
+	char idk; // 16
+	short itemId; // 18
+	char filler[104]; // 20
 
 	/* list */
 	static Item* mItems[4096];
@@ -118,8 +123,6 @@ public:
 	virtual int getIconYOffset() const;
 	virtual bool isMirroredArt() const;
 
-	void init(Json::Value&);
-
 	/* static function */
 	static TextureUVCoordinateSet getTextureUVCoordinateSet(const std::string&, int);
 	static void initClientData();
@@ -128,7 +131,7 @@ public:
 	static void initServer(Json::Value&);
 	static void addBlockItems();
 	static void initCreativeItems();
-	static void addCreativeItem(Block*, short);
+	static void addCreativeItem(const Block*, short);
 	static void addCreativeItem(Item*, short);
 	static void addCreativeItem(const ItemInstance&);
 	static void addCreativeItem(short, short);
