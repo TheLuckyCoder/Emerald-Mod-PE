@@ -29,6 +29,7 @@ class Random;
 class ResourcePackManager;
 namespace Json { class Value; };
 
+// Size: 104
 class Item
 {
 public:

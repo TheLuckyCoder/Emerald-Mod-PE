@@ -11,45 +11,52 @@
 #include "emeraldmod/EmeraldMod.h"
 
 #define LOG_TAG "Emerald-Mod"
-#define LOG(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
+#define LOG(...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
 
-static void (*_initClientData)();
-static void initClientData()
+void (*_initClientData)();
+void initClientData()
 {
-	LOG("Init Items");
 	_initClientData();
 	
+	LOG("Init Items");
 	EmeraldMod::initItems();
-	EmeraldMod::initBlockItems();
 	LOG("Items Initiated");
+	
+	LOG("Init BlockItems");
+	EmeraldMod::initBlockItems();
+	LOG("BlockItems Initiated");
 }
 
-static void (*_initCreativeItems)();
-static void initCreativeItems()
+void (*_initCreativeItems)();
+void initCreativeItems()
 {
-	LOG("Add Items to Creative Inventory");
 	_initCreativeItems();
-
+	
+	LOG("Add Items to Creative Inventory");
 	EmeraldMod::initCreativeItems();
 	LOG("Items added to Creative Inventory");
+	
+	LOG("Add Blocks to Creative Inventory");
+	EmeraldMod::initCreativeBlocks();
+	LOG("Blocks added to Creative Inventory");
 }
 
-static void (*_initBlocks)();
-static void initBlocks()
+void (*_initBlocks)();
+void initBlocks()
 {
-	LOG("Init Blocks");
 	_initBlocks();
 
+	LOG("Init Blocks");
 	EmeraldMod::initBlocks();
 	LOG("Blocks Initiated");
 }
 
-static void (*_initBlockGraphics)();
-static void initBlockGraphics()
+void (*_initBlockGraphics)();
+void initBlockGraphics()
 {
-	LOG("Init Block Graphics");
 	_initBlockGraphics();
 
+	LOG("Init Block Graphics");
 	EmeraldMod::initBlockGraphics();
 	LOG("Block Graphics Initiated");
 }
@@ -65,25 +72,16 @@ bool Player$onLadder(Player* self, bool idk)
 void (*_Localization$_load)(Localization*, const std::string&);
 void Localization$_load(Localization *self, const std::string &langCode)
 {
-	LOG("Load Languages");
 	_Localization$_load(self, langCode);
 	
 	if(langCode == "en_US" || langCode == "de_DE" || langCode == "pt_BR"
 		|| langCode == "ko_KR" || langCode == "zh_CN")
 		_Localization$_load(self, "emeraldmod/" + langCode);
-	LOG("Languages loaded");
-}
-
-static std::string (*_MinecraftScreenModel$getVersionString)();
-static std::string MinecraftScreenModel$getVersionString()
-{
-	LOG("Set Screen Version");
-	return "Emerald Mod v1.5.1/MCPE " + _MinecraftScreenModel$getVersionString();
 }
 
 JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved) 
 {
-	void* getVersion = dlsym(dlopen("libminecraftpe.so", RTLD_LAZY), "_ZNK20MinecraftScreenModel16getVersionStringEv");
+	LOG("Function Hooking Started");
 	
 	MSHookFunction((void*) &Item::initClientData, (void*) &initClientData, (void**) &_initClientData);
 	MSHookFunction((void*) &Item::initCreativeItems, (void*) &initCreativeItems, (void**) &_initCreativeItems);
@@ -91,9 +89,7 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)
 	MSHookFunction((void*) &BlockGraphics::initBlocks, (void*) &initBlockGraphics, (void**) &_initBlockGraphics);
 	//MSHookFunction((void*) &Player::onLadder, (void*) &Player$onLadder, (void**) &_Player$onLadder);
 	MSHookFunction((void*) &Localization::_load, (void*) &Localization$_load, (void**) &_Localization$_load);
-    MSHookFunction(getVersion, (void*) &MinecraftScreenModel$getVersionString, (void**) &_MinecraftScreenModel$getVersionString);
 
-	
 	return JNI_VERSION_1_6;
 }
 

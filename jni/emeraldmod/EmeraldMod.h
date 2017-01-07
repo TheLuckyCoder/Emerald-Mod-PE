@@ -8,10 +8,11 @@ class EmeraldMod
 {
 public:
 	static void initItems();
-	static void initCreativeItems();
 	static void initBlocks();
 	static void initBlockItems();
 	static void initBlockGraphics();
+	static void initCreativeItems();
+	static void initCreativeBlocks();
 	
 	static Item* mHelmet;
 	static Item* mChestplate;
@@ -34,6 +35,7 @@ public:
 	static Block* mBrick;
 	static Block* mFence;
 	static Block* mSlab;
+	static Block* mStair;
 	static Block* mTorch;
 	static Block* mLadder;
 };

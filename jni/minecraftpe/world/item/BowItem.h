@@ -5,12 +5,11 @@
 class BowItem : public Item
 {
 public:
-	TextureUVCoordinateSet& bow_pulling_0;
-	char filler1[20];
-	TextureUVCoordinateSet& bow_pulling_1;
-	char filler2[20];
-	TextureUVCoordinateSet& bow_pulling_2;
-	char filler3[20];	
+	TextureUVCoordinateSet& bow_pulling_0; // 108
+	char filler1[24]; // 112
+	TextureUVCoordinateSet& bow_pulling_1; // 136
+	char filler2[24]; // 140
+	TextureUVCoordinateSet& bow_pulling_2; // 164
 
 	BowItem(const std::string&, int);
 
