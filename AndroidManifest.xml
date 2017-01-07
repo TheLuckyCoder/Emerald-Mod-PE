@@ -4,6 +4,10 @@
 	android:versionCode="13"
 	android:versionName="1.5.1">
 
+	<uses-feature
+		android:name="android.hardware.touchscreen"
+		android:required="false" />
+
 	<uses-permission android:name="net.zhuoweizhang.mcpelauncher.ADDON" />
 	
 	<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="25" />

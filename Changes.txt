@@ -1,6 +1,8 @@
 1.5.1
+Add chinese translations (Thanks to [Twitter]@model_part)
 Fix Item and Block Names
-Fix some probelms with the Emerald Tools
+Fix some problems with the Emerald Tools
+Remove Emerald Mod version from main screen, becuase it was causing lag 
 
 ﻿1.5.0
 Update for MCPE 1.0
