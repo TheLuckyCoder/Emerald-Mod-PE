@@ -17,3 +17,4 @@ public:
 	virtual bool isBlockSource() const;
 	virtual std::string getDeathMessage(std::string, Entity*);
 };
+

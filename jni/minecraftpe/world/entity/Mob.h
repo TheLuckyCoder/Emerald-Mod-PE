@@ -16,49 +16,22 @@ class Attribute;
 class ItemEntity;
 #include "../item/ItemInstance.h"
 
-// Size : 3178
-class Mob : public Entity {
+class Mob : public Entity
+{
 public:
-	float yBodyRot; // 352
-	float yBodyRotO; // 356
-	float yHeadRot; // 360
-	float yHeadRotO; // 364
-	char mfiller[2572]; // 368
-	ItemInstance armor[4]; // 2940
-	char mfiller1[96]; // 3020
-	bool wat; // 3116
-	bool isJumping; // 3117
-	int whocares; // 3120
-	float speed; // 3124
-	LookControl* lookControl; // 3128
-	MoveControl* moveControl; // 3132
-	JumpControl* jumpControl; // 3136
-	BodyControl* bodyControl; // 3140
-	PathNavigation* getNavigation; // 3144
-	Sensing* getSensing; // 3148
-	char mfiller2[32]; // 3152
-	float yYa; // 3184
-	char mfiller3[4]; // 3188
-	bool wat1; // 3192
-	bool isSurfaceMob; // 3193
-	int wat2; // 3196
-	char mfiller4[52]; // 3200
-	bool canPickupLoot; // 3252
-	bool removeWhenFarAway; // 3253
-	int wat3; // 3256
-	int wat4; // 3260
-	int arrowCount; // 3264
-	
 	Mob(Level&);
-	Mob(BlockSource&);
+	Mob(EntityDefinitionGroup&, const EntityDefinitionIdentifier&);
 	
 	/* vtable */
+	virtual void reloadHardcodedClient(Entity::InitializationMethod, const VariantParameterList&);
+	virtual void initializeComponents(Entity::InitializationMethod, const VariantParameterList&);
+	virtual void hasComponent(const std::string&) const;
 	virtual ~Mob();
+	virtual void teleportTo(const Vec3&, int, int);
 	virtual void lerpTo(const Vec3&, const Vec2&, int);
 	virtual void normalTick();
 	virtual void baseTick();
 	virtual void rideTick();
-	virtual bool isBaby() const;
 	virtual float getHeadHeight() const;
 	virtual void playerTouch(Player&);
 	virtual bool isImmobile() const;
@@ -67,40 +40,43 @@ public:
 	virtual bool isShootable();
 	virtual bool isSneaking() const;
 	virtual bool isAlive() const;
-	virtual void hurt(const EntityDamageSource&, int);
 	virtual void animateHurt();
 	virtual void doFireHurt(int);
-	virtual void handleEntityEvent(EntityEvent);
+	virtual void handleEntityEvent(EntityEvent, int);
+	//virtual void __cxa_pure_virtual;
 	virtual void setOnFire(int);
 	virtual void causeFallDamage(float);
 	virtual bool canAddRider(Entity&) const;
+	virtual bool canBePulledIntoVehicle() const;
+	virtual void stopRiding(bool, bool);
 	virtual void buildDebugInfo(std::string&) const;
+	virtual float getYHeadRot() const;
 	virtual bool outOfWorld();
+	virtual void _hurt(const EntityDamageSource&, int, bool, bool);
 	virtual void readAdditionalSaveData(const CompoundTag&);
 	virtual void addAdditionalSaveData(CompoundTag&);
 	virtual void _playStepSound(const BlockPos&, int);
-	virtual void postInit();
-	virtual void knockback(Entity*, int, float, float);
+	virtual void knockback(Entity*, int, float, float, float);
 	virtual void die(const EntityDamageSource&);
-	virtual void resolveDeathLoot(int);
+	virtual void resolveDeathLoot(bool, int, const EntityDamageSource&);
 	virtual bool canSee(const Entity&) const;
 	virtual void spawnAnim();
 	virtual bool isSleeping() const;
 	virtual void setSneaking(bool);
 	virtual bool isSprinting() const;
 	virtual void setSprinting(bool);
-	virtual float getVoicePitch();
+	virtual void getVoicePitch();
 	virtual void playAmbientSound();
-	virtual int getAmbientSoundInterval();
-	virtual void getItemInHandIcon(const ItemInstance*, int);
-	virtual float getSpeed();
+	virtual void getAmbientSoundPostponeTicks();
+	virtual TextureUVCoordinateSet& getItemInHandIcon(const ItemInstance*, int);
+	virtual float getSpeed() const;
 	virtual void setSpeed(float);
 	virtual float getJumpPower() const;
 	virtual void heal(int);
-	virtual void hurtEffects(const EntityDamageSource&, int);
-	virtual float getMeleeWeaponDamageBonus(Mob*);
-	virtual float getMeleeKnockbackBonus();
-	virtual void actuallyHurt(int, const EntityDamageSource*);
+	virtual void hurtEffects(const EntityDamageSource&, int, bool, bool);
+	virtual int getMeleeWeaponDamageBonus(Mob*);
+	virtual int getMeleeKnockbackBonus();
+	virtual bool actuallyHurt(int, const EntityDamageSource*, bool);
 	virtual bool isInvertedHealAndHarm() const;
 	virtual void travel(float, float);
 	virtual void applyFinalFriction(float);
@@ -108,16 +84,17 @@ public:
 	virtual void aiStep();
 	virtual void pushEntities();
 	virtual void lookAt(Entity*, float, float);
-	virtual bool canSpawn(bool);
-	virtual void finalizeMobSpawn();
+	virtual bool isLookingAtAnEntity();
+	virtual void checkSpawnRules(bool);
 	virtual bool shouldDespawn() const;
 	virtual void getAttackAnim(float);
-	virtual void performRangedAttack(Mob&, float);
+	virtual void performRangedAttack(Entity&, float);
 	virtual ItemInstance& getCarriedItem();
+	virtual ItemInstance& getCarriedItem() const;
 	virtual void setCarriedItem(const ItemInstance&);
 	virtual int getItemUseDuration();
 	virtual void swing();
-	virtual void ate();
+	virtual bool ate();
 	virtual float getMaxHeadXRot();
 	virtual Mob* getLastHurtByMob();
 	virtual void setLastHurtByMob(Mob*);
@@ -125,47 +102,43 @@ public:
 	virtual void setLastHurtByPlayer(Player*);
 	virtual Entity* getLastHurtMob();
 	virtual void setLastHurtMob(Entity*);
-	virtual Mob* getTarget();
-	virtual void setTarget(Mob*);
-	virtual bool canAttack(Mob*, bool);
+	virtual bool canAttack(Entity*, bool);
 	virtual bool isAlliedTo(Mob*);
 	virtual void doHurtTarget(Entity*);
 	virtual bool canBeControlledByRider();
-	virtual void teleportTo(const Vec3&);
 	virtual void getMutableAttribute(const Attribute&);
 	virtual void getAttribute(const Attribute&) const;
 	virtual int getEquipmentCount() const;
 	virtual void getArmorValue();
-	virtual void getArmorCoverPercentage();
+	virtual float getArmorCoverPercentage() const;
 	virtual void hurtArmor(int);
 	virtual void setArmor(ArmorSlot, const ItemInstance*);
-	virtual ItemInstance* getArmor(ArmorSlot) const;
+	virtual void getArmor(ArmorSlot) const;
 	virtual void getAllArmor() const;
+	virtual void getAllArmor();
+	virtual void getAllHand() const;
+	virtual void getAllHand();
+	virtual void getAllEquipment() const;
+	virtual void getAllEquipment();
 	virtual void getArmorTypeHash();
-	virtual void dropHeldItem();
-	virtual void dropAllArmor();
-	virtual void dropAllGear(int);
-	virtual void drop(const ItemInstance*, bool);
 	virtual void sendInventory() const;
 	virtual bool canBeAffected(const MobEffectInstance&);
 	virtual void getDamageAfterMagicAbsorb(const EntityDamageSource&, int);
-	virtual bool _removeWhenFarAway();
-	virtual int getDeathLoot();
-	virtual void dropDeathLoot(int);
-	virtual void dropRareDeathLoot();
+	virtual void onBorn(Mob&, Mob&);
+	virtual void onLove();
+	virtual float getWaterSlowDown() const;
+	virtual void _removeWhenFarAway();
 	virtual void jumpFromGround();
 	virtual void _pickUpItem(ItemEntity&);
 	virtual void updateAi();
-	virtual std::string _serverAiMobStep();
-	virtual std::string _getSoundVolume();
-	virtual std::string _getAmbientSound();
-	virtual std::string _getHurtSound();
-	virtual std::string _getDeathSound();
+	virtual void newServerAiStep();
+	virtual void _serverAiMobStep();
 	virtual void getDamageAfterArmorAbsorb(const EntityDamageSource&, int);
 	virtual void getExperienceReward() const;
-	virtual bool useNewAi();
+	virtual void dropEquipment(const EntityDamageSource&, int);
+	virtual bool useNewAi() const;
+	virtual void tickDeath();
 	virtual void onEffectAdded(MobEffectInstance&);
 	virtual void onEffectUpdated(const MobEffectInstance&);
 	virtual void onEffectRemoved(MobEffectInstance&);
-	virtual void registerAttributes();
 };

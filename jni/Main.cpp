@@ -6,9 +6,10 @@
 
 #include "minecraftpe/client/locale/Localization.h"
 //#include "minecraftpe/world/entity/player/Player.h"
-#include "minecraftpe/world/level/BlockSource.h"
+//#include "minecraftpe/world/level/BlockSource.h"
 
 #include "emeraldmod/EmeraldMod.h"
+#include "emeraldmod/recipes/EmeraldRecipes.h"
 
 #define LOG_TAG "Emerald-Mod"
 #define LOG(...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
@@ -61,6 +62,16 @@ void initBlockGraphics()
 	LOG("Block Graphics Initiated");
 }
 
+void (*_initRecipes)(Recipes*);
+void initRecipes(Recipes *self)
+{
+	_initRecipes(self);
+
+	LOG("Init Recipes");
+	EmeraldRecipes::initRecipes(self);
+	LOG("Recipes Initiated");
+}
+
 /*bool (*_Player$onLadder)(Player*, bool);
 bool Player$onLadder(Player* self, bool idk)
 {
@@ -87,6 +98,7 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)
 	MSHookFunction((void*) &Item::initCreativeItems, (void*) &initCreativeItems, (void**) &_initCreativeItems);
 	MSHookFunction((void*) &Block::initBlocks, (void*) &initBlocks, (void**) &_initBlocks);
 	MSHookFunction((void*) &BlockGraphics::initBlocks, (void*) &initBlockGraphics, (void**) &_initBlockGraphics);
+	MSHookFunction((void*) &Recipes::init, (void*) &initRecipes, (void**) &_initRecipes);
 	//MSHookFunction((void*) &Player::onLadder, (void*) &Player$onLadder, (void**) &_Player$onLadder);
 	MSHookFunction((void*) &Localization::_load, (void*) &Localization$_load, (void**) &_Localization$_load);
 

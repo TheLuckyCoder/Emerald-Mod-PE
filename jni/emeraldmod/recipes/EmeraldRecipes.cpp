@@ -32,7 +32,7 @@ void EmeraldRecipes::initRecipes(Recipes* instance)
 	
 	//Super Sword
 	pushIngredient(388, 'e');
-	pushIngredient(2013, 'r');
+	pushIngredient(3813, 'r');
 	addRecipe(3805, 1, 0, {" e ", " e ", " r "});
 	
 	//Pickaxe
@@ -67,7 +67,7 @@ void EmeraldRecipes::initRecipes(Recipes* instance)
 	
 	/*//Bow
 	pushIngredient(287, 's');
-	pushIngredient(2013, 'r');
+	pushIngredient(3813, 'r');
 	addRecipe(3812, 1, 0, {" rs", "r s", " rs"});*/
 	
 	//Stick

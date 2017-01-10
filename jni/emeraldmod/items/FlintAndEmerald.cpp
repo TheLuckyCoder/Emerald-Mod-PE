@@ -11,6 +11,11 @@ FlintAndEmerald::FlintAndEmerald(short itemId) : Item("flintAndEmerald", itemId)
 	setMaxDamage(1800);
 }
 
+void FlintAndEmerald::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
+{
+	victim->setOnFire(1000);
+}
+
 bool FlintAndEmerald::useOn(ItemInstance &item, Entity &entity, int x, int y, int z, signed char side, float xx, float yy, float zz)
 {
 	Item::mItems[259]->useOn(item, entity, x, y, z, side, xx, yy, zz);

@@ -1,3 +1,7 @@
+1.5.2
+Add the Recipes back
+Remive the blocks because they are causing crashes on some devices
+
 1.5.1
 Add chinese translations (Thanks to [Twitter]@model_part)
 Fix Item and Block Names
