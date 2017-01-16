@@ -8,9 +8,12 @@
 		android:name="android.hardware.touchscreen"
 		android:required="false" />
 
-	<uses-permission android:name="net.zhuoweizhang.mcpelauncher.ADDON" />
+	<uses-permission
+		android:name="net.zhuoweizhang.mcpelauncher.ADDON" />
 	
-	<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="25" />
+	<uses-sdk
+		android:minSdkVersion="15"
+		android:targetSdkVersion="25" />
 
     <application
         android:icon="@mipmap/ic_launcher"
@@ -21,7 +24,7 @@
         	android:value="theluckycoder.emeraldmod" />
     	<meta-data
 			android:name="net.zhuoweizhang.mcpelauncher.api.targetmcpeversion"
-			android:value="1.0.0.16"/>
+			android:value="1.0.0.16" />
 		<activity
             android:name="net.theluckycoder.emeraldmod.MainActivity">
             <intent-filter>

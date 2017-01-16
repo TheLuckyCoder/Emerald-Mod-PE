@@ -23,9 +23,9 @@ void initClientData()
 	EmeraldMod::initItems();
 	LOG("Items Initiated");
 	
-	LOG("Init BlockItems");
+	/*LOG("Init BlockItems");
 	EmeraldMod::initBlockItems();
-	LOG("BlockItems Initiated");
+	LOG("BlockItems Initiated");*/
 }
 
 void (*_initCreativeItems)();
@@ -37,9 +37,9 @@ void initCreativeItems()
 	EmeraldMod::initCreativeItems();
 	LOG("Items added to Creative Inventory");
 	
-	LOG("Add Blocks to Creative Inventory");
+	/*LOG("Add Blocks to Creative Inventory");
 	EmeraldMod::initCreativeBlocks();
-	LOG("Blocks added to Creative Inventory");
+	LOG("Blocks added to Creative Inventory");*/
 }
 
 void (*_initBlocks)();
@@ -96,8 +96,8 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)
 	
 	MSHookFunction((void*) &Item::initClientData, (void*) &initClientData, (void**) &_initClientData);
 	MSHookFunction((void*) &Item::initCreativeItems, (void*) &initCreativeItems, (void**) &_initCreativeItems);
-	MSHookFunction((void*) &Block::initBlocks, (void*) &initBlocks, (void**) &_initBlocks);
-	MSHookFunction((void*) &BlockGraphics::initBlocks, (void*) &initBlockGraphics, (void**) &_initBlockGraphics);
+	//MSHookFunction((void*) &Block::initBlocks, (void*) &initBlocks, (void**) &_initBlocks);
+	//MSHookFunction((void*) &BlockGraphics::initBlocks, (void*) &initBlockGraphics, (void**) &_initBlockGraphics);
 	MSHookFunction((void*) &Recipes::init, (void*) &initRecipes, (void**) &_initRecipes);
 	//MSHookFunction((void*) &Player::onLadder, (void*) &Player$onLadder, (void**) &_Player$onLadder);
 	MSHookFunction((void*) &Localization::_load, (void*) &Localization$_load, (void**) &_Localization$_load);
