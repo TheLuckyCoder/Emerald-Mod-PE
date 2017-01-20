@@ -112,14 +112,14 @@ void EmeraldMod::initBlockGraphics()
 	BlockGraphics::mBlocks[232] = new BlockGraphics("dirt");
 	BlockGraphics::mBlocks[232]->setTextureItem("emerald_planks");
 	
-	BlockGraphics::mBlocks[233] = (new BlockGraphics("dirt");
+	BlockGraphics::mBlocks[233] = new BlockGraphics("dirt");
 	BlockGraphics::mBlocks[233]->setTextureItem("emerald_brick");
 	
-	BlockGraphics::mBlocks[234] = (new BlockGraphics("emerald_block");
+	BlockGraphics::mBlocks[234] = new BlockGraphics("dirt");
 	BlockGraphics::mBlocks[234]->setTextureItem("emerald_block");
 	BlockGraphics::mBlocks[234]->setBlockShape(BlockShape::FENCE);
 	
-	BlockGraphics::mBlocks[235] = new BlockGraphics("emerald_block");
+	BlockGraphics::mBlocks[235] = new BlockGraphics("dirt");
 	BlockGraphics::mBlocks[235]->setTextureItem("emerald_block");
 	
 	//BlockGraphics::mBlocks[236] = (new BlockGraphics("emerald_block"))->setTextureItem("emerald_block");

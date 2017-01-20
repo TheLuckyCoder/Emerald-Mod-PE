@@ -90,6 +90,7 @@ public:
 	virtual bool isRailBlock() const;
 	virtual bool canHurtAndBreakItem() const;
 	virtual bool isRedstoneBlock() const;
+	virtual bool isValidAuxValue(int) const;
 	virtual bool isSignalSource() const;
 	virtual int getDirectSignal(BlockSource&, BlockPos const&, int) const;
 	virtual bool waterSpreadCausesSpawn() const;

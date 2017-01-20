@@ -1,5 +1,10 @@
+1.5.3
+Update the mod for MCPE 1.0.2
+Add Blocks back
+
 1.5.2
 Add the Recipes back
+Updated Korean translations(Thanks to Johnmacrocraft)
 Remive the blocks because they are causing crashes on some devices
 
 1.5.1
