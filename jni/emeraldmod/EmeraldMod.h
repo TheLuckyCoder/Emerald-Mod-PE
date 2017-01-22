@@ -28,14 +28,13 @@ public:
 	static Item* mFlintAndEmerald;
 	static Item* mBow;
 	static Item* mStick;
-	static Item* mDust;
+	static Item* mNugget;
 	
 	static Block* mWood;
 	static Block* mPlanks;
 	static Block* mBrick;
 	static Block* mFence;
 	static Block* mSlab;
-	static Block* mStair;
 	static Block* mTorch;
 	static Block* mLadder;
 };

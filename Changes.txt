@@ -1,6 +1,9 @@
 1.5.3
 Update the mod for MCPE 1.0.2
 Add Blocks back
+Add Emerald Nugget: you can get it smelting emerald tools
+Change Emerald Stick Recipe
+Remove Emerald Dust
 
 1.5.2
 Add the Recipes back

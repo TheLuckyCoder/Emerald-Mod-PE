@@ -14,6 +14,7 @@ class MobEffect;
 class EntityUniqueID;
 class Attribute;
 class ItemEntity;
+class TextureUVCoordinateSet;
 #include "../item/ItemInstance.h"
 
 class Mob : public Entity
@@ -25,7 +26,7 @@ public:
 	/* vtable */
 	virtual void reloadHardcodedClient(Entity::InitializationMethod, const VariantParameterList&);
 	virtual void initializeComponents(Entity::InitializationMethod, const VariantParameterList&);
-	virtual void hasComponent(const std::string&) const;
+	virtual bool hasComponent(const std::string&) const;
 	virtual ~Mob();
 	virtual void teleportTo(const Vec3&, int, int);
 	virtual void lerpTo(const Vec3&, const Vec2&, int);
@@ -142,3 +143,4 @@ public:
 	virtual void onEffectUpdated(const MobEffectInstance&);
 	virtual void onEffectRemoved(MobEffectInstance&);
 };
+

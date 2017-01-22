@@ -71,8 +71,16 @@ void EmeraldRecipes::initRecipes(Recipes* instance)
 	addRecipe(3812, 1, 0, {" rs", "r s", " rs"});*/
 	
 	//Stick
+	pushIngredient(3814, 'n');
+	addRecipe(3813, 1, 0, {"  n", " n ", "n  "});
+	
+	//Nugget
 	pushIngredient(388, 'e');
-	addRecipe(3813, 5, 0, {"e ", "e "});
+	addRecipe(3813, 9, 0, {"e ", "  "});
+	
+	//Emerald
+	pushIngredient(3814, 'n');
+	addRecipe(388, 5, 0, {"nnn", "nnn", "nnn"});
 }
 
 void EmeraldRecipes::pushIngredient(int id, char letter)

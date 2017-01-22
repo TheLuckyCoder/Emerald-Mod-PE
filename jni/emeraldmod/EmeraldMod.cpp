@@ -4,7 +4,6 @@
 #include "minecraftpe/world/level/block/SlabBlock.h"
 #include "minecraftpe/world/level/block/TorchBlock.h"
 #include "minecraftpe/world/level/block/LadderBlock.h"
-#include "minecraftpe/world/level/block/StairBlock.h"
 
 #include "items/EmeraldArmor.h"
 #include "items/SwordItem.h"
@@ -31,14 +30,13 @@ Item* EmeraldMod::mPax;
 Item* EmeraldMod::mFlintAndEmerald;
 Item* EmeraldMod::mBow;
 Item* EmeraldMod::mStick;
-Item* EmeraldMod::mDust;
+Item* EmeraldMod::mNugget;
 
 Block* EmeraldMod::mWood;
 Block* EmeraldMod::mPlanks;
 Block* EmeraldMod::mBrick;
 Block* EmeraldMod::mFence;
 Block* EmeraldMod::mSlab;
-Block* EmeraldMod::mStair;
 Block* EmeraldMod::mTorch;
 Block* EmeraldMod::mLadder;
 
@@ -58,7 +56,7 @@ void EmeraldMod::initItems()
 	Item::mItems[3811] = mFlintAndEmerald = new FlintAndEmerald(3811 - 256);
 	//Item::mItems[3812] = mBow = new EmeraldBowItem(3812 - 256);
 	Item::mItems[3813] = mStick = (new Item("emeraldStick", 3813 - 256))->setIcon("emerald_stick", 0);
-	Item::mItems[3814] = mDust = (new Item("emeraldDust", 3814 - 256))->setIcon("emerald_dust", 0);
+	Item::mItems[3814] = mNugget = (new Item("emeraldNugget", 3814 - 256))->setIcon("emerald_nugget", 0);
 }
 
 void EmeraldMod::initBlocks()
@@ -84,15 +82,10 @@ void EmeraldMod::initBlocks()
 	mSlab->setDestroyTime(2.2f);
 	mSlab->setExplodeable(8.0f);
 	
-	//Block::mBlocks[236] = mStair = new StairBlock("emeraldStairs", 236, *mStair, 236);
-	//mStair->setCategory(CreativeItemCategory::Blocks);
-	//mStair->setDestroyTime(2.2f);
-	//mStair->setExplodeable(8.0f);
-	
-	//Block::mBlocks[237] = mTorch = new TorchBlock("emeraldTorch", 237);
+	//Block::mBlocks[236] = mTorch = new TorchBlock("emeraldTorch", 236);
 	//mTorch->setCategory(CreativeItemCategory::Tools);
 	
-	//Block::mBlocks[238] = mLadder = new LadderBlock("emeraldLadder", 238);
+	//Block::mBlocks[237] = mLadder = new LadderBlock("emeraldLadder", 237);
 	//mLadder->setCategory(CreativeItemCategory::Decorations);
 }
 
@@ -102,9 +95,8 @@ void EmeraldMod::initBlockItems()
 	Item::mItems[233] = new BlockItem(mBrick->getDescriptionId(), 233 - 256);
 	Item::mItems[234] = new BlockItem(mFence->getDescriptionId(), 234 - 256);
 	Item::mItems[235] = new BlockItem(mSlab->getDescriptionId(), 235 - 256);
-	//Item::mItems[236] = new BlockItem(mStair->getDescriptionId(), 236 - 256);
-	//Item::mItems[237] = new BlockItem(mTorch->getDescriptionId(), 237 - 256);
-	//Item::mItems[238] = new BlockItem(mLadder->getDescriptionId(), 238 - 256);
+	//Item::mItems[236] = new BlockItem(mTorch->getDescriptionId(), 236 - 256);
+	//Item::mItems[237] = new BlockItem(mLadder->getDescriptionId(), 237 - 256);
 }
 
 void EmeraldMod::initBlockGraphics()
@@ -122,14 +114,11 @@ void EmeraldMod::initBlockGraphics()
 	BlockGraphics::mBlocks[235] = new BlockGraphics("dirt");
 	BlockGraphics::mBlocks[235]->setTextureItem("emerald_block");
 	
-	//BlockGraphics::mBlocks[236] = (new BlockGraphics("emerald_block"))->setTextureItem("emerald_block");
-	//BlockGraphics::mBlocks[236]->setBlockShape(BlockShape::STAIRS);
+	//BlockGraphics::mBlocks[236] = (new BlockGraphics("torch"))->setTextureItem("emerald_torch");
+	//BlockGraphics::mBlocks[236]->setBlockShape(BlockShape::TORCH);
 	
-	//BlockGraphics::mBlocks[237] = (new BlockGraphics("torch"))->setTextureItem("emerald_torch");
-	//BlockGraphics::mBlocks[237]->setBlockShape(BlockShape::TORCH);
-	
-	//BlockGraphics::mBlocks[238] = (new BlockGraphics("ladder"))->setTextureItem("emerald_ladder");
-	//BlockGraphics::mBlocks[238]->setBlockShape(BlockShape::LADDER);
+	//BlockGraphics::mBlocks[237] = (new BlockGraphics("ladder"))->setTextureItem("emerald_ladder");
+	//BlockGraphics::mBlocks[237]->setBlockShape(BlockShape::LADDER);
 }
 
 void EmeraldMod::initCreativeItems()
@@ -159,6 +148,5 @@ void EmeraldMod::initCreativeBlocks()
 	Item::addCreativeItem(235, 0);
 	//Item::addCreativeItem(236, 0);
 	//Item::addCreativeItem(237, 0);
-	//Item::addCreativeItem(238, 0);
 }
 

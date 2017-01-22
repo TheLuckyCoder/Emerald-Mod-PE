@@ -5,8 +5,9 @@
 #include "substrate.h"
 
 #include "minecraftpe/client/locale/Localization.h"
-//#include "minecraftpe/world/entity/player/Player.h"
-//#include "minecraftpe/world/level/BlockSource.h"
+#include "minecraftpe/world/item/recipes/FurnaceRecipes.h"
+#include "minecraftpe/world/entity/player/Player.h"
+#include "minecraftpe/world/level/BlockSource.h"
 
 #include "emeraldmod/EmeraldMod.h"
 #include "emeraldmod/recipes/EmeraldRecipes.h"
@@ -67,15 +68,29 @@ void initRecipes(Recipes *self)
 {
 	_initRecipes(self);
 
-	LOG("Init Recipes");
 	EmeraldRecipes::initRecipes(self);
 	LOG("Recipes Initiated");
+}
+
+void (*_initFurnaceRecipes)(FurnaceRecipes*);
+void initFurnaceRecipes(FurnaceRecipes *recipes)
+{
+	_initFurnaceRecipes(recipes);
+	
+	recipes->addFurnaceRecipe(3804, ItemInstance(388, 2, 0));
+	recipes->addFurnaceRecipe(3805, ItemInstance(388, 5, 0));
+	recipes->addFurnaceRecipe(3806, ItemInstance(388, 3, 0));
+	recipes->addFurnaceRecipe(3807, ItemInstance(388, 3, 0));
+	recipes->addFurnaceRecipe(3808, ItemInstance(388, 5, 0));
+	recipes->addFurnaceRecipe(3809, ItemInstance(388, 1, 0));
+	recipes->addFurnaceRecipe(3810, ItemInstance(388, 2, 0));
+	LOG("Furnace Recipes Initiated");
 }
 
 /*bool (*_Player$onLadder)(Player*, bool);
 bool Player$onLadder(Player* self, bool idk)
 {
-	if(self->getRegion().getBlockID(self->pos.x, self->pos.y, self->pos.z) == 237)
+	if(self->getRegion().getBlockID(self->getPos().x, self->getPos().y, self->getPos().z) == 237)
 		return true;
 	return _Player$onLadder(self, idk);
 }*/
@@ -99,6 +114,7 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)
 	MSHookFunction((void*) &Block::initBlocks, (void*) &initBlocks, (void**) &_initBlocks);
 	MSHookFunction((void*) &BlockGraphics::initBlocks, (void*) &initBlockGraphics, (void**) &_initBlockGraphics);
 	MSHookFunction((void*) &Recipes::init, (void*) &initRecipes, (void**) &_initRecipes);
+	MSHookFunction((void*) &FurnaceRecipes::_init, (void*) &initFurnaceRecipes, (void**) &_initFurnaceRecipes);
 	//MSHookFunction((void*) &Player::onLadder, (void*) &Player$onLadder, (void**) &_Player$onLadder);
 	MSHookFunction((void*) &Localization::_load, (void*) &Localization$_load, (void**) &_Localization$_load);
 

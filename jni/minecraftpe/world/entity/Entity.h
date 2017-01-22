@@ -29,6 +29,7 @@ class VariantParameterList;
 class SetEntityDataPacket;
 class LevelSoundEvent;
 class Brightness;
+class Mob;
 #include "../material/Material.h"
 #include "EntityType.h"
 #include "EntityRendererId.h"
