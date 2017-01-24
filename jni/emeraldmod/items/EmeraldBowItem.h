@@ -5,6 +5,6 @@
 class EmeraldBowItem : public BowItem
 {
 public:
-	EmeraldBowItem(int itemId);
+	EmeraldBowItem(short id);
 };
 

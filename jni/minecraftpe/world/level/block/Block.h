@@ -4,7 +4,7 @@
 #include <vector>
 #include <memory>
 
-#include "minecraftpe/client/renderer/texture/TextureUVCoordinateSet.h"
+#include "minecraftpe/client/render/TextureUVCoordinateSet.h"
 #include "minecraftpe/util/Color.h"
 #include "minecraftpe/world/phys/AABB.h"
 #include "../../material/Material.h"
@@ -12,6 +12,7 @@
 #include "minecraftpe/CreativeItemCategory.h"
 #include "BlockSupportType.h"
 #include "entity/BlockEntityType.h"
+#include "minecraftpe/CommonTypes.h"
 
 struct BlockEntity;
 struct Container;
@@ -27,7 +28,6 @@ struct Vec3;
 struct Brightness;
 class BlockID;
 class BlockProperty;
-#include "minecraftpe/CommonTypes.h"
 
 class Block
 {

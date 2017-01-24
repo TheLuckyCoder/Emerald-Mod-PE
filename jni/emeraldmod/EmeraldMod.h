@@ -2,7 +2,7 @@
 
 #include "minecraftpe/world/item/BlockItem.h"
 #include "minecraftpe/world/level/block/Block.h"
-#include "minecraftpe/client/renderer/block/BlockGraphics.h"
+#include "minecraftpe/world/level/block/BlockGraphics.h"
 
 class EmeraldMod
 {
@@ -30,7 +30,6 @@ public:
 	static Item* mStick;
 	static Item* mNugget;
 	
-	static Block* mWood;
 	static Block* mPlanks;
 	static Block* mBrick;
 	static Block* mFence;

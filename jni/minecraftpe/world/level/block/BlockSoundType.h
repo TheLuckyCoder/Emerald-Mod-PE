@@ -2,14 +2,21 @@
 
 enum class BlockSoundType : int
 {
-	STONE,
-	DIRT,
+	NORMAL,
+	GRAVEL,
 	WOOD,
 	GRASS,
-	GLASS=8,
-	WOOL,
+	METAL,
+	STONE,
+	CLOTH,
+	GLASS,
+	SAND,
+	SNOW,
 	LADDER,
-	IRON,
+	ANVIL,
 	SLIME,
-	SILENT
+	SILENT,
+	DEFAULT,
+	UNDEFINED
 };
+

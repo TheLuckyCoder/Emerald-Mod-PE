@@ -32,7 +32,6 @@ Item* EmeraldMod::mBow;
 Item* EmeraldMod::mStick;
 Item* EmeraldMod::mNugget;
 
-Block* EmeraldMod::mWood;
 Block* EmeraldMod::mPlanks;
 Block* EmeraldMod::mBrick;
 Block* EmeraldMod::mFence;
@@ -103,6 +102,7 @@ void EmeraldMod::initBlockGraphics()
 {
 	BlockGraphics::mBlocks[232] = new BlockGraphics("dirt");
 	BlockGraphics::mBlocks[232]->setTextureItem("emerald_planks");
+	BlockGraphics::mBlocks[232]->setSoundType(BlockSoundType::WOOD);
 	
 	BlockGraphics::mBlocks[233] = new BlockGraphics("dirt");
 	BlockGraphics::mBlocks[233]->setTextureItem("emerald_brick");
@@ -113,11 +113,15 @@ void EmeraldMod::initBlockGraphics()
 	
 	BlockGraphics::mBlocks[235] = new BlockGraphics("dirt");
 	BlockGraphics::mBlocks[235]->setTextureItem("emerald_block");
+	BlockGraphics::mBlocks[235]->setSoundType(BlockSoundType::METAL);
 	
-	//BlockGraphics::mBlocks[236] = (new BlockGraphics("torch"))->setTextureItem("emerald_torch");
+	//BlockGraphics::mBlocks[236] = new BlockGraphics("torch");
+	//BlockGraphics::mBlocks[236]->setTextureItem("emerald_torch");
 	//BlockGraphics::mBlocks[236]->setBlockShape(BlockShape::TORCH);
 	
-	//BlockGraphics::mBlocks[237] = (new BlockGraphics("ladder"))->setTextureItem("emerald_ladder");
+	//BlockGraphics::mBlocks[237] = new BlockGraphics("ladder");
+	//BlockGraphics::mBlocks[237]->setTextureItem("emerald_ladder");
+	//BlockGraphics::mBlocks[237]->setSoundType(BlockSoundType::LADDER);
 	//BlockGraphics::mBlocks[237]->setBlockShape(BlockShape::LADDER);
 }
 
@@ -147,6 +151,6 @@ void EmeraldMod::initCreativeBlocks()
 	Item::addCreativeItem(234, 0);
 	Item::addCreativeItem(235, 0);
 	//Item::addCreativeItem(236, 0);
-	//Item::addCreativeItem(237, 0);
+	Item::addCreativeItem(237, 0);
 }
 

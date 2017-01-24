@@ -87,13 +87,13 @@ void initFurnaceRecipes(FurnaceRecipes *recipes)
 	LOG("Furnace Recipes Initiated");
 }
 
-/*bool (*_Player$onLadder)(Player*, bool);
-bool Player$onLadder(Player* self, bool idk)
+bool (*_Player$onLadder)(Player*, bool);
+bool Player$onLadder(Player *self, bool idk)
 {
 	if(self->getRegion().getBlockID(self->getPos().x, self->getPos().y, self->getPos().z) == 237)
 		return true;
 	return _Player$onLadder(self, idk);
-}*/
+}
 
 void (*_Localization$_load)(Localization*, const std::string&);
 void Localization$_load(Localization *self, const std::string &langCode)

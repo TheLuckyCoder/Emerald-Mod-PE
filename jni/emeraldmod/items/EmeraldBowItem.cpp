@@ -1,8 +1,8 @@
 #include "EmeraldBowItem.h"
 
-#include "minecraftpe/client/renderer/texture/TextureUVCoordinateSet.h"
+#include "minecraftpe/client/render/TextureUVCoordinateSet.h"
 
-EmeraldBowItem::EmeraldBowItem(int itemId) : BowItem("emeraldBow", itemId)
+EmeraldBowItem::EmeraldBowItem(short id) : BowItem("emeraldBow", id)
 {
 	setCategory(CreativeItemCategory::Tools);
 	setIcon("emerald_bow_standby", 0);
