@@ -1,3 +1,8 @@
+1.5.4
+Add Block Recipes
+Fix crash on some devices
+Super Emerald Sword can't be recycled anymore
+
 1.5.3
 Update the mod for MCPE 1.0.2
 Add Blocks back

@@ -77,20 +77,14 @@ void initFurnaceRecipes(FurnaceRecipes *recipes)
 {
 	_initFurnaceRecipes(recipes);
 	
-	recipes->addFurnaceRecipe(3804, ItemInstance(388, 2, 0));
-	recipes->addFurnaceRecipe(3805, ItemInstance(388, 5, 0));
-	recipes->addFurnaceRecipe(3806, ItemInstance(388, 3, 0));
-	recipes->addFurnaceRecipe(3807, ItemInstance(388, 3, 0));
-	recipes->addFurnaceRecipe(3808, ItemInstance(388, 5, 0));
-	recipes->addFurnaceRecipe(3809, ItemInstance(388, 1, 0));
-	recipes->addFurnaceRecipe(3810, ItemInstance(388, 2, 0));
+	EmeraldRecipes::initFurnaceRecipes(recipes);
 	LOG("Furnace Recipes Initiated");
 }
 
 bool (*_Player$onLadder)(Player*, bool);
 bool Player$onLadder(Player *self, bool idk)
 {
-	if(self->getRegion().getBlockID(self->getPos().x, self->getPos().y, self->getPos().z) == 237)
+	if (self->getRegion().getBlockID(self->getPos().x, self->getPos().y, self->getPos().z) == 237)
 		return true;
 	return _Player$onLadder(self, idk);
 }

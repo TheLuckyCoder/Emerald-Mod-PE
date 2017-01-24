@@ -1,104 +1,128 @@
 #include "EmeraldRecipes.h"
 
-#include "minecraftpe/world/item/Item.h"
+#include "../EmeraldMod.h"
 
 Recipes* EmeraldRecipes::_Instance;
 std::vector<Recipes::Type> EmeraldRecipes::_ingredients;
 
-void EmeraldRecipes::initRecipes(Recipes* instance)
+void EmeraldRecipes::initRecipes(Recipes *recipes)
 {	
-	_Instance = instance;
+	_Instance = recipes;
 	
-	/*//Helmet
+	/*// Helmet
 	pushIngredient(388, 'e');
-	addRecipe(3800, 1, 0, {"eee", "e e", "   "});
+	addRecipe(EmeraldMod::mHelmet->itemId, 1, 0, {"eee", "e e", "   "});
 	
-	//Chestplate
+	// Chestplate
 	pushIngredient(388, 'e');
-	addRecipe(3801, 1, 0, {"e e", "eee", "eee"});
+	addRecipe(EmeraldMod::mChestplate->itemId, 1, 0, {"e e", "eee", "eee"});
 	
-	//Leggings
+	// Leggings
 	pushIngredient(388, 'e');
-	addRecipe(3802, 1, 0, {"eee", "e e", "e e"});
+	addRecipe(EmeraldMod::mLeggings->itemId, 1, 0, {"eee", "e e", "e e"});
 	
-	//Boots
+	// Boots
 	pushIngredient(388, 'e');
-	addRecipe(3803, 1, 0, {"   ", "e e", "e e"});*/
+	addRecipe(EmeraldMod::mBoots->itemId, 1, 0, {"   ", "e e", "e e"});*/
 	
-	//Sword
-	pushIngredient(388, 'e');
-	pushIngredient(280, 's');
-	addRecipe(3804, 1, 0, {" e ", " e ", " s "});
+	// Sword
+	pushIngredient(Item::mEmerald, 'e');
+	pushIngredient(Item::mStick, 's');
+	addRecipe(EmeraldMod::mSword->itemId, 1, 0, {" e ", " e ", " s "});
 	
-	//Super Sword
-	pushIngredient(388, 'e');
-	pushIngredient(3813, 'r');
-	addRecipe(3805, 1, 0, {" e ", " e ", " r "});
+	// Super Sword
+	pushIngredient(Item::mEmerald, 'e');
+	pushIngredient(EmeraldMod::mStick, 'r');
+	addRecipe(EmeraldMod::mSuperSword->itemId, 1, 0, {" e ", " e ", " r "});
 	
-	//Pickaxe
-	pushIngredient(388, 'e');
-	pushIngredient(280, 's');
-	addRecipe(3806, 1, 0, {"eee", " s ", " s "});
+	// Pickaxe
+	pushIngredient(Item::mEmerald, 'e');
+	pushIngredient(Item::mStick, 's');
+	addRecipe(EmeraldMod::mPickaxe->itemId, 1, 0, {"eee", " s ", " s "});
 	
-	//Axe
-	pushIngredient(388, 'e');
-	pushIngredient(280, 's');
-	addRecipe(3807, 1, 0, {"ee ", "es ", " s "});
+	// Axe
+	pushIngredient(Item::mEmerald, 'e');
+	pushIngredient(Item::mStick, 's');
+	addRecipe(EmeraldMod::mAxe->itemId, 1, 0, {"ee ", "es ", " s "});
 	
-	//Pax
-	pushIngredient(388, 'e');
-	pushIngredient(280, 's');
-	addRecipe(3808, 1, 0, {"eee", "es ", " s "});
+	// Pax
+	pushIngredient(Item::mEmerald, 'e');
+	pushIngredient(Item::mStick, 's');
+	addRecipe(EmeraldMod::mPax->itemId, 1, 0, {"eee", "es ", " s "});
 	
-	//Shovel
-	pushIngredient(388, 'e');
-	pushIngredient(280, 's');
-	addRecipe(3809, 1, 0, {" e ", " s ", " s "});
+	// Shovel
+	pushIngredient(Item::mEmerald, 'e');
+	pushIngredient(Item::mStick, 's');
+	addRecipe(EmeraldMod::mShovel->itemId, 1, 0, {" e ", " s ", " s "});
 	
-	//Hoe
-	pushIngredient(388, 'e');
-	pushIngredient(280, 's');
-	addRecipe(3810, 1, 0, {"ee ", " s ", " s "});
+	// Hoe
+	pushIngredient(Item::mEmerald, 'e');
+	pushIngredient(Item::mStick, 's');
+	addRecipe(EmeraldMod::mHoe->itemId, 1, 0, {"ee ", " s ", " s "});
 	
-	//Flint and Emerald
-	pushIngredient(388, 'e');
-	pushIngredient(318, 'f');
-	addRecipe(3811, 1, 0, {"f ", " e"});
+	// Flint and Emerald
+	pushIngredient(Item::mEmerald, 'e');
+	pushIngredient(Item::mFlint, 'f');
+	addRecipe(EmeraldMod::mFlintAndEmerald->itemId, 1, 0, {"f ", " e"});
 	
-	/*//Bow
+	/*// Bow
 	pushIngredient(287, 's');
 	pushIngredient(3813, 'r');
-	addRecipe(3812, 1, 0, {" rs", "r s", " rs"});*/
+	addRecipe(EmeraldMod::mBow->itemId, 1, 0, {" rs", "r s", " rs"});*/
 	
-	//Stick
-	pushIngredient(3814, 'n');
-	addRecipe(3813, 1, 0, {"  n", " n ", "n  "});
+	// Stick
+	pushIngredient(EmeraldMod::mNugget, 'n');
+	addRecipe(EmeraldMod::mStick->itemId, 1, 0, {"  n", " n ", "n  "});
 	
-	//Nugget
-	pushIngredient(388, 'e');
-	addRecipe(3813, 9, 0, {"e ", "  "});
+	// Nugget
+	pushIngredient(Item::mEmerald, 'e');
+	addRecipe(EmeraldMod::mNugget->itemId, 9, 0, {"e ", "  "});
 	
-	//Emerald
-	pushIngredient(3814, 'n');
-	addRecipe(388, 5, 0, {"nnn", "nnn", "nnn"});
+	// Emerald
+	pushIngredient(EmeraldMod::mNugget, 'n');
+	addRecipe(Item::mEmerald->itemId, 5, 0, {"nnn", "nnn", "nnn"});
+	
+	/* BLOCKS */
+	// Planks
+	pushIngredient(EmeraldMod::mNugget, 'n');
+	pushIngredient(5, 0, 'b');
+	addRecipe(EmeraldMod::mPlanks->blockId, 1, 0, {" n ", "nbn", " n "});
+	
+	// Bricks
+	pushIngredient(EmeraldMod::mNugget, 'n');
+	pushIngredient(98, 0, 'b');
+	addRecipe(EmeraldMod::mBrick->blockId, 1, 0, {" n ", "nbn", " n "});
+	
+	// Fence
+	pushIngredient(EmeraldMod::mStick, 's');
+	pushIngredient(EmeraldMod::mPlanks->blockId, 0, 'p');
+	addRecipe(EmeraldMod::mBrick->blockId, 1, 0, {" n ", "nbn", " n "});
 }
 
-void EmeraldRecipes::pushIngredient(int id, char letter)
+void EmeraldRecipes::initFurnaceRecipes(FurnaceRecipes *recipes)
 {
-	pushIngredient(id, 0, letter);
+	recipes->addFurnaceRecipe(EmeraldMod::mSword->itemId, ItemInstance(388, 2, 0));
+	recipes->addFurnaceRecipe(EmeraldMod::mPickaxe->itemId, ItemInstance(388, 3, 0));
+	recipes->addFurnaceRecipe(EmeraldMod::mAxe->itemId, ItemInstance(388, 3, 0));
+	recipes->addFurnaceRecipe(EmeraldMod::mPax->itemId, ItemInstance(388, 5, 0));
+	recipes->addFurnaceRecipe(EmeraldMod::mShovel->itemId, ItemInstance(388, 1, 0));
+	recipes->addFurnaceRecipe(EmeraldMod::mHoe->itemId, ItemInstance(388, 2, 0));
 }
 
-void EmeraldRecipes::pushIngredient(int id, int data, char letter)
+void EmeraldRecipes::pushIngredient(Item *item, char letter)
+{
+	pushIngredient(item->itemId, 0, letter);
+}
+
+void EmeraldRecipes::pushIngredient(short id, short data, char letter)
 {
 	Recipes::Type type {Item::mItems[id], NULL, ItemInstance(id, 1, data), letter};
 	_ingredients.push_back(type);
 } 
 
-void EmeraldRecipes::addRecipe(int outputID, int outputCount, int outputData, const std::vector<std::string>& shape)
+void EmeraldRecipes::addRecipe(short outputId, short outputCount, short outputData, const std::vector<std::string> &shape)
 {
-	ItemInstance output(outputID, 1, outputData);
-	output.count = outputCount;
-	_Instance->addShapedRecipe(output, shape, _ingredients);	
+	_Instance->addShapedRecipe(ItemInstance(outputId, outputCount, outputData), shape, _ingredients);	
 	_ingredients.clear();
 }
 

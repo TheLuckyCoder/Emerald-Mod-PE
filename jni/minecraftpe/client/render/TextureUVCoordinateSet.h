@@ -17,6 +17,5 @@ public:
 	float subTexture(float, float, int, int) const;
 	float inverseOffsetHeight(float, float) const;
 	float inverseOffsetWidth(float, float) const;
-	void subTexture(float, float, int, int) const;
 };
 
