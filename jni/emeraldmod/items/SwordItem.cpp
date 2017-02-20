@@ -14,7 +14,7 @@ SwordItem::SwordItem(short itemId) : Item("emeraldSword", itemId)
 
 int SwordItem::getAttackDamage()
 {
-	return (Item::mItems[276]->getAttackDamage() + 3.0F);
+	return (Item::mItems[276]->getAttackDamage() + 3);
 }
 
 int SwordItem::getEnchantValue() const
@@ -22,22 +22,22 @@ int SwordItem::getEnchantValue() const
 	return Item::mItems[276]->getEnchantValue();
 }
 
-void SwordItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
+void SwordItem::hurtEnemy(ItemInstance *item, Mob*, Mob *victim)
 {
 	item->hurtAndBreak(1, victim);
 }
 
-bool SwordItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Entity *entity)
+bool SwordItem::mineBlock(ItemInstance *item, BlockID, int, int, int, Entity *entity)
 {
 	item->hurtAndBreak(2, entity);
 }
 
 bool SwordItem::canDestroySpecial(const Block* block) const
 {
-	return (block == Block::mWeb);
+	return block == Block::mWeb;
 }
 
-float SwordItem::getDestroySpeed(ItemInstance *item, const Block *block)
+float SwordItem::getDestroySpeed(ItemInstance*, const Block *block)
 {
 	if (block == Block::mWeb)
 		return 30.0f;

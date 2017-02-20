@@ -12,12 +12,12 @@ PickaxeItem::PickaxeItem(short itemId) : Item("emeraldPickaxe", itemId)
 	setHandEquipped();
 }
 
-void PickaxeItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
+void PickaxeItem::hurtEnemy(ItemInstance *item, Mob*, Mob *victim)
 {
 	item->hurtAndBreak(2, victim);
 }
 
-bool PickaxeItem::mineBlock(ItemInstance *item, BlockID blockId, int x, int y, int z, Entity *entity)
+bool PickaxeItem::mineBlock(ItemInstance *item, BlockID, int, int, int, Entity *entity)
 {
 	item->hurtAndBreak(1, entity);
 }
@@ -27,7 +27,7 @@ bool PickaxeItem::canDestroySpecial(const Block* block) const
 	return Item::mItems[278]->canDestroySpecial(block);
 }
 
-float PickaxeItem::getDestroySpeed(ItemInstance *item, const Block *block)
+float PickaxeItem::getDestroySpeed(ItemInstance*, const Block *block)
 {
 	if (Material::AreEqual(block->getMaterial(), Material::getMaterial(MaterialType::STONE))
 	|| Material::AreEqual(block->getMaterial(), Material::getMaterial(MaterialType::METAL)))

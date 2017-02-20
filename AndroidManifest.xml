@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.razvanmcrafter.addon.emeraldmod"
-	android:versionCode="16"
-	android:versionName="1.5.4">
-
+	android:versionCode="17"
+	android:versionName="1.5.5">
+	
+	<uses-feature
+		android:glEsVersion="0x00020000"
+		android:required="true" />
 	<uses-feature
 		android:name="android.hardware.touchscreen"
 		android:required="false" />
@@ -24,7 +27,7 @@
         	android:value="theluckycoder.emeraldmod" />
     	<meta-data
 			android:name="net.zhuoweizhang.mcpelauncher.api.targetmcpeversion"
-			android:value="1.0.2.1" />
+			android:value="1.0.3.12" />
 		<activity
             android:name="net.theluckycoder.emeraldmod.MainActivity">
             <intent-filter>

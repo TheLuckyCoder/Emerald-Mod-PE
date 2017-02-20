@@ -12,12 +12,12 @@ AxeItem::AxeItem(short itemId) : Item("emeraldAxe", itemId)
 	setHandEquipped();
 }
 
-void AxeItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
+void AxeItem::hurtEnemy(ItemInstance *item, Mob*, Mob *victim)
 {
 	item->hurtAndBreak(2, victim);
 }
 
-bool AxeItem::mineBlock(ItemInstance *item, BlockID blockId, int x, int y, int z, Entity *entity)
+bool AxeItem::mineBlock(ItemInstance *item, BlockID, int, int, int, Entity *entity)
 {
 	item->hurtAndBreak(1, entity);
 }
@@ -27,7 +27,7 @@ bool AxeItem::canDestroySpecial(const Block *block) const
 	return Item::mItems[279]->canDestroySpecial(block);
 }
 
-float AxeItem::getDestroySpeed(ItemInstance *item, const Block *block)
+float AxeItem::getDestroySpeed(ItemInstance*, const Block *block)
 {
 	if (Material::AreEqual(block->getMaterial(), Material::getMaterial(MaterialType::WOOD)))
 		return 50.0F;

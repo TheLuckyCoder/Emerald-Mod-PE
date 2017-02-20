@@ -11,7 +11,7 @@ FlintAndEmerald::FlintAndEmerald(short itemId) : Item("flintAndEmerald", itemId)
 	setMaxDamage(1800);
 }
 
-void FlintAndEmerald::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
+void FlintAndEmerald::hurtEnemy(ItemInstance *item, Mob*, Mob *victim)
 {
 	victim->setOnFire(1000);
 }

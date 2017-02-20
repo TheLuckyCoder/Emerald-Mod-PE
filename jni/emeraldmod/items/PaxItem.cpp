@@ -12,12 +12,12 @@ PaxItem::PaxItem(short itemId) : Item("emeraldPax", itemId)
 	setHandEquipped();
 }
 
-void PaxItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
+void PaxItem::hurtEnemy(ItemInstance *item, Mob*, Mob *victim)
 {
 	item->hurtAndBreak(2, victim);
 }
 
-bool PaxItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Entity *entity)
+bool PaxItem::mineBlock(ItemInstance *item, BlockID, int, int, int, Entity *entity)
 {
 	item->hurtAndBreak(1, entity);
 }
@@ -27,7 +27,7 @@ bool PaxItem::canDestroySpecial(const Block *block) const
 	return (Item::mItems[278]->canDestroySpecial(block) || Item::mItems[279]->canDestroySpecial(block));
 }
 
-float PaxItem::getDestroySpeed(ItemInstance *item, const Block *block)
+float PaxItem::getDestroySpeed(ItemInstance*, const Block *block)
 {
 		if (Material::AreEqual(block->getMaterial(), Material::getMaterial(MaterialType::WOOD))
 			|| Material::AreEqual(block->getMaterial(), Material::getMaterial(MaterialType::STONE))

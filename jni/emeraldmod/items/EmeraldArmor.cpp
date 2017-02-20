@@ -14,3 +14,4 @@ EmeraldChestplate::EmeraldChestplate(short id) : EmeraldArmor("emeraldChestplate
 EmeraldLeggings::EmeraldLeggings(short id) : EmeraldArmor("emeraldLeggings", id, ArmorSlot::Leggings, "emerald_leggings") {}
 
 EmeraldBoots::EmeraldBoots(short id) : EmeraldArmor("emeraldBoots", id, ArmorSlot::Boots, "emerald_boots") {}
+

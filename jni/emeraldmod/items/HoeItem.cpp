@@ -16,12 +16,12 @@ bool HoeItem::useOn(ItemInstance &item, Entity& entity, int x, int y, int z, sig
 	Item::mItems[293]->useOn(item, entity, x, y, z, side, xx, yy, zz);
 }
 
-void HoeItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
+void HoeItem::hurtEnemy(ItemInstance *item, Mob*, Mob *victim)
 {
 	item->hurtAndBreak(2, victim);
 }
 
-bool HoeItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Entity *entity)
+bool HoeItem::mineBlock(ItemInstance *item, BlockID, int, int, int, Entity *entity)
 {
 	item->hurtAndBreak(2, entity);
 }

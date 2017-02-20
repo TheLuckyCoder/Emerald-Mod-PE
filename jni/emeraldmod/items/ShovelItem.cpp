@@ -17,12 +17,12 @@ bool ShovelItem::useOn(ItemInstance &item, Entity &entity, int x, int y, int z, 
 	return Item::mItems[277]->useOn(item, entity, x, y, z, side, xx, yy, zz);
 }
 
-void ShovelItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
+void ShovelItem::hurtEnemy(ItemInstance *item, Mob*, Mob *victim)
 {
 	item->hurtAndBreak(2, victim);
 }
 
-bool ShovelItem::mineBlock(ItemInstance *item, BlockID blockid, int x, int y, int z, Entity *entity)
+bool ShovelItem::mineBlock(ItemInstance *item, BlockID, int, int, int, Entity *entity)
 {
 	item->hurtAndBreak(1, entity);
 }
@@ -32,7 +32,7 @@ bool ShovelItem::canDestroySpecial(const Block *block) const
 	return Item::mItems[277]->canDestroySpecial(block);
 }
 
-float ShovelItem::getDestroySpeed(ItemInstance *item, const Block *block)
+float ShovelItem::getDestroySpeed(ItemInstance*, const Block *block)
 {
 		if (Material::AreEqual(block->getMaterial(), Material::getMaterial(MaterialType::DIRT)))
 		return 50.0F;
