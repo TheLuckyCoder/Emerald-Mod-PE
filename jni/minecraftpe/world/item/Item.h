@@ -5,7 +5,7 @@
 #include <vector>
 
 #include "../../CreativeItemCategory.h"
-#include "../../CommonTypes.h"
+#include "../level/block/BlockID.h"
 #include "../../UseAnimation.h"
 #include "../level/block/BlockShape.h"
 class TextureUVCoordinateSet;

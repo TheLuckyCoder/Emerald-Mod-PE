@@ -1,10 +1,12 @@
 #pragma once
+
 class Block;
 struct BlockPos;
 class Material;
 class BlockEntity;
 class Level;
-#include "../../CommonTypes.h"
+class DataID;
+#include "FullBlock.h"
 
 class BlockSource {
 public:

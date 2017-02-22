@@ -12,7 +12,7 @@
 #include "minecraftpe/CreativeItemCategory.h"
 #include "BlockSupportType.h"
 #include "entity/BlockEntityType.h"
-#include "minecraftpe/CommonTypes.h"
+#include "BlockID.h"
 
 struct BlockEntity;
 struct Container;
@@ -27,12 +27,12 @@ struct Random;
 struct Vec3;
 struct Brightness;
 class BlockID;
-class BlockProperty;
+struct BlockProperty;
 
 class Block
 {
 public:
-	BlockID blockId; // 4
+	unsigned char blockId; // 4
 	std::string name; // 8
 	std::string nameId; // 12
 	bool replaceable; // 16
@@ -57,12 +57,12 @@ public:
 
 
 	static std::vector<std::unique_ptr<Block>> mOwnedBlocks;
-	static Block* mBlocks[256];
-	static bool mSolid[256];
-	static float mTranslucency[256];
-	static uint8_t mLightBlock[256];
-	static int mLightEmission[256];
-	static bool mShouldTick[256];
+	static Block* mBlocks[];
+	static bool mSolid[];
+	static float mTranslucency[];
+	static uint8_t mLightBlock[];
+	static int mLightEmission[];
+	static bool mShouldTick[];
 
 	Block(const std::string&, int, const Material&);
 

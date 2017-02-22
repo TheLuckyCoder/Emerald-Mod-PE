@@ -15,6 +15,8 @@
 #define LOG_TAG "Emerald-Mod"
 #define LOG(...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
 
+bool bl_setArmorTexture(int, const std::string&);
+
 void (*_initClientData)();
 void initClientData()
 {
@@ -27,6 +29,11 @@ void initClientData()
 	LOG("Init BlockItems");
 	EmeraldMod::initBlockItems();
 	LOG("BlockItems Initiated");
+	
+	bl_setArmorTexture(3800, "images/armor/emerald_1.png");
+	bl_setArmorTexture(3801, "images/armor/emerald_1.png");
+	bl_setArmorTexture(3802, "images/armor/emerald_1.png");
+	bl_setArmorTexture(3803, "images/armor/emerald_2.png");
 }
 
 void (*_initCreativeItems)();
@@ -81,13 +88,13 @@ void initFurnaceRecipes(FurnaceRecipes *recipes)
 	LOG("Furnace Recipes Initiated");
 }
 
-bool (*_Player$onLadder)(Player*, bool);
+/*bool (*_Player$onLadder)(Player*, bool);
 bool Player$onLadder(Player *self, bool idk)
 {
-	if (self->getRegion().getBlockID(self->getPos().x, self->getPos().y, self->getPos().z) == 237)
+	if (self->getRegion()->getBlockID(self->getPos().pos.x, self->getPos().pos.y, self->getPos().pos.z) == 237)
 		return true;
 	return _Player$onLadder(self, idk);
-}
+}*/
 
 void (*_Localization$_load)(Localization*, const std::string&);
 void Localization$_load(Localization *self, const std::string &langCode)

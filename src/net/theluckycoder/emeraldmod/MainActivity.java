@@ -16,8 +16,6 @@ import com.razvanmcrafter.addon.emeraldmod.R;
 
 public class MainActivity extends Activity {
 	
-    final private int REQUEST_CODE_ASK_PERMISSIONS = 123;
-	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,9 +53,9 @@ public class MainActivity extends Activity {
     }
 
     private void checkForPermission() {
-        int hasWriteContactsPermission = checkSelfPermission(Manifest.permission.WRITE_CONTACTS);
+        int hasWriteContactsPermission = checkSelfPermission("net.zhuoweizhang.mcpelauncher.ADDON");
         if (hasWriteContactsPermission != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[] {"net.zhuoweizhang.mcpelauncher.ADDON"}, REQUEST_CODE_ASK_PERMISSIONS);
+            requestPermissions(new String[] {"net.zhuoweizhang.mcpelauncher.ADDON"}, 123);
             return;
         }
     }
