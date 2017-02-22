@@ -3,8 +3,9 @@
 #include "../EmeraldMod.h"
 #include "minecraftpe/world/entity/Mob.h"
 
-PickaxeItem::PickaxeItem(short itemId) : Item("emeraldPickaxe", itemId)
+PickaxeItem::PickaxeItem(short id) : Item("emeraldPickaxe", id - 256)
 {
+	Item::mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
 	setIcon("emerald_pickaxe", 0);
 	setMaxStackSize(1);

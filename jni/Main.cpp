@@ -32,8 +32,8 @@ void initClientData()
 	
 	bl_setArmorTexture(3800, "images/armor/emerald_1.png");
 	bl_setArmorTexture(3801, "images/armor/emerald_1.png");
-	bl_setArmorTexture(3802, "images/armor/emerald_1.png");
-	bl_setArmorTexture(3803, "images/armor/emerald_2.png");
+	bl_setArmorTexture(3802, "images/armor/emerald_2.png");
+	bl_setArmorTexture(3803, "images/armor/emerald_1.png");
 }
 
 void (*_initCreativeItems)();

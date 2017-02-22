@@ -3,8 +3,9 @@
 #include "minecraftpe/world/entity/Mob.h"
 #include "../EmeraldMod.h"
 
-PaxItem::PaxItem(short itemId) : Item("emeraldPax", itemId)
+PaxItem::PaxItem(short id) : Item("emeraldPax", id - 256)
 {
+	Item::mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
 	setIcon("emerald_pax", 0);
 	setMaxStackSize(1);

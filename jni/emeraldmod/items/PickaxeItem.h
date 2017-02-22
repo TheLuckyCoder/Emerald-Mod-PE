@@ -5,7 +5,7 @@
 class PickaxeItem : public Item
 {
 public:
-	PickaxeItem(short itemId);
+	PickaxeItem(short id);
 	
 	virtual int getAttackDamage() { return 5.0f; }
 	virtual int getEnchantValue() const { return 1; }

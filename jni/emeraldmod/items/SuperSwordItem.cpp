@@ -3,8 +3,9 @@
 #include "minecraftpe/world/entity/Mob.h"
 #include "minecraftpe/world/level/block/Block.h"
 
-SuperSwordItem::SuperSwordItem(short itemId) : Item("emeraldSuperSword", itemId)
+SuperSwordItem::SuperSwordItem(short id) : Item("emeraldSuperSword", id - 256)
 {
+	Item::mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
 	setIcon("emerald_super_sword", 0);
 	setMaxStackSize(1);

@@ -12,13 +12,8 @@ struct ChunkSource;
 
 #include "../listeners/LevelListener.h"
 
-struct Dimension
-: public LevelListener
+class Dimension : public LevelListener
 {
-	char filler[84]; // 4
-	Level& level; // 88
-	char filler2[88]; // 92
-
 	Dimension(Level&, DimensionId);
 
 	Color getSkyColor(const Entity&, float);
@@ -55,3 +50,4 @@ struct Dimension
 	virtual void addSetEntityMotionPacket(Entity&);
 	virtual float getTimeOfDay(int, float) const;
 };
+

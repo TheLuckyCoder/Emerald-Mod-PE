@@ -5,7 +5,7 @@
 class PaxItem : public Item
 {
 public:
-	PaxItem(short itemId);
+	PaxItem(short id);
 	
 	virtual int getAttackDamage() { return 5.0f; }
 	virtual int getEnchantValue() const { return 1; }

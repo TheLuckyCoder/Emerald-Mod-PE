@@ -1,4 +1,4 @@
-##Use two # to make a comment
+##Use two '#' to make a comment
 ##Blocks
 tile.emeraldSlab.name=Emerald Slab
 tile.emeraldBrick.name=Emerald Brick
@@ -7,6 +7,7 @@ tile.emeraldFence.name=Emerald Fence
 tile.emeraldTorch.name=Emerald Torch
 tile.emeraldWood.name=Emerald Wood
 tile.emeraldLadder.name=Emerald Ladder
+tile.emeraldMushroom.name=Emerald Mushroom
 	
 ##Items
 item.emeraldHelmet.name=Emerald Helmet

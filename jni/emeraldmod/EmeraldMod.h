@@ -36,5 +36,6 @@ public:
 	static Block* mSlab;
 	static Block* mTorch;
 	static Block* mLadder;
+	static Block* mMushroom;
 };
 

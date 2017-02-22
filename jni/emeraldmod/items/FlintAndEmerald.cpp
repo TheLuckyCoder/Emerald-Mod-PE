@@ -3,8 +3,9 @@
 #include "minecraftpe/world/level/block/Block.h"
 #include "minecraftpe/world/entity/Mob.h"
 
-FlintAndEmerald::FlintAndEmerald(short itemId) : Item("flintAndEmerald", itemId)
+FlintAndEmerald::FlintAndEmerald(short id) : Item("flintAndEmerald", id - 256)
 {
+	Item::mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
 	setIcon("flint_and_emerald", 0);
 	setMaxStackSize(1);

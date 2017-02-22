@@ -50,9 +50,10 @@ public:
 	static void addMaterial(std::unique_ptr<Material>);
 	static void _setupSurfaceMaterials();
 	static Material& getMaterial(MaterialType);
-
+	
 	static bool AreEqual(const Material &a, const Material &b)
 	{
-  		return &a == &b;
+		return &a == &b;
 	}
 };
+

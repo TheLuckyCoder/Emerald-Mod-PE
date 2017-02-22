@@ -5,7 +5,7 @@
 class FlintAndEmerald : public Item
 {
 public:
-	FlintAndEmerald(short itemId);
+	FlintAndEmerald(short id);
 	
 	virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);
 	virtual bool useOn(ItemInstance&, Entity&, int, int, int, signed char, float, float, float);

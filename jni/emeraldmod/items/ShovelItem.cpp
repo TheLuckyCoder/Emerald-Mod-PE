@@ -3,8 +3,9 @@
 #include "minecraftpe/world/entity/Mob.h"
 #include "minecraftpe/world/level/block/Block.h"
 
-ShovelItem::ShovelItem(short itemId) : Item("emeraldShovel", itemId)
+ShovelItem::ShovelItem(short id) : Item("emeraldShovel", id - 256)
 {
+	Item::mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
 	setIcon("emerald_shovel", 0);
 	setMaxStackSize(1);

@@ -2,20 +2,22 @@
 
 #include "Block.h"
 
-class TorchBlock : public Block
+class FireBlock : public Block
 {
 public:
-	TorchBlock(const std::string&, int);
-
-	virtual ~TorchBlock();
+	FireBlock(const std::string&, int);
+	
+	virtual ~FireBlock();
+	virtual bool tick(BlockSource&, const BlockPos&, Random&) const;
 	virtual AABB& getAABB(BlockSource&, const BlockPos&, AABB&, int, bool, int) const;
 	virtual void onPlace(BlockSource&, const BlockPos&) const;
+	virtual bool mayPick() const;
 	virtual bool mayPlace(BlockSource&, const BlockPos&) const;
 	virtual void neighborChanged(BlockSource&, const BlockPos&, const BlockPos&) const;
-	virtual int getPlacementDataValue(Mob&, const BlockPos&, signed char, const Vec3&, int) const;
-	virtual int getIconYOffset() const;
-	virtual AABB& getVisualShape(BlockSource&, const BlockPos&, AABB&, bool) const;
+	virtual int getResourceCount(Random&, int, int) const;
 	virtual bool animateTick(BlockSource&, const BlockPos&, Random&) const;
 	virtual bool canBeSilkTouched() const;
+	
+	void setFlammable(BlockID, int, int);
 };
 

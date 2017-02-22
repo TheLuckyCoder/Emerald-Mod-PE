@@ -5,7 +5,7 @@
 class AxeItem : public Item
 {
 public:
-	AxeItem(short itemId);
+	AxeItem(short id);
 	
 	virtual int getAttackDamage() { return 5; }
 	virtual int getEnchantSlot() const { return 512; }

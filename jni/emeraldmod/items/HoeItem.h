@@ -5,7 +5,7 @@
 class HoeItem : public Item
 {
 public:
-	HoeItem(short itemId);
+	HoeItem(short id);
 	
 	virtual int getAttackDamage() { return 5.0f; }
 	virtual bool useOn(ItemInstance&, Entity&, int, int, int, signed char, float, float, float);

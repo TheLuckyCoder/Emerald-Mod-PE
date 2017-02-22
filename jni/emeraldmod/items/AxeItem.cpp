@@ -3,8 +3,9 @@
 #include "minecraftpe/world/entity/Mob.h"
 #include "../EmeraldMod.h"
 
-AxeItem::AxeItem(short itemId) : Item("emeraldAxe", itemId)
+AxeItem::AxeItem(short id) : Item("emeraldAxe", id - 256)
 {
+	Item::mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
 	setIcon("emerald_axe", 0);
 	setMaxStackSize(1);

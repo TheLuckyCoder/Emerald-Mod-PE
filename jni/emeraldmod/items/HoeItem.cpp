@@ -2,8 +2,9 @@
 #include "minecraftpe/world/item/ItemInstance.h"
 #include "minecraftpe/world/entity/Mob.h"
 
-HoeItem::HoeItem(short itemId) : Item("emeraldHoe", itemId)
+HoeItem::HoeItem(short id) : Item("emeraldHoe", id - 256)
 {
+	Item::mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
 	setIcon("emerald_hoe", 0);
 	setMaxStackSize(1);

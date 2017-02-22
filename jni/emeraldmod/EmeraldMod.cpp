@@ -4,6 +4,7 @@
 #include "minecraftpe/world/level/block/SlabBlock.h"
 #include "minecraftpe/world/level/block/TorchBlock.h"
 #include "minecraftpe/world/level/block/LadderBlock.h"
+#include "blocks/EmeraldMushroomBlock.h"
 
 #include "items/EmeraldArmor.h"
 #include "items/SwordItem.h"
@@ -38,22 +39,23 @@ Block* EmeraldMod::mFence;
 Block* EmeraldMod::mSlab;
 Block* EmeraldMod::mTorch;
 Block* EmeraldMod::mLadder;
+Block* EmeraldMod::mMushroom;
 
 void EmeraldMod::initItems()
 {
-	Item::mItems[3800] = mHelmet = new EmeraldHelmet(3800 - 256);
-	Item::mItems[3801] = mChestplate = new EmeraldChestplate(3801 - 256);
-	Item::mItems[3802] = mLeggings = new EmeraldLeggings(3802 - 256);
-	Item::mItems[3803] = mBoots = new EmeraldBoots(3803 - 256);
-	Item::mItems[3804] = mSword = new SwordItem(3804 - 256);
-	Item::mItems[3805] = mSuperSword = new SuperSwordItem(3805 - 256);
-	Item::mItems[3806] = mPickaxe = new PickaxeItem(3806 - 256);
-	Item::mItems[3807] = mAxe = new AxeItem(3807 - 256);
-	Item::mItems[3808] = mPax = new PaxItem(3808 - 256);
-	Item::mItems[3809] = mShovel = new ShovelItem(3809 - 256);
-	Item::mItems[3810] = mHoe = new HoeItem(3810 - 256);
-	Item::mItems[3811] = mFlintAndEmerald = new FlintAndEmerald(3811 - 256);
-	//Item::mItems[3812] = mBow = new EmeraldBowItem(3812 - 256);
+	mHelmet = new EmeraldHelmet(3800);
+	mChestplate = new EmeraldChestplate(3801);
+	mLeggings = new EmeraldLeggings(3802);
+	mBoots = new EmeraldBoots(3803);
+	mSword = new SwordItem(3804);
+	mSuperSword = new SuperSwordItem(3805);
+	mPickaxe = new PickaxeItem(3806);
+	mAxe = new AxeItem(3807);
+	mPax = new PaxItem(3808);
+	mShovel = new ShovelItem(3809);
+	mHoe = new HoeItem(3810);
+	mFlintAndEmerald = new FlintAndEmerald(3811);
+	//mBow = new EmeraldBowItem(3812);
 	Item::mItems[3813] = mStick = (new Item("emeraldStick", 3813 - 256))->setIcon("emerald_stick", 0);
 	Item::mItems[3814] = mNugget = (new Item("emeraldNugget", 3814 - 256))->setIcon("emerald_nugget", 0);
 }
@@ -81,6 +83,8 @@ void EmeraldMod::initBlocks()
 	mSlab->setDestroyTime(2.2f);
 	mSlab->setExplodeable(8.0f);
 	
+	mMushroom = new EmeraldMushroomBlock(236);
+	
 	//Block::mBlocks[236] = mTorch = new TorchBlock("emeraldTorch", 236);
 	//mTorch->setCategory(CreativeItemCategory::Tools);
 	
@@ -94,8 +98,7 @@ void EmeraldMod::initBlockItems()
 	Item::mItems[233] = new BlockItem(mBrick->getDescriptionId(), 233 - 256);
 	Item::mItems[234] = new BlockItem(mFence->getDescriptionId(), 234 - 256);
 	Item::mItems[235] = new BlockItem(mSlab->getDescriptionId(), 235 - 256);
-	//Item::mItems[236] = new BlockItem(mTorch->getDescriptionId(), 236 - 256);
-	//Item::mItems[237] = new BlockItem(mLadder->getDescriptionId(), 237 - 256);
+	Item::mItems[236] = new BlockItem(mMushroom->getDescriptionId(), 236 - 256);
 }
 
 void EmeraldMod::initBlockGraphics()
@@ -114,6 +117,10 @@ void EmeraldMod::initBlockGraphics()
 	BlockGraphics::mBlocks[235] = new BlockGraphics("dirt");
 	BlockGraphics::mBlocks[235]->setTextureItem("emerald_block");
 	BlockGraphics::mBlocks[235]->setSoundType(BlockSoundType::METAL);
+	
+	BlockGraphics::mBlocks[236] = new BlockGraphics("sapling");
+	BlockGraphics::mBlocks[236]->setTextureItem("emerald_mushroom");
+	BlockGraphics::mBlocks[236]->setBlockShape(BlockShape::CROSS_TEXTURE);
 	
 	//BlockGraphics::mBlocks[236] = new BlockGraphics("torch");
 	//BlockGraphics::mBlocks[236]->setTextureItem("emerald_torch");
@@ -150,7 +157,6 @@ void EmeraldMod::initCreativeBlocks()
 	Item::addCreativeItem(233, 0);
 	Item::addCreativeItem(234, 0);
 	Item::addCreativeItem(235, 0);
-	//Item::addCreativeItem(236, 0);
-	Item::addCreativeItem(237, 0);
+	Item::addCreativeItem(236, 0);
 }
 

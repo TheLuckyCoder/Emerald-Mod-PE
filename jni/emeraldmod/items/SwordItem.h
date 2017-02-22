@@ -5,7 +5,7 @@
 class SwordItem : public Item
 {
 public:
-	SwordItem(short itemId);
+	SwordItem(short id);
 	
 	virtual int getAttackDamage();
 	virtual int getEnchantSlot() const { return 16; }

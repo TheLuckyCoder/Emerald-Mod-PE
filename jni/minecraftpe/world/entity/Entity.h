@@ -280,7 +280,7 @@ public:
     Player* getOwner() const;
     EntityUniqueID getOwnerId() const;
     bool isSitting() const;
-    BlockSource* getRegion() const;
+    BlockSource& getRegion() const;
     void setPersistent();
     void moveBBs(Vec3 const&);
     void testForEntityStacking(BlockSource&, AABB const&, std::vector<AABB, std::allocator<AABB>>&);

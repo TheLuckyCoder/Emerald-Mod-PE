@@ -5,7 +5,7 @@
 class ShovelItem : public Item
 {
 public:
-	ShovelItem(short itemId);
+	ShovelItem(short id);
 	
 	virtual int getAttackDamage() { return 5.0f; }
 	virtual int getEnchantSlot() const { return 2048; }
