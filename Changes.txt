@@ -1,3 +1,7 @@
+1.5.6
+Add Emerald Mushroom
+Fix Armor Texture
+
 1.5.5
 Add Emerald Armor
 Support for 1.0.3

@@ -27,6 +27,7 @@ struct IDataOutput;
 class Color;
 class Random;
 class ResourcePackManager;
+class TextureAtlasItem;
 namespace Json { class Value; };
 
 // Size: 104
@@ -50,26 +51,29 @@ public:
 
 	/* fields */
 	uint8_t _maxStackSize; // 4
-	std::string atlas; // 8
+	std::string iconAtlasName; // 8
 	int frameCount; // 12
-	short idk; // 16
+	short filler1; // 16
 	short itemId; // 18
-	std::string name; // 20
-	std::string simpleName; // 24
+	std::string descriptionId; // 20 : item...name
+	std::string descriptionName; // 24
 	bool mirroredArt; //28
 	short maxDamage; // 30
 	bool foil; // 32
 	bool handEquipped; // 33
 	bool stackedByData; // 34
-	int useDuration; // 36
-	char filler1[2]; // 40
-	char blockId; // 42
-	int useAnimation; // 43
+	int maxUseDuration; // 36
+	bool explodable; // 40
+	bool shouldDespawn; // 41
+	BlockID blockId; // 42
+	UseAnimation useAnimation; // 43
 	CreativeItemCategory creativeCategory; // 44
 	int filler2; // 48
 	void* colorFormat; // 52
-	TextureUVCoordinateSet& icon; // 56
-	int filler3[9]; // 60
+	TextureUVCoordinateSet* icon; // 56
+	TextureAtlasItem* customAtlasIcon; // 60
+	int filler3[7]; // 64
+	float vrHandControllerScale;// 92
 	std::unique_ptr <FoodItemComponent> _foodDetails; // 96
 	std::unique_ptr <SeedItemComponent> _seedDetails; // 100
 	std::unique_ptr <CameraItemComponent> _cameraDetails; // 104
@@ -144,7 +148,7 @@ public:
 	virtual bool isMirroredArt() const;
 
 	/* static function */
-	static TextureUVCoordinateSet getTextureUVCoordinateSet(const std::string&, int);
+	static TextureUVCoordinateSet* getTextureUVCoordinateSet(const std::string&, int);
 	static void initClientData();
 	static void initServerData(ResourcePackManager&);
 	static void initClient(Json::Value&, Json::Value&);

@@ -23,15 +23,15 @@ bool PickaxeItem::mineBlock(ItemInstance *item, BlockID, int, int, int, Entity *
 	item->hurtAndBreak(1, entity);
 }
 
-bool PickaxeItem::canDestroySpecial(const Block* block) const
+bool PickaxeItem::canDestroySpecial(const Block *block) const
 {
 	return Item::mItems[278]->canDestroySpecial(block);
 }
 
 float PickaxeItem::getDestroySpeed(ItemInstance*, const Block *block)
 {
-	if (Material::AreEqual(block->getMaterial(), Material::getMaterial(MaterialType::STONE))
-	|| Material::AreEqual(block->getMaterial(), Material::getMaterial(MaterialType::METAL)))
+	if (block->getMaterial() == Material::getMaterial(MaterialType::STONE)
+	|| block->getMaterial() == Material::getMaterial(MaterialType::METAL))
 		return 50.0F;
 	else
 		return 1.0F;

@@ -1,16 +1,11 @@
 #pragma once
 
-#include <string>
-#include <vector>
-#include <memory>
-
 #include "minecraftpe/client/render/TextureUVCoordinateSet.h"
 #include "minecraftpe/util/Color.h"
 #include "minecraftpe/world/phys/AABB.h"
 #include "../../material/Material.h"
 #include "BlockShape.h"
 #include "minecraftpe/CreativeItemCategory.h"
-#include "BlockSupportType.h"
 #include "entity/BlockEntityType.h"
 #include "BlockID.h"
 
@@ -27,6 +22,8 @@ struct Random;
 struct Vec3;
 struct Brightness;
 struct BlockProperty;
+struct BlockSupportType;
+class BlockRenderLayer;
 
 class Block
 {
@@ -42,15 +39,15 @@ public:
 	bool animates; // 32
 	float idk; // 36
 	float thickness; // 40
-	bool slippery; // 44
+	bool slideable; // 44
 	bool instaTicks; // 45
 	float gravity; // 48
 	Material& material; // 52
 	Color mapColor; // 56
 	float friction; // 72
 	bool heavy; // 76
-	float destroySpeed; // 80
-	float explosionResistance; // 84
+	float destroyTime; // 80
+	float blastResistance; // 84
 	CreativeItemCategory creativeCategory; // 88	
 	AABB hitbox; // 92
 

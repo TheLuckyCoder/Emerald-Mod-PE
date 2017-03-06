@@ -30,9 +30,9 @@ bool PaxItem::canDestroySpecial(const Block *block) const
 
 float PaxItem::getDestroySpeed(ItemInstance*, const Block *block)
 {
-		if (Material::AreEqual(block->getMaterial(), Material::getMaterial(MaterialType::WOOD))
-			|| Material::AreEqual(block->getMaterial(), Material::getMaterial(MaterialType::STONE))
-			|| Material::AreEqual(block->getMaterial(), Material::getMaterial(MaterialType::METAL)))
+		if (block->getMaterial() == Material::getMaterial(MaterialType::WOOD)
+			|| block->getMaterial() == Material::getMaterial(MaterialType::STONE)
+			|| block->getMaterial() == Material::getMaterial(MaterialType::METAL))
 		return 50.0F;
 	else
 		return 1.0F;

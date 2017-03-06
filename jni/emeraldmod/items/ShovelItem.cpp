@@ -35,7 +35,7 @@ bool ShovelItem::canDestroySpecial(const Block *block) const
 
 float ShovelItem::getDestroySpeed(ItemInstance*, const Block *block)
 {
-		if (Material::AreEqual(block->getMaterial(), Material::getMaterial(MaterialType::DIRT)))
+		if (block->getMaterial() == Material::getMaterial(MaterialType::DIRT))
 		return 50.0F;
 	else
 		return 1.0F;

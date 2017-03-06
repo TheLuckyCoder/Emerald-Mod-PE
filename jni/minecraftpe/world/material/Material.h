@@ -8,6 +8,16 @@ class Color;
 
 class Material
 {
+private:
+	void _setMapColor(const Color&);
+	void _setNotSolid();
+	void _setSuperHot();
+	void _setFlammable();
+	void _setReplaceable();
+	void _setNeverBuildable();
+	void _setNotBlockingMotion();
+	void _setNotAlwaysDestroyable();
+	
 public:
 	MaterialType type; // 0
 	bool flammable; // 4
@@ -20,40 +30,35 @@ public:
 	bool solid; // 17
 	bool superHot; // 18
 	
-	enum Settings : int
-	{
-		Default
-	};
-	
-	static std::vector<std::unique_ptr<Material>> mMaterials;
-	static bool mInitialized;
+	enum class Settings;
 	
 	Material(MaterialType, Material::Settings, float);
+	~Material();
 	
 	bool isType(MaterialType) const;
-	bool isFlammable();
-	bool isNeverBuildable();
-	bool isAlwaysDestroyable();
-	bool isReplaceable();
-	bool isLiquid();
-	float getTranslucency();
+	bool isFlammable() const;
+	bool isNeverBuildable() const;
+	bool isAlwaysDestroyable() const;
+	bool isReplaceable() const;
+	bool isLiquid() const;
+	float getTranslucency() const;
 	bool getBlocksMotion() const;
-	bool isSolid();
-	bool isSolidBlocking();
-	bool isSuperHot();
-	int getColor();
+	bool isSolid() const;
+	bool isSolidBlocking() const;
+	bool isSuperHot() const;
+	unsigned int getColor() const;
 	
-	
-	void _setReplaceable();
-	void _setMapColor(const Color&);
-	
+	static void initMaterials();
+	static void teardownMaterials();
 	static void addMaterial(std::unique_ptr<Material>);
 	static void _setupSurfaceMaterials();
 	static Material& getMaterial(MaterialType);
 	
-	static bool AreEqual(const Material &a, const Material &b)
-	{
-		return &a == &b;
-	}
+	// static fields
+	static std::vector<std::unique_ptr<Material>> mMaterials;
+	static bool mInitialized;
+	
+	bool operator==(const Material&) const;
+	bool operator!=(const Material&) const;
 };
 

@@ -18,98 +18,76 @@ class TextureAtlas;
 class TextureAtlasItem;
 namespace Json { class Value; }
 
-enum class BlockSoundType {
+enum class BlockSoundType
+{
     NORMAL, GRAVEL, WOOD, GRASS, METAL, STONE, CLOTH, GLASS, SAND, SNOW, LADDER, ANVIL, SLIME, SILENT, DEFAULT, UNDEFINED
 };
 
-class BlockGraphics {
-
+class BlockGraphics
+{
 public:
+    void**vtable;
+	char filler[500];
 
-    /* 0x04 */ unsigned char id;
-    /* 0x08 */ Block* block;
-    /* 0x0C */ unsigned int isotropicTextureFace;
-    /* 0x10 */ int renderLayer;
-    /* 0x14 */ BlockShape blockShape;
-    /* 0x1C */ float brightnessGamma;
-    /* 0x20 */ Color mapColor;
-    /* 0x30 */ bool fancy;
-    /* 0x34 */ BlockSoundType soundType;
-    /* 0x38 */ AABB visualShape;
-    /* 0x54 */ TextureAtlasItem texture[6];
-    /* 0xCC */ TextureAtlasItem carriedTexture[6];
-    /* 0x144 */ std::string textureName[6];
-    /* 0x15C */ std::string carriedTextureName[6];
-    /* size = 0x174 */
+	static std::shared_ptr<TextureAtlas> mTerrainTextureAtlas;
+	static std::vector<std::unique_ptr<BlockGraphics>> mOwnedBlocks;
+	static BlockGraphics* mBlocks[256];
 
-    // virtual
-    virtual ~BlockGraphics();
-    virtual bool shouldRenderFace(BlockSource&, BlockPos const&, signed char, AABB const&) const;
-    virtual int getIconYOffset() const;
-    virtual unsigned int getColor(int) const;
-    virtual unsigned int getColor(BlockSource&, BlockPos const&) const;
-    virtual unsigned int getColorForParticle(BlockSource&, BlockPos const&, int) const;
-    virtual bool isSeasonTinted(BlockSource&, BlockPos const&) const;
-    virtual void onGraphicsModeChanged(bool, bool);
-    virtual BlockRenderLayer getRenderLayer(BlockSource&, BlockPos const&) const;
-    virtual void* getExtraRenderLayers();
-    virtual AABB const& getVisualShape(BlockSource&, BlockPos const&, AABB&, bool);
-    virtual AABB const& getVisualShape(unsigned char, AABB&, bool);
-    virtual void* getCarriedTexture(signed char, int) const;
-    virtual void animateTick(BlockSource&, BlockPos const&, Random&);
-    virtual Vec3 randomlyModifyPosition(BlockPos const&, int&) const;
-    virtual Vec3 randomlyModifyPosition(BlockPos const&) const;
-    virtual void setVisualShape(AABB const&);
-    virtual void setVisualShape(Vec3 const&, Vec3 const&);
+	BlockGraphics(const std::string&);
 
-    // non virtual
-    BlockGraphics(std::string const&);
+	virtual ~BlockGraphics();
 
-    void setTextures(BlockGraphics&, Json::Value const&);
-    void setTextureItem(std::string const&);
-    void setTextureItem(std::string const&, std::string const&, std::string const&);
-    void setTextureItem(std::string const&, std::string const&, std::string const&, std::string const&, std::string const&, std::string const&);
-    void setCarriedTextures(BlockGraphics&, Json::Value const&);
-    void setCarriedTextureItem(std::string const&);
-    void setCarriedTextureItem(std::string const&, std::string const&, std::string const&);
-    void setCarriedTextureItem(std::string const&, std::string const&, std::string const&, std::string const&, std::string const&, std::string const&);
-    void setTextureIsotropic(BlockGraphics&, Json::Value const&);
-    void setTextureIsotropic(unsigned int);
-    void setAllFacesIsotropic();
-    void setBlockShape(BlockGraphics&, Json::Value const&);
-    void setBlockShape(BlockShape);
-    void setBrightnessGamma(BlockGraphics&, Json::Value const&);
-    void setSoundType(BlockGraphics&, Json::Value const&);
-    void setSoundType(BlockSoundType);
-    void setMapColor(Color const&);
-    TextureAtlasItem* getTextureItem(std::string const&);
-    Block* getBlock() const;
-    Color getMapColor(FullBlock const&) const;
-    Color getMapColor() const;
-    TextureUVCoordinateSet& getTexture(signed char) const;
-    TextureUVCoordinateSet& getTexture(signed char, int) const;
-    TextureAtlasItem& getAtlasItem(signed char) const;
-    bool isTextureIsotropic(signed char) const;
-    bool isAlphaTested();
-    bool isFullAndOpaque();
-    bool isFullAndOpaque(Block const&);
-    unsigned int getFaceTextureIsotropic();
-    BlockSoundType getSoundType() const;
-    BlockShape getBlockShape() const;
-    BlockRenderLayer getRenderLayer() const;
-    
-    static void initBlocks();
-    static void teardownBlocks();
-    static void setTextureAtlas(std::shared_ptr<TextureAtlas>);
-    static void reloadBlockUVs(TextureAtlas&);
-    static TextureUVCoordinateSet getTextureUVCoordinateSet(std::string const&, int);
-    static BlockGraphics* lookupByName(std::string const&, bool);
+	bool shouldRenderFace(BlockSource&, const BlockPos&, signed char, const AABB&) const;
+	int getIconYOffset() const;
+	unsigned char getColor(int) const;
+	unsigned char getColor(BlockSource&, const BlockPos&) const;
+	unsigned char getColorForParticle(BlockSource&, const BlockPos&, int) const;
+	bool isSeasonTinted(BlockSource&, const BlockPos&) const;
+	void prepareRender(BlockSource&, const BlockPos&);
+	void onGraphicsModeChanged(bool, bool);
+	BlockRenderLayer getRenderLayer(BlockSource&, const BlockPos&) const;
+	int getExtraRenderLayers();
+	AABB& getVisualShape(BlockSource&, const BlockPos&, AABB&, bool);
+	AABB& getVisualShape(unsigned char, AABB&, bool);
+	TextureUVCoordinateSet& getCarriedTexture(signed char, int) const;
+	bool animateTick(BlockSource&, const BlockPos&, Random&);
+	Vec3& randomlyModifyPosition(const BlockPos&, int&) const;
+	Vec3& randomlyModifyPosition(const BlockPos&) const;
+	void setVisualShape(const AABB&);
+	void setVisualShape(const Vec3&, const Vec3&);
+	void setSoundType(BlockSoundType);
+	Block& getBlock() const;
+	BlockShape getBlockShape() const;
+	void getFaceTextureIsotropic();
+	Color getMapColor(const FullBlock) const;
+	Color getMapColor() const;
+	BlockRenderLayer getRenderLayer() const;
+	BlockSoundType getSoundType();
+	TextureUVCoordinateSet& getTexture(signed char) const;
+	TextureUVCoordinateSet& getTexture(signed char, int) const;
+	bool isAlphaTested();
+	bool isFullAndOpaque(const Block&);
+	bool isFullAndOpaque();
+	void lookupByName(const std::string&, bool);
+	void reloadBlockUVs(TextureAtlas&);
+	void setAllFacesIsotropic();
+	void setBlockShape(BlockGraphics&, const Json::Value&);
+	void setBlockShape(BlockShape);
+	void setCarriedTextureItem(const std::string&);
+	void setCarriedTextureItem(const std::string&, const std::string&, const std::string&);
+	void setCarriedTextures(BlockGraphics&, const Json::Value&);
+	void setMapColor(const Color&);
+	void setTextureAtlas(std::shared_ptr<TextureAtlas>);
+	void setTextureIsotropic(BlockGraphics&, const Json::Value&);
+	void setTextureIsotropic(unsigned int);
+	void setTextureItem(const std::string&);
+	void setTextureItem(const std::string&, const std::string&, const std::string&);
+	void setTextureItem(const std::string&, const std::string&, const std::string&, const std::string&, const std::string&, const std::string&);
+	void setTextures(BlockGraphics&, const Json::Value&);
 
-    // static fields
-    static float SIZE_OFFSET;
-    static std::shared_ptr<TextureAtlas> mTerrainTextureAtlas;
-    static BlockGraphics* mBlocks[];
-    static std::vector<std::unique_ptr<BlockGraphics>> mOwnedBlocks;
-    static std::unordered_map<std::string, BlockGraphics*> mBlockLookupMap;
-
+	static void initBlocks();
+	static void teardownBlocks();
+	static TextureUVCoordinateSet getTextureUVCoordinateSet(const std::string&, int);
+	static TextureAtlasItem getTextureItem(const std::string&);
 };
+

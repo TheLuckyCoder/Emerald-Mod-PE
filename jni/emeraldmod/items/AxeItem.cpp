@@ -30,7 +30,7 @@ bool AxeItem::canDestroySpecial(const Block *block) const
 
 float AxeItem::getDestroySpeed(ItemInstance*, const Block *block)
 {
-	if (Material::AreEqual(block->getMaterial(), Material::getMaterial(MaterialType::WOOD)))
+	if (block->getMaterial() == Material::getMaterial(MaterialType::WOOD))
 		return 50.0F;
 	else
 		return 1.0F;

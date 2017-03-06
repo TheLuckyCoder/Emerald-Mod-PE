@@ -121,6 +121,7 @@ void EmeraldMod::initBlockGraphics()
 	BlockGraphics::mBlocks[236] = new BlockGraphics("sapling");
 	BlockGraphics::mBlocks[236]->setTextureItem("emerald_mushroom");
 	BlockGraphics::mBlocks[236]->setBlockShape(BlockShape::CROSS_TEXTURE);
+	BlockGraphics::mBlocks[236]->setSoundType(BlockSoundType::GRASS);
 	
 	//BlockGraphics::mBlocks[236] = new BlockGraphics("torch");
 	//BlockGraphics::mBlocks[236]->setTextureItem("emerald_torch");
