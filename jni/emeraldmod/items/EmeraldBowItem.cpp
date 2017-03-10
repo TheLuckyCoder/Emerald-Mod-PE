@@ -8,8 +8,8 @@ EmeraldBowItem::EmeraldBowItem(short id) : BowItem("emeraldBow", id - 256)
 	setCategory(CreativeItemCategory::Tools);
 	setIcon("emerald_bow_standby", 0);
 	setMaxDamage(1800);
-	bow_pulling_0 = getTextureUVCoordinateSet("emerald_bow_pulling", 0);
-	bow_pulling_1 = getTextureUVCoordinateSet("emerald_bow_pulling", 1);
-	bow_pulling_2 = getTextureUVCoordinateSet("emerald_bow_pulling", 2);
+	//bow_pulling_0 = getTextureUVCoordinateSet("emerald_bow_pulling", 0);
+	//bow_pulling_1 = getTextureUVCoordinateSet("emerald_bow_pulling", 1);
+	//bow_pulling_2 = getTextureUVCoordinateSet("emerald_bow_pulling", 2);
 }
 

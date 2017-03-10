@@ -55,7 +55,7 @@ void EmeraldMod::initItems()
 	mShovel = new ShovelItem(3809);
 	mHoe = new HoeItem(3810);
 	mFlintAndEmerald = new FlintAndEmerald(3811);
-	//mBow = new EmeraldBowItem(3812);
+	mBow = new EmeraldBowItem(3812);
 	Item::mItems[3813] = mStick = (new Item("emeraldStick", 3813 - 256))->setIcon("emerald_stick", 0);
 	Item::mItems[3814] = mNugget = (new Item("emeraldNugget", 3814 - 256))->setIcon("emerald_nugget", 0);
 }
@@ -147,7 +147,7 @@ void EmeraldMod::initCreativeItems()
 	Item::addCreativeItem(3809, 0);
 	Item::addCreativeItem(3810, 0);
 	Item::addCreativeItem(3811, 0);
-	//Item::addCreativeItem(3812, 0);
+	Item::addCreativeItem(3812, 0);
 	Item::addCreativeItem(3813, 0);
 	Item::addCreativeItem(3814, 0);
 }

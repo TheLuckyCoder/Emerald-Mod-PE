@@ -28,7 +28,7 @@ class BlockRenderLayer;
 class Block
 {
 public:
-	unsigned char blockId; // 4
+	BlockID blockId; // 4
 	std::string name; // 8
 	std::string nameId; // 12
 	bool replaceable; // 16
@@ -176,7 +176,7 @@ public:
 	virtual Block* addProperty(BlockProperty);
 	virtual int getSpawnResourcesAuxValue(unsigned char) const;
 	
-	std::string& getDescriptionId() const;
+	const std::string& getDescriptionId() const;
 	void addAABB(const AABB&, const AABB*, std::vector<AABB, std::allocator<AABB>>&)const;
 	void addAABB(const AABB&);
 	void popResource(BlockSource&, const BlockPos&, const ItemInstance&)const;

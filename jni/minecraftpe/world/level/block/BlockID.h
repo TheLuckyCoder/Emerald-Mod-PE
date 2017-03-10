@@ -5,18 +5,17 @@
 struct BlockProperty;
 
 struct BlockID {
+	uint_fast8_t id;
 
-    uint_fast8_t id;
+	BlockID(uint_fast8_t id) : id(id) { }
+	BlockID(BlockID const& b) : BlockID(b.id) { }
 
-    BlockID(uint_fast8_t id) : id(id) { }
-    BlockID(BlockID const& b) : BlockID(b.id) { }
+	bool operator==(BlockID const& b) { return id == b.id; }
+	bool operator!=(BlockID const& b) { return !(*this == b); }
+	operator unsigned char() const { return id; }
 
-    bool operator==(BlockID const& b) { return id == b.id; }
-    bool operator!=(BlockID const& b) { return !(*this == b); }
+	bool hasProperty(BlockProperty) const;
 
-    bool hasProperty(BlockProperty) const;
-
-    static BlockID AIR;
-
+	static BlockID AIR;
 };
 

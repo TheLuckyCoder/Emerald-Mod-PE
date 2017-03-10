@@ -70,7 +70,7 @@ public:
 	CreativeItemCategory creativeCategory; // 44
 	int filler2; // 48
 	void* colorFormat; // 52
-	TextureUVCoordinateSet* icon; // 56
+	TextureUVCoordinateSet& icon; // 56
 	TextureAtlasItem* customAtlasIcon; // 60
 	int filler3[7]; // 64
 	float vrHandControllerScale;// 92

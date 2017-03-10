@@ -60,10 +60,10 @@ void initBlocks()
 	LOG("Blocks Initiated");
 }
 
-void (*_initBlockGraphics)();
-void initBlockGraphics()
+void (*_initBlockGraphics)(ResourcePackManager&);
+void initBlockGraphics(ResourcePackManager &rpm)
 {
-	_initBlockGraphics();
+	_initBlockGraphics(rpm);
 
 	LOG("Init Block Graphics");
 	EmeraldMod::initBlockGraphics();

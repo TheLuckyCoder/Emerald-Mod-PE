@@ -6,6 +6,7 @@
 #include "../../../client/render/TextureAtlasItem.h"
 #include "BlockShape.h"
 
+class ResourcePackManager;
 class BlockSource;
 class BlockPos;
 class Block;
@@ -85,7 +86,7 @@ public:
 	void setTextureItem(const std::string&, const std::string&, const std::string&, const std::string&, const std::string&, const std::string&);
 	void setTextures(BlockGraphics&, const Json::Value&);
 
-	static void initBlocks();
+	static void initBlocks(ResourcePackManager&);
 	static void teardownBlocks();
 	static TextureUVCoordinateSet getTextureUVCoordinateSet(const std::string&, int);
 	static TextureAtlasItem getTextureItem(const std::string&);
