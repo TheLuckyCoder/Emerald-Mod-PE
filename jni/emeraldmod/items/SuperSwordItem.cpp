@@ -5,22 +5,17 @@
 
 SuperSwordItem::SuperSwordItem(short id) : Item("emeraldSuperSword", id - 256)
 {
-	Item::mItems[id] = this;
+	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
 	setIcon("emerald_super_sword", 0);
 	setMaxStackSize(1);
-	setMaxDamage(2400);
+	setMaxDamage(2600);
 	setHandEquipped();
 }
 
 int SuperSwordItem::getAttackDamage()
 {
-	return (Item::mItems[276]->getAttackDamage() + 5);
-}
-
-int SuperSwordItem::getEnchantValue() const
-{
-	return Item::mItems[276]->getEnchantValue();
+	return (Item::mItems[276]->getAttackDamage() + 8);
 }
 
 void SuperSwordItem::hurtEnemy(ItemInstance *item, Mob *attacker, Mob *victim)
@@ -39,7 +34,7 @@ bool SuperSwordItem::canDestroySpecial(const Block* block) const
 }
 
 float SuperSwordItem::getDestroySpeed(ItemInstance *item, const Block *block) {
-	if(block == Block::mWeb)
+	if (block == Block::mWeb)
 		return 20.0f;
 	else
 		return 0.8f;

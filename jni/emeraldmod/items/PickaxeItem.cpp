@@ -1,15 +1,15 @@
 #include "PickaxeItem.h"
 #include "minecraftpe/world/item/ItemInstance.h"
-#include "../EmeraldMod.h"
 #include "minecraftpe/world/entity/Mob.h"
+#include "../Emerald.h"
 
 PickaxeItem::PickaxeItem(short id) : Item("emeraldPickaxe", id - 256)
 {
-	Item::mItems[id] = this;
+	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
 	setIcon("emerald_pickaxe", 0);
 	setMaxStackSize(1);
-	setMaxDamage(1800);
+	setMaxDamage(2000);
 	setHandEquipped();
 }
 
@@ -31,9 +31,9 @@ bool PickaxeItem::canDestroySpecial(const Block *block) const
 float PickaxeItem::getDestroySpeed(ItemInstance*, const Block *block)
 {
 	if (block->getMaterial() == Material::getMaterial(MaterialType::STONE)
-	|| block->getMaterial() == Material::getMaterial(MaterialType::METAL))
-		return 50.0F;
+		|| block->getMaterial() == Material::getMaterial(MaterialType::METAL))
+		return 50.0f;
 	else
-		return 1.0F;
+		return 1.0f;
 }
 

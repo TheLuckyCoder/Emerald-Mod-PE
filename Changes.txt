@@ -1,3 +1,10 @@
+1.5.7
+Update for 1.0.7
+Add support for devices with bigger aspect ratio
+Increase the resistence of all tools
+Tools will now get better enchants
+Remove the Armor until it is fixed
+
 1.5.6
 Support for 1.0.4
 Add Emerald Mushroom

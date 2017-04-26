@@ -1,11 +1,11 @@
 #include "EmeraldArmor.h"
 
-EmeraldArmor::EmeraldArmor(const std::string &name, short id, ArmorSlot armorSlot, std::string texture) : ArmorItem(name, id - 256, DIAMOND, 42, armorSlot)
+EmeraldArmor::EmeraldArmor(const std::string &name, short id, ArmorSlot armorSlot, const std::string& texture) : ArmorItem(name, id - 256, DIAMOND, 42, armorSlot)
 {
-	Item::mItems[id] = this;
+	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
 	setIcon(texture, 0);
-	setMaxDamage(1800);
+	setMaxDamage(2000);
 }
 
 EmeraldHelmet::EmeraldHelmet(short id) : EmeraldArmor("emeraldHelmet", id, ArmorSlot::Helmet, "emerald_helmet") {}

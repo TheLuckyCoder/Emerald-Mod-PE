@@ -5,11 +5,11 @@
 
 FlintAndEmerald::FlintAndEmerald(short id) : Item("flintAndEmerald", id - 256)
 {
-	Item::mItems[id] = this;
+	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
 	setIcon("flint_and_emerald", 0);
 	setMaxStackSize(1);
-	setMaxDamage(1800);
+	setMaxDamage(2000);
 }
 
 void FlintAndEmerald::hurtEnemy(ItemInstance *item, Mob*, Mob *victim)

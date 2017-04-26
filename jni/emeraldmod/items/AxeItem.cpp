@@ -1,15 +1,15 @@
 #include "AxeItem.h"
 #include "minecraftpe/world/item/ItemInstance.h"
 #include "minecraftpe/world/entity/Mob.h"
-#include "../EmeraldMod.h"
+#include "minecraftpe/world/level/block/Block.h"
 
 AxeItem::AxeItem(short id) : Item("emeraldAxe", id - 256)
 {
-	Item::mItems[id] = this;
+	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
 	setIcon("emerald_axe", 0);
 	setMaxStackSize(1);
-	setMaxDamage(1800);
+	setMaxDamage(2000);
 	setHandEquipped();
 }
 
@@ -31,8 +31,8 @@ bool AxeItem::canDestroySpecial(const Block *block) const
 float AxeItem::getDestroySpeed(ItemInstance*, const Block *block)
 {
 	if (block->getMaterial() == Material::getMaterial(MaterialType::WOOD))
-		return 50.0F;
+		return 50.0f;
 	else
-		return 1.0F;
+		return 1.0f;
 }
 

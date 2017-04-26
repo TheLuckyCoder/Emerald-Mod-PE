@@ -4,7 +4,7 @@
 #include "minecraftpe/world/level/block/Block.h"
 #include "minecraftpe/world/level/block/BlockGraphics.h"
 
-class EmeraldMod
+class Emerald
 {
 public:
 	static void initItems();
@@ -34,8 +34,7 @@ public:
 	static Block* mBrick;
 	static Block* mFence;
 	static Block* mSlab;
-	static Block* mTorch;
-	static Block* mLadder;
 	static Block* mMushroom;
+	static Block* mLadder;
 };
 

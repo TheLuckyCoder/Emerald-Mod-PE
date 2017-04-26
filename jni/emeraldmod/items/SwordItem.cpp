@@ -5,22 +5,17 @@
 
 SwordItem::SwordItem(short id) : Item("emeraldSword", id - 256)
 {
-	Item::mItems[id] = this;
+	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
 	setIcon("emerald_sword", 0);
 	setMaxStackSize(1);
-	setMaxDamage(1800);
+	setMaxDamage(2000);
 	setHandEquipped();
 }
 
 int SwordItem::getAttackDamage()
 {
-	return (Item::mItems[276]->getAttackDamage() + 3);
-}
-
-int SwordItem::getEnchantValue() const
-{
-	return Item::mItems[276]->getEnchantValue();
+	return (Item::mItems[276]->getAttackDamage() + 5);
 }
 
 void SwordItem::hurtEnemy(ItemInstance *item, Mob*, Mob *victim)

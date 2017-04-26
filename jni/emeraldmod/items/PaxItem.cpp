@@ -1,15 +1,15 @@
 #include "PaxItem.h"
 #include "minecraftpe/world/item/ItemInstance.h"
 #include "minecraftpe/world/entity/Mob.h"
-#include "../EmeraldMod.h"
+#include "../Emerald.h"
 
 PaxItem::PaxItem(short id) : Item("emeraldPax", id - 256)
 {
-	Item::mItems[id] = this;
+	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
 	setIcon("emerald_pax", 0);
 	setMaxStackSize(1);
-	setMaxDamage(1800);
+	setMaxDamage(2000);
 	setHandEquipped();
 }
 
@@ -30,9 +30,9 @@ bool PaxItem::canDestroySpecial(const Block *block) const
 
 float PaxItem::getDestroySpeed(ItemInstance*, const Block *block)
 {
-		if (block->getMaterial() == Material::getMaterial(MaterialType::WOOD)
-			|| block->getMaterial() == Material::getMaterial(MaterialType::STONE)
-			|| block->getMaterial() == Material::getMaterial(MaterialType::METAL))
+	if (block->getMaterial() == Material::getMaterial(MaterialType::WOOD)
+		|| block->getMaterial() == Material::getMaterial(MaterialType::STONE)
+		|| block->getMaterial() == Material::getMaterial(MaterialType::METAL))
 		return 50.0F;
 	else
 		return 1.0F;

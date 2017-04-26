@@ -4,10 +4,10 @@
 
 EmeraldBowItem::EmeraldBowItem(short id) : BowItem("emeraldBow", id - 256)
 {
-	Item::mItems[id] = this;
+	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
 	setIcon("emerald_bow_standby", 0);
-	setMaxDamage(1800);
+	setMaxDamage(2000);
 	//bow_pulling_0 = getTextureUVCoordinateSet("emerald_bow_pulling", 0);
 	//bow_pulling_1 = getTextureUVCoordinateSet("emerald_bow_pulling", 1);
 	//bow_pulling_2 = getTextureUVCoordinateSet("emerald_bow_pulling", 2);

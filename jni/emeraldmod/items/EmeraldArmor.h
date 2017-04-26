@@ -5,7 +5,7 @@
 class EmeraldArmor : public ArmorItem
 {
 public:
-	EmeraldArmor(const std::string &name, short id, ArmorSlot armorSlot, std::string texture);
+	EmeraldArmor(const std::string &name, short id, ArmorSlot armorSlot, const std::string &texture);
 };
 
 class EmeraldHelmet : public EmeraldArmor
@@ -31,3 +31,4 @@ class EmeraldBoots : public EmeraldArmor
 public:
 	EmeraldBoots(short id);
 };
+

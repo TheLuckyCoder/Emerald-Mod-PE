@@ -122,6 +122,7 @@ public:
     virtual int getDamageChance(int) const;
 	virtual int uniqueAuxValues() const;
 	virtual Color getColor(const ItemInstance&) const;
+	virtual bool isTintable() const;
 	virtual bool use(ItemInstance&, Player&);
 	virtual bool useOn(ItemInstance&, Entity&, int, int, int, signed char, float, float, float);
 	virtual void dispense(BlockSource&, Container&, int, const Vec3&, signed char);
@@ -131,11 +132,11 @@ public:
 	virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);
 	virtual CameraItemComponent interactEnemy(ItemInstance*, Mob*, Player*);
 	virtual bool mineBlock(ItemInstance*, BlockID, int, int, int, Entity*);
-	virtual const std::string buildDescriptionName(const ItemInstance&) const;
-	virtual const std::string buildEffectDescriptionName(const ItemInstance&) const;
+	virtual std::string buildDescriptionName(const ItemInstance&) const;
+	virtual std::string buildEffectDescriptionName(const ItemInstance&) const;
 	virtual void readUserData(ItemInstance*, IDataInput&) const;
 	virtual void writeUserData(const ItemInstance*, IDataOutput&) const;
-	virtual int getMaxStackSize(const ItemInstance*);
+	virtual unsigned char getMaxStackSize(const ItemInstance*);
 	virtual void inventoryTick(ItemInstance&, Level&, Entity&, int, bool);
 	virtual bool onCraftedBy(ItemInstance&, Level&, Player&);
 	virtual int getCooldownType() const;

@@ -9,7 +9,7 @@ public:
 	
 	virtual int getAttackDamage();
 	virtual int getEnchantSlot() const { return 16; }
-	virtual int getEnchantValue() const;
+	virtual int getEnchantValue() const { return 15; };
 	virtual bool mineBlock(ItemInstance*, BlockID, int, int, int, Entity*);
 	virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);
 	virtual float getDestroySpeed(ItemInstance*, const Block*);

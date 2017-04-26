@@ -8,7 +8,7 @@ public:
 	PaxItem(short id);
 	
 	virtual int getAttackDamage() { return 5.0f; }
-	virtual int getEnchantValue() const { return 1; }
+	virtual int getEnchantValue() const { return 10; }
 	virtual int getEnchantSlot() const { return 1024; }
 	virtual bool mineBlock(ItemInstance*, BlockID, int, int, int, Entity*);
 	virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);

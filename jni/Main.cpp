@@ -9,13 +9,13 @@
 #include "minecraftpe/world/entity/player/Player.h"
 #include "minecraftpe/world/level/BlockSource.h"
 
-#include "emeraldmod/EmeraldMod.h"
+#include "emeraldmod/Emerald.h"
 #include "emeraldmod/recipes/EmeraldRecipes.h"
 
-#define LOG_TAG "Emerald-Mod"
+#define LOG_TAG "EmeraldModPE"
 #define LOG(...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
 
-bool bl_setArmorTexture(int, const std::string&);
+//bool bl_setArmorTexture(int, const std::string&);
 
 void (*_initClientData)();
 void initClientData()
@@ -23,17 +23,17 @@ void initClientData()
 	_initClientData();
 	
 	LOG("Init Items");
-	EmeraldMod::initItems();
+	Emerald::initItems();
 	LOG("Items Initiated");
 	
 	LOG("Init BlockItems");
-	EmeraldMod::initBlockItems();
+	Emerald::initBlockItems();
 	LOG("BlockItems Initiated");
 	
-	bl_setArmorTexture(3800, "images/armor/emerald_1.png");
-	bl_setArmorTexture(3801, "images/armor/emerald_1.png");
-	bl_setArmorTexture(3802, "images/armor/emerald_2.png");
-	bl_setArmorTexture(3803, "images/armor/emerald_1.png");
+	//bl_setArmorTexture(3800, "textures/models/armor/emerald_1.png");
+	//bl_setArmorTexture(3801, "textures/models/armor/emerald_1.png");
+	//bl_setArmorTexture(3802, "textures/models/armor/emerald_2.png");
+	//bl_setArmorTexture(3803, "models/armor/emerald_1.png");
 }
 
 void (*_initCreativeItems)();
@@ -42,11 +42,11 @@ void initCreativeItems()
 	_initCreativeItems();
 	
 	LOG("Add Items to Creative Inventory");
-	EmeraldMod::initCreativeItems();
+	Emerald::initCreativeItems();
 	LOG("Items added to Creative Inventory");
 	
 	LOG("Add Blocks to Creative Inventory");
-	EmeraldMod::initCreativeBlocks();
+	Emerald::initCreativeBlocks();
 	LOG("Blocks added to Creative Inventory");
 }
 
@@ -56,7 +56,7 @@ void initBlocks()
 	_initBlocks();
 
 	LOG("Init Blocks");
-	EmeraldMod::initBlocks();
+	Emerald::initBlocks();
 	LOG("Blocks Initiated");
 }
 
@@ -66,7 +66,7 @@ void initBlockGraphics(ResourcePackManager &rpm)
 	_initBlockGraphics(rpm);
 
 	LOG("Init Block Graphics");
-	EmeraldMod::initBlockGraphics();
+	Emerald::initBlockGraphics();
 	LOG("Block Graphics Initiated");
 }
 

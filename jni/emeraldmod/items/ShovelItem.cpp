@@ -5,11 +5,11 @@
 
 ShovelItem::ShovelItem(short id) : Item("emeraldShovel", id - 256)
 {
-	Item::mItems[id] = this;
+	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
 	setIcon("emerald_shovel", 0);
 	setMaxStackSize(1);
-	setMaxDamage(1800);
+	setMaxDamage(2000);
 	setHandEquipped();
 }
 
@@ -35,9 +35,9 @@ bool ShovelItem::canDestroySpecial(const Block *block) const
 
 float ShovelItem::getDestroySpeed(ItemInstance*, const Block *block)
 {
-		if (block->getMaterial() == Material::getMaterial(MaterialType::DIRT))
-		return 50.0F;
+	if (block->getMaterial() == Material::getMaterial(MaterialType::DIRT))
+		return 50.0f;
 	else
-		return 1.0F;
+		return 1.0f;
 }
 

@@ -8,6 +8,7 @@ EmeraldMushroomBlock::EmeraldMushroomBlock(short id) : Block("emeraldMushroom", 
 	setCategory(CreativeItemCategory::Decorations);
 	setDestroyTime(1);
 	setExplodeable(2);
+	renderLayer = mSapling->renderLayer;
 }
 
 bool EmeraldMushroomBlock::mayPlaceOn(const Block &block) const
