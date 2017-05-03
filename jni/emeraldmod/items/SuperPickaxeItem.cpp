@@ -1,37 +1,37 @@
-#include "PickaxeItem.h"
+#include "SuperPickaxeItem.h"
 #include "minecraftpe/world/item/ItemInstance.h"
 #include "minecraftpe/world/entity/Mob.h"
 #include "minecraftpe/world/level/block/Block.h"
 
-PickaxeItem::PickaxeItem(short id) : Item("emeraldPickaxe", id - 256)
+SuperPickaxeItem::SuperPickaxeItem(short id) : Item("emeraldPickaxe", id - 256)
 {
 	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
 	setMaxStackSize(1);
-	setMaxDamage(2000);
+	setMaxDamage(2600);
 	setHandEquipped();
 }
 
-void PickaxeItem::hurtEnemy(ItemInstance *item, Mob*, Mob *victim)
+void SuperPickaxeItem::hurtEnemy(ItemInstance *item, Mob*, Mob *victim)
 {
 	item->hurtAndBreak(2, victim);
 }
 
-bool PickaxeItem::mineBlock(ItemInstance *item, BlockID, int, int, int, Entity *entity)
+bool SuperPickaxeItem::mineBlock(ItemInstance *item, BlockID, int, int, int, Entity *entity)
 {
 	item->hurtAndBreak(1, entity);
 }
 
-bool PickaxeItem::canDestroySpecial(const Block *block) const
+bool SuperPickaxeItem::canDestroySpecial(const Block *block) const
 {
 	return Item::mItems[278]->canDestroySpecial(block);
 }
 
-float PickaxeItem::getDestroySpeed(ItemInstance*, const Block *block)
+float SuperPickaxeItem::getDestroySpeed(ItemInstance*, const Block *block)
 {
 	if (block->getMaterial() == Material::getMaterial(MaterialType::STONE)
 		|| block->getMaterial() == Material::getMaterial(MaterialType::METAL))
-		return 50.0f;
+		return 80.0f;
 	else
 		return 1.0f;
 }

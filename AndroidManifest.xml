@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.razvanmcrafter.addon.emeraldmod"
 	android:versionCode="20"
-	android:versionName="1.6.0.b1">
+	android:versionName="1.6.0">
 	
 	<uses-feature
 		android:glEsVersion="0x00020000"

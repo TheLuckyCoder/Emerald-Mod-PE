@@ -22,11 +22,15 @@ public:
 	static Item* mSword;
 	static Item* mSuperSword;
 	static Item* mPickaxe;
+	static Item* mSuperPickaxe;
 	static Item* mAxe;
-	static Item* mPax;
+	static Item* mSuperAxe;
 	static Item* mShovel;
+	static Item* mSuperShovel;
 	static Item* mHoe;
+	static Item* mPax;
 	static Item* mFlintAndEmerald;
+	static Item* mSpear;
 	static Item* mBattleAxe;
 	static Item* mStick;
 	static Item* mNugget;

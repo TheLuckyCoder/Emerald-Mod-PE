@@ -1,7 +1,7 @@
 #include "PaxItem.h"
 #include "minecraftpe/world/item/ItemInstance.h"
 #include "minecraftpe/world/entity/Mob.h"
-#include "../Emerald.h"
+#include "minecraftpe/world/level/block/Block.h"
 
 PaxItem::PaxItem(short id) : Item("emeraldPax", id - 256)
 {
