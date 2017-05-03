@@ -4,7 +4,7 @@ tile.emeraldSlab.name=Emerald Slab
 tile.emeraldBrick.name=Emerald Brick
 tile.emeraldPlanks.name=Emerald Planks
 tile.emeraldFence.name=Emerald Fence
-tile.emeraldTorch.name=Emerald Torch
+tile.emeraldSapling.name=Emerald Sapling
 tile.emeraldWood.name=Emerald Wood
 tile.emeraldLadder.name=Emerald Ladder
 tile.emeraldMushroom.name=Emerald Mushroom
@@ -25,4 +25,5 @@ item.flintAndEmerald.name=Flint and Emerald
 item.emeraldBow.name=Emerald Bow
 item.emeraldStick.name=Emerald Stick
 item.emeraldNugget.name=Emerald Nugget
+item.emeraldBattleAxe.name=Emerald Battle Axe
 

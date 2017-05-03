@@ -6,7 +6,6 @@ HoeItem::HoeItem(short id) : Item("emeraldHoe", id - 256)
 {
 	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
-	setIcon("emerald_hoe", 0);
 	setMaxStackSize(1);
 	setMaxDamage(2000);
 	setHandEquipped();

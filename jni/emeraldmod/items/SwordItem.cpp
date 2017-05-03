@@ -7,7 +7,6 @@ SwordItem::SwordItem(short id) : Item("emeraldSword", id - 256)
 {
 	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
-	setIcon("emerald_sword", 0);
 	setMaxStackSize(1);
 	setMaxDamage(2000);
 	setHandEquipped();

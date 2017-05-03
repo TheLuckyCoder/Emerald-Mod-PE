@@ -65,10 +65,10 @@ void EmeraldRecipes::initRecipes(Recipes *recipes)
 	pushIngredient(Item::mFlint, 'f');
 	addRecipe(Emerald::mFlintAndEmerald->itemId, 1, 0, {"f ", " e"});
 	
-	/*// Bow
-	pushIngredient(287, 's');
-	pushIngredient(3813, 'r');
-	addRecipe(Emerald::mBow->itemId, 1, 0, {" rs", "r s", " rs"});*/
+	// Battle Axe
+	pushIngredient(Item::mStick, 's');
+	pushIngredient(Item::mEmerald, 'e');
+	addRecipe(Emerald::mBattleAxe->itemId, 1, 0, {"eee", " s ", " s "});
 	
 	// Stick
 	pushIngredient(Emerald::mNugget, 'n');
@@ -77,6 +77,11 @@ void EmeraldRecipes::initRecipes(Recipes *recipes)
 	// Nugget
 	pushIngredient(Item::mEmerald, 'e');
 	addRecipe(Emerald::mNugget->itemId, 9, 0, {"e ", "  "});
+	
+	/*// Bow
+	pushIngredient(287, 's');
+	pushIngredient(3813, 'r');
+	addRecipe(Emerald::mBow->itemId, 1, 0, {" rs", "r s", " rs"});*/
 	
 	// Emerald
 	pushIngredient(Emerald::mNugget, 'n');

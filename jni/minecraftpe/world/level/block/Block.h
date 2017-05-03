@@ -112,7 +112,7 @@ public:
 	virtual bool mayPlace(BlockSource&, BlockPos const&) const;
 	virtual bool mayPlaceOn(Block const&) const;
 	virtual void tryToPlace(BlockSource&, BlockPos const&, unsigned char) const;
-	virtual void breaksFallingBlocks(int) const;
+	virtual bool breaksFallingBlocks(int) const;
 	virtual void destroy(BlockSource&, BlockPos const&, int, Entity*) const;
 	virtual void playerWillDestroy(Player&, BlockPos const&, int) const;
 	virtual void neighborChanged(BlockSource&, BlockPos const&, BlockPos const&) const;

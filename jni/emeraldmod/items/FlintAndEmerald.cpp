@@ -7,7 +7,6 @@ FlintAndEmerald::FlintAndEmerald(short id) : Item("flintAndEmerald", id - 256)
 {
 	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
-	setIcon("flint_and_emerald", 0);
 	setMaxStackSize(1);
 	setMaxDamage(2000);
 }
@@ -22,8 +21,8 @@ bool FlintAndEmerald::useOn(ItemInstance &item, Entity &entity, int x, int y, in
 	Item::mItems[259]->useOn(item, entity, x, y, z, side, xx, yy, zz);
 }
 
-void FlintAndEmerald::dispense(BlockSource &region, Container &cont, int i, const Vec3 &vec, signed char ch)
+void FlintAndEmerald::dispense(BlockSource &region, Container &cont, int i, const Vec3 &pos, signed char side)
 {
-	Item::mItems[259]->dispense(region, cont, i, vec, ch);
+	Item::mItems[259]->dispense(region, cont, i, pos, side);
 }
 

@@ -7,7 +7,6 @@ PickaxeItem::PickaxeItem(short id) : Item("emeraldPickaxe", id - 256)
 {
 	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
-	setIcon("emerald_pickaxe", 0);
 	setMaxStackSize(1);
 	setMaxDamage(2000);
 	setHandEquipped();

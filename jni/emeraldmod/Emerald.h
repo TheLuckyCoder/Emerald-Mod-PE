@@ -7,9 +7,10 @@
 class Emerald
 {
 public:
-	static void initItems();
-	static void initBlocks();
-	static void initBlockItems();
+	static void registerItems();
+	static void initClientData();
+	static void registerBlocks();
+	static void registerBlockItems();
 	static void initBlockGraphics();
 	static void initCreativeItems();
 	static void initCreativeBlocks();
@@ -26,7 +27,7 @@ public:
 	static Item* mShovel;
 	static Item* mHoe;
 	static Item* mFlintAndEmerald;
-	static Item* mBow;
+	static Item* mBattleAxe;
 	static Item* mStick;
 	static Item* mNugget;
 	

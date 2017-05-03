@@ -2,7 +2,7 @@
 
 EmeraldMushroomBlock::EmeraldMushroomBlock(short id) : Block("emeraldMushroom", id, Material::getMaterial(MaterialType::PLANT))
 {
-	Block::mBlocks[id] = this;
+	mBlocks[id] = this;
 	init();
 	setSolid(false);
 	setCategory(CreativeItemCategory::Decorations);

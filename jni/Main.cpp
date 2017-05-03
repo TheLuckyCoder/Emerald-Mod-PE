@@ -5,35 +5,37 @@
 #include "substrate.h"
 
 #include "minecraftpe/client/locale/Localization.h"
-#include "minecraftpe/world/item/recipes/FurnaceRecipes.h"
-#include "minecraftpe/world/entity/player/Player.h"
-#include "minecraftpe/world/level/BlockSource.h"
 
 #include "emeraldmod/Emerald.h"
 #include "emeraldmod/recipes/EmeraldRecipes.h"
 
-#define LOG_TAG "EmeraldModPE"
-#define LOG(...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
+#define LOG_TAG "EmeraldMod"
+#define LOG(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
 
 //bool bl_setArmorTexture(int, const std::string&);
+
+void (*_registerItems)();
+void registerItems()
+{
+	LOG("Init Items");
+	Emerald::registerItems();
+	LOG("Items Initiated");
+	
+	LOG("Init BlockItems");
+	Emerald::registerBlockItems();
+	LOG("BlockItems Initiated");
+	
+	_registerItems();
+}
 
 void (*_initClientData)();
 void initClientData()
 {
 	_initClientData();
 	
-	LOG("Init Items");
-	Emerald::initItems();
-	LOG("Items Initiated");
-	
-	LOG("Init BlockItems");
-	Emerald::initBlockItems();
-	LOG("BlockItems Initiated");
-	
-	//bl_setArmorTexture(3800, "textures/models/armor/emerald_1.png");
-	//bl_setArmorTexture(3801, "textures/models/armor/emerald_1.png");
-	//bl_setArmorTexture(3802, "textures/models/armor/emerald_2.png");
-	//bl_setArmorTexture(3803, "models/armor/emerald_1.png");
+	LOG("Init Item Textures");
+	Emerald::initClientData();
+	LOG("Item Textures Initiated");
 }
 
 void (*_initCreativeItems)();
@@ -41,13 +43,18 @@ void initCreativeItems()
 {
 	_initCreativeItems();
 	
-	LOG("Add Items to Creative Inventory");
+	LOG("Add Items to Creative");
 	Emerald::initCreativeItems();
-	LOG("Items added to Creative Inventory");
+	LOG("Items added to Creative");
 	
-	LOG("Add Blocks to Creative Inventory");
+	LOG("Add Blocks to Creative");
 	Emerald::initCreativeBlocks();
-	LOG("Blocks added to Creative Inventory");
+	LOG("Blocks added to Creative");
+	
+	//bl_setArmorTexture(3800, "models/armor/emerald_1.png");
+	//bl_setArmorTexture(3801, "models/armor/emerald_1.png");
+	//bl_setArmorTexture(3802, "models/armor/emerald_2.png");
+	//bl_setArmorTexture(3803, "models/armor/emerald_1.png");
 }
 
 void (*_initBlocks)();
@@ -56,7 +63,7 @@ void initBlocks()
 	_initBlocks();
 
 	LOG("Init Blocks");
-	Emerald::initBlocks();
+	Emerald::registerBlocks();
 	LOG("Blocks Initiated");
 }
 
@@ -110,6 +117,7 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)
 {
 	LOG("Function Hooking Started");
 	
+	MSHookFunction((void*) &Item::registerItems, (void*) &registerItems, (void**) &_registerItems);
 	MSHookFunction((void*) &Item::initClientData, (void*) &initClientData, (void**) &_initClientData);
 	MSHookFunction((void*) &Item::initCreativeItems, (void*) &initCreativeItems, (void**) &_initCreativeItems);
 	MSHookFunction((void*) &Block::initBlocks, (void*) &initBlocks, (void**) &_initBlocks);
