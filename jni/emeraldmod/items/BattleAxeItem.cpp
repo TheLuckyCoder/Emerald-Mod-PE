@@ -12,11 +12,6 @@ BattleAxeItem::BattleAxeItem(short id) : Item("emeraldBattleAxe", id - 256)
 	setHandEquipped();
 }
 
-int BattleAxeItem::getAttackDamage()
-{
-	return (Item::mItems[276]->getAttackDamage() + 3);
-}
-
 void BattleAxeItem::hurtEnemy(ItemInstance *item, Mob*, Mob *victim)
 {
 	item->hurtAndBreak(2, victim);

@@ -12,11 +12,6 @@ SuperSwordItem::SuperSwordItem(short id) : Item("emeraldSuperSword", id - 256)
 	setHandEquipped();
 }
 
-int SuperSwordItem::getAttackDamage()
-{
-	return (Item::mItems[276]->getAttackDamage() + 8);
-}
-
 void SuperSwordItem::hurtEnemy(ItemInstance *item, Mob*, Mob *victim)
 {
 	item->hurtAndBreak(1, victim);

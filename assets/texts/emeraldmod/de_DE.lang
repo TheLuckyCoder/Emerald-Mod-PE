@@ -2,6 +2,8 @@
 tile.emeraldSlab.name=Smaragdstufe
 tile.emeraldBrick.name=Smaragdsteinziegel
 tile.emeraldPlanks.name=Smaragdholzbretter
+tile.emeraldMushroom.name=Smaragdpilz
+tile.emeraldFence.name=Smaragdzaum
 
 ##Items
 item.emeraldHelmet.name=Smaragdhelm
@@ -11,11 +13,16 @@ item.emeraldBoots.name=Smaragdstiefel
 item.emeraldSword.name=Smaragdschwert
 item.emeraldSuperSword.name=Super Smaragdschwert
 item.emeraldPickaxe.name=Smaragdspitzhacke
+item.emeraldSuperPickaxe.name=Super Smaragdspitzhacke
 item.emeraldPax.name=Smaragdpax
 item.emeraldAxe.name=Smaragdaxt
+item.emeraldSuperAxe.name=Super Smaragdaxt
 item.emeraldShovel.name=Smaragdschaufel
+item.emeraldSuperShovel.name=Super Smaragdschaufel
 item.emeraldHoe.name=Smaragdhacke
+item.emeraldSuperHoe.name=Super Smaragdhacke
 item.flintAndEmerald.name=Feuerstein und Smaragd
 item.emeraldBow.name=Smaragdbogen
+item.emeraldSpear.name=Smaragdspeer
 item.emeraldStick.name=Smaragdrute
 

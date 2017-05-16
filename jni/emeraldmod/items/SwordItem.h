@@ -7,9 +7,9 @@ class SwordItem : public Item
 public:
 	SwordItem(short id);
 	
-	virtual int getAttackDamage();
+	virtual int getAttackDamage() { return 14; }
 	virtual int getEnchantSlot() const { return 16; }
-	virtual int getEnchantValue() const { return 10; };
+	virtual int getEnchantValue() const { return 10; }
 	virtual bool mineBlock(ItemInstance*, BlockID, int, int, int, Entity*);
 	virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);
 	virtual float getDestroySpeed(ItemInstance*, const Block*);

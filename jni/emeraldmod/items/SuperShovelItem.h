@@ -7,7 +7,7 @@ class SuperShovelItem : public Item
 public:
 	SuperShovelItem(short id);
 	
-	virtual int getAttackDamage() { return 8; }
+	virtual int getAttackDamage() { return 9; }
 	virtual int getEnchantSlot() const { return 2048; }
 	virtual int getEnchantValue() const { return 18; }
 	virtual bool useOn(ItemInstance&, Entity&, int, int, int, signed char, float, float, float);

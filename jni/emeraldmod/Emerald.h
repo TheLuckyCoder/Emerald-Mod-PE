@@ -28,6 +28,7 @@ public:
 	static Item* mShovel;
 	static Item* mSuperShovel;
 	static Item* mHoe;
+	static Item* mSuperHoe;
 	static Item* mPax;
 	static Item* mFlintAndEmerald;
 	static Item* mSpear;

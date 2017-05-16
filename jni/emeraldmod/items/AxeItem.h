@@ -7,7 +7,7 @@ class AxeItem : public Item
 public:
 	AxeItem(short id);
 	
-	virtual int getAttackDamage() { return 5; }
+	virtual int getAttackDamage() { return 7; }
 	virtual int getEnchantSlot() const { return 512; }
 	virtual int getEnchantValue() const { return 10; }
 	virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);

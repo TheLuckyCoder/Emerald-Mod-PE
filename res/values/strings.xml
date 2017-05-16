@@ -8,5 +8,7 @@
 	<string name="rate_app">Rate app</string>
 	<string name="check_twitter">Check my Twitter</string>
 	<string name="join_community">Join our community</string>
+	<string name="supports_version">Supports the following version of Minecraft PE</string>
+	<string name="supported_version">1.0.8.1</string>
 </resources>
 

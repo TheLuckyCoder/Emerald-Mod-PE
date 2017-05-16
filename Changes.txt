@@ -1,3 +1,13 @@
+1.6.0
+Update for 1.0.8
+Add Super Emerald Tools
+Add Emerald Battle Axe
+Add Emerald Spear
+Change all items IDs
+Tweak all items attack damage
+Update Translations
+Remove Emerald Slab
+
 1.5.7
 Update for 1.0.7
 Add support for devices with bigger aspect ratio

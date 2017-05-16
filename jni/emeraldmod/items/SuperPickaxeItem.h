@@ -7,7 +7,7 @@ class SuperPickaxeItem : public Item
 public:
 	SuperPickaxeItem(short id);
 	
-	virtual int getAttackDamage() { return 8; }
+	virtual int getAttackDamage() { return 9; }
 	virtual int getEnchantValue() const { return 18; }
 	virtual int getEnchantSlot() const { return 1024; }
 	virtual bool mineBlock(ItemInstance*, BlockID, int, int, int, Entity*);

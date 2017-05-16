@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.razvanmcrafter.addon.emeraldmod"
-	android:versionCode="20"
+	android:versionCode="21"
 	android:versionName="1.6.0">
 	
 	<uses-feature
@@ -30,7 +30,7 @@
         	android:value="theluckycoder.emeraldmod" />
     	<meta-data
 			android:name="net.zhuoweizhang.mcpelauncher.api.targetmcpeversion"
-			android:value="1.0.7.0" />
+			android:value="@string/supported_version" />
 		<activity
             android:name="net.theluckycoder.emeraldmod.MainActivity">
             <intent-filter>

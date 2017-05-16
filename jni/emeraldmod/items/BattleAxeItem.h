@@ -7,7 +7,7 @@ class BattleAxeItem : public Item
 public:
 	BattleAxeItem(short id);
 	
-	virtual int getAttackDamage();
+	virtual int getAttackDamage() { return 12; }
 	virtual int getEnchantSlot() const { return 512; }
 	virtual int getEnchantValue() const { return 10; }
 	virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);

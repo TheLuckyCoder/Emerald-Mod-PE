@@ -7,7 +7,7 @@ class SuperAxeItem : public Item
 public:
 	SuperAxeItem(short id);
 	
-	virtual int getAttackDamage() { return 8; }
+	virtual int getAttackDamage() { return 9; }
 	virtual int getEnchantSlot() const { return 512; }
 	virtual int getEnchantValue() const { return 18; }
 	virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);

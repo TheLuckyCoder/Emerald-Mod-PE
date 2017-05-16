@@ -17,6 +17,8 @@
 #include "items/ShovelItem.h"
 #include "items/SuperShovelItem.h"
 #include "items/HoeItem.h"
+#include "items/SuperHoeItem.h"
+#include "items/SpearItem.h"
 #include "items/BattleAxeItem.h"
 #include "items/FlintAndEmerald.h"
 
@@ -33,6 +35,7 @@ Item* Emerald::mSuperAxe;
 Item* Emerald::mShovel;
 Item* Emerald::mSuperShovel;
 Item* Emerald::mHoe;
+Item* Emerald::mSuperHoe;
 Item* Emerald::mPax;
 Item* Emerald::mFlintAndEmerald;
 Item* Emerald::mSpear;
@@ -49,29 +52,30 @@ Block* Emerald::mMushroom;
 
 void Emerald::registerItems()
 {
-	mSword = new SwordItem(3804);
-	mSuperSword = new SuperSwordItem(3805);
-	mPickaxe = new PickaxeItem(3806);
-	mSuperPickaxe = new SuperPickaxeItem(3807);
-	mAxe = new AxeItem(3808);
-	mSuperAxe = new SuperAxeItem(3809);
-	mShovel = new ShovelItem(3810);
-	mSuperShovel = new SuperShovelItem(3811);
-	mHoe = new HoeItem(3812);
-	mPax = new PaxItem(3813);
-	mFlintAndEmerald = new FlintAndEmerald(3814);
-	//mSpear = new SpearItem(3815);
-	mBattleAxe = new BattleAxeItem(3816);
-	Item::mItems[3817] = mStick = new Item("emeraldStick", 3817 - 256);
-	Item::mItems[3818] = mNugget = new Item("emeraldNugget", 3818 - 256);
+	mSword = new SwordItem(3904);
+	mSuperSword = new SuperSwordItem(3905);
+	mPickaxe = new PickaxeItem(3906);
+	mSuperPickaxe = new SuperPickaxeItem(3907);
+	mAxe = new AxeItem(3908);
+	mSuperAxe = new SuperAxeItem(3909);
+	mShovel = new ShovelItem(3910);
+	mSuperShovel = new SuperShovelItem(3911);
+	mHoe = new HoeItem(3912);
+	mSuperHoe = new SuperHoeItem(3913);
+	mPax = new PaxItem(3914);
+	mFlintAndEmerald = new FlintAndEmerald(3915);
+	mSpear = new SpearItem(3916);
+	mBattleAxe = new BattleAxeItem(3917);
+	Item::mItems[3918] = mStick = new Item("emeraldStick", 3918 - 256);
+	Item::mItems[3919] = mNugget = new Item("emeraldNugget", 3919 - 256);
 }
 
 void Emerald::initClientData()
 {
-	//mHelmet = new EmeraldHelmet(3800);
-	//mChestplate = new EmeraldChestplate(3801);
-	//mLeggings = new EmeraldLeggings(3802);
-	//mBoots = new EmeraldBoots(3803);
+	//mHelmet = new EmeraldHelmet(3900);
+	//mChestplate = new EmeraldChestplate(3901);
+	//mLeggings = new EmeraldLeggings(3902);
+	//mBoots = new EmeraldBoots(3903);
 	mSword->setIcon("emerald_sword", 0);
 	mSuperSword->setIcon("emerald_sword", 1);
 	mPickaxe->setIcon("emerald_pickaxe", 0);
@@ -82,8 +86,9 @@ void Emerald::initClientData()
 	mShovel->setIcon("emerald_shovel", 0);
 	mSuperShovel->setIcon("emerald_shovel", 1);
 	mHoe->setIcon("emerald_hoe", 0);
+	mSuperHoe->setIcon("emerald_hoe", 1);
 	mFlintAndEmerald->setIcon("flint_and_emerald", 0);
-	//mSpear->setIcon("emerald_spear, 0);
+	mSpear->setIcon("emerald_spear", 0);
 	mBattleAxe->setIcon("emerald_battle_axe", 0);
 	mStick->setIcon("emerald_stick", 0);
 	mNugget->setIcon("emerald_nugget", 0);
@@ -149,19 +154,17 @@ void Emerald::initBlockGraphics()
 	BlockGraphics::mBlocks[mMushroom->blockId]->setBlockShape(BlockShape::CROSS_TEXTURE);
 	BlockGraphics::mBlocks[mMushroom->blockId]->setSoundType(BlockSoundType::GRASS);
 	
-	//BlockGraphics::mBlocks[mLadder->blockId] = new BlockGraphics("ladder");
-	//BlockGraphics::mBlocks[mLadder->blockId]->setTextureItem("emerald_ladder");
-	//BlockGraphics::mBlocks[mLadder->blockId]->setSoundType(BlockSoundType::LADDER);
-	//BlockGraphics::mBlocks[mLadder->blockId]->setBlockShape(BlockShape::LADDER);
+	/*BlockGraphics::mBlocks[mLadder->blockId] = new BlockGraphics("ladder");
+	BlockGraphics::mBlocks[mLadder->blockId]->setTextureItem("emerald_ladder");
+	BlockGraphics::mBlocks[mLadder->blockId]->setSoundType(BlockSoundType::LADDER);
+	BlockGraphics::mBlocks[mLadder->blockId]->setBlockShape(BlockShape::LADDER);*/
 }
 
 void Emerald::initCreativeItems()
 {
-	//Item::addCreativeItem(3800, 0);
-	//Item::addCreativeItem(3801, 0);
-	//Item::addCreativeItem(3802, 0);
-	//Item::addCreativeItem(3803, 0);
-	Item::addCreativeItem(mSword, 0);
+	for (short id = 3904; id <= 3919; ++id)
+		Item::addCreativeItem(id, 0);
+	/*Item::addCreativeItem(mSword, 0);
 	Item::addCreativeItem(mSuperSword, 0);
 	Item::addCreativeItem(mPickaxe, 0);
 	Item::addCreativeItem(mSuperPickaxe, 0);
@@ -171,10 +174,12 @@ void Emerald::initCreativeItems()
 	Item::addCreativeItem(mShovel, 0);
 	Item::addCreativeItem(mSuperShovel, 0);
 	Item::addCreativeItem(mHoe, 0);
+	Item::addCreativeItem(mSuperHoe, 0);
 	Item::addCreativeItem(mFlintAndEmerald, 0);
+	Item::addCreativeItem(mSpear, 0);
 	Item::addCreativeItem(mBattleAxe, 0);
 	Item::addCreativeItem(mStick, 0);
-	Item::addCreativeItem(mNugget, 0);
+	Item::addCreativeItem(mNugget, 0);*/
 }
 
 void Emerald::initCreativeBlocks()

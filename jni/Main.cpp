@@ -5,9 +5,8 @@
 #include "substrate.h"
 
 #include "minecraftpe/client/locale/Localization.h"
-
 #include "emeraldmod/Emerald.h"
-#include "emeraldmod/recipes/EmeraldRecipes.h"
+#include "emeraldmod/EmeraldRecipes.h"
 
 #define LOG_TAG "EmeraldMod"
 #define LOG(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)

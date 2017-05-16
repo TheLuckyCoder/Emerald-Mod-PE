@@ -1,6 +1,6 @@
 #include "EmeraldRecipes.h"
 
-#include "../Emerald.h"
+#include "Emerald.h"
 
 Recipes* EmeraldRecipes::_Instance;
 std::vector<Recipes::Type> EmeraldRecipes::_ingredients;
@@ -40,9 +40,19 @@ void EmeraldRecipes::initRecipes(Recipes *recipes)
 	pushIngredient(Item::mStick, 's');
 	addRecipe(Emerald::mPickaxe->itemId, 1, 0, {"eee", " s ", " s "});
 	
+	// Super Pickaxe
+	pushIngredient(Item::mEmerald, 'e');
+	pushIngredient(Emerald::mStick, 's');
+	addRecipe(Emerald::mPickaxe->itemId, 1, 0, {"eee", " s ", " s "});
+	
 	// Axe
 	pushIngredient(Item::mEmerald, 'e');
 	pushIngredient(Item::mStick, 's');
+	addRecipe(Emerald::mAxe->itemId, 1, 0, {"ee ", "es ", " s "});
+	
+	// Super Axe
+	pushIngredient(Item::mEmerald, 'e');
+	pushIngredient(Emerald::mStick, 's');
 	addRecipe(Emerald::mAxe->itemId, 1, 0, {"ee ", "es ", " s "});
 	
 	// Pax
@@ -55,9 +65,19 @@ void EmeraldRecipes::initRecipes(Recipes *recipes)
 	pushIngredient(Item::mStick, 's');
 	addRecipe(Emerald::mShovel->itemId, 1, 0, {" e ", " s ", " s "});
 	
+	// Super Shovel
+	pushIngredient(Item::mEmerald, 'e');
+	pushIngredient(Emerald::mStick, 's');
+	addRecipe(Emerald::mShovel->itemId, 1, 0, {" e ", " s ", " s "});
+	
 	// Hoe
 	pushIngredient(Item::mEmerald, 'e');
 	pushIngredient(Item::mStick, 's');
+	addRecipe(Emerald::mHoe->itemId, 1, 0, {"ee ", " s ", " s "});
+	
+	// Super Hoe
+	pushIngredient(Item::mEmerald, 'e');
+	pushIngredient(Emerald::mStick, 's');
 	addRecipe(Emerald::mHoe->itemId, 1, 0, {"ee ", " s ", " s "});
 	
 	// Flint and Emerald
