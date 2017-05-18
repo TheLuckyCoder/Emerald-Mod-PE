@@ -30,7 +30,7 @@
         	android:value="theluckycoder.emeraldmod" />
     	<meta-data
 			android:name="net.zhuoweizhang.mcpelauncher.api.targetmcpeversion"
-			android:value="@string/supported_version" />
+			android:value="@string/supported_version_number" />
 		<activity
             android:name="net.theluckycoder.emeraldmod.MainActivity">
             <intent-filter>

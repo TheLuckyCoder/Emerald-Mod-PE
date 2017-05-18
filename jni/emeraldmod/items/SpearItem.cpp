@@ -1,6 +1,5 @@
 #include "SpearItem.h"
 #include "minecraftpe/world/item/ItemInstance.h"
-#include "minecraftpe/world/level/block/Block.h"
 #include "minecraftpe/world/entity/Mob.h"
 
 SpearItem::SpearItem(short id) : Item("emeraldSpear", id - 256)
