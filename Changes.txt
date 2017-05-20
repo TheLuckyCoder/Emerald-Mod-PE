@@ -1,5 +1,8 @@
+1.6.1
+Improve instructions
+
 1.6.0
-Update for 1.0.8
+Update for 1.0.9
 Add Super Emerald Tools
 Add Emerald Battle Axe
 Add Emerald Spear

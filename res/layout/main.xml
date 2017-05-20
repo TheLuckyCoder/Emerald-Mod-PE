@@ -1,54 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:padding="@dimen/activity_margin"
-	android:orientation="vertical"
-	android:gravity="center_horizontal">
-
-	<TextView
+	android:layout_height="match_parent">
+	
+	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:text="@string/step_one"
-		android:textSize="18sp" />
+		android:padding="@dimen/activity_margin"
+		android:orientation="vertical"
+		android:gravity="center_horizontal">
+		
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/step_zero"
+			android:textSize="17sp"
+			android:textStyle="bold" />
+		
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/step_one"
+			android:textSize="18sp" />
 
-	<Button
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="@dimen/view_margin"
-		android:onClick="downloadLauncher"
-		android:text="@string/download_bl"
-		android:textSize="15sp" />
+		<Button
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/view_margin"
+			android:onClick="downloadLauncher"
+			android:text="@string/download_bl"
+			android:textSize="15sp" />
 
-	<TextView
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="@dimen/view_margin"
-		android:text="@string/step_two"
-		android:textSize="18sp" />
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/view_margin"
+			android:text="@string/step_two"
+			android:textSize="18sp" />
 
-	<TextView
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="@dimen/view_margin"
-		android:text="@string/step_three"
-		android:textSize="18sp" />
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/view_margin"
+			android:text="@string/step_three"
+			android:textSize="18sp" />
 
-	<TextView
-		android:layout_height="wrap_content"
-		android:layout_width="match_parent"
-		android:layout_marginTop="30dp"
-		android:text="@string/supports_version"
-		android:textSize="17sp"
-		android:gravity="center" />
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:layout_marginTop="30dp"
+			android:text="@string/supports_version"
+			android:textSize="17sp"
+			android:gravity="center" />
 
-	<TextView
-		android:layout_height="wrap_content"
-		android:layout_width="match_parent"
-		android:text="@string/supported_version_number"
-		android:textSize="17sp"
-		android:textStyle="bold"
-		android:gravity="center" />
-
-</LinearLayout>
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="@string/supported_version_number"
+			android:textSize="17sp"
+			android:textStyle="bold"
+			android:gravity="center" />
+	</LinearLayout>
+</ScrollView>
 
