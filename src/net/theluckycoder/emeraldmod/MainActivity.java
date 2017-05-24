@@ -11,6 +11,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageInfo;
+import android.widget.TextView;
+import android.util.Log;
 
 import com.razvanmcrafter.addon.emeraldmod.R;
 
@@ -23,6 +26,19 @@ public class MainActivity extends Activity {
 		
 		if (Build.VERSION.SDK_INT >= 23)
 			checkForPermission();
+		
+		TextView currentVersion = (TextView) findViewById(R.id.currentVersion);
+		
+		PackageInfo pInfo;
+		try
+		{
+			pInfo = getPackageManager().getPackageInfo("com.mojang.minecraftpe", 0);
+			String verName = pInfo.versionName;
+			currentVersion.setText(getText(R.string.current_version) + " " + verName);
+		} catch (PackageManager.NameNotFoundException e) {
+			currentVersion.setVisibility(View.GONE);
+			Log.e("EmeraldModApp", "Could not rethrive version", e);
+		}
     }
 
 	public void downloadLauncher(View view) {

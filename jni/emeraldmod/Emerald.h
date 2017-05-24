@@ -35,12 +35,13 @@ public:
 	static Item* mBattleAxe;
 	static Item* mStick;
 	static Item* mNugget;
+	static Item* mFertilizer;
 	
 	static Block* mPlanks;
 	static Block* mBrick;
 	static Block* mFence;
 	static Block* mSlab;
 	static Block* mMushroom;
-	static Block* mLadder;
+	static Block* mWood;
 };
 

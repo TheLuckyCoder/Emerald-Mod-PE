@@ -1,5 +1,6 @@
 1.6.1
 Improve instructions
+Increase all blocks explosion resistance
 
 1.6.0
 Update for 1.0.9
@@ -239,3 +240,4 @@ Fixed:
 -better instructions
 -fixed some little bugs
 -removed useless code
+

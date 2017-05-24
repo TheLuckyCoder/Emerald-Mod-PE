@@ -5,6 +5,8 @@
 #include "substrate.h"
 
 #include "minecraftpe/client/locale/Localization.h"
+#include "minecraftpe/world/entity/player/Player.h"
+#include "minecraftpe/world/level/BlockSource.h"
 #include "emeraldmod/Emerald.h"
 #include "emeraldmod/EmeraldRecipes.h"
 
@@ -82,7 +84,7 @@ void initRecipes(Recipes *self)
 	_initRecipes(self);
 
 	EmeraldRecipes::initRecipes(self);
-	LOG("Recipes Initiated");
+	LOG("Recipes Added");
 }
 
 void (*_initFurnaceRecipes)(FurnaceRecipes*);
@@ -91,15 +93,15 @@ void initFurnaceRecipes(FurnaceRecipes *recipes)
 	_initFurnaceRecipes(recipes);
 	
 	EmeraldRecipes::initFurnaceRecipes(recipes);
-	LOG("Furnace Recipes Initiated");
+	LOG("Furnace Recipes Added");
 }
 
 /*bool (*_Player$onLadder)(Player*, bool);
-bool Player$onLadder(Player *self, bool idk)
+bool Player$onLadder(Player *self, bool b)
 {
-	if (self->getRegion()->getBlockID(self->getPos().pos.x, self->getPos().pos.y, self->getPos().pos.z) == 237)
+	if (self->getRegion().getBlock(self->getPos().pos.x, self->getPos().pos.y, self->getPos().pos.z) == Emerald::mLadder)
 		return true;
-	return _Player$onLadder(self, idk);
+	return _Player$onLadder(self, b);
 }*/
 
 void (*_Localization$_load)(Localization*, const std::string&);

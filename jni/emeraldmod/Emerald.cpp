@@ -5,6 +5,7 @@
 #include "minecraftpe/world/level/block/TorchBlock.h"
 #include "minecraftpe/world/level/block/LadderBlock.h"
 #include "blocks/EmeraldMushroomBlock.h"
+#include "blocks/EmeraldWoodBlock.h"
 
 #include "items/EmeraldArmor.h"
 #include "items/SwordItem.h"
@@ -21,6 +22,7 @@
 #include "items/SpearItem.h"
 #include "items/BattleAxeItem.h"
 #include "items/FlintAndEmerald.h"
+#include "items/FertilizerItem.h"
 
 Item* Emerald::mHelmet;
 Item* Emerald::mChestplate;
@@ -42,13 +44,14 @@ Item* Emerald::mSpear;
 Item* Emerald::mBattleAxe;
 Item* Emerald::mStick;
 Item* Emerald::mNugget;
+Item* Emerald::mFertilizer;
 
 Block* Emerald::mPlanks;
 Block* Emerald::mBrick;
 Block* Emerald::mFence;
 Block* Emerald::mSlab;
-Block* Emerald::mLadder;
 Block* Emerald::mMushroom;
+Block* Emerald::mWood;
 
 void Emerald::registerItems()
 {
@@ -68,6 +71,7 @@ void Emerald::registerItems()
 	mBattleAxe = new BattleAxeItem(3917);
 	Item::mItems[3918] = mStick = new Item("emeraldStick", 3918 - 256);
 	Item::mItems[3919] = mNugget = new Item("emeraldNugget", 3919 - 256);
+	mFertilizer = new FertilizerItem(3920);
 }
 
 void Emerald::initClientData()
@@ -92,6 +96,7 @@ void Emerald::initClientData()
 	mBattleAxe->setIcon("emerald_battle_axe", 0);
 	mStick->setIcon("emerald_stick", 0);
 	mNugget->setIcon("emerald_nugget", 0);
+	mFertilizer->setIcon("emerald_nugget", 0);
 }
 
 void Emerald::registerBlocks()
@@ -99,28 +104,27 @@ void Emerald::registerBlocks()
 	Block::mBlocks[232] = mPlanks = new Block("emeraldPlanks", 232, Material::getMaterial(MaterialType::WOOD));
 	mPlanks->setCategory(CreativeItemCategory::Blocks);
 	mPlanks->setDestroyTime(1.4f);
-	mPlanks->setExplodeable(5.0f);
+	mPlanks->setExplodeable(6);
 	
 	Block::mBlocks[233] = mBrick = new Block("emeraldBrick", 233, Material::getMaterial(MaterialType::STONE));
 	mBrick->setCategory(CreativeItemCategory::Blocks);
 	mBrick->setDestroyTime(2.0f);
-	mBrick->setExplodeable(8.0f);
+	mBrick->setExplodeable(12);
 	
 	Block::mBlocks[234] = mFence = new FenceBlock("emeraldFence", 234, Material::getMaterial(MaterialType::METAL));
 	mFence->setSolid(false);
 	mFence->setCategory(CreativeItemCategory::Decorations);
 	mFence->setDestroyTime(2.2f);
-	mFence->setExplodeable(8.0f);
+	mFence->setExplodeable(13);
 	
 	/*Block::mBlocks[235] = mSlab = new SlabBlock("emeraldSlab", 235, false, Material::getMaterial(MaterialType::METAL));
 	mSlab->setCategory(CreativeItemCategory::Blocks);
 	mSlab->setDestroyTime(2.2f);
-	mSlab->setExplodeable(8.0f);*/
+	mSlab->setExplodeable(12);*/
 	
 	mMushroom = new EmeraldMushroomBlock(236);
 	
-	//Block::mBlocks[237] = mLadder = new LadderBlock("emeraldLadder", 237);
-	//mLadder->setCategory(CreativeItemCategory::Decorations);
+	mWood = new EmeraldWoodBlock(237);
 }
 
 void Emerald::registerBlockItems()
@@ -130,6 +134,7 @@ void Emerald::registerBlockItems()
 	Item::mItems[mFence->blockId] = new BlockItem(mFence->getDescriptionId(), mFence->blockId - 256);
 	//Item::mItems[mSlab->blockId] = new BlockItem(mSlab->getDescriptionId(), mSlab->blockId - 256);
 	Item::mItems[mMushroom->blockId] = new BlockItem(mMushroom->getDescriptionId(), mMushroom->blockId - 256);
+	Item::mItems[mWood->blockId] = new BlockItem(mWood->getDescriptionId(), mWood->blockId - 256);
 }
 
 void Emerald::initBlockGraphics()
@@ -154,15 +159,14 @@ void Emerald::initBlockGraphics()
 	BlockGraphics::mBlocks[mMushroom->blockId]->setBlockShape(BlockShape::CROSS_TEXTURE);
 	BlockGraphics::mBlocks[mMushroom->blockId]->setSoundType(BlockSoundType::GRASS);
 	
-	/*BlockGraphics::mBlocks[mLadder->blockId] = new BlockGraphics("ladder");
-	BlockGraphics::mBlocks[mLadder->blockId]->setTextureItem("emerald_ladder");
-	BlockGraphics::mBlocks[mLadder->blockId]->setSoundType(BlockSoundType::LADDER);
-	BlockGraphics::mBlocks[mLadder->blockId]->setBlockShape(BlockShape::LADDER);*/
+	BlockGraphics::mBlocks[mWood->blockId] = new BlockGraphics("dirt");
+	BlockGraphics::mBlocks[mWood->blockId]->setTextureItem("log_top", "log_top", "log_side");
+	BlockGraphics::mBlocks[mWood->blockId]->setSoundType(BlockSoundType::WOOD);
 }
 
 void Emerald::initCreativeItems()
 {
-	for (short id = 3904; id <= 3919; ++id)
+	for (short id = 3904; id <= 3920; ++id)
 		Item::addCreativeItem(id, 0);
 	/*Item::addCreativeItem(mSword, 0);
 	Item::addCreativeItem(mSuperSword, 0);
@@ -189,5 +193,6 @@ void Emerald::initCreativeBlocks()
 	Item::addCreativeItem(mFence, 0);
 	//Item::addCreativeItem(mSlab, 0);
 	Item::addCreativeItem(mMushroom, 0);
+	Item::addCreativeItem(mWood, 0);
 }
 

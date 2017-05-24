@@ -2,14 +2,16 @@
 <resources>
     <string name="app_name">Emerald Mod</string>
 	<string name="download_bl">Download BlockLauncher</string>
-	<string name="step_zero">How to get Emerald Mod working:</string>
+	<string name="get_em_working">How to get Emerald Mod working:</string>
     <string name="step_one">Step 1: Make sure you have BlockLauncher installed. If not, you can get it from Play Store for free.</string>
     <string name="step_two">Step 2: Make sure that the Addons and ModPE Scripts are enabled in BlockLauncher Launcher Settings.</string>
-	<string name="step_three">Step 3: Enjoy the mod and get some emeralds! :)</string>
+	<string name="step_three">Step 3: Restart BlockLauncher.</string>
+	<string name="step_four">Now you can enjoy the mod :)</string>
 	<string name="rate_app">Rate the app</string>
 	<string name="check_twitter">Check out my Twitter</string>
 	<string name="join_community">Join our community</string>
-	<string name="supports_version">Please note that Emerald Mod only officially supports the following version of Minecraft PE:</string>
+	<string name="supports_version">Supported Minecraft Version:</string>
+	<string name="current_version">Installed Minecraft Version:</string>
 	<string name="supported_version_number" translatable="false">1.0.9.1</string>
 </resources>
 

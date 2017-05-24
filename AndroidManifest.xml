@@ -15,7 +15,7 @@
 		android:name="net.zhuoweizhang.mcpelauncher.ADDON" />
 	
 	<uses-sdk
-		android:minSdkVersion="15"
+		android:minSdkVersion="14"
 		android:targetSdkVersion="25" />
 
     <application

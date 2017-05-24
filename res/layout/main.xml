@@ -11,11 +11,36 @@
 		android:gravity="center_horizontal">
 		
 		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="@string/supports_version"
+			android:textSize="17sp"
+			android:gravity="center" />
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="@string/supported_version_number"
+			android:textSize="17sp"
+			android:textStyle="bold"
+			android:gravity="center" />
+
+		<TextView
+			android:id="@+id/currentVersion"
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:layout_marginBottom="30dp"
+			android:textSize="17sp"
+			android:gravity="center" />
+		
+		<TextView
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:text="@string/step_zero"
+			android:layout_marginTop="@dimen/view_margin"
+			android:text="@string/get_em_working"
 			android:textSize="17sp"
-			android:textStyle="bold" />
+			android:textStyle="bold"
+			android:gravity="center" />
 		
 		<TextView
 			android:layout_width="match_parent"
@@ -44,19 +69,12 @@
 			android:layout_marginTop="@dimen/view_margin"
 			android:text="@string/step_three"
 			android:textSize="18sp" />
-
+		
 		<TextView
-			android:layout_height="wrap_content"
 			android:layout_width="match_parent"
-			android:layout_marginTop="30dp"
-			android:text="@string/supports_version"
-			android:textSize="17sp"
-			android:gravity="center" />
-
-		<TextView
 			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			android:text="@string/supported_version_number"
+			android:layout_marginTop="@dimen/view_margin"
+			android:text="@string/step_four"
 			android:textSize="17sp"
 			android:textStyle="bold"
 			android:gravity="center" />
