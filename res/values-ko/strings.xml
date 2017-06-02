@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">에메랄드 모드</string>
-	<string name="download_bl">BlockLauncher 다운로드</string>
-	<string name="rate_app">앱 평가</string>
-	<string name="check_twitter">제 트위터 확인</string>
-	<string name="join_community">저희 커뮤니티 가입</string>
+	<string name="download_bl">BlockLauncher 다운로드하기</string>
+	<string name="rate_app">앱 평가하기</string>
+	<string name="check_twitter">제 트위터 확인하기</string>
+	<string name="join_community">저희 커뮤니티 가입하기</string>
 </resources>
 
