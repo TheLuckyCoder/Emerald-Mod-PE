@@ -2,8 +2,16 @@
 <resources>
     <string name="app_name">에메랄드 모드</string>
 	<string name="download_bl">BlockLauncher 다운로드하기</string>
+	<string name="get_em_working">에메랄드 모드가 작동하게 하는 방법:</string>
+    <string name="step_one">1단계: BlockLauncher를 설치해야 합니다. 만약 그렇지 않다면, Play 스토어에서 무료로 얻을 수 있습니다.</string>
+    <string name="step_two">2단계: 애드온과 ModPE 스크립트가 BlockLauncher 런처 설정에서 활성화되도록 하세요.</string>
+	<string name="step_three">3단계: BlockLauncher를 다시 시작하세요.</string>
+	<string name="step_four">이제 모드를 즐기실 수 있습니다 :)</string>
 	<string name="rate_app">앱 평가하기</string>
 	<string name="check_twitter">제 트위터 확인하기</string>
 	<string name="join_community">저희 커뮤니티 가입하기</string>
+	<string name="supports_version">지원되는 마인크래프트 버전:</string>
+	<string name="current_version">설치된 마인크래프트 버전:</string>
+	<string name="supported_version_number" translatable="false">1.0.9.1</string>
 </resources>
 
