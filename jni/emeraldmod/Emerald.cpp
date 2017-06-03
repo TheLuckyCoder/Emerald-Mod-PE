@@ -1,8 +1,7 @@
 #include "Emerald.h"
 
-#include "minecraftpe/world/level/block/FenceBlock.h"
+#include "minecraftpe/world/level/block/ThinFenceBlock.h"
 #include "minecraftpe/world/level/block/SlabBlock.h"
-#include "minecraftpe/world/level/block/TorchBlock.h"
 #include "minecraftpe/world/level/block/LadderBlock.h"
 #include "blocks/EmeraldMushroomBlock.h"
 #include "blocks/EmeraldWoodBlock.h"
@@ -101,30 +100,30 @@ void Emerald::initClientData()
 
 void Emerald::registerBlocks()
 {
-	Block::mBlocks[232] = mPlanks = new Block("emeraldPlanks", 232, Material::getMaterial(MaterialType::WOOD));
+	Block::mBlocks[210] = mPlanks = new Block("emeraldPlanks", 232, Material::getMaterial(MaterialType::WOOD));
 	mPlanks->setCategory(CreativeItemCategory::Blocks);
 	mPlanks->setDestroyTime(1.4f);
 	mPlanks->setExplodeable(6);
 	
-	Block::mBlocks[233] = mBrick = new Block("emeraldBrick", 233, Material::getMaterial(MaterialType::STONE));
+	Block::mBlocks[211] = mBrick = new Block("emeraldBrick", 233, Material::getMaterial(MaterialType::STONE));
 	mBrick->setCategory(CreativeItemCategory::Blocks);
 	mBrick->setDestroyTime(2.0f);
 	mBrick->setExplodeable(12);
 	
-	Block::mBlocks[234] = mFence = new FenceBlock("emeraldFence", 234, Material::getMaterial(MaterialType::METAL));
+	Block::mBlocks[212] = mFence = new ThinFenceBlock("emeraldFence", 234, Material::getMaterial(MaterialType::METAL), false);
 	mFence->setSolid(false);
 	mFence->setCategory(CreativeItemCategory::Decorations);
 	mFence->setDestroyTime(2.2f);
 	mFence->setExplodeable(13);
 	
-	/*Block::mBlocks[235] = mSlab = new SlabBlock("emeraldSlab", 235, false, Material::getMaterial(MaterialType::METAL));
+	/*Block::mBlocks[213] = mSlab = new SlabBlock("emeraldSlab", 235, false, Material::getMaterial(MaterialType::METAL));
 	mSlab->setCategory(CreativeItemCategory::Blocks);
 	mSlab->setDestroyTime(2.2f);
 	mSlab->setExplodeable(12);*/
 	
-	mMushroom = new EmeraldMushroomBlock(236);
+	mMushroom = new EmeraldMushroomBlock(214);
 	
-	mWood = new EmeraldWoodBlock(237);
+	mWood = new EmeraldWoodBlock(215);
 }
 
 void Emerald::registerBlockItems()

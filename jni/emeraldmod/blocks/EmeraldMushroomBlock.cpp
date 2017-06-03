@@ -16,7 +16,7 @@ bool EmeraldMushroomBlock::mayPlaceOn(const Block &block) const
 	return mSapling->mayPlaceOn(block);
 }
 
-AABB& EmeraldMushroomBlock::getCollisionShape(AABB &aabb, BlockSource &region, const BlockPos &pos, Entity *entity) const
+const AABB& EmeraldMushroomBlock::getCollisionShape(AABB &aabb, BlockSource &region, const BlockPos &pos, Entity *entity) const
 {
 	return mSapling->getCollisionShape(aabb, region, pos, entity);
 }

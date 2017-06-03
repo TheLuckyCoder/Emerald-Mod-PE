@@ -11,18 +11,18 @@ SuperHoeItem::SuperHoeItem(short id) : Item("emeraldSuperHoe", id - 256)
 	setHandEquipped();
 }
 
-bool SuperHoeItem::useOn(ItemInstance &item, Entity& entity, int x, int y, int z, signed char side, float xx, float yy, float zz)
+bool SuperHoeItem::_useOn(ItemInstance &item, Entity &entity, BlockPos pos, signed char side, float xx, float yy, float zz) const
 {
-	Item::mItems[293]->useOn(item, entity, x, y, z, side, xx, yy, zz);
+	Item::mItems[293]->_useOn(item, entity, pos, side, xx, yy, zz);
 }
 
-void SuperHoeItem::hurtEnemy(ItemInstance *item, Mob*, Mob *victim)
+void SuperHoeItem::hurtEnemy(ItemInstance &item, Mob*, Mob *victim) const
 {
-	item->hurtAndBreak(2, victim);
+	item.hurtAndBreak(2, victim);
 }
 
-bool SuperHoeItem::mineBlock(ItemInstance *item, BlockID, int, int, int, Entity *entity)
+bool SuperHoeItem::mineBlock(ItemInstance &item, BlockID, int, int, int, Entity *entity) const
 {
-	item->hurtAndBreak(2, entity);
+	item.hurtAndBreak(2, entity);
 }
 

@@ -7,6 +7,6 @@ class FertilizerItem : public Item
 public:
 	FertilizerItem(short id);
 	
-	virtual bool useOn(ItemInstance&, Entity&, int, int, int, signed char, float, float, float);
+	virtual bool _useOn(ItemInstance&, Entity&, BlockPos, signed char, float, float, float) const;
 };
 

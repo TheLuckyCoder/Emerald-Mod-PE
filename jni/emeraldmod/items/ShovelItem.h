@@ -7,13 +7,13 @@ class ShovelItem : public Item
 public:
 	ShovelItem(short id);
 	
-	virtual int getAttackDamage() { return 7; }
+	virtual int getAttackDamage() const { return 7; }
 	virtual int getEnchantSlot() const { return 2048; }
 	virtual int getEnchantValue() const { return 10; }
-	virtual bool useOn(ItemInstance&, Entity&, int, int, int, signed char, float, float, float);
-	virtual bool mineBlock(ItemInstance*, BlockID, int, int, int, Entity*);
-	virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);
-	virtual float getDestroySpeed(ItemInstance*, const Block*);
-	virtual bool canDestroySpecial(const Block*) const;
+	virtual bool _useOn(ItemInstance&, Entity&, BlockPos, signed char, float, float, float) const;
+	virtual bool mineBlock(ItemInstance&, BlockID, int, int, int, Entity*) const;
+	virtual void hurtEnemy(ItemInstance&, Mob*, Mob*) const;
+	virtual float getDestroySpeed(ItemInstance&, const Block&) const;
+	virtual bool canDestroySpecial(const Block&) const;
 };
 

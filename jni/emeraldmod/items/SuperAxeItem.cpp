@@ -12,24 +12,24 @@ SuperAxeItem::SuperAxeItem(short id) : Item("emeraldSuperAxe", id - 256)
 	setHandEquipped();
 }
 
-void SuperAxeItem::hurtEnemy(ItemInstance *item, Mob*, Mob *victim)
+void SuperAxeItem::hurtEnemy(ItemInstance &item, Mob*, Mob *victim) const
 {
-	item->hurtAndBreak(2, victim);
+	item.hurtAndBreak(2, victim);
 }
 
-bool SuperAxeItem::mineBlock(ItemInstance *item, BlockID, int, int, int, Entity *entity)
+bool SuperAxeItem::mineBlock(ItemInstance &item, BlockID, int, int, int, Entity *entity) const
 {
-	item->hurtAndBreak(1, entity);
+	item.hurtAndBreak(1, entity);
 }
 
-bool SuperAxeItem::canDestroySpecial(const Block *block) const
+bool SuperAxeItem::canDestroySpecial(const Block &block) const
 {
 	return Item::mItems[279]->canDestroySpecial(block);
 }
 
-float SuperAxeItem::getDestroySpeed(ItemInstance*, const Block *block)
+float SuperAxeItem::getDestroySpeed(ItemInstance&, const Block &block) const
 {
-	if (block->getMaterial() == Material::getMaterial(MaterialType::WOOD))
+	if (block.getMaterial() == Material::getMaterial(MaterialType::WOOD))
 		return 80.0f;
 	else
 		return 1.0f;

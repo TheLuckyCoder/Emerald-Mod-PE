@@ -11,22 +11,14 @@
 		android:gravity="center_horizontal">
 		
 		<TextView
+			android:id="@+id/supportedVersionTxt"
 			android:layout_height="wrap_content"
 			android:layout_width="match_parent"
-			android:text="@string/supports_version"
 			android:textSize="17sp"
 			android:gravity="center" />
 
 		<TextView
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			android:text="@string/supported_version_number"
-			android:textSize="17sp"
-			android:textStyle="bold"
-			android:gravity="center" />
-
-		<TextView
-			android:id="@+id/currentVersion"
+			android:id="@+id/installedVersionTxt"
 			android:layout_height="wrap_content"
 			android:layout_width="match_parent"
 			android:layout_marginBottom="30dp"

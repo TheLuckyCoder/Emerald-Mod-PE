@@ -11,17 +11,17 @@ FlintAndEmerald::FlintAndEmerald(short id) : Item("flintAndEmerald", id - 256)
 	setMaxDamage(2000);
 }
 
-void FlintAndEmerald::hurtEnemy(ItemInstance *item, Mob*, Mob *victim)
+void FlintAndEmerald::hurtEnemy(ItemInstance&, Mob*, Mob *victim) const
 {
 	victim->setOnFire(1000);
 }
 
-bool FlintAndEmerald::useOn(ItemInstance &item, Entity &entity, int x, int y, int z, signed char side, float xx, float yy, float zz)
+bool FlintAndEmerald::_useOn(ItemInstance &item, Entity &entity, BlockPos pos, signed char side, float xx, float yy, float zz) const
 {
-	Item::mItems[259]->useOn(item, entity, x, y, z, side, xx, yy, zz);
+	Item::mItems[259]->_useOn(item, entity, pos, side, xx, yy, zz);
 }
 
-void FlintAndEmerald::dispense(BlockSource &region, Container &cont, int i, const Vec3 &pos, signed char side)
+void FlintAndEmerald::dispense(BlockSource &region, Container &cont, int i, const Vec3 &pos, signed char side) const
 {
 	Item::mItems[259]->dispense(region, cont, i, pos, side);
 }

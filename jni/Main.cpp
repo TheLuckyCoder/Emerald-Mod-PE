@@ -23,7 +23,7 @@ void registerItems()
 	LOG("Items Initiated");
 	
 	LOG("Init BlockItems");
-	Emerald::registerBlockItems();
+	//Emerald::registerBlockItems();
 	LOG("BlockItems Initiated");
 	
 	_registerItems();
@@ -49,7 +49,7 @@ void initCreativeItems()
 	LOG("Items added to Creative");
 	
 	LOG("Add Blocks to Creative");
-	Emerald::initCreativeBlocks();
+	//Emerald::initCreativeBlocks();
 	LOG("Blocks added to Creative");
 	
 	//bl_setArmorTexture(3800, "models/armor/emerald_1.png");
@@ -83,16 +83,18 @@ void initRecipes(Recipes *self)
 {
 	_initRecipes(self);
 
+	LOG("Add Recipes");
 	EmeraldRecipes::initRecipes(self);
 	LOG("Recipes Added");
 }
 
 void (*_initFurnaceRecipes)(FurnaceRecipes*);
-void initFurnaceRecipes(FurnaceRecipes *recipes)
+void initFurnaceRecipes(FurnaceRecipes *self)
 {
-	_initFurnaceRecipes(recipes);
+	_initFurnaceRecipes(self);
 	
-	EmeraldRecipes::initFurnaceRecipes(recipes);
+	LOG("Add Furnace Recipes");
+	EmeraldRecipes::initFurnaceRecipes(self);
 	LOG("Furnace Recipes Added");
 }
 
@@ -123,10 +125,10 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)
 	MSHookFunction((void*) &Item::initCreativeItems, (void*) &initCreativeItems, (void**) &_initCreativeItems);
 	MSHookFunction((void*) &Block::initBlocks, (void*) &initBlocks, (void**) &_initBlocks);
 	MSHookFunction((void*) &BlockGraphics::initBlocks, (void*) &initBlockGraphics, (void**) &_initBlockGraphics);
-	MSHookFunction((void*) &Recipes::init, (void*) &initRecipes, (void**) &_initRecipes);
-	MSHookFunction((void*) &FurnaceRecipes::_init, (void*) &initFurnaceRecipes, (void**) &_initFurnaceRecipes);
+	//MSHookFunction((void*) &Recipes::init, (void*) &initRecipes, (void**) &_initRecipes);
+	//MSHookFunction((void*) &FurnaceRecipes::_init, (void*) &initFurnaceRecipes, (void**) &_initFurnaceRecipes);
 	//MSHookFunction((void*) &Player::onLadder, (void*) &Player$onLadder, (void**) &_Player$onLadder);
-	MSHookFunction((void*) &Localization::_load, (void*) &Localization$_load, (void**) &_Localization$_load);
+	//MSHookFunction((void*) &Localization::_load, (void*) &Localization$_load, (void**) &_Localization$_load);
 
 	return JNI_VERSION_1_6;
 }

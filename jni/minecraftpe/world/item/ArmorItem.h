@@ -49,11 +49,11 @@ public:
 	//virtual ~ArmorItem();
 	virtual bool isArmor() const;
 	virtual std::string appendFormattedHovertext(const ItemInstance&, Level&, std::string&, bool) const;
-	virtual bool isValidRepairItem(const ItemInstance&, const ItemInstance&);
+	virtual bool isValidRepairItem(const ItemInstance&, const ItemInstance&) const;
 	virtual int getEnchantSlot() const; 
 	virtual int getEnchantValue() const;
     virtual Color getColor(const ItemInstance&) const;
-    virtual void dispense(BlockSource&, Container&, int, const Vec3&, signed char);
+    virtual void dispense(BlockSource&, Container&, int, const Vec3&, signed char) const;
 	
 	ItemInstance* getTierItem() const;
 	bool hasCustomColor(const ItemInstance&) const;

@@ -11,13 +11,13 @@ SpearItem::SpearItem(short id) : Item("emeraldSpear", id - 256)
 	setHandEquipped();
 }
 
-void SpearItem::hurtEnemy(ItemInstance *item, Mob*, Mob *victim)
+void SpearItem::hurtEnemy(ItemInstance &item, Mob*, Mob *victim) const
 {
-	item->hurtAndBreak(1, victim);
+	item.hurtAndBreak(1, victim);
 }
 
-bool SpearItem::mineBlock(ItemInstance *item, BlockID, int, int, int, Entity *entity)
+bool SpearItem::mineBlock(ItemInstance &item, BlockID, int, int, int, Entity *entity) const
 {
-	item->hurtAndBreak(2, entity);
+	item.hurtAndBreak(2, entity);
 }
 

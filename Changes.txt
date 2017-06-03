@@ -1,6 +1,8 @@
 1.6.1
+Update for 1.1
 Improve instructions
 Increase all blocks explosion resistance
+Change all block IDs
 
 1.6.0
 Update for 1.0.9

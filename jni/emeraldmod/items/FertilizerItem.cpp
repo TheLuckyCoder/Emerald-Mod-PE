@@ -9,11 +9,11 @@ FertilizerItem::FertilizerItem(short id) : Item("emeraldFertilizer", id - 256)
 	mItems[id] = this;
 }
 
-bool FertilizerItem::useOn(ItemInstance &item, Entity &entity, int x, int y, int z, signed char, float, float, float)
+bool FertilizerItem::_useOn(ItemInstance &item, Entity &entity, BlockPos pos, signed char, float, float, float) const
 {
 	BlockSource& region = entity.getRegion();
-	if (region.getBlock(x, y, z) == Block::mSapling) {
-		region.setBlockAndData({x, y + 1, x}, FullBlock(237, 0), 3, 0); // not working
+	if (region.getBlock(pos) == Block::mSapling) {
+		region.setBlockAndData({pos.x, pos.y + 1, pos.x}, FullBlock(237, 0), 3, 0); // not working
 		item.remove(1);
 	}
 	return true;

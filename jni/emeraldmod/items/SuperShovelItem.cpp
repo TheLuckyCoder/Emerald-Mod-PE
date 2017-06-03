@@ -12,29 +12,29 @@ SuperShovelItem::SuperShovelItem(short id) : Item("emeraldSuperShovel", id - 256
 	setHandEquipped();
 }
 
-bool SuperShovelItem::useOn(ItemInstance &item, Entity &entity, int x, int y, int z, signed char side, float xx, float yy, float zz)
-{
-	return Item::mItems[277]->useOn(item, entity, x, y, z, side, xx, yy, zz);
+bool SuperShovelItem::_useOn(ItemInstance &item, Entity &entity, BlockPos pos, signed char side, float xx, float yy, float zz) const
+{	
+	return Item::mItems[277]->_useOn(item, entity, pos, side, xx, yy, zz);
 }
 
-void SuperShovelItem::hurtEnemy(ItemInstance *item, Mob*, Mob *victim)
+void SuperShovelItem::hurtEnemy(ItemInstance &item, Mob*, Mob *victim) const
 {
-	item->hurtAndBreak(2, victim);
+	item.hurtAndBreak(2, victim);
 }
 
-bool SuperShovelItem::mineBlock(ItemInstance *item, BlockID, int, int, int, Entity *entity)
+bool SuperShovelItem::mineBlock(ItemInstance &item, BlockID, int, int, int, Entity *entity) const
 {
-	item->hurtAndBreak(1, entity);
+	item.hurtAndBreak(1, entity);
 }
 
-bool SuperShovelItem::canDestroySpecial(const Block *block) const
+bool SuperShovelItem::canDestroySpecial(const Block &block) const
 {
 	return Item::mItems[277]->canDestroySpecial(block);
 }
 
-float SuperShovelItem::getDestroySpeed(ItemInstance*, const Block *block)
+float SuperShovelItem::getDestroySpeed(ItemInstance&, const Block &block) const
 {
-	if (block->getMaterial() == Material::getMaterial(MaterialType::DIRT))
+	if (block.getMaterial() == Material::getMaterial(MaterialType::DIRT))
 		return 80.0f;
 	else
 		return 1.0f;

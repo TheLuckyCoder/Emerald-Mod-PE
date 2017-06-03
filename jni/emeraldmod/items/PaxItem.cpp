@@ -12,26 +12,26 @@ PaxItem::PaxItem(short id) : Item("emeraldPax", id - 256)
 	setHandEquipped();
 }
 
-void PaxItem::hurtEnemy(ItemInstance *item, Mob*, Mob *victim)
+void PaxItem::hurtEnemy(ItemInstance &item, Mob*, Mob *victim) const
 {
-	item->hurtAndBreak(2, victim);
+	item.hurtAndBreak(2, victim);
 }
 
-bool PaxItem::mineBlock(ItemInstance *item, BlockID, int, int, int, Entity *entity)
+bool PaxItem::mineBlock(ItemInstance &item, BlockID, int, int, int, Entity *entity) const
 {
-	item->hurtAndBreak(1, entity);
+	item.hurtAndBreak(1, entity);
 }
 
-bool PaxItem::canDestroySpecial(const Block *block) const
+bool PaxItem::canDestroySpecial(const Block &block) const
 {
 	return (Item::mItems[278]->canDestroySpecial(block) || Item::mItems[279]->canDestroySpecial(block));
 }
 
-float PaxItem::getDestroySpeed(ItemInstance*, const Block *block)
+float PaxItem::getDestroySpeed(ItemInstance&, const Block &block) const
 {
-	if (block->getMaterial() == Material::getMaterial(MaterialType::WOOD)
-		|| block->getMaterial() == Material::getMaterial(MaterialType::STONE)
-		|| block->getMaterial() == Material::getMaterial(MaterialType::METAL))
+	if (block.getMaterial() == Material::getMaterial(MaterialType::WOOD)
+		|| block.getMaterial() == Material::getMaterial(MaterialType::STONE)
+		|| block.getMaterial() == Material::getMaterial(MaterialType::METAL))
 		return 50.0F;
 	else
 		return 1.0F;
