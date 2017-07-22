@@ -3,9 +3,10 @@
 #include "minecraftpe/world/entity/Mob.h"
 #include "minecraftpe/world/level/block/Block.h"
 
-AxeItem::AxeItem(short id) : Item("emeraldAxe", id - 256)
+AxeItem::AxeItem(short id) : Item("emerald_axe", id - 256)
 {
 	mItems[id] = this;
+	mItemLookupMap.emplace(descriptionName, std::pair<const std::string, std::unique_ptr<Item>>(descriptionName, std::unique_ptr<Item>((Item*)this)));
 	setCategory(CreativeItemCategory::Tools);
 	setMaxStackSize(1);
 	setMaxDamage(2000);
@@ -29,9 +30,6 @@ bool AxeItem::canDestroySpecial(const Block &block) const
 
 float AxeItem::getDestroySpeed(ItemInstance&, const Block &block) const
 {
-	if (block.getMaterial() == Material::getMaterial(MaterialType::WOOD))
-		return 50.0f;
-	else
-		return 1.0f;
+	return block.getMaterial() == Material::getMaterial(MaterialType::WOOD) ? 50.0f : 1.0f;
 }
 

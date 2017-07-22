@@ -1,28 +1,31 @@
+##Use two '#' to make a comment
 ##Blocks
-tile.emeraldSlab.name=Smaragdstufe
-tile.emeraldBrick.name=Smaragdsteinziegel
-tile.emeraldPlanks.name=Smaragdholzbretter
-tile.emeraldMushroom.name=Smaragdpilz
-tile.emeraldFence.name=Smaragdzaum
+tile.emerald_slab.name=Smaragdstufe
+tile.emerald_brick.name=Smaragdsteinziegel
+tile.emerald_planks.name=Smaragdholzbretter
+tile.emerald_mushroom.name=Smaragdpilz
+tile.emerald_fence.name=Smaragdzaum
 
 ##Items
-item.emeraldHelmet.name=Smaragdhelm
-item.emeraldChestplate.name=Smaragdbrustpanzer
-item.emeraldLeggings.name=Smaragdbeinschutz
-item.emeraldBoots.name=Smaragdstiefel
-item.emeraldSword.name=Smaragdschwert
-item.emeraldSuperSword.name=Super Smaragdschwert
-item.emeraldPickaxe.name=Smaragdspitzhacke
-item.emeraldSuperPickaxe.name=Super Smaragdspitzhacke
-item.emeraldPax.name=Smaragdpax
-item.emeraldAxe.name=Smaragdaxt
-item.emeraldSuperAxe.name=Super Smaragdaxt
-item.emeraldShovel.name=Smaragdschaufel
-item.emeraldSuperShovel.name=Super Smaragdschaufel
-item.emeraldHoe.name=Smaragdhacke
-item.emeraldSuperHoe.name=Super Smaragdhacke
-item.flintAndEmerald.name=Feuerstein und Smaragd
-item.emeraldBow.name=Smaragdbogen
-item.emeraldSpear.name=Smaragdspeer
-item.emeraldStick.name=Smaragdrute
+item.emerald_helmet.name=Smaragdhelm
+item.emerald_chestplate.name=Smaragdbrustpanzer
+item.emerald_leggings.name=Smaragdbeinschutz
+item.emerald_boots.name=Smaragdstiefel
+item.emerald_sword.name=Smaragdschwert
+item.emerald_sword_super.name=Super Smaragdschwert
+item.emerald_pickaxe.name=Smaragdspitzhacke
+item.emerald_pickaxe_super.name=Super Smaragdspitzhacke
+item.emerald_pax.name=Smaragdpax
+item.emerald_axe.name=Smaragdaxt
+item.emerald_axe_super.name=Super Smaragdaxt
+item.emerald_shovel.name=Smaragdschaufel
+item.emerald_shovel_super.name=Super Smaragdschaufel
+item.emerald_hoe.name=Smaragdhacke
+item.emerald_hoe_super.name=Super Smaragdhacke
+item.flint_and_emerald.name=Feuerstein und Smaragd
+item.emerald_bow.name=Smaragdbogen
+item.emerald_spear.name=Smaragdspeer
+item.emerald_stick.name=Smaragdrute
+item.emerald_nugget.name=Smaragdnugget
+item.emerald_battle_axe.name=Smaragdstreitaxt
 

@@ -3,7 +3,7 @@
 #include "minecraftpe/world/level/block/Block.h"
 #include "minecraftpe/world/entity/Mob.h"
 
-FlintAndEmerald::FlintAndEmerald(short id) : Item("flintAndEmerald", id - 256)
+FlintAndEmerald::FlintAndEmerald(short id) : Item("flint_and_emerald", id - 256)
 {
 	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);

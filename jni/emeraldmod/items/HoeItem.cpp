@@ -2,7 +2,7 @@
 #include "minecraftpe/world/item/ItemInstance.h"
 #include "minecraftpe/world/entity/Mob.h"
 
-HoeItem::HoeItem(short id) : Item("emeraldHoe", id - 256)
+HoeItem::HoeItem(short id) : Item("emerald_hoe", id - 256)
 {
 	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);

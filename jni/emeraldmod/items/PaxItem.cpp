@@ -3,7 +3,7 @@
 #include "minecraftpe/world/entity/Mob.h"
 #include "minecraftpe/world/level/block/Block.h"
 
-PaxItem::PaxItem(short id) : Item("emeraldPax", id - 256)
+PaxItem::PaxItem(short id) : Item("emerald_pax", id - 256)
 {
 	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
@@ -24,16 +24,13 @@ bool PaxItem::mineBlock(ItemInstance &item, BlockID, int, int, int, Entity *enti
 
 bool PaxItem::canDestroySpecial(const Block &block) const
 {
-	return (Item::mItems[278]->canDestroySpecial(block) || Item::mItems[279]->canDestroySpecial(block));
+	return Item::mItems[278]->canDestroySpecial(block) || Item::mItems[279]->canDestroySpecial(block);
 }
 
 float PaxItem::getDestroySpeed(ItemInstance&, const Block &block) const
 {
-	if (block.getMaterial() == Material::getMaterial(MaterialType::WOOD)
+	return (block.getMaterial() == Material::getMaterial(MaterialType::WOOD)
 		|| block.getMaterial() == Material::getMaterial(MaterialType::STONE)
-		|| block.getMaterial() == Material::getMaterial(MaterialType::METAL))
-		return 50.0F;
-	else
-		return 1.0F;
+		|| block.getMaterial() == Material::getMaterial(MaterialType::METAL)) ? 50.0F : 1.0F;
 }
 

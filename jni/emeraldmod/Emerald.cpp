@@ -68,8 +68,8 @@ void Emerald::registerItems()
 	mFlintAndEmerald = new FlintAndEmerald(3915);
 	mSpear = new SpearItem(3916);
 	mBattleAxe = new BattleAxeItem(3917);
-	Item::mItems[3918] = mStick = new Item("emeraldStick", 3918 - 256);
-	Item::mItems[3919] = mNugget = new Item("emeraldNugget", 3919 - 256);
+	Item::mItems[3918] = mStick = new Item("emerald_stick", 3918 - 256);
+	Item::mItems[3919] = mNugget = new Item("emerald_nugget", 3919 - 256);
 	mFertilizer = new FertilizerItem(3920);
 }
 
@@ -165,7 +165,7 @@ void Emerald::initBlockGraphics()
 
 void Emerald::initCreativeItems()
 {
-	for (short id = 3904; id <= 3920; ++id)
+	for (short id = 3904; id <= 3919; ++id)
 		Item::addCreativeItem(id, 0);
 	/*Item::addCreativeItem(mSword, 0);
 	Item::addCreativeItem(mSuperSword, 0);

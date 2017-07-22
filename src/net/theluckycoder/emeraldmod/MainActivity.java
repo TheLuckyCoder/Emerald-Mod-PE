@@ -25,8 +25,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 		
-		if (Build.VERSION.SDK_INT >= 23)
-			checkForPermission();
+		checkForPermission();
 			
 		TextView supportedVersion = (TextView) findViewById(R.id.supportedVersionTxt);
 		TextView installedVersion = (TextView) findViewById(R.id.installedVersionTxt);
@@ -43,6 +42,7 @@ public class MainActivity extends Activity {
 			installedVersion.setVisibility(View.GONE);
 			Log.e("EmeraldModApp", "Could not rethrive version", e);
 		}
+		return;
     }
 
 	public void downloadLauncher(View view) {
@@ -73,11 +73,9 @@ public class MainActivity extends Activity {
     }
 
     private void checkForPermission() {
-        int hasWriteContactsPermission = checkSelfPermission("net.zhuoweizhang.mcpelauncher.ADDON");
-        if (hasWriteContactsPermission != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[] {"net.zhuoweizhang.mcpelauncher.ADDON"}, 123);
-            return;
-        }
+		if (Build.VERSION.SDK_INT >= 23 && checkSelfPermission("net.zhuoweizhang.mcpelauncher.ADDON") != PackageManager.PERMISSION_GRANTED)
+			requestPermissions(new String[] {"net.zhuoweizhang.mcpelauncher.ADDON"}, 123);
+		return;
     }
 }
 

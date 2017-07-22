@@ -3,7 +3,7 @@
 #include "minecraftpe/world/entity/Mob.h"
 #include "minecraftpe/world/level/block/Block.h"
 
-SuperShovelItem::SuperShovelItem(short id) : Item("emeraldSuperShovel", id - 256)
+SuperShovelItem::SuperShovelItem(short id) : Item("emerald_shovel_super", id - 256)
 {
 	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
@@ -34,9 +34,6 @@ bool SuperShovelItem::canDestroySpecial(const Block &block) const
 
 float SuperShovelItem::getDestroySpeed(ItemInstance&, const Block &block) const
 {
-	if (block.getMaterial() == Material::getMaterial(MaterialType::DIRT))
-		return 80.0f;
-	else
-		return 1.0f;
+	return block.getMaterial() == Material::getMaterial(MaterialType::DIRT) ? 80.0f : 1.0f;
 }
 

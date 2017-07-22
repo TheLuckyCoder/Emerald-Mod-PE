@@ -1,22 +1,22 @@
 ##Translated by @ModelPart
 ##Blocks
-tile.emeraldSlab.name=绿宝石半砖
-tile.emeraldBrick.name=绿宝石砖块
-tile.emeraldPlanks.name=绿宝石木板
+tile.emerald_slab.name=绿宝石半砖
+tile.emerald_brick.name=绿宝石砖块
+tile.emerald_planks.name=绿宝石木板
 	
 ##Items
-item.emeraldHelmet.name=绿宝石头盔
-item.emeraldChestplate.name=绿宝石胸甲
-item.emeraldLeggings.name=绿宝石护腿
-item.emeraldBoots.name=绿宝石鞋子
-item.emeraldSword.name=绿宝石剑
-item.emeraldSuperSword.name=超级绿宝石剑
-item.emeraldPickaxe.name=绿宝石镐
-item.emeraldPax.name=绿宝石斧
-item.emeraldAxe.name=绿宝石斧
-item.emeraldShovel.name=绿宝石铲
-item.emeraldHoe.name=绿宝石锄
-item.flintAndEmerald.name=绿宝石和燧石
-item.emeraldBow.name=绿宝石弓
-item.emeraldStick.name=绿宝石棍
+item.emerald_helmet.name=绿宝石头盔
+item.emerald_chestplate.name=绿宝石胸甲
+item.emerald_leggings.name=绿宝石护腿
+item.emerald_boots.name=绿宝石鞋子
+item.emerald_sword.name=绿宝石剑
+item.emerald_sword_super.name=超级绿宝石剑
+item.emerald_pickaxe.name=绿宝石镐
+item.emerald_pax.name=绿宝石斧
+item.emerald_axe.name=绿宝石斧
+item.emerald_shovel.name=绿宝石铲
+item.emerald_hoe.name=绿宝石锄
+item.flint_and_emerald.name=绿宝石和燧石
+item.emerald_bow.name=绿宝石弓
+item.emerald_stick.name=绿宝石棍
 

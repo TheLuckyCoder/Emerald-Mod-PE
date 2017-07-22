@@ -1,33 +1,33 @@
+##Use two '#' to make a comment
 ##Translated by @Johnmacrocraft
 ##Blocks
-tile.emeraldSlab.name=에메랄드 반 블록
-tile.emeraldBrick.name=에메랄드 벽돌
-tile.emeraldPlanks.name=에메랄드 판자
-tile.emeraldFence.name=에메랄드 울타리
-tile.emeraldWood.name=에메랄드 나무
-tile.emeraldLadder.name=에메랄드 사다리
-tile.emeraldMushroom.name=에메랄드 버섯
+tile.emerald_slab.name=에메랄드 반 블록
+tile.emerald_brick.name=에메랄드 벽돌
+tile.emerald_planks.name=에메랄드 판자
+tile.emerald_fence.name=에메랄드 울타리
+tile.emerald_wood.name=에메랄드 나무
+tile.emerald_mushroom.name=에메랄드 버섯
 
 ##Items
-item.emeraldHelmet.name=에메랄드 투구
-item.emeraldChestplate.name=에메랄드 흉갑
-item.emeraldLeggings.name=에메랄드 각반
-item.emeraldBoots.name=에메랄드 부츠
-item.emeraldSword.name=에메랄드 검
-item.emeraldSuperSword.name=슈퍼 에메랄드 검
-item.emeraldPickaxe.name=에메랄드 곡괭이
-item.emeraldSuperPickaxe.name=슈퍼 에메랄드 곡괭이
-item.emeraldPax.name=에메랄드 곡괭이와 도끼
-item.emeraldAxe.name=에메랄드 도끼
-item.emeraldSuperAxe.name슈퍼 에메랄드 도끼
-item.emeraldShovel.name=에메랄드 삽
-item.emeraldSuperShovel.name=슈퍼 에메랄드 삽
-item.emeraldHoe.name=에메랄드 괭이
-item.emeraldSuperHoe.name=슈퍼 에메랄드 괭이
-item.flintAndEmerald.name=부싯돌과 에메랄드
-item.emeraldBow.name=에메랄드 활
-item.emeraldSpear.name=에메랄드 창
-item.emeraldStick.name=에메랄드 막대기
-item.emeraldNugget.name=에메랄드 조각
-item.emeraldBattleAxe.name=에메랄드 전투 도끼
+item.emerald_helmet.name=에메랄드 투구
+item.emerald_chestplate.name=에메랄드 흉갑
+item.emerald_leggings.name=에메랄드 각반
+item.emerald_boots.name=에메랄드 부츠
+item.emerald_sword.name=에메랄드 검
+item.emerald_sword_super.name=슈퍼 에메랄드 검
+item.emerald_pickaxe.name=에메랄드 곡괭이
+item.emerald_pickaxe_super.name=슈퍼 에메랄드 곡괭이
+item.emerald_pax_super.name=에메랄드 곡괭이와 도끼
+item.emerald_axe.name=에메랄드 도끼
+item.emerald_axe_super.name슈퍼 에메랄드 도끼
+item.emerald_shovel.name=에메랄드 삽
+item.emerald_shovel_super.name=슈퍼 에메랄드 삽
+item.emerald_hoe.name=에메랄드 괭이
+item.emerald_hoe_super.name=슈퍼 에메랄드 괭이
+item.flint_and_emerald.name=부싯돌과 에메랄드
+item.emerald_bow.name=에메랄드 활
+item.emerald_spear.name=에메랄드 창
+item.emerald_stick.name=에메랄드 막대기
+item.emerald_nugget.name=에메랄드 조각
+item.emerald_battle_axe.name=에메랄드 전투 도끼
 

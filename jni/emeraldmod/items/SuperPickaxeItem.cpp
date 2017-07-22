@@ -3,7 +3,7 @@
 #include "minecraftpe/world/entity/Mob.h"
 #include "minecraftpe/world/level/block/Block.h"
 
-SuperPickaxeItem::SuperPickaxeItem(short id) : Item("emeraldPickaxe", id - 256)
+SuperPickaxeItem::SuperPickaxeItem(short id) : Item("emerald_pickaxe_super", id - 256)
 {
 	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
@@ -29,10 +29,7 @@ bool SuperPickaxeItem::canDestroySpecial(const Block &block) const
 
 float SuperPickaxeItem::getDestroySpeed(ItemInstance&, const Block &block) const
 {
-	if (block.getMaterial() == Material::getMaterial(MaterialType::STONE)
-		|| block.getMaterial() == Material::getMaterial(MaterialType::METAL))
-		return 80.0f;
-	else
-		return 1.0f;
+	return (block.getMaterial() == Material::getMaterial(MaterialType::STONE)
+		|| block.getMaterial() == Material::getMaterial(MaterialType::METAL)) ? 80.0f : 1.0f;
 }
 

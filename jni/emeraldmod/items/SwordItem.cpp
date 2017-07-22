@@ -3,7 +3,7 @@
 #include "minecraftpe/world/level/block/Block.h"
 #include "minecraftpe/world/entity/Mob.h"
 
-SwordItem::SwordItem(short id) : Item("emeraldSword", id - 256)
+SwordItem::SwordItem(short id) : Item("emerald_sword", id - 256)
 {
 	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
@@ -29,9 +29,6 @@ bool SwordItem::canDestroySpecial(const Block &block) const
 
 float SwordItem::getDestroySpeed(ItemInstance&, const Block &block) const
 {
-	if (&block == Block::mWeb)
-		return 30.0f;
-	else
-		return 0.8f;
+	return &block == Block::mWeb ? 20.0f : 0.8f;
 }
 

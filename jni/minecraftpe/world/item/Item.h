@@ -1,8 +1,9 @@
 #pragma once
 
 #include <string>
-#include <memory>
 #include <vector>
+#include <memory>
+#include <unordered_map>
 
 #include "../../CreativeItemCategory.h"
 #include "../level/block/BlockID.h"
@@ -82,6 +83,7 @@ public:
 	/* list */
 	static Item* mItems[4096];
 	static std::vector<ItemInstance> mCreativeList;
+	static std::unordered_map<std::string,std::pair<std::string const,std::unique_ptr<Item> > > mItemLookupMap;
 	static Random* mRandom;
 
 	/* vtable */
@@ -314,5 +316,5 @@ public:
 	static Item* mPoisonous_potato; // 394
 	static Item* mEmptyMap; // 395
 	static Item* mGoldenCarrot; // 396
-
 };
+

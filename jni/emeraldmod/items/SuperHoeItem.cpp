@@ -2,7 +2,7 @@
 #include "minecraftpe/world/item/ItemInstance.h"
 #include "minecraftpe/world/entity/Mob.h"
 
-SuperHoeItem::SuperHoeItem(short id) : Item("emeraldSuperHoe", id - 256)
+SuperHoeItem::SuperHoeItem(short id) : Item("emerald_hoe_super", id - 256)
 {
 	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);

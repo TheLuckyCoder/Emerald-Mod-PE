@@ -3,7 +3,7 @@
 #include "minecraftpe/world/entity/Mob.h"
 #include "minecraftpe/world/level/block/Block.h"
 
-ShovelItem::ShovelItem(short id) : Item("emeraldShovel", id - 256)
+ShovelItem::ShovelItem(short id) : Item("emerald_shovel", id - 256)
 {
 	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
@@ -34,9 +34,6 @@ bool ShovelItem::canDestroySpecial(const Block &block) const
 
 float ShovelItem::getDestroySpeed(ItemInstance&, const Block &block) const
 {
-	if (block.getMaterial() == Material::getMaterial(MaterialType::DIRT))
-		return 50.0f;
-	else
-		return 1.0f;
+	return block.getMaterial() == Material::getMaterial(MaterialType::DIRT) ? 50.0f : 1.0f;
 }
 

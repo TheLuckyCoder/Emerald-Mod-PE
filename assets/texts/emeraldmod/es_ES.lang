@@ -1,30 +1,31 @@
 ##Use two '#' to make a comment
 ##Blocks
-tile.emeraldSlab.name=Losa de Esmeralda
-tile.emeraldBrick.name=Ladrillos de Esmeralda
-tile.emeraldPlanks.name=Madera de Esmeralda
-tile.emeraldFence.name=Vallas de Esmeralda
-tile.emeraldWood.name=Tronco de Esmeralda
-tile.emeraldLadder.name=Escaleras de Esmeralda
-tile.emeraldMushroom.name=Hongo de Esmeralda
+tile.emerald_slab.name=Losa de Esmeralda
+tile.emerald_brick.name=Ladrillos de Esmeralda
+tile.emerald_planks.name=Madera de Esmeralda
+tile.emerald_fence.name=Vallas de Esmeralda
+tile.emerald_wood.name=Tronco de Esmeralda
+tile.emerald_ladder.name=Escaleras de Esmeralda
+tile.emerald_mushroom.name=Hongo de Esmeralda
 	
 ##Items
-item.emeraldHelmet.name=Casco de Esmeralda
-item.emeraldChestplate.name=Peto de Esmeralda
-item.emeraldLeggings.name=Pantalones de Esmeralda
-item.emeraldBoots.name=Botas de Esmeralda
-item.emeraldSword.name=Espada de Esmeralda
-item.emeraldSuperSword.name=Super Espada de Esmeralda
-item.emeraldPickaxe.name=Pico de Esmeralda
-item.emeraldSuperPickaxe.name=Super Pico de Esmeralda
-item.emeraldPax.name=Palahacha de Esmeralda
-item.emeraldAxe.name=Hacha de Esmeralda
-item.emeraldSuperAxe.name=Super Hacha de Esmeralda
-item.emeraldShovel.name=Pala de Esmeralda
-item.emeraldSuperShovel.name=Super Pala de Esmeralda
-item.emeraldHoe.name=Hoz de Esmeralda
-item.emeraldSuperHoe.name=Super Hoz de Esmeralda
-item.flintAndEmerald.name=Pedernal y Esmeralda
-item.emeraldBow.name=Arco de Esmeralda
-item.emeraldSpear.name=Lanza de Esmeralda
-item.emeraldNugget.name=Nugget de Esmeralda
+item.emerald_helmet.name=Casco de Esmeralda
+item.emerald_chestplate.name=Peto de Esmeralda
+item.emerald_leggings.name=Pantalones de Esmeralda
+item.emerald_boots.name=Botas de Esmeralda
+item.emerald_sword.name=Espada de Esmeralda
+item.emerald_sword_super.name=Super Espada de Esmeralda
+item.emerald_pickaxe.name=Pico de Esmeralda
+item.emerald_pickaxe_super.name=Super Pico de Esmeralda
+item.emerald_pax.name=Palahacha de Esmeralda
+item.emerald_axe.name=Hacha de Esmeralda
+item.emerald_axe_super.name=Super Hacha de Esmeralda
+item.emerald_shovel.name=Pala de Esmeralda
+item.emerald_shovel_super.name=Super Pala de Esmeralda
+item.emerald_hoe.name=Hoz de Esmeralda
+item.emerald_hoe_super.name=Super Hoz de Esmeralda
+item.flint_and_emerald.name=Pedernal y Esmeralda
+item.emerald_bow.name=Arco de Esmeralda
+item.emerald_spear.name=Lanza de Esmeralda
+item.emerald_nugget.name=Nugget de Esmeralda
+

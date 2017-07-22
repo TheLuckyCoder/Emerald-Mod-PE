@@ -4,7 +4,7 @@
 #include "minecraftpe/world/entity/Entity.h"
 #include "emeraldmod/Emerald.h"
 
-FertilizerItem::FertilizerItem(short id) : Item("emeraldFertilizer", id - 256)
+FertilizerItem::FertilizerItem(short id) : Item("emerald_fertilizer", id - 256)
 {
 	mItems[id] = this;
 }

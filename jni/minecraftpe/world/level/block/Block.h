@@ -27,6 +27,7 @@ class Random;
 struct Vec3;
 class Brightness;
 struct BlockProperty;
+struct BlockState{ struct BlockStates; };
 
 class Block
 {
@@ -180,7 +181,9 @@ public:
 	virtual Block* setTicking(bool);
 	virtual Block* setMapColor(Color const&);
 	virtual Block* addProperty(BlockProperty);
+	virtual Block* addBlockState(BlockState::BlockStates, int);
 	virtual void resetBitsUsed();
+	virtual Block* setAllowsRunes(bool);
 	virtual int getSpawnResourcesAuxValue(unsigned char) const;
 	
 	const std::string& getDescriptionId() const;

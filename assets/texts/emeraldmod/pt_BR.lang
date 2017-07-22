@@ -1,25 +1,26 @@
 ##Blocks
-tile.emeraldSlab.name=Laje de Esmeralda
-tile.emeraldBrick.name=Tijolos de Esmeralda
-tile.emeraldPlanks.name=Tabuas de Esmeralda
+tile.emerald_slab.name=Laje de Esmeralda
+tile.emerald_brick.name=Tijolos de Esmeralda
+tile.emerald_planks.name=Tabuas de Esmeralda
 
 ##Items
-item.emeraldHelmet.name=Capacete de Esmeralda
-item.emeraldChestplate.name=Peitoral de Esmeralda
-item.emeraldLeggings.name=Calça de Esmeralda
-item.emeraldBoots.name=Botas de Esmeralda
-item.emeraldSword.name=Espada de Esmeralda
-item.emeraldSuperSword.name=Super Espada de Esmeralda
-item.emeraldPickaxe.name=Picareta de Esmeralda
-item.emeraldSuperPickaxe.name=Super Picareta de Esmeralda
-item.emeraldPax.name=Pax de Esmeralda
-item.emeraldAxe.name=Machado de Esmeralda
-item.emeraldSuperAxe.name=Super Machado de Esmeralda
-item.emeraldShovel.name=Pa de Esmeralda
-item.emeraldSuperShovel.name=Super Pa de Esmeralda
-item.emeraldHoe.name=Enxada de Esmeralda
-item.emeraldSuperHoe.name=Super Enxada de Esmeralda
-item.flintAndEmerald.name=Isqueiro de Esmeralda
-item.emeraldBow.name=Arco de Esmeralda
-item.emeraldStick.name=Graveto de Esmeralda
+item.emerald_helmet.name=Capacete de Esmeralda
+item.emerald_chestplate.name=Peitoral de Esmeralda
+item.emerald_leggings.name=Calça de Esmeralda
+item.emerald_boots.name=Botas de Esmeralda
+item.emerald_sword.name=Espada de Esmeralda
+item.emerald_sword_super.name=Super Espada de Esmeralda
+item.emerald_pickaxe.name=Picareta de Esmeralda
+item.emerald_pickaxe_super.name=Super Picareta de Esmeralda
+item.emerald_pax.name=Pax de Esmeralda
+item.emerald_axe.name=Machado de Esmeralda
+item.emerald_axe_super.name=Super Machado de Esmeralda
+item.emerald_shovel.name=Pa de Esmeralda
+item.emerald_shovel_super.name=Super Pa de Esmeralda
+item.emerald_hoe.name=Enxada de Esmeralda
+item.emerald_hoe_super.name=Super Enxada de Esmeralda
+item.flint_and_emerald.name=Isqueiro de Esmeralda
+item.emerald_bow.name=Arco de Esmeralda
+item.emerald_stick.name=Graveto de Esmeralda
+item.emerald_nigget.name=Pepita de Esmeralda
 

@@ -3,7 +3,7 @@
 #include "minecraftpe/world/entity/Mob.h"
 #include "minecraftpe/world/level/block/Block.h"
 
-BattleAxeItem::BattleAxeItem(short id) : Item("emeraldBattleAxe", id - 256)
+BattleAxeItem::BattleAxeItem(short id) : Item("emerald_battle_axe", id - 256)
 {
 	mItems[id] = this;
 	setCategory(CreativeItemCategory::Tools);
@@ -29,9 +29,6 @@ bool BattleAxeItem::canDestroySpecial(const Block &block) const
 
 float BattleAxeItem::getDestroySpeed(ItemInstance&, const Block &block) const
 {
-	if (block.getMaterial() == Material::getMaterial(MaterialType::WOOD))
-		return 50.0f;
-	else
-		return 1.0f;
+	return block.getMaterial() == Material::getMaterial(MaterialType::WOOD) ? 50.0f : 1.0f;
 }
 
