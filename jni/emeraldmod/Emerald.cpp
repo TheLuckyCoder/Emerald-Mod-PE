@@ -101,23 +101,23 @@ void Emerald::initClientData()
 void Emerald::registerBlocks()
 {
 	Block::mBlocks[210] = mPlanks = new Block("emeraldPlanks", 232, Material::getMaterial(MaterialType::WOOD));
-	mPlanks->setCategory(CreativeItemCategory::Blocks);
+	mPlanks->setCategory(CreativeItemCategory::BLOCKS);
 	mPlanks->setDestroyTime(1.4f);
 	mPlanks->setExplodeable(6);
 	
 	Block::mBlocks[211] = mBrick = new Block("emeraldBrick", 233, Material::getMaterial(MaterialType::STONE));
-	mBrick->setCategory(CreativeItemCategory::Blocks);
+	mBrick->setCategory(CreativeItemCategory::BLOCKS);
 	mBrick->setDestroyTime(2.0f);
 	mBrick->setExplodeable(12);
 	
 	Block::mBlocks[212] = mFence = new ThinFenceBlock("emeraldFence", 234, Material::getMaterial(MaterialType::METAL), false);
 	mFence->setSolid(false);
-	mFence->setCategory(CreativeItemCategory::Decorations);
+	mFence->setCategory(CreativeItemCategory::DECORATIONS);
 	mFence->setDestroyTime(2.2f);
 	mFence->setExplodeable(13);
 	
 	/*Block::mBlocks[213] = mSlab = new SlabBlock("emeraldSlab", 235, false, Material::getMaterial(MaterialType::METAL));
-	mSlab->setCategory(CreativeItemCategory::Blocks);
+	mSlab->setCategory(CreativeItemCategory::BLOCKS);
 	mSlab->setDestroyTime(2.2f);
 	mSlab->setExplodeable(12);*/
 	

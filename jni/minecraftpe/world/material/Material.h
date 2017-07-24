@@ -9,14 +9,15 @@ class Color;
 class Material
 {
 private:
-	void _setMapColor(const Color&);
-	void _setNotSolid();
-	void _setSuperHot();
-	void _setFlammable();
-	void _setReplaceable();
-	void _setNeverBuildable();
-	void _setNotBlockingMotion();
-	void _setNotAlwaysDestroyable();
+	void* _setupSurfaceMaterials();
+	Material* _setMapColor(const Color&);
+	Material* _setNotSolid();
+	Material* _setSuperHot();
+	Material* _setFlammable();
+	Material* _setReplaceable();
+	Material* _setNeverBuildable();
+	Material* _setNotBlockingMotion();
+	Material* _setNotAlwaysDestroyable();
 	
 public:
 	MaterialType type; // 0
@@ -29,6 +30,11 @@ public:
 	bool blocksMotion; // 16
 	bool solid; // 17
 	bool superHot; // 18
+	char filler; // 19
+	Color* mapColor1; // 20
+	Color* mapColor2; // 24
+	Color* mapColor3; // 28
+	Color* mapColor4; // 32
 	
 	enum class Settings;
 	
@@ -50,8 +56,8 @@ public:
 	
 	static void initMaterials();
 	static void teardownMaterials();
-	static void addMaterial(std::unique_ptr<Material>);
-	static void _setupSurfaceMaterials();
+	static void addMaterial(std::unique_ptr<Material, std::default_delete<Material>>);
+
 	static Material& getMaterial(MaterialType);
 	
 	// static fields

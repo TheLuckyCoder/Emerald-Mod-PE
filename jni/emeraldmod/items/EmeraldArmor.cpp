@@ -3,7 +3,7 @@
 EmeraldArmor::EmeraldArmor(const std::string &name, short id, ArmorSlot armorSlot, const std::string& texture) : ArmorItem(name, id - 256, DIAMOND, 42, armorSlot)
 {
 	mItems[id] = this;
-	setCategory(CreativeItemCategory::Tools);
+	setCategory(CreativeItemCategory::TOOLS);
 	setIcon(texture, 0);
 	setMaxDamage(2000);
 }

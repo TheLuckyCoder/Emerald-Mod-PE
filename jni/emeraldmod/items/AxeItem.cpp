@@ -7,7 +7,7 @@ AxeItem::AxeItem(short id) : Item("emerald_axe", id - 256)
 {
 	mItems[id] = this;
 	mItemLookupMap.emplace(descriptionName, std::pair<const std::string, std::unique_ptr<Item>>(descriptionName, std::unique_ptr<Item>((Item*)this)));
-	setCategory(CreativeItemCategory::Tools);
+	setCategory(CreativeItemCategory::TOOLS);
 	setMaxStackSize(1);
 	setMaxDamage(2000);
 	setHandEquipped();

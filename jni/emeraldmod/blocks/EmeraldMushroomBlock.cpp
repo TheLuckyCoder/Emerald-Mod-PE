@@ -5,7 +5,7 @@ EmeraldMushroomBlock::EmeraldMushroomBlock(short id) : Block("emeraldMushroom", 
 	mBlocks[id] = this;
 	init();
 	setSolid(false);
-	setCategory(CreativeItemCategory::Decorations);
+	setCategory(CreativeItemCategory::DECORATIONS);
 	setDestroyTime(1);
 	setExplodeable(2);
 	renderLayer = mSapling->renderLayer;

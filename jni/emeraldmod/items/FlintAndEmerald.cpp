@@ -6,7 +6,7 @@
 FlintAndEmerald::FlintAndEmerald(short id) : Item("flint_and_emerald", id - 256)
 {
 	mItems[id] = this;
-	setCategory(CreativeItemCategory::Tools);
+	setCategory(CreativeItemCategory::TOOLS);
 	setMaxStackSize(1);
 	setMaxDamage(2000);
 }

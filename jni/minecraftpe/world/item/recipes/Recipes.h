@@ -35,9 +35,8 @@ public:
 	void addDirectShapedRecipe(std::unique_ptr<ShapedRecipe>);
 	void addDirectShapelessRecipe(std::unique_ptr<ShapelessRecipe>);
 	void addRepairItemRecipe(std::unique_ptr<RepairItemRecipe>);
-public:
+
 	static std::vector<std::string> Shape(const std::string&);
 	static std::vector<std::string> Shape(const std::string&, const std::string&);
 	static std::vector<std::string> Shape(const std::string&, const std::string&, const std::string&);
 };
-

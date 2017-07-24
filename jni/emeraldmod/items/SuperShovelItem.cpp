@@ -6,7 +6,7 @@
 SuperShovelItem::SuperShovelItem(short id) : Item("emerald_shovel_super", id - 256)
 {
 	mItems[id] = this;
-	setCategory(CreativeItemCategory::Tools);
+	setCategory(CreativeItemCategory::TOOLS);
 	setMaxStackSize(1);
 	setMaxDamage(2600);
 	setHandEquipped();

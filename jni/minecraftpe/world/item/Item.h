@@ -5,11 +5,13 @@
 #include <memory>
 #include <unordered_map>
 
-#include "../../CreativeItemCategory.h"
+#include "UseAnimation.h"
+#include "CreativeItemCategory.h"
 #include "../level/block/BlockID.h"
-#include "../../UseAnimation.h"
 #include "../level/block/BlockShape.h"
 #include "../level/BlockPos.h"
+#include "CooldownType.h"
+
 class TextureUVCoordinateSet;
 class SeedItemComponent;
 class FoodItemComponent;
@@ -36,18 +38,6 @@ namespace Json { class Value; };
 class Item
 {
 public:
-	class Tier
-	{
-	public:
-		ItemInstance* getTierItem() const;
-
-		static Tier* WOOD;
-		static Tier* STONE;
-		static Tier* IRON;
-		static Tier* GOLD;
-		static Tier* DIAMOND;
-	};
-
 	/* copy constructor */
 	Item(const std::string&, short);
 
@@ -74,16 +64,18 @@ public:
 	void* colorFormat; // 52
 	TextureUVCoordinateSet& icon; // 56
 	TextureAtlasItem* customAtlasIcon; // 60
-	int filler3[7]; // 64
-	float vrHandControllerScale;// 92
-	std::unique_ptr <FoodItemComponent> _foodDetails; // 96
-	std::unique_ptr <SeedItemComponent> _seedDetails; // 100
-	std::unique_ptr <CameraItemComponent> _cameraDetails; // 104
+	int filler3[2]; // 64
+	Vec3 vrHandControllerPositionAdjust; // 72
+	Vec3 vrHandControllerRotationAdjust; // 84
+	float vrHandControllerScale; // 96
+	FoodItemComponent* foodComponent; // 100
+	SeedItemComponent* seedComponent; // 104
+	CameraItemComponent* cameraComponent; // 108
 
-	/* list */
+										  /* list */
 	static Item* mItems[4096];
 	static std::vector<ItemInstance> mCreativeList;
-	static std::unordered_map<std::string,std::pair<std::string const,std::unique_ptr<Item> > > mItemLookupMap;
+	static std::unordered_map<std::string, std::pair<const std::string, std::unique_ptr<Item>>> mItemLookupMap;
 	static Random* mRandom;
 
 	/* vtable */
@@ -119,11 +111,11 @@ public:
 	virtual bool requiresInteract() const;
 	virtual std::string appendFormattedHovertext(const ItemInstance&, Level&, std::string&, bool) const;
 	virtual bool isValidRepairItem(const ItemInstance&, const ItemInstance&) const;
-	virtual int getEnchantSlot() const;
-	virtual int getEnchantValue() const;
+	virtual short getEnchantSlot() const;
+	virtual short getEnchantValue() const;
 	virtual bool isComplex() const;
 	virtual bool isValidAuxValue(int) const;
-    virtual int getDamageChance(int) const;
+	virtual int getDamageChance(int) const;
 	virtual int uniqueAuxValues() const;
 	virtual Color getColor(const ItemInstance&) const;
 	virtual bool isTintable() const;
@@ -139,10 +131,10 @@ public:
 	virtual std::string buildEffectDescriptionName(const ItemInstance&) const;
 	virtual void readUserData(ItemInstance&, IDataInput&) const;
 	virtual void writeUserData(const ItemInstance&, IDataOutput&) const;
-	virtual unsigned char getMaxStackSize(const ItemInstance&) const;
+	virtual uint8_t getMaxStackSize(const ItemInstance&) const;
 	virtual void inventoryTick(ItemInstance&, Level&, Entity&, int, bool) const;
 	virtual bool onCraftedBy(ItemInstance&, Level&, Player&) const;
-	virtual int getCooldownType() const;
+	virtual CooldownType getCooldownType() const;
 	virtual int getCooldownTime() const;
 	virtual std::string getInteractText(const Player&) const;
 	virtual int getAnimationFrameFor(Mob&) const;
@@ -153,11 +145,25 @@ public:
 	virtual void _checkUseOnPermissions(Entity&, ItemInstance&, const signed char&, const BlockPos&) const;
 	virtual void _calculatePlacePos(ItemInstance&, Entity&, signed char&, BlockPos&) const;
 	virtual bool _useOn(ItemInstance&, Entity&, BlockPos, signed char, float, float, float) const;
-	
+
 	void setTextureAtlas(std::shared_ptr<TextureAtlas>);
-	void _textMatch(const std::string&, const std::string&, bool);
-	void initClient(Json::Value&, Json::Value&);
-	void initServer(Json::Value&);
+	void* initServer(Json::Value&);
+	void* initClient(Json::Value&, Json::Value&);
+	void* registerItems();
+	void* initCreativeItems();
+	void* initServerData(ResourcePackManager&);
+	void* initClientData();
+	void* addCreativeItem(short, short);
+	void* addCreativeItem(const ItemInstance&);
+	void* addCreativeItem(Block const*, short);
+	void* addCreativeItem(Item*, short);
+	void* addBlockItems();
+	void* teardownItems();
+	void setIsMirroredArt(bool);
+	void* getTextureUVCoordinateSet(const std::string&, int);
+	void* getTextureItem(const std::string&);
+	void* lookupByName(const std::string&, bool);
+	void* _textMatch(const std::string&, const std::string&, bool);
 	void setAllowOffhand(bool);
 	void setIsMirroredArt(bool);
 	bool allowOffhand() const;
@@ -317,4 +323,3 @@ public:
 	static Item* mEmptyMap; // 395
 	static Item* mGoldenCarrot; // 396
 };
-

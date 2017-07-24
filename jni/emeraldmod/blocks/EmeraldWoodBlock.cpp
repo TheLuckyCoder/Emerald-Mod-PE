@@ -5,7 +5,7 @@ EmeraldWoodBlock::EmeraldWoodBlock(short id) : Block("emeraldWood", id, Material
 {
 	mBlocks[id] = this;
 	init();
-	setCategory(CreativeItemCategory::Blocks);
+	setCategory(CreativeItemCategory::BLOCKS);
 	setExplodeable(10);
 	setDestroyTime(2);
 
