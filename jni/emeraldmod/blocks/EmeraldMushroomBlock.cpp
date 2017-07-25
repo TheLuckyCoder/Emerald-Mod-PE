@@ -1,6 +1,6 @@
 #include "EmeraldMushroomBlock.h"
 
-EmeraldMushroomBlock::EmeraldMushroomBlock(short id) : Block("emeraldMushroom", id, Material::getMaterial(MaterialType::PLANT))
+EmeraldMushroomBlock::EmeraldMushroomBlock(const std::string &name, short id) : Block(name, id, Material::getMaterial(MaterialType::PLANT))
 {
 	mBlocks[id] = this;
 	init();

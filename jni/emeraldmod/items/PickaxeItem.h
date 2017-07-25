@@ -5,7 +5,7 @@
 class PickaxeItem : public Item
 {
 public:
-	PickaxeItem(short id);
+	PickaxeItem(const std::string &name, short id);
 	
 	virtual int getAttackDamage() const { return 7; }
 	virtual int getEnchantValue() const { return 10; }

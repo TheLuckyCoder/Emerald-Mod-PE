@@ -5,7 +5,7 @@
 class FertilizerItem : public Item
 {
 public:
-	FertilizerItem(short id);
+	FertilizerItem(const std::string &name, short id);
 	
 	virtual bool _useOn(ItemInstance&, Entity&, BlockPos, signed char, float, float, float) const;
 };

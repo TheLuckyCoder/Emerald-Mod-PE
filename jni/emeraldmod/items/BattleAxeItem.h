@@ -5,7 +5,7 @@
 class BattleAxeItem : public Item
 {
 public:
-	BattleAxeItem(short id);
+	BattleAxeItem(const std::string &name, short id);
 	
 	virtual int getAttackDamage() const { return 12; }
 	virtual int getEnchantSlot() const { return 512; }

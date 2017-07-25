@@ -5,7 +5,7 @@
 class SuperPickaxeItem : public Item
 {
 public:
-	SuperPickaxeItem(short id);
+	SuperPickaxeItem(const std::string &name, short id);
 	
 	virtual int getAttackDamage() const { return 9; }
 	virtual int getEnchantValue() const { return 18; }

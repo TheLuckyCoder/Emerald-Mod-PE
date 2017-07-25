@@ -3,10 +3,8 @@
 #include "minecraftpe/world/entity/Mob.h"
 #include "minecraftpe/world/level/block/Block.h"
 
-AxeItem::AxeItem(short id) : Item("emerald_axe", id - 256)
+AxeItem::AxeItem(const std::string &name, short id) : Item(name, id)
 {
-	mItems[id] = this;
-	mItemLookupMap.emplace(descriptionName, std::pair<const std::string, std::unique_ptr<Item>>(descriptionName, std::unique_ptr<Item>((Item*)this)));
 	setCategory(CreativeItemCategory::TOOLS);
 	setMaxStackSize(1);
 	setMaxDamage(2000);

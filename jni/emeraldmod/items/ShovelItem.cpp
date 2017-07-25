@@ -3,9 +3,8 @@
 #include "minecraftpe/world/entity/Mob.h"
 #include "minecraftpe/world/level/block/Block.h"
 
-ShovelItem::ShovelItem(short id) : Item("emerald_shovel", id - 256)
+ShovelItem::ShovelItem(const std::string &name, short id) : Item(name, id)
 {
-	mItems[id] = this;
 	setCategory(CreativeItemCategory::TOOLS);
 	setMaxStackSize(1);
 	setMaxDamage(2000);

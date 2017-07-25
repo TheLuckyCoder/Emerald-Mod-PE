@@ -5,7 +5,7 @@
 class EmeraldMushroomBlock : public Block
 {
 public:
-	EmeraldMushroomBlock(short id);
+	EmeraldMushroomBlock(const std::string &name, short id);
 	
 	virtual bool mayPlaceOn(const Block&) const;
 	virtual const AABB& getCollisionShape(AABB&, BlockSource&, const BlockPos&, Entity*) const;

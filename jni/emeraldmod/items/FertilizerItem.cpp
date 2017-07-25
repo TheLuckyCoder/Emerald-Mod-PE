@@ -4,10 +4,7 @@
 #include "minecraftpe/world/entity/Entity.h"
 #include "emeraldmod/Emerald.h"
 
-FertilizerItem::FertilizerItem(short id) : Item("emerald_fertilizer", id - 256)
-{
-	mItems[id] = this;
-}
+FertilizerItem::FertilizerItem(const std::string &name, short id) : Item(name, id) {}
 
 bool FertilizerItem::_useOn(ItemInstance &item, Entity &entity, BlockPos pos, signed char, float, float, float) const
 {

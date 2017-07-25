@@ -3,9 +3,8 @@
 #include "minecraftpe/world/level/block/Block.h"
 #include "minecraftpe/world/entity/Mob.h"
 
-SwordItem::SwordItem(short id) : Item("emerald_sword", id - 256)
+SwordItem::SwordItem(const std::string &name, short id) : Item(name, id)
 {
-	mItems[id] = this;
 	setCategory(CreativeItemCategory::TOOLS);
 	setMaxStackSize(1);
 	setMaxDamage(2000);

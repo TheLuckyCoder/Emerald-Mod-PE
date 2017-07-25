@@ -2,7 +2,6 @@
 
 #include "minecraftpe/world/level/block/ThinFenceBlock.h"
 #include "minecraftpe/world/level/block/SlabBlock.h"
-#include "minecraftpe/world/level/block/LadderBlock.h"
 #include "blocks/EmeraldMushroomBlock.h"
 #include "blocks/EmeraldWoodBlock.h"
 
@@ -54,31 +53,35 @@ Block* Emerald::mWood;
 
 void Emerald::registerItems()
 {
-	mSword = new SwordItem(3904);
-	mSuperSword = new SuperSwordItem(3905);
-	mPickaxe = new PickaxeItem(3906);
-	mSuperPickaxe = new SuperPickaxeItem(3907);
-	mAxe = new AxeItem(3908);
-	mSuperAxe = new SuperAxeItem(3909);
-	mShovel = new ShovelItem(3910);
-	mSuperShovel = new SuperShovelItem(3911);
-	mHoe = new HoeItem(3912);
-	mSuperHoe = new SuperHoeItem(3913);
-	mPax = new PaxItem(3914);
-	mFlintAndEmerald = new FlintAndEmerald(3915);
-	mSpear = new SpearItem(3916);
-	mBattleAxe = new BattleAxeItem(3917);
-	Item::mItems[3918] = mStick = new Item("emerald_stick", 3918 - 256);
-	Item::mItems[3919] = mNugget = new Item("emerald_nugget", 3919 - 256);
-	mFertilizer = new FertilizerItem(3920);
+	//mHelmet = &registerItem<EmeraldHelmet>("emerald_helmet", 3900 - 256);
+	//mChestplate = &registerItem<EmeraldChestplate>("emerald_chestplate", 3901 - 256);
+	//mLeggings = &registerItem<EmeraldLeggings>("emerald_leggings", 3902 - 256);
+	//mBoots = &registerItem<EmeraldBoots>("emerald_boots", 3903 - 256);
+	mSword = &registerItem<SwordItem>("emerald_sword", 3904 - 256);
+	mSuperSword = &registerItem<SuperSwordItem>("emerald_sword_super", 3905 - 256);
+	mPickaxe = &registerItem<PickaxeItem>("emerald_pickaxe", 3906 - 256);
+	mSuperPickaxe = &registerItem<SuperPickaxeItem>(3907 - 256);
+	mAxe = &registerItem<AxeItem>("emerald_axe", 3908 - 256);
+	mSuperAxe = &registerItem<SuperAxeItem>("emerald_axe_super", 3909 - 256);
+	mShovel = &registerItem<ShovelItem>("emerald_shovel", 3910 - 256);
+	mSuperShovel = &registerItem<SuperShovelItem>("emerald_shovel_super", 3911 - 256);
+	mHoe = &registerItem<HoeItem>("emerald_hoe", 3912 - 256);
+	mSuperHoe = &registerItem<SuperHoeItem>("emerald_hoe_super", 3913 - 256);
+	mPax = &registerItem<PaxItem>("emerald_pax", 3914 - 256);
+	mFlintAndEmerald = &registerItem<FlintAndEmerald>("flint_and_emerald", 3915 - 256);
+	mSpear = &registerItem<SpearItem>("emerald_spear", 3916 - 256);
+	mBattleAxe = &registerItem<BattleAxeItem>("emerald_battle_axe", 3917 - 256);
+	mStick = &registerItem<Item>("emerald_stick", 3918 - 256);
+	mNugget = &registerItem<Item>("emerald_nugget", 3919 - 256);
+	//mFertilizer = &registerItem<FertilizerItem>("emerald_fertilizer", 3920 - 256);
 }
 
-void Emerald::initClientData()
+void Emerald::setItemTextures()
 {
-	//mHelmet = new EmeraldHelmet(3900);
-	//mChestplate = new EmeraldChestplate(3901);
-	//mLeggings = new EmeraldLeggings(3902);
-	//mBoots = new EmeraldBoots(3903);
+	//mHelmet->setIcon("emerald_helmet", 0);
+	//mChestplate->setIcon("emerald_chestplate", 0);
+	//mLeggings->setIcon("emerald_leggings", 0);
+	//mBoots->setIcon("emerald_boots", 0);
 	mSword->setIcon("emerald_sword", 0);
 	mSuperSword->setIcon("emerald_sword", 1);
 	mPickaxe->setIcon("emerald_pickaxe", 0);
@@ -95,45 +98,45 @@ void Emerald::initClientData()
 	mBattleAxe->setIcon("emerald_battle_axe", 0);
 	mStick->setIcon("emerald_stick", 0);
 	mNugget->setIcon("emerald_nugget", 0);
-	mFertilizer->setIcon("emerald_nugget", 0);
+	//mFertilizer->setIcon("emerald_nugget", 0);
 }
 
 void Emerald::registerBlocks()
 {
-	Block::mBlocks[210] = mPlanks = new Block("emeraldPlanks", 232, Material::getMaterial(MaterialType::WOOD));
+	mPlanks = &registerBlock<Block>("emerald_planks", 210, Material::getMaterial(MaterialType::WOOD));
 	mPlanks->setCategory(CreativeItemCategory::BLOCKS);
 	mPlanks->setDestroyTime(1.4f);
 	mPlanks->setExplodeable(6);
 	
-	Block::mBlocks[211] = mBrick = new Block("emeraldBrick", 233, Material::getMaterial(MaterialType::STONE));
+	mBrick = &registerBlock<Block>("emerald_brick", 211, Material::getMaterial(MaterialType::STONE));
 	mBrick->setCategory(CreativeItemCategory::BLOCKS);
 	mBrick->setDestroyTime(2.0f);
 	mBrick->setExplodeable(12);
 	
-	Block::mBlocks[212] = mFence = new ThinFenceBlock("emeraldFence", 234, Material::getMaterial(MaterialType::METAL), false);
+	mFence = &registerBlock<ThinFenceBlock>("emerald_fence", 212, Material::getMaterial(MaterialType::METAL), false);
 	mFence->setSolid(false);
 	mFence->setCategory(CreativeItemCategory::DECORATIONS);
 	mFence->setDestroyTime(2.2f);
 	mFence->setExplodeable(13);
 	
-	/*Block::mBlocks[213] = mSlab = new SlabBlock("emeraldSlab", 235, false, Material::getMaterial(MaterialType::METAL));
+	/*mSlab = &registerBlock<SlabBlock>("emerald_slab", 213, false, Material::getMaterial(MaterialType::METAL));
 	mSlab->setCategory(CreativeItemCategory::BLOCKS);
 	mSlab->setDestroyTime(2.2f);
 	mSlab->setExplodeable(12);*/
 	
-	mMushroom = new EmeraldMushroomBlock(214);
+	mMushroom = &registerBlock<EmeraldMushroomBlock>(214);
 	
-	mWood = new EmeraldWoodBlock(215);
+	//mWood = &registerBlock<EmeraldWoodBlock>(215);
 }
 
 void Emerald::registerBlockItems()
 {
-	Item::mItems[mPlanks->blockId] = new BlockItem(mPlanks->getDescriptionId(), mPlanks->blockId - 256);
-	Item::mItems[mBrick->blockId] = new BlockItem(mBrick->getDescriptionId(), mBrick->blockId - 256);
-	Item::mItems[mFence->blockId] = new BlockItem(mFence->getDescriptionId(), mFence->blockId - 256);
-	//Item::mItems[mSlab->blockId] = new BlockItem(mSlab->getDescriptionId(), mSlab->blockId - 256);
-	Item::mItems[mMushroom->blockId] = new BlockItem(mMushroom->getDescriptionId(), mMushroom->blockId - 256);
-	Item::mItems[mWood->blockId] = new BlockItem(mWood->getDescriptionId(), mWood->blockId - 256);
+	registerItem<BlockItem>(mPlanks->getDescriptionId(), mPlanks->blockId - 256);
+	registerItem<BlockItem>(mBrick->getDescriptionId(), mBrick->blockId - 256);
+	registerItem<BlockItem>(mFence->getDescriptionId(), mFence->blockId - 256);
+	//registerItem<BlockItem>(mSlab->getDescriptionId(), mSlab->blockId - 256);
+	registerItem<BlockItem>(mMushroom->getDescriptionId(), mMushroom->blockId - 256);
+	registerItem<BlockItem>(mWood->getDescriptionId(), mWood->blockId - 256);
 }
 
 void Emerald::initBlockGraphics()
@@ -158,9 +161,9 @@ void Emerald::initBlockGraphics()
 	BlockGraphics::mBlocks[mMushroom->blockId]->setBlockShape(BlockShape::CROSS_TEXTURE);
 	BlockGraphics::mBlocks[mMushroom->blockId]->setSoundType(BlockSoundType::GRASS);
 	
-	BlockGraphics::mBlocks[mWood->blockId] = new BlockGraphics("dirt");
-	BlockGraphics::mBlocks[mWood->blockId]->setTextureItem("log_top", "log_top", "log_side");
-	BlockGraphics::mBlocks[mWood->blockId]->setSoundType(BlockSoundType::WOOD);
+	//BlockGraphics::mBlocks[mWood->blockId] = new BlockGraphics("dirt");
+	//BlockGraphics::mBlocks[mWood->blockId]->setTextureItem("log_top", "log_top", "log_side");
+	//BlockGraphics::mBlocks[mWood->blockId]->setSoundType(BlockSoundType::WOOD);
 }
 
 void Emerald::initCreativeItems()
@@ -187,11 +190,11 @@ void Emerald::initCreativeItems()
 
 void Emerald::initCreativeBlocks()
 {
-	Item::addCreativeItem(mPlanks, 0);
-	Item::addCreativeItem(mBrick, 0);
-	Item::addCreativeItem(mFence, 0);
-	//Item::addCreativeItem(mSlab, 0);
-	Item::addCreativeItem(mMushroom, 0);
-	Item::addCreativeItem(mWood, 0);
+	Item::addCreativeItem(210, 0);
+	Item::addCreativeItem(211, 0);
+	Item::addCreativeItem(212, 0);
+	//Item::addCreativeItem(213, 0);
+	Item::addCreativeItem(214, 0);
+	Item::addCreativeItem(215, 0);
 }
 

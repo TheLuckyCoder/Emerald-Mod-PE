@@ -2,33 +2,27 @@
 
 #include "minecraftpe/world/item/ArmorItem.h"
 
-class EmeraldArmor : public ArmorItem
+class EmeraldHelmet : public ArmorItem
 {
 public:
-	EmeraldArmor(const std::string &name, short id, ArmorSlot armorSlot, const std::string &texture);
+	EmeraldHelmet(const std::string &name, short id);
 };
 
-class EmeraldHelmet : public EmeraldArmor
+class EmeraldChestplate : public ArmorItem
 {
 public:
-	EmeraldHelmet(short id);
+	EmeraldChestplate(const std::string &name, short id);
 };
 
-class EmeraldChestplate : public EmeraldArmor
+class EmeraldLeggings : public ArmorItem
 {
 public:
-	EmeraldChestplate(short id);
+	EmeraldLeggings(const std::string &name, short id);
 };
 
-class EmeraldLeggings : public EmeraldArmor
+class EmeraldBoots : public ArmorItem
 {
 public:
-	EmeraldLeggings(short id);
-};
-
-class EmeraldBoots : public EmeraldArmor
-{
-public:
-	EmeraldBoots(short id);
+	EmeraldBoots(const std::string &name, short id);
 };
 

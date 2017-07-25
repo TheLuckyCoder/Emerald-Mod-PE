@@ -5,61 +5,74 @@
 #include "substrate.h"
 
 #include "minecraftpe/client/locale/Localization.h"
-#include "minecraftpe/world/entity/player/Player.h"
-#include "minecraftpe/world/level/BlockSource.h"
 #include "emeraldmod/Emerald.h"
 #include "emeraldmod/EmeraldRecipes.h"
 
-void (*_registerItems)();
-void registerItems()
+bool loaded = false;
+
+void (*_loadMinecraft)();
+void loadMinecraft()
 {
-	_registerItems();
-	
-	LOG("Init Items");
-	Emerald::registerItems();
-	LOG("Items Initiated");
-	
-	/*LOG("Init BlockItems");
-	Emerald::registerBlockItems();
-	LOG("BlockItems Initiated");*/
+	_loadMinecraft();
+
+	if (!loaded) {
+		LOG("Init Items");
+		Emerald::registerItems();
+		LOG("Items Initiated");
+
+		LOG("Init Blocks");
+		Emerald::registerBlocks();
+		LOG("Blocks Initiated");
+
+		LOG("Init BlockItems");
+		Emerald::registerBlockItems();
+		LOG("BlockItems Initiated");
+
+		loaded = true;
+	}
+
+	LOG("Add Items and Blocks to Creative");
+	Emerald::initCreativeItems();
+	Emerald::initCreativeBlocks();
+	LOG("Items and Blocks added to Creative");
 }
 
 void (*_initClientData)();
 void initClientData()
 {
 	_initClientData();
-	
-	Emerald::registerItems();
-	
+		
 	LOG("Init Item Textures");
-	Emerald::initClientData();
+	Emerald::setItemTextures();
 	LOG("Item Textures Initiated");
 }
 
-void (*_initCreativeItems)();
-void initCreativeItems()
+Item* (*_getArmorForSlot)(ArmorSlot, int);
+Item* getArmorForSlot(ArmorSlot armorSlot, int type)
 {
-	_initCreativeItems();
-	
-	Emerald::registerItems();
-	
-	LOG("Add Items to Creative");
-	Emerald::initCreativeItems();
-	LOG("Items added to Creative");
-	
-	/*LOG("Add Blocks to Creative");
-	Emerald::initCreativeBlocks();
-	LOG("Blocks added to Creative");*/
-}
-
-void (*_initBlocks)();
-void initBlocks()
-{
-	_initBlocks();
-
-	LOG("Init Blocks");
-	Emerald::registerBlocks();
-	LOG("Blocks Initiated");
+	Item* result = null;
+	switch (armorSlot) {
+		case 0:
+			if (type == 6)
+				result = Emerald::mHelmet;
+			break;
+		case 1:
+			if (type == 6)
+				result = Emerald::mChestplate;
+			break;
+		case 2:
+			if (type == 6)
+				result = Emerald::mLeggings;
+			break;
+		case 3:
+			if (type == 6)
+				result = Emerald::mBoots;
+			break;
+	}
+	if (result != null)
+		return result;
+	else
+		return _getArmorForSlot(armorSlot, type);
 }
 
 void (*_initBlockGraphics)(ResourcePackManager&);
@@ -92,14 +105,30 @@ void initFurnaceRecipes(FurnaceRecipes *self)
 	LOG("Furnace Recipes Added");
 }
 
-void (*_Localization$_load)(Localization*, const std::string&);
-void Localization$_load(Localization *self, const std::string &langCode)
-{
-	_Localization$_load(self, langCode);
+void(*_Localization$loadFromPack)(Localization*, std::string const&, PackAccessStrategy&, std::vector<std::string> const&);
+void Localization$loadFromPack(Localization *self, std::string const& s1, PackAccessStrategy& pas, std::vector<std::string> const& stringVec) {
+	_Localization$loadFromPack(self, s1, pas, stringVec);
 	
-	if(langCode == "en_US" || langCode == "de_DE" || langCode == "pt_BR"
-		|| langCode == "ko_KR" || langCode == "zh_CN")
-		_Localization$_load(self, "emeraldmod/" + langCode);
+	if (self->langCode == "en_US" || self->langCode == "de_DE" || self->langCode == "pt_BR"
+		|| self->langCode == "ko_KR" || self->langCode == "zh_CN" || self->langCode == "es_ES") {
+		std::string backupString = self->langCode;
+		self->langCode = "exnihilope/" + self->langCode;
+		_Localization$loadFromPack(self, s1, pas, stringVec);
+		self->langCode = backupString;
+	}
+}
+
+void(*_Localization$loadFromResourcePackManager)(Localization*, ResourcePackManager&, std::vector<std::string> const&);
+void Localization$loadFromResourcePackManager(Localization *self, ResourcePackManager& rpm, std::vector<std::string> const& stringVec) {
+	_Localization$loadFromResourcePackManager(self, rpm, stringVec);
+	
+	if (self->langCode == "en_US" || self->langCode == "de_DE" || self->langCode == "pt_BR"
+		|| self->langCode == "ko_KR" || self->langCode == "zh_CN" || self->langCode == "es_ES") {
+		std::string backupString = self->langCode;
+		self->langCode = "exnihilope/" + self->langCode;
+		_Localization$loadFromResourcePackManager(self, rpm, stringVec);
+		self->langCode = backupString;
+	}
 }
 
 std::string (*_MinecraftScreenModel$getVersionString)();
@@ -115,14 +144,14 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)
 	void* lib = dlopen("libminecraftpe.so", RTLD_LAZY);
 	void* getVersionHook = dlsym(lib, "_ZNK20MinecraftScreenModel16getVersionStringEv");
 	
-	MSHookFunction((void*) &Item::registerItems, (void*) &registerItems, (void**) &_registerItems);
+	MSHookFunction((void*) &Item::initCreativeItems, (void*) &loadMinecraft, (void**) &_loadMinecraft);
 	MSHookFunction((void*) &Item::initClientData, (void*) &initClientData, (void**) &_initClientData);
-	MSHookFunction((void*) &Item::initCreativeItems, (void*) &initCreativeItems, (void**) &_initCreativeItems);
-	//MSHookFunction((void*) &Block::initBlocks, (void*) &initBlocks, (void**) &_initBlocks);
+	//MSHookFunction((void*) &ArmorItem::getArmorForSlot, (void*) &getArmorForSlot, (void**) &_getArmorForSlot);
 	//MSHookFunction((void*) &BlockGraphics::initBlocks, (void*) &initBlockGraphics, (void**) &_initBlockGraphics);
 	//MSHookFunction((void*) &Recipes::init, (void*) &initRecipes, (void**) &_initRecipes);
 	//MSHookFunction((void*) &FurnaceRecipes::_init, (void*) &initFurnaceRecipes, (void**) &_initFurnaceRecipes);
-	//MSHookFunction((void*) &Localization::_load, (void*) &Localization$_load, (void**) &_Localization$_load);
+	MSHookFunction((void*) &Localization::loadFromPack, (void*) &Localization$loadFromPack, (void**) &_Localization$loadFromPack);
+	MSHookFunction((void*) &Localization::loadFromResourcePackManager, (void*) &Localization$loadFromResourcePackManager, (void**) &_Localization$loadFromResourcePackManager);
 	MSHookFunction(getVersionHook, (void*) &MinecraftScreenModel$getVersionString, (void**) &_MinecraftScreenModel$getVersionString);
 	
 	dlclose(lib);

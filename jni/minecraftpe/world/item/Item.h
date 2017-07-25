@@ -34,14 +34,14 @@ class TextureAtlasItem;
 class TextureAtlas;
 namespace Json { class Value; };
 
-// Size: 104
+// Size: 108
 class Item
 {
 public:
 	/* copy constructor */
 	Item(const std::string&, short);
 
-	/* fields */ //need to be updated
+	/* fields */
 	uint8_t _maxStackSize; // 4
 	std::string iconAtlasName; // 8
 	int frameCount; // 12
@@ -51,20 +51,22 @@ public:
 	std::string descriptionName; // 24
 	bool mirroredArt; //28
 	short maxDamage; // 30
-	bool foil; // 32
+	bool glint; // 32
 	bool handEquipped; // 33
 	bool stackedByData; // 34
+	char filler2; // 35
 	int maxUseDuration; // 36
 	bool explodable; // 40
 	bool shouldDespawn; // 41
-	BlockID blockId; // 42
-	UseAnimation useAnimation; // 43
-	CreativeItemCategory creativeCategory; // 44
-	int filler2; // 48
+	bool allowOffHand; // 42
+	char filler3[2]; // 43
+	UseAnimation useAnimation; // 45
+	char filler4[2]; // 46
+	CreativeItemCategory creativeCategory; // 48
 	void* colorFormat; // 52
 	TextureUVCoordinateSet& icon; // 56
 	TextureAtlasItem* customAtlasIcon; // 60
-	int filler3[2]; // 64
+	int filler5[2]; // 64
 	Vec3 vrHandControllerPositionAdjust; // 72
 	Vec3 vrHandControllerRotationAdjust; // 84
 	float vrHandControllerScale; // 96
@@ -72,7 +74,7 @@ public:
 	SeedItemComponent* seedComponent; // 104
 	CameraItemComponent* cameraComponent; // 108
 
-										  /* list */
+	/* list */
 	static Item* mItems[4096];
 	static std::vector<ItemInstance> mCreativeList;
 	static std::unordered_map<std::string, std::pair<const std::string, std::unique_ptr<Item>>> mItemLookupMap;
@@ -111,7 +113,7 @@ public:
 	virtual bool requiresInteract() const;
 	virtual std::string appendFormattedHovertext(const ItemInstance&, Level&, std::string&, bool) const;
 	virtual bool isValidRepairItem(const ItemInstance&, const ItemInstance&) const;
-	virtual short getEnchantSlot() const;
+	virtual int getEnchantSlot() const;
 	virtual short getEnchantValue() const;
 	virtual bool isComplex() const;
 	virtual bool isValidAuxValue(int) const;
@@ -323,3 +325,16 @@ public:
 	static Item* mEmptyMap; // 395
 	static Item* mGoldenCarrot; // 396
 };
+
+template <typename ItemType, typename...Args>
+ItemType& registerItem(const std::string &name, int id, const Args&...rest)
+{
+	const std::string item_name = Util::toLower(name);
+	if (Item::mItemLookupMap.count(item_name) != 0)
+		return *(ItemType*)Item::mItems[id + 256];
+
+	ItemType* new_instance = new ItemType(name, id, rest...);
+	Item::mItems[id + 256] = new_instance;
+	Item::mItemLookupMap.emplace(item_name, std::pair<const std::string, std::unique_ptr<Item>>(item_name, std::unique_ptr<Item>((Item*) new_instance)));
+	return *new_instance;
+}

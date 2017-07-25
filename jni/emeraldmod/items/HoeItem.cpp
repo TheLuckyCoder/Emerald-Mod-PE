@@ -2,9 +2,8 @@
 #include "minecraftpe/world/item/ItemInstance.h"
 #include "minecraftpe/world/entity/Mob.h"
 
-HoeItem::HoeItem(short id) : Item("emerald_hoe", id - 256)
+HoeItem::HoeItem(const std::string &name, short id) : Item(name, id)
 {
-	mItems[id] = this;
 	setCategory(CreativeItemCategory::TOOLS);
 	setMaxStackSize(1);
 	setMaxDamage(2000);

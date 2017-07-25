@@ -5,7 +5,7 @@
 class PaxItem : public Item
 {
 public:
-	PaxItem(short id);
+	PaxItem(const std::string &name, short id);
 	
 	virtual int getAttackDamage() const { return 7; }
 	virtual int getEnchantValue() const { return 10; }

@@ -5,7 +5,7 @@
 class SuperSwordItem : public Item
 {
 public:
-	SuperSwordItem(short id);
+	SuperSwordItem(const std::string &name, short id);
 	
 	virtual int getAttackDamage() const { return 16; }
 	virtual int getEnchantSlot() const { return 16; }

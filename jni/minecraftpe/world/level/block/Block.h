@@ -9,6 +9,7 @@
 #include "../../phys/AABB.h"
 #include "../../material/Material.h"
 #include "BlockShape.h"
+#include "BlockState.h"
 #include "../../../CreativeItemCategory.h"
 #include "BlockSupportType.h"
 #include "entity/BlockEntityType.h"
@@ -27,7 +28,6 @@ class Random;
 struct Vec3;
 class Brightness;
 struct BlockProperty;
-class BlockState { struct BlockStates; };
 
 class Block
 {
@@ -405,3 +405,16 @@ public:
 	static Block* mInfoReserved6; // 255
 };
 
+template <typename BlockType, typename...Args>
+BlockType& registerBlock(const std::string &name, int id, const Args&...rest)
+{
+	const std::string block_name = Util::toLower(name);
+	if (Block::mBlockLookupMap.count(block_name) != 0)
+		return *(BlockType*)Block::mBlocks[id];
+
+	BlockType* new_instance = new BlockType(name, id, rest...);
+	Block::mBlocks[id] = new_instance;
+	Block::mOwnedBlocks.emplace_back(std::unique_ptr<BlockType>(new_instance));
+	Block::mBlockLookupMap.emplace(block_name, (const Block*)new_instance);
+	return *new_instance;
+}

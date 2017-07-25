@@ -5,7 +5,7 @@
 class SuperAxeItem : public Item
 {
 public:
-	SuperAxeItem(short id);
+	SuperAxeItem(const std::string &name, short id);
 	
 	virtual int getAttackDamage() const { return 9; }
 	virtual int getEnchantSlot() const { return 512; }

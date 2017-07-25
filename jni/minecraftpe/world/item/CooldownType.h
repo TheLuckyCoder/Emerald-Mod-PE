@@ -1,8 +1,8 @@
 #pragma once
 
-enum class CooldownType : int 
+enum class CooldownType : int
 {
-	Default = -1,
-	ChorusFruit = 0,
-	Enderpearl = 1
+	DEFAULT = -1,
+	CHORUS_FRUIT = 0,
+	ENDER_PEARL = 1
 };

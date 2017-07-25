@@ -3,9 +3,8 @@
 #include "minecraftpe/world/level/block/Block.h"
 #include "minecraftpe/world/entity/Mob.h"
 
-FlintAndEmerald::FlintAndEmerald(short id) : Item("flint_and_emerald", id - 256)
+FlintAndEmerald::FlintAndEmerald(const std::string &name, short id) : Item(name, id)
 {
-	mItems[id] = this;
 	setCategory(CreativeItemCategory::TOOLS);
 	setMaxStackSize(1);
 	setMaxDamage(2000);

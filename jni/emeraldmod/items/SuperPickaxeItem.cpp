@@ -3,9 +3,8 @@
 #include "minecraftpe/world/entity/Mob.h"
 #include "minecraftpe/world/level/block/Block.h"
 
-SuperPickaxeItem::SuperPickaxeItem(short id) : Item("emerald_pickaxe_super", id - 256)
+SuperPickaxeItem::SuperPickaxeItem(const std::string &name, short id) : Item(name, id)
 {
-	mItems[id] = this;
 	setCategory(CreativeItemCategory::TOOLS);
 	setMaxStackSize(1);
 	setMaxDamage(2600);

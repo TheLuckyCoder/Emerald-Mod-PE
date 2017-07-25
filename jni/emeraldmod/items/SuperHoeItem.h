@@ -5,7 +5,7 @@
 class SuperHoeItem : public Item
 {
 public:
-	SuperHoeItem(short id);
+	SuperHoeItem(const std::string &name, short id);
 	
 	virtual int getAttackDamage() const { return 9; }
 	virtual bool _useOn(ItemInstance&, Entity&, BlockPos, signed char, float, float, float) const;

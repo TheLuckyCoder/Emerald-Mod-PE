@@ -11,7 +11,7 @@ class Emerald
 {
 public:
 	static void registerItems();
-	static void initClientData();
+	static void setItemTextures();
 	static void registerBlocks();
 	static void registerBlockItems();
 	static void initBlockGraphics();

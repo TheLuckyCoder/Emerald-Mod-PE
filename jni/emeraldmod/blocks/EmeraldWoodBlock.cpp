@@ -1,7 +1,7 @@
 #include "EmeraldWoodBlock.h"
 #include "minecraftpe/world/level/block/FireBlock.h"
 
-EmeraldWoodBlock::EmeraldWoodBlock(short id) : Block("emeraldWood", id, Material::getMaterial(MaterialType::WOOD))
+EmeraldWoodBlock::EmeraldWoodBlock(const std::string &name, short id) : Block(name, id, Material::getMaterial(MaterialType::WOOD))
 {
 	mBlocks[id] = this;
 	init();

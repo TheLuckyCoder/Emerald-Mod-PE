@@ -3,9 +3,8 @@
 #include "minecraftpe/world/entity/Mob.h"
 #include "minecraftpe/world/level/block/Block.h"
 
-BattleAxeItem::BattleAxeItem(short id) : Item("emerald_battle_axe", id - 256)
+BattleAxeItem::BattleAxeItem(const std::string &name, short id) : Item(name, id)
 {
-	mItems[id] = this;
 	setCategory(CreativeItemCategory::TOOLS);
 	setMaxStackSize(1);
 	setMaxDamage(2000);
