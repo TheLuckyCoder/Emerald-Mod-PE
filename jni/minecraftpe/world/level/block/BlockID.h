@@ -2,9 +2,10 @@
 
 #include <stdint.h>
 
-struct BlockProperty;
+#include "BlockProperty.h"
 
-struct BlockID {
+struct BlockID
+{
 	uint_fast8_t id;
 
 	BlockID(uint_fast8_t id) : id(id) { }

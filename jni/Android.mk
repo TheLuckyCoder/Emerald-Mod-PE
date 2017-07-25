@@ -2,9 +2,15 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
+define walk
+	$(wildcard $(1)) $(foreach e, $(wildcard $(1)/*), $(call walk, $(e)))
+endef
+
+ALLFILES = $(call walk, $(LOCAL_PATH))
+FILE_LIST := $(filter %.cpp, $(ALLFILES))
+
 LOCAL_MODULE    := theluckycoder.emeraldmod
-LOCAL_SRC_FILES_RAW := $(shell find $(LOCAL_PATH) -name '*.cpp') $(shell find $(LOCAL_PATH) -name '*.c')
-LOCAL_SRC_FILES := $(LOCAL_SRC_FILES_RAW:$(LOCAL_PATH)/%=%)
+LOCAL_SRC_FILES := $(FILE_LIST:$(LOCAL_PATH)/%=%)
 LOCAL_LDLIBS := -L$(LOCAL_PATH)/libs/$(TARGET_ARCH_ABI) -llog -ldl -lminecraftpe -lmcpelauncher_tinysubstrate
 
 TARGET_NO_UNDEFINED_LDFLAGS :=

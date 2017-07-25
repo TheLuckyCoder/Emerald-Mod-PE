@@ -3,11 +3,12 @@
 class PushNotificationMessage;
 
 // size: 4
-// 1.1.4
 class AppPlatformListener
 {
 public:
 	char apl_vars[4]; // 4
+	char filler[24]; // 8
+	char idk[4]; // 32 -- something with terminate
 
 	AppPlatformListener();
 	AppPlatformListener(bool);

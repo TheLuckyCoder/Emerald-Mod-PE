@@ -60,7 +60,7 @@ void Emerald::registerItems()
 	mSword = &registerItem<SwordItem>("emerald_sword", 3904 - 256);
 	mSuperSword = &registerItem<SuperSwordItem>("emerald_sword_super", 3905 - 256);
 	mPickaxe = &registerItem<PickaxeItem>("emerald_pickaxe", 3906 - 256);
-	mSuperPickaxe = &registerItem<SuperPickaxeItem>(3907 - 256);
+	mSuperPickaxe = &registerItem<SuperPickaxeItem>("emerald_pickaxe_super", 3907 - 256);
 	mAxe = &registerItem<AxeItem>("emerald_axe", 3908 - 256);
 	mSuperAxe = &registerItem<SuperAxeItem>("emerald_axe_super", 3909 - 256);
 	mShovel = &registerItem<ShovelItem>("emerald_shovel", 3910 - 256);
@@ -124,9 +124,9 @@ void Emerald::registerBlocks()
 	mSlab->setDestroyTime(2.2f);
 	mSlab->setExplodeable(12);*/
 	
-	mMushroom = &registerBlock<EmeraldMushroomBlock>(214);
+	mMushroom = &registerBlock<EmeraldMushroomBlock>("emerald_mushroom", 214);
 	
-	//mWood = &registerBlock<EmeraldWoodBlock>(215);
+	//mWood = &registerBlock<EmeraldWoodBlock>("emerald_wood", 215);
 }
 
 void Emerald::registerBlockItems()
@@ -136,7 +136,7 @@ void Emerald::registerBlockItems()
 	registerItem<BlockItem>(mFence->getDescriptionId(), mFence->blockId - 256);
 	//registerItem<BlockItem>(mSlab->getDescriptionId(), mSlab->blockId - 256);
 	registerItem<BlockItem>(mMushroom->getDescriptionId(), mMushroom->blockId - 256);
-	registerItem<BlockItem>(mWood->getDescriptionId(), mWood->blockId - 256);
+	//registerItem<BlockItem>(mWood->getDescriptionId(), mWood->blockId - 256);
 }
 
 void Emerald::initBlockGraphics()
@@ -195,6 +195,6 @@ void Emerald::initCreativeBlocks()
 	Item::addCreativeItem(212, 0);
 	//Item::addCreativeItem(213, 0);
 	Item::addCreativeItem(214, 0);
-	Item::addCreativeItem(215, 0);
+	//Item::addCreativeItem(215, 0);
 }
 

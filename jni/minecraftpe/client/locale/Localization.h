@@ -9,6 +9,10 @@ class PackAccessStrategy;
 class Localization
 {
 public:
+	unsigned char commaSeperator; // 0
+	std::string langCode; // 4
+	char filler[0x23];
+
 	Localization(std::string const&);
 	Localization(std::string const&, Localization*);
 	

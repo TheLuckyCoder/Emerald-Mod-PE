@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <unordered_map>
 
 #include "../../../client/render/TextureUVCoordinateSet.h"
 #include "../../../util/Color.h"
@@ -14,6 +15,7 @@
 #include "BlockSupportType.h"
 #include "entity/BlockEntityType.h"
 #include "BlockID.h"
+#include "../../../util/Util.h"
 
 class BlockEntity;
 class Container;
@@ -27,7 +29,6 @@ class ItemInstance;
 class Random;
 struct Vec3;
 class Brightness;
-enum class BlockProperty;
 enum class BlockRenderLayer;
 
 class Block
@@ -158,7 +159,7 @@ public:
 	virtual int getColor(BlockSource&, const BlockPos&, unsigned char) const;
 	virtual int getColorForParticle(BlockSource&, const BlockPos&, int) const;
 	virtual bool isSeasonTinted(BlockSource&, const BlockPos&) const;
-	virtual Block* onGraphicsModeChanged(bool, bool, bool);
+	virtual void onGraphicsModeChanged(bool, bool, bool);
 	virtual int getRenderLayer(BlockSource&, const BlockPos&) const;
 	virtual int getExtraRenderLayers() const;
 	virtual const AABB& getVisualShape(BlockSource&, const BlockPos&, AABB&, bool) const;
@@ -198,7 +199,7 @@ public:
 	Material& getMaterial() const;
 	Block* lookupByName(const std::string&, bool);
 	
-	static std::unordered_map<std::string, Block const*> mBlockLookupMap;
+	static std::unordered_map<std::string, const Block*> mBlockLookupMap;
 	static std::vector<std::unique_ptr<Block>> mOwnedBlocks;
 	static Block* mBlocks[256];
 	static bool mSolid[256];

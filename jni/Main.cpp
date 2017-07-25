@@ -50,7 +50,7 @@ void initClientData()
 Item* (*_getArmorForSlot)(ArmorSlot, int);
 Item* getArmorForSlot(ArmorSlot armorSlot, int type)
 {
-	Item* result = null;
+	Item* result = NULL;
 	switch (armorSlot) {
 		case 0:
 			if (type == 6)
@@ -105,27 +105,27 @@ void initFurnaceRecipes(FurnaceRecipes *self)
 	LOG("Furnace Recipes Added");
 }
 
-void(*_Localization$loadFromPack)(Localization*, std::string const&, PackAccessStrategy&, std::vector<std::string> const&);
+void (*_Localization$loadFromPack)(Localization*, std::string const&, PackAccessStrategy&, std::vector<std::string> const&);
 void Localization$loadFromPack(Localization *self, std::string const& s1, PackAccessStrategy& pas, std::vector<std::string> const& stringVec) {
 	_Localization$loadFromPack(self, s1, pas, stringVec);
 	
 	if (self->langCode == "en_US" || self->langCode == "de_DE" || self->langCode == "pt_BR"
 		|| self->langCode == "ko_KR" || self->langCode == "zh_CN" || self->langCode == "es_ES") {
 		std::string backupString = self->langCode;
-		self->langCode = "exnihilope/" + self->langCode;
+		self->langCode = "emeraldmod/" + self->langCode;
 		_Localization$loadFromPack(self, s1, pas, stringVec);
 		self->langCode = backupString;
 	}
 }
 
-void(*_Localization$loadFromResourcePackManager)(Localization*, ResourcePackManager&, std::vector<std::string> const&);
+void (*_Localization$loadFromResourcePackManager)(Localization*, ResourcePackManager&, std::vector<std::string> const&);
 void Localization$loadFromResourcePackManager(Localization *self, ResourcePackManager& rpm, std::vector<std::string> const& stringVec) {
 	_Localization$loadFromResourcePackManager(self, rpm, stringVec);
 	
 	if (self->langCode == "en_US" || self->langCode == "de_DE" || self->langCode == "pt_BR"
 		|| self->langCode == "ko_KR" || self->langCode == "zh_CN" || self->langCode == "es_ES") {
 		std::string backupString = self->langCode;
-		self->langCode = "exnihilope/" + self->langCode;
+		self->langCode = "emeraldmod/" + self->langCode;
 		_Localization$loadFromResourcePackManager(self, rpm, stringVec);
 		self->langCode = backupString;
 	}
@@ -154,7 +154,6 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)
 	MSHookFunction((void*) &Localization::loadFromResourcePackManager, (void*) &Localization$loadFromResourcePackManager, (void**) &_Localization$loadFromResourcePackManager);
 	MSHookFunction(getVersionHook, (void*) &MinecraftScreenModel$getVersionString, (void**) &_MinecraftScreenModel$getVersionString);
 	
-	dlclose(lib);
 	return JNI_VERSION_1_6;
 }
 

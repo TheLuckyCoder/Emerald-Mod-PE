@@ -47,7 +47,7 @@ public:
 	virtual std::string appendFormattedHovertext(const ItemInstance&, Level&, std::string&, bool) const;
 	virtual bool isValidRepairItem(const ItemInstance&, const ItemInstance&) const;
 	virtual int getEnchantSlot() const;
-	virtual short getEnchantValue() const;
+	virtual int getEnchantValue() const;
 	virtual int getDamageChance(int) const;
 	virtual Color getColor(const ItemInstance&) const;
 	virtual bool isTintable() const;
