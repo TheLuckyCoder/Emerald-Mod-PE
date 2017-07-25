@@ -5,6 +5,7 @@
 #include "substrate.h"
 
 #include "minecraftpe/client/locale/Localization.h"
+#include "minecraftpe/world/item/ArmorSlot.h"
 #include "emeraldmod/Emerald.h"
 #include "emeraldmod/EmeraldRecipes.h"
 
@@ -52,19 +53,19 @@ Item* getArmorForSlot(ArmorSlot armorSlot, int type)
 {
 	Item* result = NULL;
 	switch (armorSlot) {
-		case 0:
+		case ArmorSlot::HELMET:
 			if (type == 6)
 				result = Emerald::mHelmet;
 			break;
-		case 1:
+		case ArmorSlot::CHESTPLATE:
 			if (type == 6)
 				result = Emerald::mChestplate;
 			break;
-		case 2:
+		case ArmorSlot::LEGGINGS:
 			if (type == 6)
 				result = Emerald::mLeggings;
 			break;
-		case 3:
+		case ArmorSlot::BOOTS:
 			if (type == 6)
 				result = Emerald::mBoots;
 			break;
@@ -105,21 +106,21 @@ void initFurnaceRecipes(FurnaceRecipes *self)
 	LOG("Furnace Recipes Added");
 }
 
-void (*_Localization$loadFromPack)(Localization*, std::string const&, PackAccessStrategy&, std::vector<std::string> const&);
-void Localization$loadFromPack(Localization *self, std::string const& s1, PackAccessStrategy& pas, std::vector<std::string> const& stringVec) {
+void (*_Localization$loadFromPack)(Localization*, const std::string&, PackAccessStrategy&, const std::vector<std::string> const&);
+void Localization$loadFromPack(Localization *self, const std::string &s, PackAccessStrategy &pas, const std::vector<std::string> &stringVec) {
 	_Localization$loadFromPack(self, s1, pas, stringVec);
 	
 	if (self->langCode == "en_US" || self->langCode == "de_DE" || self->langCode == "pt_BR"
 		|| self->langCode == "ko_KR" || self->langCode == "zh_CN" || self->langCode == "es_ES") {
 		std::string backupString = self->langCode;
 		self->langCode = "emeraldmod/" + self->langCode;
-		_Localization$loadFromPack(self, s1, pas, stringVec);
+		_Localization$loadFromPack(self, s, pas, stringVec);
 		self->langCode = backupString;
 	}
 }
 
-void (*_Localization$loadFromResourcePackManager)(Localization*, ResourcePackManager&, std::vector<std::string> const&);
-void Localization$loadFromResourcePackManager(Localization *self, ResourcePackManager& rpm, std::vector<std::string> const& stringVec) {
+void (*_Localization$loadFromResourcePackManager)(Localization*, ResourcePackManager&, const std::vector<std::string>&);
+void Localization$loadFromResourcePackManager(Localization *self, ResourcePackManager &rpm, const std::vector<std::string> &stringVec) {
 	_Localization$loadFromResourcePackManager(self, rpm, stringVec);
 	
 	if (self->langCode == "en_US" || self->langCode == "de_DE" || self->langCode == "pt_BR"
@@ -147,7 +148,7 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)
 	MSHookFunction((void*) &Item::initCreativeItems, (void*) &loadMinecraft, (void**) &_loadMinecraft);
 	MSHookFunction((void*) &Item::initClientData, (void*) &initClientData, (void**) &_initClientData);
 	//MSHookFunction((void*) &ArmorItem::getArmorForSlot, (void*) &getArmorForSlot, (void**) &_getArmorForSlot);
-	//MSHookFunction((void*) &BlockGraphics::initBlocks, (void*) &initBlockGraphics, (void**) &_initBlockGraphics);
+	MSHookFunction((void*) &BlockGraphics::initBlocks, (void*) &initBlockGraphics, (void**) &_initBlockGraphics);
 	//MSHookFunction((void*) &Recipes::init, (void*) &initRecipes, (void**) &_initRecipes);
 	//MSHookFunction((void*) &FurnaceRecipes::_init, (void*) &initFurnaceRecipes, (void**) &_initFurnaceRecipes);
 	MSHookFunction((void*) &Localization::loadFromPack, (void*) &Localization$loadFromPack, (void**) &_Localization$loadFromPack);
