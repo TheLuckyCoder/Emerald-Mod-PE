@@ -116,7 +116,7 @@ public:
 	virtual std::string appendFormattedHovertext(const ItemInstance&, Level&, std::string&, bool) const;
 	virtual bool isValidRepairItem(const ItemInstance&, const ItemInstance&) const;
 	virtual int getEnchantSlot() const;
-	virtual short getEnchantValue() const;
+	virtual int getEnchantValue() const;
 	virtual bool isComplex() const;
 	virtual bool isValidAuxValue(int) const;
 	virtual int getDamageChance(int) const;
@@ -154,7 +154,6 @@ public:
 	void initServer(Json::Value&);
 	void initClient(Json::Value&, Json::Value&);
 	Item* setIsMirroredArt(bool);
-	void* getTextureUVCoordinateSet(const std::string&, int);
 	void* getTextureItem(const std::string&);
 	void* lookupByName(const std::string&, bool);
 	void* _textMatch(const std::string&, const std::string&, bool);

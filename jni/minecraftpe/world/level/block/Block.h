@@ -10,7 +10,7 @@
 #include "../../material/Material.h"
 #include "BlockShape.h"
 #include "BlockState.h"
-#include "../../../CreativeItemCategory.h"
+#include "../../item/CreativeItemCategory.h"
 #include "BlockSupportType.h"
 #include "entity/BlockEntityType.h"
 #include "BlockID.h"
@@ -27,7 +27,8 @@ class ItemInstance;
 class Random;
 struct Vec3;
 class Brightness;
-struct BlockProperty;
+enum class BlockProperty;
+enum class BlockRenderLayer;
 
 class Block
 {
@@ -39,8 +40,8 @@ public:
 	bool replaceable; // 16
 	bool canBuildOver; // 17
 	short filler1; // 18
-	int renderLayer; // 20
-	BlockProperty blockProperty; // 24
+	BlockRenderLayer renderLayer; // 20
+	std::vector<BlockProperty> properties; // 24
 	BlockEntityType blockEntityType; // 28
 	bool animates; // 32
 	char filler2[3]; // 33
@@ -51,30 +52,17 @@ public:
 	short filler3; // 46
 	float gravity; // 48
 	Material& material; // 52
-	Color mapColor1; // 56
-	Color mapColor2; // 60
-	Color mapColor3; // 64
-	Color mapColor4; // 68
-	float friction; // 72
+	Color mapColor[4]; // 56
 	bool heavy; // 76
-	char filler4[7]; // 77
+	char filler4[6]; // 77
+	float particleQuantity; // 80
 	float destroyTime; // 84
 	float explosionResistance; // 88
 	CreativeItemCategory creativeCategory; // 92
 	bool allowRunes; // 96
 	char filler5[31]; // 97
 	int bitsUsed; // 128
-	int filler6[24]; // 132
-	bool shouldStopFalling; // 214
-
-
-	static std::vector<std::unique_ptr<Block>> mOwnedBlocks;
-	static Block* mBlocks[256];
-	static bool mSolid[256];
-	static float mTranslucency[256];
-	static uint8_t mLightBlock[256];
-	static int mLightEmission[256];
-	static bool mShouldTick[256];
+	BlockState blockStates[42]; // 132
 
 	Block(const std::string&, int, const Material&);
 
@@ -210,6 +198,15 @@ public:
 	Material& getMaterial() const;
 	Block* lookupByName(const std::string&, bool);
 	
+	static std::unordered_map<std::string, Block const*> mBlockLookupMap;
+	static std::vector<std::unique_ptr<Block>> mOwnedBlocks;
+	static Block* mBlocks[256];
+	static bool mSolid[256];
+	static float mTranslucency[256];
+	static uint8_t mLightBlock[256];
+	static int mLightEmission[256];
+	static bool mShouldTick[256];
+
 	static void initBlocks();
 	static void teardownBlocks();
 

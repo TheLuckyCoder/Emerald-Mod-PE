@@ -16,6 +16,9 @@ public:
 
 	enum class TravelType;
 
+	Mob(EntityDefinitionGroup&, EntityDefinitionIdentifier const&);
+	Mob(Level&);
+
 	// virtual
 	virtual void reloadHardcodedClient(Entity::InitializationMethod, const VariantParameterList&);
 	virtual void initializeComponents(Entity::InitializationMethod, const VariantParameterList&);
@@ -44,7 +47,7 @@ public:
 	virtual void causeFallDamage(float);
 	virtual bool canAddRider(Entity&) const;
 	virtual bool canBePulledIntoVehicle() const;
-	virtual bool inCaravan() const;
+	virtual void inCaravan() const;
 	virtual void stopRiding(bool, bool);
 	virtual void buildDebugInfo(std::string&) const;
 	virtual float getYHeadRot() const;
@@ -160,8 +163,6 @@ public:
 	virtual void _endJump();
 
 	// non virtual
-	Mob(EntityDefinitionGroup&, EntityDefinitionIdentifier const&);
-	Mob(Level&);
 	void registerAttributes();
 	void resetAttributes();
 	void createAIGoals();
@@ -207,7 +208,6 @@ public:
 	float getCurrentSwingDuration();
 	void updateAttackAnim();
 	ItemInstance& getItemSlot(EquipmentSlot);
-	void setItemSlot(EquipmentSlot, ItemInstance&);
 	void* getNavigation();
 	void* getLookControl();
 	void* getMoveControl();

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <memory>
-#include "../../UseAnimation.h"
+#include "UseAnimation.h"
 
 class CompoundTag;
 class Item;
