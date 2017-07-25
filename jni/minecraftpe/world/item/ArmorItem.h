@@ -44,7 +44,7 @@ public:
 	
 	//virtual ~ArmorItem();
 	virtual bool isArmor() const;
-	virtual void appendFormattedHovertext(const ItemInstance&, Level&, std::string&, bool) const;
+	virtual std::string appendFormattedHovertext(const ItemInstance&, Level&, std::string&, bool) const;
 	virtual bool isValidRepairItem(const ItemInstance&, const ItemInstance&) const;
 	virtual int getEnchantSlot() const;
 	virtual short getEnchantValue() const;
@@ -54,7 +54,7 @@ public:
 	virtual bool use(ItemInstance&, Player&) const;
 	virtual void dispense(BlockSource&, Container&, int, const Vec3&, signed char) const;
 	virtual void hurtEnemy(ItemInstance&, Mob*, Mob*) const;
-	virtual void mineBlock(ItemInstance&, BlockID, int, int, int, Entity*) const;
+	virtual bool mineBlock(ItemInstance&, BlockID, int, int, int, Entity*) const;
 	virtual const TextureUVCoordinateSet& getIcon(int, int, bool) const;
 	
 	ItemInstance getTierItem() const;

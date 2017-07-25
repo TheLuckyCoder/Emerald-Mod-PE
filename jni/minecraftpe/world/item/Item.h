@@ -11,6 +11,8 @@
 #include "../level/block/BlockShape.h"
 #include "../level/BlockPos.h"
 #include "CooldownType.h"
+#include "../phys/Vec3.h"
+#include "../../util/Util.h"
 
 class TextureUVCoordinateSet;
 class SeedItemComponent;
@@ -149,25 +151,14 @@ public:
 	virtual bool _useOn(ItemInstance&, Entity&, BlockPos, signed char, float, float, float) const;
 
 	void setTextureAtlas(std::shared_ptr<TextureAtlas>);
-	void* initServer(Json::Value&);
-	void* initClient(Json::Value&, Json::Value&);
-	void* registerItems();
-	void* initCreativeItems();
-	void* initServerData(ResourcePackManager&);
-	void* initClientData();
-	void* addCreativeItem(short, short);
-	void* addCreativeItem(const ItemInstance&);
-	void* addCreativeItem(Block const*, short);
-	void* addCreativeItem(Item*, short);
-	void* addBlockItems();
-	void* teardownItems();
-	void setIsMirroredArt(bool);
+	void initServer(Json::Value&);
+	void initClient(Json::Value&, Json::Value&);
+	Item* setIsMirroredArt(bool);
 	void* getTextureUVCoordinateSet(const std::string&, int);
 	void* getTextureItem(const std::string&);
 	void* lookupByName(const std::string&, bool);
 	void* _textMatch(const std::string&, const std::string&, bool);
 	void setAllowOffhand(bool);
-	void setIsMirroredArt(bool);
 	bool allowOffhand() const;
 	float destroySpeedBonus(const ItemInstance&) const;
 	void updateCustomBlockEntityTag(BlockSource&, ItemInstance&, BlockPos&) const;
