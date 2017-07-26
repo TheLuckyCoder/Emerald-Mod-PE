@@ -5,7 +5,7 @@
 #include "substrate.h"
 
 #include "minecraftpe/client/locale/Localization.h"
-#include "minecraftpe/world/item/ArmorSlot.h"
+#include "minecraftpe/world/item/ArmorItem.h"
 #include "emeraldmod/Emerald.h"
 #include "emeraldmod/EmeraldRecipes.h"
 
@@ -70,7 +70,7 @@ Item* getArmorForSlot(ArmorSlot armorSlot, int type)
 				result = Emerald::mBoots;
 			break;
 	}
-	if (result != null)
+	if (result != NULL)
 		return result;
 	else
 		return _getArmorForSlot(armorSlot, type);
@@ -106,23 +106,11 @@ void initFurnaceRecipes(FurnaceRecipes *self)
 	LOG("Furnace Recipes Added");
 }
 
-void (*_Localization$loadFromPack)(Localization*, const std::string&, PackAccessStrategy&, const std::vector<std::string> const&);
-void Localization$loadFromPack(Localization *self, const std::string &s, PackAccessStrategy &pas, const std::vector<std::string> &stringVec) {
-	_Localization$loadFromPack(self, s1, pas, stringVec);
-	
-	if (self->langCode == "en_US" || self->langCode == "de_DE" || self->langCode == "pt_BR"
-		|| self->langCode == "ko_KR" || self->langCode == "zh_CN" || self->langCode == "es_ES") {
-		std::string backupString = self->langCode;
-		self->langCode = "emeraldmod/" + self->langCode;
-		_Localization$loadFromPack(self, s, pas, stringVec);
-		self->langCode = backupString;
-	}
-}
-
 void (*_Localization$loadFromResourcePackManager)(Localization*, ResourcePackManager&, const std::vector<std::string>&);
 void Localization$loadFromResourcePackManager(Localization *self, ResourcePackManager &rpm, const std::vector<std::string> &stringVec) {
 	_Localization$loadFromResourcePackManager(self, rpm, stringVec);
 	
+	LOG("Load lang from ResourcePackManager");
 	if (self->langCode == "en_US" || self->langCode == "de_DE" || self->langCode == "pt_BR"
 		|| self->langCode == "ko_KR" || self->langCode == "zh_CN" || self->langCode == "es_ES") {
 		std::string backupString = self->langCode;
@@ -132,28 +120,17 @@ void Localization$loadFromResourcePackManager(Localization *self, ResourcePackMa
 	}
 }
 
-std::string (*_MinecraftScreenModel$getVersionString)();
-std::string MinecraftScreenModel$getVersionString()
-{
-	return "Emerald Mod 1.6.1/" + _MinecraftScreenModel$getVersionString();
-}
-
 JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved) 
 {
 	LOG("Function Hooking Started");
-	
-	void* lib = dlopen("libminecraftpe.so", RTLD_LAZY);
-	void* getVersionHook = dlsym(lib, "_ZNK20MinecraftScreenModel16getVersionStringEv");
-	
+		
 	MSHookFunction((void*) &Item::initCreativeItems, (void*) &loadMinecraft, (void**) &_loadMinecraft);
 	MSHookFunction((void*) &Item::initClientData, (void*) &initClientData, (void**) &_initClientData);
-	//MSHookFunction((void*) &ArmorItem::getArmorForSlot, (void*) &getArmorForSlot, (void**) &_getArmorForSlot);
+	MSHookFunction((void*) &ArmorItem::getArmorForSlot, (void*) &getArmorForSlot, (void**) &_getArmorForSlot);
 	MSHookFunction((void*) &BlockGraphics::initBlocks, (void*) &initBlockGraphics, (void**) &_initBlockGraphics);
 	//MSHookFunction((void*) &Recipes::init, (void*) &initRecipes, (void**) &_initRecipes);
 	//MSHookFunction((void*) &FurnaceRecipes::_init, (void*) &initFurnaceRecipes, (void**) &_initFurnaceRecipes);
-	MSHookFunction((void*) &Localization::loadFromPack, (void*) &Localization$loadFromPack, (void**) &_Localization$loadFromPack);
 	MSHookFunction((void*) &Localization::loadFromResourcePackManager, (void*) &Localization$loadFromResourcePackManager, (void**) &_Localization$loadFromResourcePackManager);
-	MSHookFunction(getVersionHook, (void*) &MinecraftScreenModel$getVersionString, (void**) &_MinecraftScreenModel$getVersionString);
 	
 	return JNI_VERSION_1_6;
 }

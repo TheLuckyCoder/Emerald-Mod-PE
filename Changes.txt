@@ -1,5 +1,6 @@
 1.6.1
-Update for 1.1.2
+Update for 1.1.4
+Add ingame Spanish translations
 Improve instructions
 Increase all blocks explosion resistance
 Change all block IDs
@@ -53,7 +54,7 @@ Fix Item and Block Names
 Fix some problems with the Emerald Tools
 Remove Emerald Mod version from main screen, becuase it was causing lag 
 
-﻿1.5.0
+1.5.0
 Update for MCPE 1.0
 New app icon
 Add Emerald Fence

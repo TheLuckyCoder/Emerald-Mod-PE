@@ -16,7 +16,7 @@
 	
 	<uses-sdk
 		android:minSdkVersion="14"
-		android:targetSdkVersion="25" />
+		android:targetSdkVersion="26" />
 
     <application
         android:icon="@mipmap/ic_launcher"
@@ -27,7 +27,7 @@
 			android:value="2.1" />
 		<meta-data
 			android:name="net.zhuoweizhang.mcpelauncher.api.nativelibname"
-        	android:value="theluckycoder.emeraldmod" />
+        	android:value="emeraldmod" />
     	<meta-data
 			android:name="net.zhuoweizhang.mcpelauncher.api.targetmcpeversion"
 			android:value="@string/supported_version_number" />

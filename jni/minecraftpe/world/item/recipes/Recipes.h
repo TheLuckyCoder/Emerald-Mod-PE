@@ -13,9 +13,8 @@ class RepairItemRecipe;;
 class Recipes
 {
 public:
-	class Type
+	struct Type
 	{
-	public:
 		Item* item;
 		Block* block;
 		ItemInstance inst;

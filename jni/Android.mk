@@ -9,7 +9,7 @@ endef
 ALLFILES = $(call walk, $(LOCAL_PATH))
 FILE_LIST := $(filter %.cpp, $(ALLFILES))
 
-LOCAL_MODULE    := theluckycoder.emeraldmod
+LOCAL_MODULE    := emeraldmod
 LOCAL_SRC_FILES := $(FILE_LIST:$(LOCAL_PATH)/%=%)
 LOCAL_LDLIBS := -L$(LOCAL_PATH)/libs/$(TARGET_ARCH_ABI) -llog -ldl -lminecraftpe -lmcpelauncher_tinysubstrate
 

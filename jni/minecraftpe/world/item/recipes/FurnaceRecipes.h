@@ -1,21 +1,21 @@
 #pragma once
 
 #include <memory>
+
 class ItemInstance;
 
 class FurnaceRecipes
 {
-private:
-	void _init();
 public:
 	FurnaceRecipes();
-	
+
 	bool isFurnaceItem(const ItemInstance*) const;
 	ItemInstance getResult(const ItemInstance*) const;
 	void addFurnaceRecipe(int, const ItemInstance&);
 	void addFurnaceRecipeAuxData(short, short, const ItemInstance&);
 	void getResult(const ItemInstance*);
 	bool isFurnaceItem(const ItemInstance*);
+	void _init();
 
 	// static
 	static void init();

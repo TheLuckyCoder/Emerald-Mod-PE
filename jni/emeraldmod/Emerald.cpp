@@ -53,10 +53,10 @@ Block* Emerald::mWood;
 
 void Emerald::registerItems()
 {
-	//mHelmet = &registerItem<EmeraldHelmet>("emerald_helmet", 3900 - 256);
-	//mChestplate = &registerItem<EmeraldChestplate>("emerald_chestplate", 3901 - 256);
-	//mLeggings = &registerItem<EmeraldLeggings>("emerald_leggings", 3902 - 256);
-	//mBoots = &registerItem<EmeraldBoots>("emerald_boots", 3903 - 256);
+	mHelmet = &registerItem<EmeraldHelmet>("emerald_helmet", 3900 - 256);
+	mChestplate = &registerItem<EmeraldChestplate>("emerald_chestplate", 3901 - 256);
+	mLeggings = &registerItem<EmeraldLeggings>("emerald_leggings", 3902 - 256);
+	mBoots = &registerItem<EmeraldBoots>("emerald_boots", 3903 - 256);
 	mSword = &registerItem<SwordItem>("emerald_sword", 3904 - 256);
 	mSuperSword = &registerItem<SuperSwordItem>("emerald_sword_super", 3905 - 256);
 	mPickaxe = &registerItem<PickaxeItem>("emerald_pickaxe", 3906 - 256);
@@ -78,10 +78,10 @@ void Emerald::registerItems()
 
 void Emerald::setItemTextures()
 {
-	//mHelmet->setIcon("emerald_helmet", 0);
-	//mChestplate->setIcon("emerald_chestplate", 0);
-	//mLeggings->setIcon("emerald_leggings", 0);
-	//mBoots->setIcon("emerald_boots", 0);
+	mHelmet->setIcon("emerald_helmet", 0);
+	mChestplate->setIcon("emerald_chestplate", 0);
+	mLeggings->setIcon("emerald_leggings", 0);
+	mBoots->setIcon("emerald_boots", 0);
 	mSword->setIcon("emerald_sword", 0);
 	mSuperSword->setIcon("emerald_sword", 1);
 	mPickaxe->setIcon("emerald_pickaxe", 0);
@@ -168,9 +168,7 @@ void Emerald::initBlockGraphics()
 
 void Emerald::initCreativeItems()
 {
-	for (short id = 3904; id <= 3919; ++id)
-		Item::addCreativeItem(id, 0);
-	/*Item::addCreativeItem(mSword, 0);
+	Item::addCreativeItem(mSword, 0);
 	Item::addCreativeItem(mSuperSword, 0);
 	Item::addCreativeItem(mPickaxe, 0);
 	Item::addCreativeItem(mSuperPickaxe, 0);
@@ -185,16 +183,16 @@ void Emerald::initCreativeItems()
 	Item::addCreativeItem(mSpear, 0);
 	Item::addCreativeItem(mBattleAxe, 0);
 	Item::addCreativeItem(mStick, 0);
-	Item::addCreativeItem(mNugget, 0);*/
+	Item::addCreativeItem(mNugget, 0);
 }
 
 void Emerald::initCreativeBlocks()
 {
-	Item::addCreativeItem(210, 0);
-	Item::addCreativeItem(211, 0);
-	Item::addCreativeItem(212, 0);
-	//Item::addCreativeItem(213, 0);
-	Item::addCreativeItem(214, 0);
-	//Item::addCreativeItem(215, 0);
+	Item::addCreativeItem(mPlanks, 0);
+	Item::addCreativeItem(mBrick, 0);
+	Item::addCreativeItem(mFence, 0);
+	//Item::addCreativeItem(mSlab, 0);
+	Item::addCreativeItem(mMushroom, 0);
+	//Item::addCreativeItem(mWood, 0);
 }
 

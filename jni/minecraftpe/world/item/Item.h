@@ -79,7 +79,7 @@ public:
 	/* list */
 	static Item* mItems[4096];
 	static std::vector<ItemInstance> mCreativeList;
-	static std::unordered_map<std::string, std::pair<const std::string, std::unique_ptr<Item>>> mItemLookupMap;
+	static std::unordered_map<std::string, std::unique_ptr<Item>> mItemLookupMap;
 	static Random* mRandom;
 
 	/* vtable */
@@ -325,6 +325,6 @@ ItemType& registerItem(const std::string &name, int id, const Args&...rest)
 
 	ItemType* new_instance = new ItemType(name, id, rest...);
 	Item::mItems[id + 256] = new_instance;
-	Item::mItemLookupMap.emplace(item_name, std::pair<const std::string, std::unique_ptr<Item>>(item_name, std::unique_ptr<Item>((Item*) new_instance)));
+	Item::mItemLookupMap.emplace(item_name, std::unique_ptr<Item>((Item*) new_instance));
 	return *new_instance;
 }
