@@ -115,7 +115,7 @@ void EmeraldRecipes::initRecipes(Recipes *recipes)
 	
 	// Fence
 	pushIngredient(Emerald::mStick, 's');
-	pushIngredient(Emerald::mPlanks->blockId, 0, 'p');
+	pushIngredient(Emerald::mPlanks, 'p');
 	addRecipe(Emerald::mBrick->blockId, 1, 0, {" n ", "nbn", " n "});
 }
 
@@ -129,16 +129,23 @@ void EmeraldRecipes::initFurnaceRecipes(FurnaceRecipes *recipes)
 	recipes->addFurnaceRecipe(Emerald::mHoe->itemId, ItemInstance(Emerald::mNugget->itemId, 2, 0));
 }
 
+void EmeraldRecipes::pushIngredient(Block *block, char letter)
+{
+	Recipes::Type type {NULL, block, ItemInstance(*block, 1, 0), letter};
+	_ingredients.push_back(type);
+}
+
 void EmeraldRecipes::pushIngredient(Item *item, char letter)
 {
-	pushIngredient(item->itemId, 0, letter);
+	Recipes::Type type {item, NULL, ItemInstance(*item, 1, 0), letter};
+	_ingredients.push_back(type);
 }
 
 void EmeraldRecipes::pushIngredient(short id, short data, char letter)
 {
 	Recipes::Type type {Item::mItems[id], NULL, ItemInstance(id, 1, data), letter};
 	_ingredients.push_back(type);
-} 
+}
 
 void EmeraldRecipes::addRecipe(short outputId, short outputCount, short outputData, const std::vector<std::string> &shape)
 {

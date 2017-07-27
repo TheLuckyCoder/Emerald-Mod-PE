@@ -34,7 +34,6 @@ public:
 	int filler1; // 16
 	BlockShape blockShape; // 20
 	bool unknown; // 24
-	char filler2[3]; // 25
 	float brightnessGamma; // 28
 	Color mapColor[4]; // 32
 	int filler3; // 48

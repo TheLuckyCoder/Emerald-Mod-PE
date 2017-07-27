@@ -1,123 +1,180 @@
 #pragma once
 
 #include <memory>
+
 #include "UseAnimation.h"
 
-class CompoundTag;
 class Item;
 class Block;
-class ItemEnchants;
-class Mob;
-class Player;
+class CompoundTag;
 class Level;
 class Entity;
+class Mob;
+class Player;
+class ItemEnchants;
+class BlockEntity;
+class BlockSource;
+class IDataInput;
+class IDataOutput;
+class BlockID;
+namespace Json { class Value; };
 
-class ItemInstance {
+class ItemInstance
+{
 public:
-    unsigned char count;
-    unsigned short aux;
-    CompoundTag* userData;
-    bool valid;
-    Item* item;
-    Block* block;
-	
-	static void* TAG_ENCHANTS;
-	static void* TAG_DISPLAY;
-	static void* MAX_STACK_SIZE;
-	static void* TAG_REPAIR_COST;
-	static void* TAG_DISPLAY_NAME;
-	static void* TAG_LORE;
+	unsigned char count;
+	short data;
+	bool valid;
+	CompoundTag* nbt;
+	Item* item;
+	Block* tile;
+	std::vector<const Block*> blockVec1;
+	std::vector<const Block*> blockVec2;
 
 	ItemInstance();
-	ItemInstance(const Block*);
-	ItemInstance(const Block*, int);
-	ItemInstance(const Block*, int, int);
-	ItemInstance(const Item*);
-	ItemInstance(const Item*, int);
-	ItemInstance(const Item*, int, int);
-	ItemInstance(const Item*, int, int, const CompoundTag*);
-	ItemInstance(const ItemInstance&);
-	ItemInstance(bool);
-	ItemInstance(int ,int, int);
-	ItemInstance(int, int, int, const CompoundTag*);
+	ItemInstance(int, int, int);
+	ItemInstance(int, int, int, CompoundTag const*);
+	ItemInstance(ItemInstance const&);
 
-    void _getHoverFormattingPrefix();
-    void _setItem(int);
-    void add(int);
-    bool canDestroySpecial(Block *);
-    int getAttackDamage();
-    int getAuxValue() const;
-    int getBaseRepairCost();
-    std::string getCustomName() const;
-    int getDamageValue() const;
-    float getDestroySpeed(Block *);
-    std::string getEffectName()const;
-    int getEnchantSlot();
-    int getEnchantValue();
-    void getEnchantsFromUserData();
-    void getFormattedHovertext();
-    std::string getHoverName() const;
-    void getIcon(int, bool);
-    int getId() const;
-    int getIdAux();
-    void getIdAuxEnchanted();
-    int getMaxDamage() const;
-    int getMaxStackSize() const;
-    int getMaxUseDuration();
-    void getName();
-    void getNetworkUserData();
-    UseAnimation getUseAnimation() const;
-    void getUserData();
-    bool hasCustomHoverName();
-    bool hasSameUserData(const ItemInstance&);
-    bool hasUserData();
-    void hurtAndBreak(int, Entity*);
-    void hurtEnemy(Mob*, Mob*);
-    void init(int, int, int);
-    void interactEnemy(Mob*,Player*);
-    bool isArmorItem(const ItemInstance*);
-    bool isDamageableItem();
-    bool isDamaged() const;
-    bool isEnchanted();
-    bool isEnchantingBook();
-    bool isFoil();
-    bool isFullStack();
-    bool isItem(const ItemInstance*);
-    bool isLiquidClipItem();
-    bool isNull();
-    bool isStackable(const ItemInstance*, const ItemInstance*);
-    bool isStackable();
-    bool isStackedByData();
-    bool isThrowable();
-    void load(const CompoundTag&);
-    void matches(ItemInstance*);
-    void matches(const ItemInstance*, const ItemInstance*);
-    void matchesNulls(const ItemInstance*, const ItemInstance*);
-    void operator!=(const ItemInstance&);
-    void operator=(const ItemInstance&);
-    void operator==(const ItemInstance&);
-    void releaseUsing(Player*, int);
-    void remove(int);
-    void resetHoverName();
-    bool sameItemAndAux(const ItemInstance*) const;
-    CompoundTag* save();
-    void saveEnchantsToUserData(ItemEnchants const&);
-    void set(int);
-    void setAuxValue(short);
-    void setCustomName(const std::string&);
-    void setDescriptionId(const std::string&);
-    void setNull();
-    void setRepairCost(int);
-    void setUserData(std::unique_ptr<CompoundTag>);
-    void snap(Player*);
-    void toString();
-    void use(Player&);
-    void useAsFuel();
-    void useOn(Player*, int, int, int, signed char, float, float, float);
-    void useTimeDepleted(Level*,Player*);
-	void onCraftedBy(Level&, Player&);
+	void init(int, int, int);
 
-    static ItemInstance* clone(ItemInstance const*);
-    static ItemInstance* cloneSafe(ItemInstance const*);
-    static ItemInstance* fromTag(CompoundTag const&);
+	int getId() const;
+	void _setItem(int);
+	short getDamageValue() const;
+	short getAuxValue() const;
+	void setAuxValue(short);
+	int getIdAux() const;
+	int getIdAuxEnchanted() const;
+
+	bool isNull() const;
+	void setNull();
+
+	void set(int);
+	void add(int);
+	void remove(int);
+
+	std::unique_ptr<CompoundTag>& getUserData() const;
+	void setUserData(std::unique_ptr<CompoundTag, std::default_delete<CompoundTag>>);
+	bool hasUserData() const;
+	bool hasSameUserData(ItemInstance const&) const;
+
+	std::string toString() const;
+	std::string getRawNameId() const;
+	std::string getName() const;
+	std::string getHoverName() const;
+	void* getFormattedHovertext(Level&, bool) const;
+	std::string _getHoverFormattingPrefix() const;
+	void resetHoverName();
+	bool hasCustomHoverName() const;
+	std::string getCustomName() const;
+	void setCustomName(std::string const&);
+	void setJustBrewed(bool);
+	bool wasJustBrewed() const;
+	bool isEnchanted() const;
+	bool isEnchantingBook() const;
+	bool isFullStack() const;
+	bool isDamaged() const;
+	int getBaseRepairCost() const;
+	void setRepairCost(int);
+	void* getEnchantsFromUserData() const;
+	std::string getEffectName() const;
+	void* getColor() const;
+	int getEnchantValue() const;
+
+	bool isDamageableItem() const;
+	bool isStackedByData() const;
+	bool isGlint() const;
+	bool isThrowable() const;
+	bool isStackable() const;
+	int getMaxStackSize() const;
+	int getMaxDamage() const;
+	void* getIcon(int, bool) const;
+	UseAnimation getUseAnimation() const;
+	int getMaxUseDuration() const;
+	int getEnchantSlot() const;
+
+	void* use(Player&);
+	void* useOn(Entity&, int, int, int, signed char, float, float, float);
+	void* interactEnemy(Mob*, Player*);
+	void* hurtAndBreak(int, Entity*);
+	void* hurtEnemy(Mob*, Mob*);
+	void* mineBlock(BlockID, int, int, int, Mob*);
+	void* onCraftedBy(Level&, Player&);
+	void releaseUsing(Player*, int);
+	void* useTimeDepleted(Level*, Player*);
+	void inventoryTick(Level&, Entity&, int, bool);
+	void* useAsFuel();
+
+
+	void* snap(Player*);
+	void setDescriptionId(std::string const&);
+
+	void load(CompoundTag const&);
+	void* saveEnchantsToUserData(ItemEnchants const&);
+	std::unique_ptr<CompoundTag> getNetworkUserData() const;
+
+	ItemInstance getStrippedNetworkItem() const;
+	ItemInstance(Block const&);
+	ItemInstance(Block const&, int);
+	ItemInstance(Block const&, int, int);
+	ItemInstance(Item const&);
+	ItemInstance(Item const&, int);
+	ItemInstance(Item const&, int, int);
+	ItemInstance(Item const&, int, int, CompoundTag const*);
+	void* _cloneComponents(ItemInstance const&);
+	void* _hasComponents() const;
+	void* _initComponents();
+	void* addCustomUserData(BlockEntity&, BlockSource&);
+	void* startCoolDown(Player*) const;
+	bool isEquivalentArmor(ItemInstance const&) const;
+	void* getDestroySpeed(Block const&) const;
+	void* operator=(ItemInstance const&);
+	bool isStackable(ItemInstance const&) const;
+	void* componentsMatch(ItemInstance const&) const;
+	void* getAttackDamage() const;
+	bool canDestroySpecial(Block const&) const;
+	bool sameItemAndAux(ItemInstance const&) const;
+	bool hasComponent(std::string const&) const;
+	ItemInstance clone() const;
+	void* matchesItem(ItemInstance const&) const;
+	void* matches(ItemInstance const&) const;
+	void* save() const;
+	void* _saveComponents(CompoundTag&) const;
+	void* _loadComponents(CompoundTag const&);
+	bool isArmorItem() const;
+	bool isHorseArmorItem() const;
+	bool isWearableItem() const;
+	bool isOffhandItem() const;
+	bool isPotionItem() const;
+	bool isLiquidClipItem() const;
+	bool canPlaceOn(Block const*) const;
+	bool canDestroy(Block const*) const;
+	void* addComponents(Json::Value const&, std::string&);
+	bool isValidComponent(std::string const&);
+	void* updateComponent(std::string const&, Json::Value const&);
+	void* serializeComponents(IDataOutput&) const;
+	void* deserializeComponents(IDataInput&);
+
+	static ItemInstance* fromTag(CompoundTag const&);
+	static int retrieveIDFromIDAux(int);
+	static int retrieveEnchantFromIDAux(int);
+	static int retrieveAuxValFromIDAux(int);
+
+	static int MAX_STACK_SIZE;
+	static std::string TAG_DISPLAY;
+	static std::string TAG_DISPLAY_NAME;
+	static std::string TAG_REPAIR_COST;
+	static std::string TAG_ENCHANTS;
+};
+
+class ItemGroup
+{
+public:
+	ItemInstance item;
+	int count;
+
+	ItemGroup(ItemInstance _item, int _count) : item(_item), count(_count) { }
+	ItemGroup(ItemInstance _item) : item(_item), count(_item.count) { }
+
+	ItemInstance getItemType() const;
 };

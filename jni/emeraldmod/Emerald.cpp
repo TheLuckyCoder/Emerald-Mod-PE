@@ -102,28 +102,28 @@ void Emerald::setItemTextures()
 
 void Emerald::registerBlocks()
 {
-	mPlanks = &registerBlock<Block>("emerald_planks", 190, Material::getMaterial(MaterialType::WOOD));
+	mPlanks = registerBlock<Block>("emerald_planks", 190, Material::getMaterial(MaterialType::WOOD));
 	mPlanks->setCategory(CreativeItemCategory::BLOCKS);
 	mPlanks->setDestroyTime(1.4f);
 	mPlanks->setExplodeable(6);
 	
-	mBrick = &registerBlock<Block>("emerald_brick", 191, Material::getMaterial(MaterialType::STONE));
+	mBrick = registerBlock<Block>("emerald_brick", 191, Material::getMaterial(MaterialType::STONE));
 	mBrick->setCategory(CreativeItemCategory::BLOCKS);
 	mBrick->setDestroyTime(2.0f);
 	mBrick->setExplodeable(10);
 	
-	mFence = &registerBlock<ThinFenceBlock>("emerald_fence", 192, Material::getMaterial(MaterialType::METAL), false);
+	mFence = registerBlock<ThinFenceBlock>("emerald_fence", 192, Material::getMaterial(MaterialType::METAL), false);
 	mFence->setSolid(false);
 	mFence->setCategory(CreativeItemCategory::DECORATIONS);
 	mFence->setDestroyTime(2.2f);
 	mFence->setExplodeable(11);
 	
-	mSlab = &registerBlock<SlabBlock>("emerald_slab", 210, false, Material::getMaterial(MaterialType::METAL));
+	mSlab = registerBlock<SlabBlock>("emerald_slab", 210, false, Material::getMaterial(MaterialType::METAL));
 	mSlab->setCategory(CreativeItemCategory::BLOCKS);
 	mSlab->setDestroyTime(2.2f);
 	mSlab->setExplodeable(11);
 	
-	mMushroom = &registerBlock<EmeraldMushroomBlock>("emerald_mushroom", 211);
+	mMushroom = registerBlock<EmeraldMushroomBlock>("emerald_mushroom", 211);
 }
 
 void Emerald::registerBlockItems()

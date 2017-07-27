@@ -45,7 +45,6 @@ public:
 	std::vector<BlockProperty> properties; // 24
 	BlockEntityType blockEntityType; // 28
 	bool animates; // 32
-	char filler2[3]; // 33
 	float idk; // 36
 	float thickness; // 40
 	bool slippery; // 44
@@ -404,15 +403,15 @@ public:
 };
 
 template <typename BlockType, typename...Args>
-BlockType& registerBlock(const std::string &name, int id, const Args&...rest)
+BlockType* registerBlock(const std::string &name, int id, const Args&...rest)
 {
 	const std::string block_name = Util::toLower(name);
 	if (Block::mBlockLookupMap.count(block_name) != 0)
-		return *(BlockType*)Block::mBlocks[id];
+		return (BlockType*) Block::mBlocks[id];
 
 	BlockType* new_instance = new BlockType(name, id, rest...);
 	Block::mBlocks[id] = new_instance;
 	Block::mOwnedBlocks.emplace_back(std::unique_ptr<BlockType>(new_instance));
-	Block::mBlockLookupMap.emplace(block_name, (const Block*)new_instance);
-	return *new_instance;
+	Block::mBlockLookupMap.emplace(block_name, (const Block*) new_instance);
+	return new_instance;
 }
