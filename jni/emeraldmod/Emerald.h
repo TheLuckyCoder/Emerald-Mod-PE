@@ -12,8 +12,8 @@ public:
 	static void registerBlocks();
 	static void registerBlockItems();
 	static void initBlockGraphics();
-	static void initCreativeItems();
-	static void initCreativeBlocks();
+	static void addCreativeItems();
+	static void addCreativeBlocks();
 	
 	static Item* mHelmet;
 	static Item* mChestplate;
@@ -36,13 +36,11 @@ public:
 	static Item* mStick;
 	static Item* mNugget;
 	static Item* mApple;
-	static Item* mFertilizer;
 	
 	static Block* mPlanks;
 	static Block* mBrick;
 	static Block* mFence;
 	static Block* mSlab;
 	static Block* mMushroom;
-	static Block* mWood;
 };
 
