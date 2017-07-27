@@ -4,9 +4,6 @@
 #include "minecraftpe/world/level/block/Block.h"
 #include "minecraftpe/world/level/block/BlockGraphics.h"
 
-#define LOG_TAG "EmeraldMod"
-#define LOG(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
-
 class Emerald
 {
 public:
@@ -38,6 +35,7 @@ public:
 	static Item* mBattleAxe;
 	static Item* mStick;
 	static Item* mNugget;
+	static Item* mApple;
 	static Item* mFertilizer;
 	
 	static Block* mPlanks;

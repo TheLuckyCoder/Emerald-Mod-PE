@@ -36,10 +36,7 @@ public:
 	bool unknown; // 24
 	char filler2[3]; // 25
 	float brightnessGamma; // 28
-	Color mapColor1; // 32
-	Color mapColor2; // 36
-	Color mapColor3; // 40
-	Color mapColor4; // 44
+	Color mapColor[4]; // 32
 	int filler3; // 48
 	BlockSoundType soundType; // 52
 	AABB visualShape; // 56

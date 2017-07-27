@@ -9,6 +9,9 @@
 #include "emeraldmod/Emerald.h"
 #include "emeraldmod/EmeraldRecipes.h"
 
+#define LOG_TAG "EmeraldMod"
+#define LOG(...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
+
 bool loaded = false;
 
 void (*_loadMinecraft)();
@@ -48,6 +51,16 @@ void initClientData()
 	LOG("Item Textures Initiated");
 }
 
+void (*_initBlockGraphics)(ResourcePackManager&);
+void initBlockGraphics(ResourcePackManager &rpm)
+{
+	_initBlockGraphics(rpm);
+
+	LOG("Init Block Graphics");
+	Emerald::initBlockGraphics();
+	LOG("Block Graphics Initiated");
+}
+
 Item* (*_getArmorForSlot)(ArmorSlot, int);
 Item* getArmorForSlot(ArmorSlot armorSlot, int type)
 {
@@ -74,16 +87,6 @@ Item* getArmorForSlot(ArmorSlot armorSlot, int type)
 		return result;
 	else
 		return _getArmorForSlot(armorSlot, type);
-}
-
-void (*_initBlockGraphics)(ResourcePackManager&);
-void initBlockGraphics(ResourcePackManager &rpm)
-{
-	_initBlockGraphics(rpm);
-
-	LOG("Init Block Graphics");
-	Emerald::initBlockGraphics();
-	LOG("Block Graphics Initiated");
 }
 
 void (*_initRecipes)(Recipes*);
@@ -126,8 +129,8 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)
 		
 	MSHookFunction((void*) &Item::initCreativeItems, (void*) &loadMinecraft, (void**) &_loadMinecraft);
 	MSHookFunction((void*) &Item::initClientData, (void*) &initClientData, (void**) &_initClientData);
-	MSHookFunction((void*) &ArmorItem::getArmorForSlot, (void*) &getArmorForSlot, (void**) &_getArmorForSlot);
 	MSHookFunction((void*) &BlockGraphics::initBlocks, (void*) &initBlockGraphics, (void**) &_initBlockGraphics);
+	MSHookFunction((void*) &ArmorItem::getArmorForSlot, (void*) &getArmorForSlot, (void**) &_getArmorForSlot);
 	//MSHookFunction((void*) &Recipes::init, (void*) &initRecipes, (void**) &_initRecipes);
 	//MSHookFunction((void*) &FurnaceRecipes::_init, (void*) &initFurnaceRecipes, (void**) &_initFurnaceRecipes);
 	MSHookFunction((void*) &Localization::loadFromResourcePackManager, (void*) &Localization$loadFromResourcePackManager, (void**) &_Localization$loadFromResourcePackManager);

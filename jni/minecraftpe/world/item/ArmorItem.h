@@ -14,7 +14,7 @@ public:
 	class ArmorMaterial
 	{
 	public:
-		int id; // 0
+		int i1; // 0
 		int i2; // 4
 		int i3; // 8
 		int i4; // 12

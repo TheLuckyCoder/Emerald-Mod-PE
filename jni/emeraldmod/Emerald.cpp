@@ -20,6 +20,7 @@
 #include "items/SpearItem.h"
 #include "items/BattleAxeItem.h"
 #include "items/FlintAndEmerald.h"
+#include "items/AppleItem.h"
 #include "items/FertilizerItem.h"
 
 Item* Emerald::mHelmet;
@@ -42,6 +43,7 @@ Item* Emerald::mSpear;
 Item* Emerald::mBattleAxe;
 Item* Emerald::mStick;
 Item* Emerald::mNugget;
+Item* Emerald::mApple;
 Item* Emerald::mFertilizer;
 
 Block* Emerald::mPlanks;
@@ -73,7 +75,8 @@ void Emerald::registerItems()
 	mBattleAxe = &registerItem<BattleAxeItem>("emerald_battle_axe", 3917 - 256);
 	mStick = &registerItem<Item>("emerald_stick", 3918 - 256);
 	mNugget = &registerItem<Item>("emerald_nugget", 3919 - 256);
-	//mFertilizer = &registerItem<FertilizerItem>("emerald_fertilizer", 3920 - 256);
+	mApple = &registerItem<AppleItem>("emerald_apple", 3920 - 256);
+	//mFertilizer = &registerItem<FertilizerItem>("emerald_fertilizer", 3921 - 256);
 }
 
 void Emerald::setItemTextures()
@@ -98,6 +101,7 @@ void Emerald::setItemTextures()
 	mBattleAxe->setIcon("emerald_battle_axe", 0);
 	mStick->setIcon("emerald_stick", 0);
 	mNugget->setIcon("emerald_nugget", 0);
+	mApple->setIcon("emerald_apple", 0);
 	//mFertilizer->setIcon("emerald_nugget", 0);
 }
 
@@ -111,18 +115,18 @@ void Emerald::registerBlocks()
 	mBrick = &registerBlock<Block>("emerald_brick", 211, Material::getMaterial(MaterialType::STONE));
 	mBrick->setCategory(CreativeItemCategory::BLOCKS);
 	mBrick->setDestroyTime(2.0f);
-	mBrick->setExplodeable(12);
+	mBrick->setExplodeable(10);
 	
 	mFence = &registerBlock<ThinFenceBlock>("emerald_fence", 212, Material::getMaterial(MaterialType::METAL), false);
 	mFence->setSolid(false);
 	mFence->setCategory(CreativeItemCategory::DECORATIONS);
 	mFence->setDestroyTime(2.2f);
-	mFence->setExplodeable(13);
+	mFence->setExplodeable(11);
 	
-	/*mSlab = &registerBlock<SlabBlock>("emerald_slab", 213, false, Material::getMaterial(MaterialType::METAL));
+	mSlab = &registerBlock<SlabBlock>("emerald_slab", 213, false, Material::getMaterial(MaterialType::METAL));
 	mSlab->setCategory(CreativeItemCategory::BLOCKS);
 	mSlab->setDestroyTime(2.2f);
-	mSlab->setExplodeable(12);*/
+	mSlab->setExplodeable(11);
 	
 	mMushroom = &registerBlock<EmeraldMushroomBlock>("emerald_mushroom", 214);
 	
@@ -152,7 +156,7 @@ void Emerald::initBlockGraphics()
 	BlockGraphics::mBlocks[mFence->blockId]->setTextureItem("emerald_block");
 	BlockGraphics::mBlocks[mFence->blockId]->setBlockShape(BlockShape::FENCE);
 	
-	/*BlockGraphics::mBlocks[mSlab->blockId] = new BlockGraphics("dirt");
+	/*BlockGraphics::mBlocks[mSlab->blockId] = new BlockGraphics("emerald_block");
 	BlockGraphics::mBlocks[mSlab->blockId]->setTextureItem("emerald_block");
 	BlockGraphics::mBlocks[mSlab->blockId]->setSoundType(BlockSoundType::METAL);*/
 	
@@ -184,6 +188,7 @@ void Emerald::initCreativeItems()
 	Item::addCreativeItem(mBattleAxe, 0);
 	Item::addCreativeItem(mStick, 0);
 	Item::addCreativeItem(mNugget, 0);
+	Item::addCreativeItem(mApple, 0);
 }
 
 void Emerald::initCreativeBlocks()

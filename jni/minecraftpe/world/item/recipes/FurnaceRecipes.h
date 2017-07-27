@@ -1,8 +1,7 @@
 #pragma once
 
 #include <memory>
-
-class ItemInstance;
+#include "../ItemInstance.h"
 
 class FurnaceRecipes
 {

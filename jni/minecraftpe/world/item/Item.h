@@ -72,10 +72,10 @@ public:
 	Vec3 vrHandControllerPositionAdjust; // 72
 	Vec3 vrHandControllerRotationAdjust; // 84
 	float vrHandControllerScale; // 96
-	FoodItemComponent* foodComponent; // 100
-	SeedItemComponent* seedComponent; // 104
-	CameraItemComponent* cameraComponent; // 108
-
+	std::unique_ptr<FoodItemComponent> foodComponent; // 100
+	std::unique_ptr<SeedItemComponent> seedComponent; // 104
+	std::unique_ptr<CameraItemComponent> cameraComponent; // 108
+	
 	/* list */
 	static Item* mItems[4096];
 	static std::vector<ItemInstance> mCreativeList;

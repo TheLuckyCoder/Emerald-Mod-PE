@@ -143,7 +143,7 @@ public:
 	virtual int getExperienceDrop(Random&) const;
 	virtual bool canBeBuiltOver(BlockSource&, const BlockPos&) const;
 	virtual void triggerEvent(BlockSource&, const BlockPos&, int, int) const;
-	virtual void getMobToSpawn(BlockSource&, const BlockPos&) const;
+	virtual void* getMobToSpawn(BlockSource&, const BlockPos&) const;
 	virtual Color getMapColor(BlockSource&, const BlockPos&) const;
 	virtual Color getMapColor() const;
 	virtual bool shouldStopFalling(Entity&) const;
@@ -154,10 +154,10 @@ public:
 	virtual bool shouldRenderFace(BlockSource&, const BlockPos&, signed char, AABB const&) const;
 	virtual int getIconYOffset() const;
 	virtual std::string buildDescriptionName(unsigned char) const;
-	virtual int getColor(int) const;
-	virtual int getColor(BlockSource&, const BlockPos&) const;
-	virtual int getColor(BlockSource&, const BlockPos&, unsigned char) const;
-	virtual int getColorForParticle(BlockSource&, const BlockPos&, int) const;
+	virtual unsigned int getColor(int) const;
+	virtual unsigned int getColor(BlockSource&, const BlockPos&) const;
+	virtual unsigned int getColor(BlockSource&, const BlockPos&, unsigned char) const;
+	virtual unsigned int getColorForParticle(BlockSource&, const BlockPos&, int) const;
 	virtual bool isSeasonTinted(BlockSource&, const BlockPos&) const;
 	virtual void onGraphicsModeChanged(bool, bool, bool);
 	virtual int getRenderLayer(BlockSource&, const BlockPos&) const;

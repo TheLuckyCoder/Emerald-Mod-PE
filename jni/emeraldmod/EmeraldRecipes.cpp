@@ -98,11 +98,6 @@ void EmeraldRecipes::initRecipes(Recipes *recipes)
 	pushIngredient(Item::mEmerald, 'e');
 	addRecipe(Emerald::mNugget->itemId, 9, 0, {"e ", "  "});
 	
-	/*// Bow
-	pushIngredient(287, 's');
-	pushIngredient(3813, 'r');
-	addRecipe(Emerald::mBow->itemId, 1, 0, {" rs", "r s", " rs"});*/
-	
 	// Emerald
 	pushIngredient(Emerald::mNugget, 'n');
 	addRecipe(Item::mEmerald->itemId, 5, 0, {"nnn", "nnn", "nnn"});
@@ -129,7 +124,7 @@ void EmeraldRecipes::initFurnaceRecipes(FurnaceRecipes *recipes)
 	recipes->addFurnaceRecipe(Emerald::mSword->itemId, ItemInstance(Emerald::mNugget->itemId, 2, 0));
 	recipes->addFurnaceRecipe(Emerald::mPickaxe->itemId, ItemInstance(Emerald::mNugget->itemId, 3, 0));
 	recipes->addFurnaceRecipe(Emerald::mAxe->itemId, ItemInstance(Emerald::mNugget->itemId, 3, 0));
-	recipes->addFurnaceRecipe(Emerald::mPax->itemId, ItemInstance(Emerald::mNugget->itemId, 5, 0));
+	recipes->addFurnaceRecipe(Emerald::mPax->itemId, ItemInstance(Emerald::mNugget->itemId, 4, 0));
 	recipes->addFurnaceRecipe(Emerald::mShovel->itemId, ItemInstance(Emerald::mNugget->itemId, 1, 0));
 	recipes->addFurnaceRecipe(Emerald::mHoe->itemId, ItemInstance(Emerald::mNugget->itemId, 2, 0));
 }
