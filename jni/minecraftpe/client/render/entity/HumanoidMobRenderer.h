@@ -1,11 +1,18 @@
 #pragma once
 
+#include <vector>
+
 #include "MobRenderer.h"
+#include "minecraftpe/client/render/TexturePtr.h"
+
 class HumanoidModel;
 
-class HumanoidMobRenderer
+class HumanoidMobRenderer : public MobRenderer
 {
 public:
+	char filler[652]; // 4
+	std::vector<mce::TexturePtr> armorTextures; // 656
+
 	HumanoidMobRenderer(EntityRenderDispatcher&, std::unique_ptr<HumanoidModel, std::default_delete<HumanoidModel>>, std::unique_ptr<HumanoidModel, std::default_delete<HumanoidModel>>, std::unique_ptr<HumanoidModel, std::default_delete<HumanoidModel>>, mce::TexturePtr, float);
 	HumanoidMobRenderer(EntityRenderDispatcher&, std::unique_ptr<HumanoidModel, std::default_delete<HumanoidModel>>, std::unique_ptr<HumanoidModel, std::default_delete<HumanoidModel>>, std::unique_ptr<HumanoidModel, std::default_delete<HumanoidModel>>, std::unique_ptr<HumanoidModel, std::default_delete<HumanoidModel>>, mce::TexturePtr, float);
 

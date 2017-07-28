@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
 		TextView supportedVersion = (TextView) findViewById(R.id.supportedVersionTxt);
 		TextView installedVersion = (TextView) findViewById(R.id.installedVersionTxt);
 		
-		supportedVersion.setText(Html.fromHtml(getText(R.string.supports_version) + " <b>" + getText(R.string.supported_version_number) + "</b>"));
+		supportedVersion.setText(fromHtml(getText(R.string.supports_version) + " <b>" + getText(R.string.supported_version_number) + "</b>"));
 		
 		PackageInfo pInfo;
 		try
@@ -75,6 +75,10 @@ public class MainActivity extends Activity {
     private void checkForPermission() {
 		if (checkSelfPermission("net.zhuoweizhang.mcpelauncher.ADDON") != PackageManager.PERMISSION_GRANTED)
 			requestPermissions(new String[] {"net.zhuoweizhang.mcpelauncher.ADDON"}, 123);
-    }
+	}
+		
+	private Spanned fromHtml(String html) {
+		return Build.VERSION.SDK_INT >= 24 ? Html.fromHtml(html,Html.FROM_HTML_MODE_LEGACY) : Html.fromHtml(html);
+	}
 }
 

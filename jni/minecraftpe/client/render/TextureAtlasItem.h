@@ -2,15 +2,13 @@
 
 #include <string>
 #include <vector>
+#include "TextureUVCoordinateSet.h"
 
-class TextureUVCoordinateSet;
+struct TextureAtlasItem {
 
-class TextureAtlasItem
-{
-public:
-	std::string name;
-	std::vector<TextureUVCoordinateSet> textures;
+	/* 0x00 */ std::string name;
+	/* 0x04 */ int index;
+	/* 0x08 */ std::vector<TextureUVCoordinateSet> sets;
+	/* size = 0x14 */
 
-	TextureAtlasItem(const std::string&, unsigned int);
 };
-

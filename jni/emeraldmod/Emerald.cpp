@@ -52,10 +52,10 @@ Block* Emerald::mMushroom;
 
 void Emerald::registerItems()
 {
-	//mHelmet = registerItem<EmeraldHelmet>("emerald_helmet", 3900 - 256);
-	//mChestplate = registerItem<EmeraldChestplate>("emerald_chestplate", 3901 - 256);
-	//mLeggings = registerItem<EmeraldLeggings>("emerald_leggings", 3902 - 256);
-	//mBoots = registerItem<EmeraldBoots>("emerald_boots", 3903 - 256);
+	mHelmet = registerItem<EmeraldHelmet>("emerald_helmet", 3900 - 256);
+	mChestplate = registerItem<EmeraldChestplate>("emerald_chestplate", 3901 - 256);
+	mLeggings = registerItem<EmeraldLeggings>("emerald_leggings", 3902 - 256);
+	mBoots = registerItem<EmeraldBoots>("emerald_boots", 3903 - 256);
 	mSword = registerItem<SwordItem>("emerald_sword", 3904 - 256);
 	mSuperSword = registerItem<SuperSwordItem>("emerald_sword_super", 3905 - 256);
 	mPickaxe = registerItem<PickaxeItem>("emerald_pickaxe", 3906 - 256);
@@ -77,10 +77,10 @@ void Emerald::registerItems()
 
 void Emerald::setItemTextures()
 {
-	//mHelmet->setIcon("emerald_helmet", 0);
-	//mChestplate->setIcon("emerald_chestplate", 0);
-	//mLeggings->setIcon("emerald_leggings", 0);
-	//mBoots->setIcon("emerald_boots", 0);
+	mHelmet->setIcon("emerald_helmet", 0);
+	mChestplate->setIcon("emerald_chestplate", 0);
+	mLeggings->setIcon("emerald_leggings", 0);
+	mBoots->setIcon("emerald_boots", 0);
 	mSword->setIcon("emerald_sword", 0);
 	mSuperSword->setIcon("emerald_sword", 1);
 	mPickaxe->setIcon("emerald_pickaxe", 0);
@@ -160,10 +160,10 @@ void Emerald::initBlockGraphics()
 
 void Emerald::addCreativeItems()
 {
-	//Item::addCreativeItem(mHelmet, 0);
-	//Item::addCreativeItem(mChestplate, 0);
-	//Item::addCreativeItem(mLeggings, 0);
-	//Item::addCreativeItem(mBoots, 0);
+	Item::addCreativeItem(mHelmet, 0);
+	Item::addCreativeItem(mChestplate, 0);
+	Item::addCreativeItem(mLeggings, 0);
+	Item::addCreativeItem(mBoots, 0);
 	Item::addCreativeItem(mSword, 0);
 	Item::addCreativeItem(mSuperSword, 0);
 	Item::addCreativeItem(mPickaxe, 0);
