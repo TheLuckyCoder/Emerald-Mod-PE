@@ -1,9 +1,8 @@
 #include "Emerald.h"
 
-#include "minecraftpe/world/level/block/ThinFenceBlock.h"
-#include "minecraftpe/world/level/block/SlabBlock.h"
+#include "minecraftpe/world/block/FenceBlock.h"
+#include "minecraftpe/world/block/SlabBlock.h"
 #include "blocks/EmeraldMushroomBlock.h"
-#include "blocks/EmeraldWoodBlock.h"
 
 #include "items/EmeraldArmor.h"
 #include "items/SwordItem.h"
@@ -112,8 +111,7 @@ void Emerald::registerBlocks()
 	mBrick->setDestroyTime(2.0f);
 	mBrick->setExplodeable(10);
 	
-	mFence = registerBlock<ThinFenceBlock>("emerald_fence", 192, Material::getMaterial(MaterialType::METAL), false);
-	mFence->setSolid(false);
+	mFence = registerBlock<FenceBlock>("emerald_fence", 192, Material::getMaterial(MaterialType::METAL));
 	mFence->setCategory(CreativeItemCategory::DECORATIONS);
 	mFence->setDestroyTime(2.2f);
 	mFence->setExplodeable(11);

@@ -16,9 +16,9 @@ class TextureAtlasItem;
 class ResourcePackManager;
 namespace Json { class Value; }
 
-#include "../../../util/Color.h"
-#include "../../phys/AABB.h"
-#include "../../../client/render/TextureAtlasItem.h"
+#include "../../util/Color.h"
+#include "../math/AABB.h"
+#include "../../client/render/TextureAtlasItem.h"
 
 enum class BlockSoundType
 {

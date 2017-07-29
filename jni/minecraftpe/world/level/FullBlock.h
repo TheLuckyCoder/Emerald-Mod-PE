@@ -1,6 +1,6 @@
 #pragma once
 
-#include "block/BlockID.h"
+#include "../block/BlockID.h"
 
 class Block;
 

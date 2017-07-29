@@ -1,8 +1,8 @@
 #pragma once
 
 #include "minecraftpe/world/item/BlockItem.h"
-#include "minecraftpe/world/level/block/Block.h"
-#include "minecraftpe/world/level/block/BlockGraphics.h"
+#include "minecraftpe/world/block/Block.h"
+#include "minecraftpe/world/block/BlockGraphics.h"
 
 class Emerald
 {

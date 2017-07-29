@@ -5,9 +5,8 @@
 #include <memory>
 #include "EntityType.h"
 #include "EntityUniqueID.h"
-#include "../phys/Vec2.h"
-#include "../phys/Vec3.h"
-#include "../phys/AABB.h"
+#include "../math/Vec3.h"
+#include "../math/AABB.h"
 #include "../level/BlockPos.h"
 #include "../level/FullBlock.h"
 

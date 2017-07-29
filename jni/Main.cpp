@@ -91,19 +91,19 @@ Item* getArmorForSlot(ArmorSlot armorSlot, int type)
 	Item* result = NULL;
 	switch (armorSlot) {
 		case ArmorSlot::HELMET:
-			if (type == 40)
+			if (type == 20)
 				result = Emerald::mHelmet;
 			break;
 		case ArmorSlot::CHESTPLATE:
-			if (type == 40)
+			if (type == 20)
 				result = Emerald::mChestplate;
 			break;
 		case ArmorSlot::LEGGINGS:
-			if (type == 40)
+			if (type == 20)
 				result = Emerald::mLeggings;
 			break;
 		case ArmorSlot::BOOTS:
-			if (type == 40)
+			if (type == 20)
 				result = Emerald::mBoots;
 			break;
 	}
@@ -147,8 +147,8 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)
 	MSHookFunction((void*) &BlockGraphics::initBlocks, (void*) &initBlockGraphics, (void**) &_initBlockGraphics);
 	MSHookFunction((void*) &Recipes::init, (void*) &initRecipes, (void**) &_initRecipes);
 	MSHookFunction((void*) &FurnaceRecipes::_init, (void*) &initFurnaceRecipes, (void**) &_initFurnaceRecipes);
-	MSHookFunction((void*) &ArmorItem::getArmorForSlot, (void*) &getArmorForSlot, (void**) &_getArmorForSlot);
-	MSHookFunction((void*) &HumanoidMobRenderer::initTextures, (void*) &initArmorTextures, (void**) &_initArmorTextures);
+	//MSHookFunction((void*) &ArmorItem::getArmorForSlot, (void*) &getArmorForSlot, (void**) &_getArmorForSlot);
+	//MSHookFunction((void*) &HumanoidMobRenderer::initTextures, (void*) &initArmorTextures, (void**) &_initArmorTextures);
 	MSHookFunction((void*) &Localization::loadFromResourcePackManager, (void*) &Localization$loadFromResourcePackManager, (void**) &_Localization$loadFromResourcePackManager);
 	
 	return JNI_VERSION_1_6;

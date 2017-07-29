@@ -1,7 +1,7 @@
 #include "ShovelItem.h"
 #include "minecraftpe/world/item/ItemInstance.h"
 #include "minecraftpe/world/entity/Mob.h"
-#include "minecraftpe/world/level/block/Block.h"
+#include "minecraftpe/world/block/Block.h"
 
 ShovelItem::ShovelItem(const std::string &name, short id) : Item(name, id)
 {

@@ -7,11 +7,11 @@
 
 #include "UseAnimation.h"
 #include "CreativeItemCategory.h"
-#include "../level/block/BlockID.h"
-#include "../level/block/BlockShape.h"
+#include "../block/BlockID.h"
+#include "../block/BlockShape.h"
 #include "../level/BlockPos.h"
 #include "CooldownType.h"
-#include "../phys/Vec3.h"
+#include "../math/Vec3.h"
 #include "../../util/Util.h"
 
 class TextureUVCoordinateSet;

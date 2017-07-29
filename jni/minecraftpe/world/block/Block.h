@@ -5,17 +5,17 @@
 #include <memory>
 #include <unordered_map>
 
-#include "../../../client/render/TextureUVCoordinateSet.h"
-#include "../../../util/Color.h"
-#include "../../phys/AABB.h"
-#include "../../material/Material.h"
+#include "../../client/render/TextureUVCoordinateSet.h"
+#include "../../util/Color.h"
+#include "../math/AABB.h"
+#include "../material/Material.h"
 #include "BlockShape.h"
 #include "BlockState.h"
-#include "../../item/CreativeItemCategory.h"
+#include "../item/CreativeItemCategory.h"
 #include "BlockSupportType.h"
 #include "entity/BlockEntityType.h"
 #include "BlockID.h"
-#include "../../../util/Util.h"
+#include "../../util/Util.h"
 
 class BlockEntity;
 class Container;
