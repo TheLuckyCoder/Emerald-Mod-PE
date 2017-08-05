@@ -12,6 +12,6 @@
 	<string name="join_community">Join our community</string>
 	<string name="supports_version">Supported Minecraft Version:</string>
 	<string name="installed_version">Installed Minecraft Version:</string>
-	<string name="supported_version_number" translatable="false">1.1.4.51</string>
+	<string name="supported_version_number" translatable="false">1.1.5.1</string>
 </resources>
 

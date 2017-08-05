@@ -30,7 +30,7 @@ public:
 	mce::Texture const& operator*() const;
 
 	mce::Texture* get() const;
-	mce::TextureGroup* getGroup() const;
+	mce::TextureGroup* getGroup();
 	int hashCode() const;
 
 	TexturePtr clone() const;

@@ -8,6 +8,7 @@
 #include "minecraftpe/client/render/entity/HumanoidMobRenderer.h"
 #include "minecraftpe/client/render/TextureGroup.h"
 #include "minecraftpe/client/resource/ResourceLocation.h"
+#include "minecraftpe/client/resource/ResourceLocationPair.h"
 #include "minecraftpe/client/resource/ResourceFileSystem.h"
 #include "minecraftpe/world/item/ArmorItem.h"
 #include "emeraldmod/Emerald.h"
@@ -26,23 +27,23 @@ void loadMinecraft()
 	if (!loaded) {
 		LOG("Init Items");
 		Emerald::registerItems();
-		LOG("Items Initiated");
+		LOG("Init Items. Done");
 
 		LOG("Init Blocks");
 		Emerald::registerBlocks();
-		LOG("Blocks Initiated");
+		LOG("Init Blocks. Done");
 
 		LOG("Init BlockItems");
 		Emerald::registerBlockItems();
-		LOG("BlockItems Initiated");
+		LOG("Init BlockItems. Done");
 
 		loaded = true;
 	}
 
-	LOG("Add Items and Blocks to Creative");
+	LOG("Adding Items and Blocks to Creative");
 	Emerald::addCreativeItems();
 	Emerald::addCreativeBlocks();
-	LOG("Items and Blocks added to Creative");
+	LOG("Adding Items and Blocks to Creative. Done");
 }
 
 void (*_initClientData)();
@@ -52,7 +53,7 @@ void initClientData()
 		
 	LOG("Init Item Textures");
 	Emerald::setItemTextures();
-	LOG("Item Textures Initiated");
+	LOG("Init Item Textures. Done");
 }
 
 void (*_initBlockGraphics)(ResourcePackManager&);
@@ -62,7 +63,7 @@ void initBlockGraphics(ResourcePackManager &rpm)
 
 	LOG("Init Block Graphics");
 	Emerald::initBlockGraphics();
-	LOG("Block Graphics Initiated");
+	LOG("Init Block Graphics. Done");
 }
 
 void (*_initRecipes)(Recipes*);
@@ -70,9 +71,9 @@ void initRecipes(Recipes *self)
 {
 	_initRecipes(self);
 
-	LOG("Add Recipes");
+	LOG("Adding Recipes");
 	EmeraldRecipes::initRecipes(self);
-	LOG("Recipes Added");
+	LOG("Adding Recipes. Done");
 }
 
 void (*_initFurnaceRecipes)(FurnaceRecipes*);
@@ -80,37 +81,51 @@ void initFurnaceRecipes(FurnaceRecipes *self)
 {
 	_initFurnaceRecipes(self);
 	
-	LOG("Add Furnace Recipes");
+	LOG("Adding Furnace Recipes");
 	EmeraldRecipes::initFurnaceRecipes(self);
-	LOG("Furnace Recipes Added");
+	LOG("Adding Furnace Recipes. Done");
 }
 
-Item* (*_getArmorForSlot)(ArmorSlot, int);
-Item* getArmorForSlot(ArmorSlot armorSlot, int type)
+ArmorItem* (*_getArmorForSlot)(ArmorSlot, int);
+ArmorItem* getArmorForSlot(ArmorSlot armorSlot, int type)
 {
-	Item* result = NULL;
+	LOG("Setting Armor Slot");
+	ArmorItem* result = NULL;
 	switch (armorSlot) {
 		case ArmorSlot::HELMET:
-			if (type == 20)
-				result = Emerald::mHelmet;
+			if (type == 2)
+				result = (ArmorItem*) Emerald::mHelmet;
 			break;
 		case ArmorSlot::CHESTPLATE:
-			if (type == 20)
-				result = Emerald::mChestplate;
+			if (type == 2)
+				result = (ArmorItem*) Emerald::mChestplate;
 			break;
 		case ArmorSlot::LEGGINGS:
-			if (type == 20)
-				result = Emerald::mLeggings;
+			if (type == 2)
+				result = (ArmorItem*) Emerald::mLeggings;
 			break;
 		case ArmorSlot::BOOTS:
-			if (type == 20)
-				result = Emerald::mBoots;
+			if (type == 2)
+				result = (ArmorItem*) Emerald::mBoots;
 			break;
 	}
+
 	if (result != NULL)
 		return result;
 	else
 		return _getArmorForSlot(armorSlot, type);
+	LOG("Setting Armor Slot. Done");
+}
+
+void (*_TextureGroup$loadTextures)(mce::TextureGroup*, std::vector<ResourceLocationPair>);
+void TextureGroup$loadTextures(mce::TextureGroup *self, std::vector<ResourceLocationPair> vec)
+{
+	_TextureGroup$loadTextures(self, vec);
+
+	LOG("Loading Armor Textures");
+	self->loadTexture(ResourceLocation("textures/models/armor/emerald_1"), false);
+	self->loadTexture(ResourceLocation("textures/models/armor/emerald_2"), false);
+	LOG("Loading Armor Textures. Done");
 }
 
 void (*_initArmorTextures)(HumanoidMobRenderer*);
@@ -118,19 +133,20 @@ void initArmorTextures(HumanoidMobRenderer *self)
 {
 	_initArmorTextures(self);
 
-	LOG("Init Armor Textures");
+	LOG("Setting Armor Textures");
 	mce::TextureGroup* group = self->armorTextures[0].getGroup();
 	self->armorTextures[40] = group->getTexture(ResourceLocation("textures/models/armor/emerald_1", ResourceFileSystem::InUserPackage), false);
 	self->armorTextures[41] = group->getTexture(ResourceLocation("textures/models/armor/emerald_2", ResourceFileSystem::InUserPackage), false);
+	LOG("Setting Armor Textures. Done");
 }
 
 void (*_Localization$loadFromResourcePackManager)(Localization*, ResourcePackManager&, const std::vector<std::string>&);
 void Localization$loadFromResourcePackManager(Localization *self, ResourcePackManager &rpm, const std::vector<std::string> &stringVec) {
 	_Localization$loadFromResourcePackManager(self, rpm, stringVec);
 	
-	LOG("Load lang from ResourcePackManager");
 	if (self->langCode == "en_US" || self->langCode == "de_DE" || self->langCode == "pt_BR"
 		|| self->langCode == "ko_KR" || self->langCode == "zh_CN" || self->langCode == "es_ES") {
+		LOG("Load lang from ResourcePackManager");
 		std::string backupString = self->langCode;
 		self->langCode = "emeraldmod/" + self->langCode;
 		_Localization$loadFromResourcePackManager(self, rpm, stringVec);
@@ -148,6 +164,7 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)
 	MSHookFunction((void*) &Recipes::init, (void*) &initRecipes, (void**) &_initRecipes);
 	MSHookFunction((void*) &FurnaceRecipes::_init, (void*) &initFurnaceRecipes, (void**) &_initFurnaceRecipes);
 	//MSHookFunction((void*) &ArmorItem::getArmorForSlot, (void*) &getArmorForSlot, (void**) &_getArmorForSlot);
+	//MSHookFunction((void*) &mce::TextureGroup::loadTextures, (void*) &TextureGroup$loadTextures, (void**) &_TextureGroup$loadTextures);
 	//MSHookFunction((void*) &HumanoidMobRenderer::initTextures, (void*) &initArmorTextures, (void**) &_initArmorTextures);
 	MSHookFunction((void*) &Localization::loadFromResourcePackManager, (void*) &Localization$loadFromResourcePackManager, (void**) &_Localization$loadFromResourcePackManager);
 	

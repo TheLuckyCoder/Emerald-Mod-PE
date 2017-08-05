@@ -2,7 +2,6 @@
 
 EmeraldMushroomBlock::EmeraldMushroomBlock(const std::string &name, short id) : Block(name, id, Material::getMaterial(MaterialType::PLANT))
 {
-	mBlocks[id] = this;
 	init();
 	setSolid(false);
 	setCategory(CreativeItemCategory::DECORATIONS);

@@ -62,6 +62,6 @@ public:
 	void setColor(ItemInstance&, const Color&);
 	void clearColor(ItemInstance&);
 	int getSlotForItem(const ItemInstance&);
-	Item* getArmorForSlot(ArmorSlot, int);
+	ArmorItem* getArmorForSlot(ArmorSlot, int);
 	bool isFlyEnabled(const ItemInstance&);
 };

@@ -1,3 +1,9 @@
+1.6.2
+Update for 1.1.5.1
+You will only get one Nugget for recycling a tool
+Fix Emerald Fence not connecting
+Fix Emerald Fence recipes not showing
+
 1.6.1
 Update for 1.1.4
 Add ingame Spanish translations

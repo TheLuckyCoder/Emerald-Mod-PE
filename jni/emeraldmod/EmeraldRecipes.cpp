@@ -116,28 +116,28 @@ void EmeraldRecipes::initRecipes(Recipes *recipes)
 	// Fence
 	pushIngredient(Emerald::mStick, 's');
 	pushIngredient(Emerald::mPlanks, 'p');
-	addRecipe(Emerald::mBrick->blockId, 1, 0, {" n ", "nbn", " n "});
+	addRecipe(Emerald::mFence->blockId, 1, 0, {" n ", "nbn", " n "});
 }
 
 void EmeraldRecipes::initFurnaceRecipes(FurnaceRecipes *recipes)
 {
-	recipes->addFurnaceRecipe(Emerald::mSword->itemId, ItemInstance(Emerald::mNugget->itemId, 2, 0));
-	recipes->addFurnaceRecipe(Emerald::mPickaxe->itemId, ItemInstance(Emerald::mNugget->itemId, 3, 0));
-	recipes->addFurnaceRecipe(Emerald::mAxe->itemId, ItemInstance(Emerald::mNugget->itemId, 3, 0));
-	recipes->addFurnaceRecipe(Emerald::mPax->itemId, ItemInstance(Emerald::mNugget->itemId, 4, 0));
+	recipes->addFurnaceRecipe(Emerald::mSword->itemId, ItemInstance(Emerald::mNugget->itemId, 1, 0));
+	recipes->addFurnaceRecipe(Emerald::mPickaxe->itemId, ItemInstance(Emerald::mNugget->itemId, 1, 0));
+	recipes->addFurnaceRecipe(Emerald::mAxe->itemId, ItemInstance(Emerald::mNugget->itemId, 1, 0));
+	recipes->addFurnaceRecipe(Emerald::mPax->itemId, ItemInstance(Emerald::mNugget->itemId, 1, 0));
 	recipes->addFurnaceRecipe(Emerald::mShovel->itemId, ItemInstance(Emerald::mNugget->itemId, 1, 0));
-	recipes->addFurnaceRecipe(Emerald::mHoe->itemId, ItemInstance(Emerald::mNugget->itemId, 2, 0));
+	recipes->addFurnaceRecipe(Emerald::mHoe->itemId, ItemInstance(Emerald::mNugget->itemId, 1, 0));
 }
 
 void EmeraldRecipes::pushIngredient(Block *block, char letter)
 {
-	Recipes::Type type {NULL, block, ItemInstance(*block, 1, 0), letter};
+	Recipes::Type type {NULL, block, ItemInstance(*block, 1), letter};
 	_ingredients.push_back(type);
 }
 
 void EmeraldRecipes::pushIngredient(Item *item, char letter)
 {
-	Recipes::Type type {item, NULL, ItemInstance(*item, 1, 0), letter};
+	Recipes::Type type {item, NULL, ItemInstance(*item, 1), letter};
 	_ingredients.push_back(type);
 }
 
