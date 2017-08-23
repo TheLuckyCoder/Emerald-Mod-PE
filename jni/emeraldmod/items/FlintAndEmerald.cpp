@@ -15,9 +15,9 @@ void FlintAndEmerald::hurtEnemy(ItemInstance&, Mob*, Mob *victim) const
 	victim->doFireHurt(1000);
 }
 
-bool FlintAndEmerald::_useOn(ItemInstance &item, Entity &entity, BlockPos pos, signed char side, float xx, float yy, float zz) const
+bool FlintAndEmerald::_useOn(ItemInstance &item, Entity &entity, BlockPos pos, signed char side, float xx, float yy, float zz, ItemUseCallback *callback) const
 {
-	Item::mItems[259]->_useOn(item, entity, pos, side, xx, yy, zz);
+	Item::mItems[259]->_useOn(item, entity, pos, side, xx, yy, zz, callback);
 }
 
 void FlintAndEmerald::dispense(BlockSource &region, Container &cont, int i, const Vec3 &pos, signed char side) const

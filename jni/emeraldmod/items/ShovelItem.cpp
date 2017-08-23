@@ -11,9 +11,9 @@ ShovelItem::ShovelItem(const std::string &name, short id) : Item(name, id)
 	setHandEquipped();
 }
 
-bool ShovelItem::_useOn(ItemInstance &item, Entity &entity, BlockPos pos, signed char side, float xx, float yy, float zz) const
+bool ShovelItem::_useOn(ItemInstance &item, Entity &entity, BlockPos pos, signed char side, float xx, float yy, float zz, ItemUseCallback *callback) const
 {
-	return Item::mItems[277]->_useOn(item, entity, pos, side, xx, yy, zz);
+	return Item::mItems[277]->_useOn(item, entity, pos, side, xx, yy, zz, callback);
 }
 
 void ShovelItem::hurtEnemy(ItemInstance &item, Mob*, Mob *victim) const

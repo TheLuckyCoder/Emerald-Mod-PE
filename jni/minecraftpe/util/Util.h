@@ -45,7 +45,7 @@ public:
 	static std::string urlEncode(const std::string&);
 	static std::string toNiceString(int);
 	static std::string toString(float);
-	static std::string toLower(const std::string&);
+	//static std::string toLower(gsl::basic_string_span<char const, -1>);
 	static std::string toUpper(const std::string&);
 	static bool compareNoCase(const std::string&, const std::string&);
 	static void freeStringMemory(std::string&);

@@ -8,8 +8,6 @@ public:
 
 	void setSeed(long unsigned int);
 
-	long unsigned int genrand_int32();
-
 	float nextFloat();
 	int nextInt(int);
 	bool nextBool();
@@ -20,5 +18,7 @@ protected:
 	int _mti;
 	bool haveNextNextGaussian;
 	float nextNextGaussian;
+
+	long unsigned int _genRandInt32();
 };
 

@@ -34,16 +34,16 @@ float Random::nextFloat()
 
 int Random::nextInt(int max)
 {
-	return genrand_int32() % max;
+	return _genRandInt32() % max;
 }
 
 bool Random::nextBool()
 {
-	return genrand_int32() % 2;
+	return _genRandInt32() % 2;
 }
 
 bool Random::nextBool(int max)
 {
-	return nextInt(max)==nextInt(max);
+	return nextInt(max) == nextInt(max);
 }
 

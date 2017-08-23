@@ -10,7 +10,7 @@ public:
 	virtual int getAttackDamage() const { return 7; }
 	virtual int getEnchantSlot() const { return 2048; }
 	virtual int getEnchantValue() const { return 10; }
-	virtual bool _useOn(ItemInstance&, Entity&, BlockPos, signed char, float, float, float) const;
+	virtual bool _useOn(ItemInstance&, Entity&, BlockPos, signed char, float, float, float, ItemUseCallback*) const;
 	virtual bool mineBlock(ItemInstance&, BlockID, int, int, int, Entity*) const;
 	virtual void hurtEnemy(ItemInstance&, Mob*, Mob*) const;
 	virtual float getDestroySpeed(ItemInstance&, const Block&) const;

@@ -10,9 +10,9 @@ HoeItem::HoeItem(const std::string &name, short id) : Item(name, id)
 	setHandEquipped();
 }
 
-bool HoeItem::_useOn(ItemInstance &item, Entity& entity, BlockPos pos, signed char side, float xx, float yy, float zz) const
+bool HoeItem::_useOn(ItemInstance &item, Entity& entity, BlockPos pos, signed char side, float xx, float yy, float zz, ItemUseCallback *callback) const
 {
-	Item::mItems[293]->_useOn(item, entity, pos, side, xx, yy, zz);
+	Item::mItems[293]->_useOn(item, entity, pos, side, xx, yy, zz, callback);
 }
 
 void HoeItem::hurtEnemy(ItemInstance &item, Mob*, Mob *victim) const

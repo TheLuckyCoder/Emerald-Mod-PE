@@ -13,6 +13,7 @@
 #include "CooldownType.h"
 #include "../math/Vec3.h"
 #include "../../util/Util.h"
+#include "callback/ItemUseCallback.h"
 
 class TextureUVCoordinateSet;
 class SeedItemComponent;
@@ -81,6 +82,9 @@ public:
 	static std::vector<ItemInstance> mCreativeList;
 	static std::unordered_map<std::string, std::unique_ptr<Item>> mItemLookupMap;
 	static Random* mRandom;
+	static void* mInCreativeGroup[];
+	static void* mCreativeGroups[];
+	static std::string mCreativeGroupNames[];
 
 	/* vtable */
 	virtual ~Item();
@@ -129,7 +133,6 @@ public:
 	virtual void releaseUsing(ItemInstance&, Player*, int) const;
 	virtual float getDestroySpeed(const ItemInstance&, const Block&) const;
 	virtual void hurtEnemy(ItemInstance&, Mob*, Mob*) const;
-	virtual void interactEnemy(ItemInstance&, Mob*, Player*) const;
 	virtual bool mineBlock(ItemInstance&, BlockID, int, int, int, Entity*) const;
 	virtual std::string buildDescriptionName(const ItemInstance&) const;
 	virtual std::string buildEffectDescriptionName(const ItemInstance&) const;
@@ -137,7 +140,7 @@ public:
 	virtual void writeUserData(const ItemInstance&, IDataOutput&) const;
 	virtual uint8_t getMaxStackSize(const ItemInstance&) const;
 	virtual void inventoryTick(ItemInstance&, Level&, Entity&, int, bool) const;
-	virtual bool onCraftedBy(ItemInstance&, Level&, Player&) const;
+	virtual void refreshedInContainer(ItemInstance&, Level&) const;
 	virtual CooldownType getCooldownType() const;
 	virtual int getCooldownTime() const;
 	virtual std::string getInteractText(const Player&) const;
@@ -146,9 +149,10 @@ public:
 	virtual const TextureUVCoordinateSet& getIcon(int, int, bool) const;
 	virtual int getIconYOffset() const;
 	virtual bool isMirroredArt() const;
+	virtual void* getAuxValuesDescription() const;
 	virtual void _checkUseOnPermissions(Entity&, ItemInstance&, const signed char&, const BlockPos&) const;
 	virtual void _calculatePlacePos(ItemInstance&, Entity&, signed char&, BlockPos&) const;
-	virtual bool _useOn(ItemInstance&, Entity&, BlockPos, signed char, float, float, float) const;
+	virtual bool _useOn(ItemInstance&, Entity&, BlockPos, signed char, float, float, float, ItemUseCallback*) const;
 
 	void setTextureAtlas(std::shared_ptr<TextureAtlas>);
 	void initServer(Json::Value&);
@@ -175,6 +179,7 @@ public:
 	static void addCreativeItem(short, short);
 	static void registerItems();
 	static void teardownItems();
+	static void beginCreativeGroup(const std::string&);
 
 	static Item* mShovel_iron; // 256
 	static Item* mPickaxe_iron; // 257
@@ -319,12 +324,12 @@ public:
 template <typename ItemType, typename...Args>
 ItemType* registerItem(const std::string &name, int id, const Args&...rest)
 {
-	const std::string item_name = Util::toLower(name);
-	if (Item::mItemLookupMap.count(item_name) != 0)
+	//const std::string item_name = Util::toLower(name);
+	if (Item::mItemLookupMap.count(name) != 0)
 		return (ItemType*) Item::mItems[id + 256];
 
 	ItemType* new_instance = new ItemType(name, id, rest...);
 	Item::mItems[id + 256] = new_instance;
-	Item::mItemLookupMap.emplace(item_name, std::unique_ptr<Item>((Item*) new_instance));
+	Item::mItemLookupMap.emplace(name, std::unique_ptr<Item>((Item*) new_instance));
 	return new_instance;
 }

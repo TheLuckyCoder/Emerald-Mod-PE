@@ -161,8 +161,8 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)
 	MSHookFunction((void*) &Item::initCreativeItems, (void*) &loadMinecraft, (void**) &_loadMinecraft);
 	MSHookFunction((void*) &Item::initClientData, (void*) &initClientData, (void**) &_initClientData);
 	MSHookFunction((void*) &BlockGraphics::initBlocks, (void*) &initBlockGraphics, (void**) &_initBlockGraphics);
-	MSHookFunction((void*) &Recipes::init, (void*) &initRecipes, (void**) &_initRecipes);
-	MSHookFunction((void*) &FurnaceRecipes::_init, (void*) &initFurnaceRecipes, (void**) &_initFurnaceRecipes);
+	//MSHookFunction((void*) &Recipes::init, (void*) &initRecipes, (void**) &_initRecipes);
+	//MSHookFunction((void*) &FurnaceRecipes::_init, (void*) &initFurnaceRecipes, (void**) &_initFurnaceRecipes);
 	//MSHookFunction((void*) &ArmorItem::getArmorForSlot, (void*) &getArmorForSlot, (void**) &_getArmorForSlot);
 	//MSHookFunction((void*) &mce::TextureGroup::loadTextures, (void*) &TextureGroup$loadTextures, (void**) &_TextureGroup$loadTextures);
 	//MSHookFunction((void*) &HumanoidMobRenderer::initTextures, (void*) &initArmorTextures, (void**) &_initArmorTextures);
